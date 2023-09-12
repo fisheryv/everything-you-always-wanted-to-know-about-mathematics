@@ -1,0 +1,57 @@
+% !TeX root = ../../book.tex
+\section{颜色主题}
+
+本模板内置 5 组颜色主题，分别为 \textcolor{structure1}{\lstinline{green}}\footnote{为原先默认主题。}、\textcolor{structure2}{\lstinline{cyan}}、\textcolor{structure3}{\lstinline{blue}}（默认）、\textcolor{structure4}{\lstinline{gray}}、\textcolor{structure5}{\lstinline{black}}。另外还有一个自定义的选项  \lstinline{nocolor}。调用颜色主题 \lstinline{green} 的方法为 
+\begin{lstlisting}
+\documentclass[green]{elegantbook} %or
+\documentclass[color=green]{elegantbook}
+\end{lstlisting}
+
+
+\begin{table}[htbp]
+  \caption{ElegantBook 模板中的颜色主题\label{tab:color thm}}
+  \centering
+  \begin{tabular}{ccccccc}
+  \toprule
+    & \textcolor{structure1}{green} 
+    & \textcolor{structure2}{cyan} 
+    & \textcolor{structure3}{blue}
+    & \textcolor{structure4}{gray} 
+    & \textcolor{structure5}{black} 
+    & 主要使用的环境\\
+  \midrule
+    structure & \ccr{structure1}
+    & \ccr{structure2}
+    & \ccr{structure3} 
+    & \ccr{structure4} 
+    & \ccr{structure5} 
+    & chapter \ section \ subsection \\
+    main      & \ccr{main1}
+    & \ccr{main2}
+    & \ccr{main3}
+    & \ccr{main4}
+    & \ccr{main5}
+    & definition \ exercise \ problem \\
+    second    & \ccr{second1}
+    & \ccr{second2}
+    & \ccr{second3}
+    & \ccr{second4}
+    & \ccr{second5}
+    & theorem \ lemma \ corollary\\
+    third     & \ccr{third1}
+    & \ccr{third2}
+    & \ccr{third3}
+    & \ccr{third4}
+    & \ccr{third5}
+    & proposition\\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+如果需要自定义颜色的话请选择 \lstinline{nocolor} 选项或者使用 \lstinline{color=none}，然后在导言区定义 structurecolor、main、second、third 颜色，具体方法如下：
+\begin{lstlisting}[tabsize=4]
+\definecolor{structurecolor}{RGB}{0,0,0}
+\definecolor{main}{RGB}{70,70,70}    
+\definecolor{second}{RGB}{115,45,2}    
+\definecolor{third}{RGB}{0,80,80}
+\end{lstlisting}

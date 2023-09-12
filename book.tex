@@ -1,0 +1,45 @@
+\documentclass[lang=cn,color=green,10pt]{elegantbook}
+
+\title{你想知道的关于数学的一切}
+\subtitle{抽象数学和证明写作指南}
+
+\author{Dr. Brendan W. Sullivan}
+\translator{于  儿}
+\date{2023-09-11}
+\version{v0.1}
+
+% \extrainfo{不要以为抹消过去，重新来过，即可发生什么改变。—— 比企谷八幡}
+
+\setcounter{tocdepth}{3}
+
+% \logo{logo-blue.png}
+\cover{cover.png}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+% 修改标题页的橙色带
+\definecolor{coverbeltcolor}{RGB}{204,213,174}
+\colorlet{coverlinecolor}{coverbeltcolor}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\part{像数学家一样思考}
+
+\input{part1/ch01/_what-is-mathematics}
+\input{part1/ch02/_mathematical_induction}
+
+
+\part{学习数学专题}
+
+\input{part2/ch06/_relations_and_modular_arithmetic}
+
+\end{document}
