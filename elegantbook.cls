@@ -1060,7 +1060,13 @@
 \newenvironment{proof}{
   \par\noindent\textbf{\color{second}\proofname\;}
   \color{black!90}\cfs}{
-  % \hfill$\Box$\quad
+   \hfill$\Box$\quad 
+  \par}
+
+\newenvironment{proofs}[1]{
+  \par\noindent\textbf{\color{second} \\#1}
+  \color{black!90}\cfs}{
+    \hfill$\Box$\quad \\
   \par}
 
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
@@ -1343,3 +1349,10 @@
 \titleformat{\chapter}[display]{\LARGE}{\color{midgray} \@chapapp\ \thechapter}{0pt}{\fontfamily{gbsn}\Huge\bfseries}
 % \titleformat{\section}[display]{\Large}{\color{midgray} Section \thesection}{-10pt}{\fontfamily{gbsn}\LARGE\bfseries}
 \makeatother
+
+\usetikzlibrary{calc}
+\newcommand\rightAngle[4]{
+  \pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#1}{center}}
+  \coordinate (tmpRA) at ($(#2)+(\pgfmathresult+45:#4)$);
+  \draw[blue!80!black,thick] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
+}
