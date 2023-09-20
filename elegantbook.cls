@@ -435,6 +435,7 @@
   \newcommand{\historyname}{版本更新历史}
   \newcommand{\beforechap}{第}
   \newcommand{\afterchap}{章}
+  \newcommand{\hintname}{提示：}
 }{\relax}
 
 
@@ -472,6 +473,7 @@
   \newcommand\bioinfo[2]{\gdef\@bioinfo{\textbf{#1}: #2}}
   \newcommand{\updatename}{Updates:}
   \newcommand{\historyname}{Version History}
+  \newcommand{\hintname}{Hint: }
 }{\relax}
 
 \ifdefstring{\ELEGANT@lang}{it}{
@@ -840,14 +842,14 @@
 
 \setcounter{secnumdepth}{5}
 \titleformat{\chapter}[\style]{\bfseries}{
-  \filcenter\LARGE\enspace\bfseries{\color{structurecolor} \IfAppendix{\appendixname\;\thechapter\;}{\xchaptertitle\;}}}{1pt}{
-  \LARGE\bfseries\color{structurecolor}\filcenter}[]
+  \filcenter\huge\enspace\bfseries{\color{structurecolor} \IfAppendix{\appendixname\;\thechapter\;}{\xchaptertitle\;}}}{1pt}{
+  \huge\bfseries\color{structurecolor}\filcenter}[]
 \titleformat{\section}[hang]{\bfseries}{
-  \Large\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{%
-  \color{structurecolor}\Large\bfseries\filright}
+  \LARGE\bfseries{\color{structurecolor}\thesection}\enspace}{1pt}{%
+  \color{structurecolor}\LARGE\bfseries\filright}
 \titleformat{\subsection}[hang]{\bfseries}{
-  \large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
-  \color{structurecolor}\large\bfseries\filright}
+  \Large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
+  \color{structurecolor}\Large\bfseries\filright}
 \titleformat{\subsubsection}[hang]{\bfseries}{
   \large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
   \color{structurecolor}\large\bfseries\filright}
@@ -1026,31 +1028,31 @@
 %% Example with counter
 \newcounter{exam}[chapter]
 \setcounter{exam}{0}
-\renewcommand{\theexam}{\thechapter.\arabic{exam}}
+\renewcommand{\theexam}{\thesection.\arabic{exam}}
 \newenvironment{example}[1][]{
   \refstepcounter{exam}
   \par\noindent\textbf{\color{main}{\examplename} \theexam #1 }\rmfamily}{
-  \par\ignorespacesafterend}
+  \par\indent\ignorespacesafterend}
 
 %% Exercise with counter
 \newcounter{exer}[chapter]
 \setcounter{exer}{0}
-\renewcommand{\theexer}{\thechapter.\arabic{exer}}
+\renewcommand{\theexer}{\thesection.\arabic{exer}}
 \newenvironment{exercise}[1][]{
   \refstepcounter{exer}
   \par\noindent\makebox[-3pt][r]{
     \scriptsize\color{red!90}\HandPencilLeft\quad}
-    \textbf{\color{main}{\exercisename} \theexer #1 }\rmfamily}{
-    \par\ignorespacesafterend}
+    \textbf{\color{main}{\exercisename} \theexer #1 \\}\rmfamily}{
+    \par\indent\ignorespacesafterend}
 
 %% Problem with counter
 \newcounter{prob}[chapter]
 \setcounter{prob}{0}
-\renewcommand{\theprob}{\thechapter.\arabic{prob}}
+\renewcommand{\theprob}{\thesection.\arabic{prob}}
 \newenvironment{problem}[1][]{
   \refstepcounter{prob}
   \par\noindent\textbf{\color{main}{\problemname} \theprob #1 }\rmfamily}{
-  \par\ignorespacesafterend}
+  \par\indent\ignorespacesafterend}
 
 \newenvironment{note}{
   \par\noindent\makebox[-3pt][r]{
@@ -1058,9 +1060,9 @@
     \textbf{\color{second}\notename} \citshape}{\par}
 
 \newenvironment{proof}{
-  \par\noindent\textbf{\color{second}\proofname\;}
+  \par\noindent\textbf{\color{second}\\\proofname\;}
   \color{black!90}\cfs}{
-   \hfill$\Box$\quad 
+   \hfill$\Box$\quad \\
   \par}
 
 \newenvironment{proofs}[1]{
@@ -1069,12 +1071,19 @@
     \hfill$\Box$\quad \\
   \par}
 
+  \newenvironment{method}[1]{
+  \par\noindent\textbf{\color{second} \\#1}
+  }{
+    \\
+  \par}
+
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
 \newenvironment{remark}{\noindent\textbf{\color{second}\remarkname}}{\par}
 \newenvironment{assumption}{\par\noindent\textbf{\color{third}\assumptionname} \citshape}{\par}
 \newenvironment{conclusion}{\par\noindent\textbf{\color{third}\conclusionname} \citshape}{\par}
 \newenvironment{property}{\par\noindent\textbf{\color{third}\propertyname} \citshape}{\par}
 \newenvironment{custom}[1]{\par\noindent\textbf{\color{third} #1} \citshape}{\par}
+\newenvironment{hint}{\par\noindent\textbf{\color{second}\hintname}}{\par}
 
 \RequirePackage{multicol}
 \tcbset{
@@ -1356,3 +1365,27 @@
   \coordinate (tmpRA) at ($(#2)+(\pgfmathresult+45:#4)$);
   \draw[blue!80!black,thick] ($(#2)!(tmpRA)!(#1)$) -- (tmpRA) -- ($(#2)!(tmpRA)!(#3)$);
 }
+
+\newlength\celldim \newlength\fontheight \newlength\extraheight
+\newcounter{sqcolumns}
+
+\newcolumntype{S}{ @{}
+  >{\centering \rule[-0.5\extraheight]{0pt}{\fontheight + \extraheight}}
+  p{\celldim} @{} }
+
+\newcolumntype{Z}{ @{} >{\centering} p{\celldim} @{} }
+
+\newenvironment{squarecells}[1]
+  {\setlength\celldim{2em}%
+   \settoheight\fontheight{A}%
+   \setlength\extraheight{\celldim - \fontheight}%
+   \setcounter{sqcolumns}{#1 - 1}%
+   \begin{tabular}{|S|*{\value{sqcolumns}}{Z|}}\hline}
+% squarecells tabular goes here
+  {\end{tabular}}
+
+\newcommand\nl{\tabularnewline\hline}
+
+\usepackage{pgfplots}
+\usepackage{scalerel}
+\newcommand{\longdiv}{\smash{\mkern-0.43mu\vstretch{1.31}{\hstretch{.7}{)}}\mkern-5.2mu\vstretch{1.31}{\hstretch{.7}{)}}}}
