@@ -382,6 +382,7 @@ x-1     & \longdiv &   & x^3  &   &  & -    & 3x & + & 2 &  \\
 
 \begin{center}
     \begin{tikzpicture}[thick, scale=1]
+        \fill [color=green,opacity=0.2] (0,0) rectangle +(4,4);
         \draw (0,0) rectangle +(4,4);
         \path (0,0) -- (4,0) node[midway,below] {$\sqrt{a}\cdot x$};
         \path (0,0) -- (0,4) node[midway,left] {$\sqrt{a}\cdot x$};
@@ -392,13 +393,16 @@ x-1     & \longdiv &   & x^3  &   &  & -    & 3x & + & 2 &  \\
 
 \begin{center}
     \begin{tikzpicture}[thick, scale=1]
+        \fill [color=green,opacity=0.2] (0,0) rectangle +(4,4);
         \draw (0,0) rectangle +(4,4) node[pos=.5, align=center]{$ax^2$};
         \path (0,0) -- (4,0) node[midway,below] {$\sqrt{a}\cdot x$};
         \path (0,0) -- (0,4) node[midway,left] {$\sqrt{a}\cdot x$};
 
+        \fill [color=orange,opacity=0.2] (4,0) rectangle +(1,4);
         \draw (4,0) rectangle +(1,4) node[pos=.5, align=center]{$\frac{b}{2}x$};
         \path (4,0) -- (5,0) node[midway,below] {$\frac{b}{2\sqrt{a}}$};
 
+        \fill [color=orange,opacity=0.2] (0,4) rectangle +(4,1);
         \draw (0,4) rectangle +(4,1) node[pos=.5, align=center]{$\frac{b}{2}x$};
         \path (0,4) -- (0,5) node[midway,left] {$\frac{b}{2\sqrt{a}}$};
     \end{tikzpicture}
@@ -408,16 +412,20 @@ x-1     & \longdiv &   & x^3  &   &  & -    & 3x & + & 2 &  \\
 
 \begin{center}
     \begin{tikzpicture}[thick, scale=1]
+        \fill [color=green,opacity=0.2] (0,0) rectangle +(4,4);
         \draw (0,0) rectangle +(4,4) node[pos=.5, align=center]{$ax^2$};
         \path (0,0) -- (4,0) node[midway,below] {$\sqrt{a}\cdot x$};
         \path (0,0) -- (0,4) node[midway,left] {$\sqrt{a}\cdot x$};
 
+        \fill [color=orange,opacity=0.2] (4,0) rectangle +(1,4);
         \draw (4,0) rectangle +(1,4) node[pos=.5, align=center]{$\frac{b}{2}x$};
         \path (4,0) -- (5,0) node[midway,below] {$\frac{b}{2\sqrt{a}}$};
 
+        \fill [color=orange,opacity=0.2] (0,4) rectangle +(4,1);
         \draw (0,4) rectangle +(4,1) node[pos=.5, align=center]{$\frac{b}{2}x$};
         \path (0,4) -- (0,5) node[midway,left] {$\frac{b}{2\sqrt{a}}$};
 
+        \fill [color=red,opacity=0.2] (4,4) rectangle +(1,1);
         \draw (4,4) rectangle +(1,1) node[pos=.5, align=center]{$\frac{b^2}{4a}$};
     \end{tikzpicture}
 \end{center}
@@ -435,7 +443,7 @@ x-1     & \longdiv &   & x^3  &   &  & -    & 3x & + & 2 &  \\
 化简可得
 \[\frac{b^2}{4a} -c = a\Big(x+\frac{b}{2a}\Big)^2\]
 
-现在，我们要开始“撤消”此处的配方来求解 $x$，这需要对两边求平方根。但如果 $\frac{b^2}{4a} -c < 0$ 呢？我们根本无法求平方根！如果 $\frac{b^2}{4a} -c = 0$ 呢？会有问题吗？当 $\frac{b^2}{4a} -c 》 0$ 时会有什么问题吗？这些问题与我们之前关于多项式可能有的根数相关。你可能已经（正确地）推断出二次多项式最多可以有两个根，但在这里我们发现二次多项式可能有一个或零个根（及其原因）！
+现在，我们要开始“撤消”此处的配方来求解 $x$，这需要对两边求平方根。但如果 $\frac{b^2}{4a} -c < 0$ 呢？我们根本无法求平方根！如果 $\frac{b^2}{4a} -c = 0$ 呢？会有问题吗？当 $\frac{b^2}{4a} -c > 0$ 时会有什么问题吗？这些问题与我们之前关于多项式可能有的根数相关。你可能已经（正确地）推断出二次多项式最多可以有两个根，但在这里我们发现二次多项式可能有一个或零个根（及其原因）！
 
 \begin{itemize}
     \item 当 $\frac{b^2}{4a} -c < 0$ 时，那么 $x$ 的任何值都\textit{不}可能满足上面推导中的最后一行公式。因此，$p(x)$ 无实数根。
