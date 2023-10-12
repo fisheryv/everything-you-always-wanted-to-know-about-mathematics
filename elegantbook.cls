@@ -1246,6 +1246,7 @@
 
 \definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
 \definecolor{frenchplum}{RGB}{190,20,83}
+\definecolor{olivegreen}{RGB}{46,139,87}
 \lstset{language=[LaTeX]TeX,
   texcsstyle=*\color{winered},
   numbers=none,
