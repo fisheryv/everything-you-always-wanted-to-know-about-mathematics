@@ -356,8 +356,8 @@
 \begin{center}
     \begin{tikzpicture}[thick]
         \draw (-5,2.5) -- (5,-2.5);
-        \draw [color=red] (-5,-1.5) -- (0,0)  node[midway,below,sloped]{$\text{分割区域 1}$}
-        -- (5,1.5) node[midway,above,sloped]{$\text{分割区域 2}$} ;
+        \draw [color=red] (-5,-1.5) -- (0,0)  node[midway,below,sloped]{分割区域 1}
+        -- (5,1.5) node[midway,above,sloped]{分割区域 2} ;
         \node[draw,circle,minimum size=24pt,inner sep=0,anchor=center,color=red] at (-0.2,-1.5) {$4$};
         \node[draw,circle,minimum size=24pt,inner sep=0,anchor=center,color=red] at (3,-0.3) {$3$};
         \node[draw,circle,minimum size=24pt,inner sep=0,anchor=center] at (-3,0.3) {$1$};
@@ -371,9 +371,9 @@
     \begin{tikzpicture}[thick]
         \draw (-5,2.5) -- (5,-2.5);
         \draw (-5,-1.5) -- (5,1.5);
-        \draw [color=red] (-5,1) -- (-1.8085,0.9043) node[midway,below,sloped]{$\small\text{分割区域 1}$} 
-        -- (2.5758,0.7727) node[midway,above,sloped]{$\small\text{分割区域 2} $}
-        -- (5,0.7) node[midway,below,sloped]{$\small\text{分割区域 3}$};
+        \draw [color=red] (-5,1) -- (-1.8085,0.9043) node[midway,below,sloped]{\small 分割区域 1} 
+        -- (2.5758,0.7727) node[midway,above,sloped]{\small 分割区域 2}
+        -- (5,0.7) node[midway,below,sloped]{\small 分割区域 3};
         \node[draw,circle,minimum size=16pt,inner sep=0,anchor=center] at (-0.2,-1.5) {$4$};
         \node[draw,circle,minimum size=16pt,inner sep=0,anchor=center] at (3,-0.3) {$3$};
         \node[draw,circle,minimum size=16pt,inner sep=0,anchor=center] at (-3,-0.3) {$1$};
@@ -390,9 +390,9 @@
     \begin{tikzpicture}[thick]
         \draw (-5,2.5) -- (5,-2.5);
         \draw (-5,-1.5) -- (5,1.5);
-        \draw [color=red] (0,2.5) -- (-0.8333,0.4167) node[midway,right,sloped,rotate=-90]{$\small\text{分割区域 2}$} 
-        -- (-1.1364,-0.341) node[midway,left,sloped,rotate=-90]{$\small\text{分割区域 1}$}
-        -- (-2,-2.5) node[midway,right,sloped,rotate=-90]{$\small\text{分割区域 4}$};
+        \draw [color=red] (0,2.5) -- (-0.8333,0.4167) node[midway,right,sloped,rotate=-90]{\small 分割区域 2} 
+        -- (-1.1364,-0.341) node[midway,left,sloped,rotate=-90]{\small 分割区域 1}
+        -- (-2,-2.5) node[midway,right,sloped,rotate=-90]{\small 分割区域 4}; 
         \node[draw,circle,minimum size=16pt,inner sep=0,anchor=center] at (-0.2,-1) {$4$};
         \node[draw,circle,minimum size=16pt,inner sep=0,anchor=center] at (3,-0.3) {$3$};
         \node[draw,circle,minimum size=16pt,inner sep=0,anchor=center] at (-3,-0.3) {$1$};
@@ -472,7 +472,7 @@
 \end{center}
 
 因为我们知道 $R(1) = 2$，所以我们可以说
-\[R(n + 1) = 2 + \big(2 + 3 + \dots + n + (n + 1)\big) = 2 + \Large(\sum_{k=1}^{n+1}k\Large)-1 = 1+\sum_{k=1}^{n+1}k\]
+\[R(n + 1) = 2 + \big(2 + 3 + \dots + n + (n + 1)\big) = 2 + \Bigg(\sum_{k=1}^{n+1}k\Bigg)-1 = 1+\sum_{k=1}^{n+1}k\]
 而这正是我们之前研究过的求和公式！（另请注意，我们必须减去 $1$，因为括号中缺少求和的第一项。）回想一下 $\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$，为了表示上面等式中的求和，我们只需将 $n$ 替换为 $n + 1$ 即可。因此，
 \[R(n + 1) = 1+\frac{(n+1)(n+2)}{2}\]
 我们要进行的最后一步简化是将整个方程中的 $n+1$ 替换为 $n$，因为使用 $R(n)$ 的表达式更有意义（对 $n$ 的值有什么要求？）
@@ -487,7 +487,7 @@
 
 \subsubsection*{提醒自己}
 
-口头上或书面上简要回答以下问题。这些题目全都基于你刚刚阅读的部分，因此如果你无法想起特定的定义、概念或示例，请返回重新阅读响应部分。确保自己在继续之前可以自信地回答这些问题，这将有助于你的理解和记忆！
+口头或书面简要回答以下问题。这些题目全都基于你刚刚阅读的部分，因此如果你无法想起特定的定义、概念或示例，请返回重新阅读相应部分。确保自己在继续之前可以自信地回答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
     \item 归纳过程有哪些特征？
@@ -501,7 +501,7 @@
 
 \subsubsection*{试一试}
 
-尝试回答以下简答题。这些题要求你实际动笔写一写，或（对朋友/同学）口头描述一些东西。目标是让你练习使用新概念、定义和符号。别担心，这些题本来就很简单。确保能够解决这些问题将对你有所帮助！
+尝试回答以下简答题。这些题目要求你实际动笔写一写，或（对朋友/同学）口头描述一些东西。目的是让你练习使用新概念、定义和符号。别担心，这些题本来就很简单。确保能够解决这些问题将对你有所帮助！
 
 \begin{enumerate}[label=(\arabic*)]
     \item 在平面中画 $5$ 条直线（满足原题的两个条件）并验证是否有 $16$ 个区域。你还能验证 $6$ 条线产生 $22$ 个区域吗？

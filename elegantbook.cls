@@ -851,7 +851,7 @@
   \Large\bfseries\color{structurecolor}\thesubsection\enspace}{1pt}{%
   \color{structurecolor}\Large\bfseries\filright}
 \titleformat{\subsubsection}[hang]{\bfseries}{
-  \large\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
+  \normalsize\bfseries\color{structurecolor}\thesubsubsection\enspace}{1pt}{%
   \color{structurecolor}\large\bfseries\filright}
 
 \titlespacing{\chapter}{0pt}{-20pt}{1.3\baselineskip}
@@ -1418,3 +1418,17 @@
   scale=.1,
   opacity=.0
 }
+
+  % set the value
+  \def\gset #1[#2]=#3{%
+    \expandafter\xdef\csname #1#2\endcsname{#3}
+  }
+  % get the value
+  \def\get #1[#2]{%
+    \csname #1#2\endcsname
+  }
+  % increment the value
+  \def\ginc #1[#2]+=#3{%
+    \pgfmathparse{\get #1[#2]+#3}%
+    \gset #1[#2]=\pgfmathresult
+  }
