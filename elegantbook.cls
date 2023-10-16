@@ -1065,6 +1065,12 @@
    \hfill$\Box$\quad \\
   \par}
 
+  \newenvironment{spoof}{
+  \par\noindent\textbf{\color{second}\\“错误证明”：}
+  \color{black!90}\cfs}{
+   \hfill“$\Box$”\quad 
+  \par}
+
 \newenvironment{proofs}[1]{
   \par\noindent\textbf{\color{second} \\#1}
   \color{black!90}\cfs}{
