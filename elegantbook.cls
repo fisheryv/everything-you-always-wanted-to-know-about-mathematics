@@ -1066,9 +1066,9 @@
   \par}
 
   \newenvironment{spoof}{
-  \par\noindent\textbf{\color{second}\\“错误证明”：}
+  \par\noindent\textbf{\color{second}\\``错误证明''：}
   \color{black!90}\cfs}{
-   \hfill“$\Box$”\quad 
+   \hfill``$\Box$''\quad 
   \par}
 
 \newenvironment{proofs}[1]{
@@ -1393,6 +1393,7 @@
 
 \newcommand\nl{\tabularnewline\hline}
 
+\usepackage[normalem]{ulem}
 \usepackage{pgfplots}
 \usepackage{scalerel}
 \usepackage{mathdots}
