@@ -1393,6 +1393,7 @@
 
 \newcommand\nl{\tabularnewline\hline}
 
+\usepackage{wasysym}
 \usepackage[normalem]{ulem}
 \usepackage{pgfplots}
 \usepackage{scalerel}
