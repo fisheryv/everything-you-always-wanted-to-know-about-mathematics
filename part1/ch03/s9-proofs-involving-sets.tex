@@ -1,5 +1,5 @@
 % !TeX root = ../../book.tex
-\section{涉及集合的证明}
+\section{涉及集合的证明}\label{sec:section3.9}
 
 现在我们已经了解了许多定义和示例，为了介绍什么是集合以及如何操作它们，让我们实际写一些关于集合的严格的、数学上正确的、良好撰写的\textbf{证明}。这里包含的所有命题/引理都是有用的事实，我们可以稍后引用，并且我们希望你能够证明这些主张。（注：引理只是一个需要一些证明的小结果，稍后可以引用来证明更重要的定理。）此外，所有这些证明都具有将来期望你也能提供的质量和严谨性，不久的将来……如果你愿意，可以用此作为指导！
 
@@ -303,17 +303,17 @@
 
 这就是工作或乐趣所在：我们需要尝试这些集合所需的属性来帮助我们想出一个例子。回想一下，我们希望这些集合满足某些属性：我们应该确保假设 $F \subseteq G \cup H$ 成立，但我们希望结论 --- $F \subseteq G$ 或 $F \subseteq H$ --- 为假。
 
-这是意味着什么呢？好吧，我们认为你会同意，从逻辑上讲，该陈述的``相反''或``否定''是 ``$F \not\subseteq G$'' 和 ``$F \not\subseteq H$''。（\textbf{逻辑否定}的概念将在下一章中再次出现；目前，我们认为你可以通过应用指导日常生活的逻辑原则来理解它。很快，我们将正式化这一想法。）
+这是意味着什么呢？好吧，我们认为你会同意，从逻辑上讲，该陈述的``相反''或``否定''是 ``$F \nsubseteq G$'' 和 ``$F \nsubseteq H$''。（\textbf{逻辑否定}的概念将在下一章中再次出现；目前，我们认为你可以通过应用指导日常生活的逻辑原则来理解它。很快，我们将正式化这一想法。）
 
 我们现在有一个具体的目标：找到满足以下所有三个条件的三个集合 $F,G,H$：
 
 \begin{align*}
     F &\subseteq G \cup H \\
-    F &\not\subseteq G \\
-    F &\not\subseteq H \\
+    F &\nsubseteq G \\
+    F &\nsubseteq H \\
 \end{align*}
 
-接下来需要考虑的一件事是 ``$\not\subseteq$'' 的含义。我们有 ``$\subseteq$'' 的定义，那么它的``相反''或``否定''是什么？为了使 $F \subseteq G$ 成立，我们要求 $F$ 的每个元素也是 $G$ 的元素；因此，如果不成立，那么 $F$ 中至少有一个元素不是 $G$ 的元素。同理也适用于 $F \not\subseteq H$。现在，我们可以通过应用定义以一种有用的方式重申我们的目标：
+接下来需要考虑的一件事是 ``$\nsubseteq$'' 的含义。我们有 ``$\subseteq$'' 的定义，那么它的``相反''或``否定''是什么？为了使 $F \subseteq G$ 成立，我们要求 $F$ 的每个元素也是 $G$ 的元素；因此，如果不成立，那么 $F$ 中至少有一个元素不是 $G$ 的元素。同理也适用于 $F \nsubseteq H$。现在，我们可以通过应用定义以一种有用的方式重申我们的目标：
 
 \begin{align*}
     &F \text{的每个元素都是} G \text{的元素或} H \text{的元素} \\
@@ -335,9 +335,9 @@
 
     请注意 $G \cup H = \{1, 2\}$。由于 $F = G \cup H$，那么当然 $F \subseteq G \cup H$。因此，该主张的假设成立。
 
-    然而，请注意 $2 \in F$ 但 $2 \notin G$。因此，$F \not\subseteq G$。
+    然而，请注意 $2 \in F$ 但 $2 \notin G$。因此，$F \nsubseteq G$。
 
-    同样，请注意 $1 \in F$ 但 $1 \notin H$。因此，$F \not\subseteq H$。
+    同样，请注意 $1 \in F$ 但 $1 \notin H$。因此，$F \nsubseteq H$。
 
     因此，该主张为假。
 \end{proof}
@@ -383,7 +383,7 @@
         \end{enumerate}
     \item 设 $A, B, U$ 为集合，且 $A, B \subseteq U$。通过\emph{双包含论证}证明 $A - B = A \cap \overline{B}$。
     \item 令 $S = \{x \in \mathbb{R} \mid -2 < x < 5\}$ 且 $T = \{x \in \mathbb{R} \mid -4 \le x \le 3\}$。在 $\mathbb{R}$ 作为全集的情况下，$S \cap \overline{T}$ 是什么？找到一个集合，然后使用双包含论证证明它是正确的。
-    \item \textbf{证明}以下断言：如果 $A \subseteq B$，则 $\mathcal{P}(A) \subseteq \mathcal{P}(B)$。
+    \item \textbf{证明}以下断言：如果 $A \subseteq B$，则 $\mathcal{P}(A) \subseteq \mathcal{P}(B)$。\label{exc:exercises3.9.7}
     \item 对于每个 $n \in \mathbb{N}$ 令 $S_n = \{x \in \mathbb{R} \mid -\frac{1}{n} < x < \frac{1}{n}\}$。证明
         \[\bigcap_{n \in \mathbb{N}}S_n = \{0\}\]
     \item 设 $I = \{x \in \mathbb{R} \mid 0 < x < 1\}$。对于每个 $x \in I$，定义 $S_x = \{y \in \mathbb{R} \mid x < y < x + 1\}$。 证明
