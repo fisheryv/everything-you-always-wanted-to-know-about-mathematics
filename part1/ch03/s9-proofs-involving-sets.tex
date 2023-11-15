@@ -140,7 +140,7 @@
 \begin{proof}
     我们将采用双重包含证明来证明 $A - (A \cap B) = A - B$。
 
-    （``$\subseteq$''）首先，设 $x \in A - (A \cap B)$ 为任意固定元素。根据 ``$-$'' 的定义，我们知道 $x \in A$ 但 $x \notin A \cap B$。这意味着 $x$ 既是 $A$ 的元素又是 $B$ 的元素\emph{不}可能成立。我们已知 $x \in A$, 那么可以推导出 $x \notin B$。因此，$x \in A$ 且 $x \notin B$。根据 ``$-$'' 的定义，可以推导出 $x \in A-B$。这就证明了 $A - (A \cap B) \subseteq A - B$。
+    （``$\subseteq$''）首先，设 $x \in A - (A \cap B)$ 为任意固定元素。根据 ``$-$'' 的定义，我们知道 $x \in A$ 但 $x \notin A \cap B$。这意味着 $x$ 既是 $A$ 的元素又是 $B$ 的元素\dotuline{不}可能成立。我们已知 $x \in A$, 那么可以推导出 $x \notin B$。因此，$x \in A$ 且 $x \notin B$。根据 ``$-$'' 的定义，可以推导出 $x \in A-B$。这就证明了 $A - (A \cap B) \subseteq A - B$。
 
 
     （``$\supseteq$''）接着，设 $y \in A - B$ 为任意固定元素。根据 ``$-$'' 的定义，这意味着 $y \in A$ 且 $y \notin B$。因为 $y$ 不是 $B$ 的元素，这意味着 $y$ 当然不可能同时是 $A$ 和 $B$ 的元素。根据 ``$\cap$'' 的定义，即 $y \notin A \cap B$。因为我们知道 $y \in A$ 且 $y \notin A \cap B$，我们可以推导出 $y \in A - (A \cap B)$。这就证明了 $A - B \subseteq A - (A \cap B)$。
@@ -167,9 +167,9 @@
     \end{align*}
     因为 $2,3,4 \in \mathbb{N}$，我们推导出 $2 \in A, 3 \in A, 4 \in A$，所以 $B \subseteq A$。
 
-    接着证明 $A \subset B$。我们将证明 $\overline{B} \subseteq \overline{A}$，其中补集是在 $\mathbb{N}$ 作为全集的情况中获取的。也就是说，我们将证明所有自然数 $1,5,6,7,\dots$ \emph{不是} $A$ 的元素。
+    接着证明 $A \subset B$。我们将证明 $\overline{B} \subseteq \overline{A}$，其中补集是在 $\mathbb{N}$ 作为全集的情况中获取的。也就是说，我们将证明所有自然数 $1,5,6,7,\dots$ \dotuline{不是} $A$ 的元素。
 
-    为了证明这一点，我们将验证这些元素中的任何一个都\emph{不}满足 $A$ 的不等式定义。
+    为了证明这一点，我们将验证这些元素中的任何一个都\dotuline{不}满足 $A$ 的不等式定义。
 
     前两个情况很容易验证：$1 + \frac{8}{1} = 9 \nleq 6$ 且 $5 + \frac{8}{5} = \frac{33}{5} \nleq 6$。
 
@@ -243,21 +243,21 @@
 
     接着，我们来证明
     \[\bigcap_{n \in \mathbb{N}}A_n \subseteq \{0\}\]
-    我们将通过设 $\mathbb{R}$ 为全集的情况下考虑这些集合的\emph{补集}来做到这一点。具体来说，我们将证明
+    我们将通过设 $\mathbb{R}$ 为全集的情况下考虑这些集合的\dotuline{补集}来做到这一点。具体来说，我们将证明
     \[\overline{\{0\}} \subseteq \overline{\bigcap_{n \in \mathbb{N}}A_n}\]
-    这意味着我们要证明每个非零实数\emph{不是每个} $A_n$ 的元素。
+    这意味着我们要证明每个非零实数\dotuline{不是每个} $A_n$ 的元素。
 
     设 $x \in \mathbb{R}$ 为任意固定元素，且 $x \ne 0$。也就是说，要么 $x > 0$ 要么 $x < 0$。我们加下来将分这两种情况讨论。
 
-    \emph{情况 1}：假设 $x > 0$。考虑实数 $\frac{1}{x} \in \mathbb{R}$。由于 $\mathbb{R}$ 中的自然数是无限且无界的，因此我们可以选择一个\emph{大于}该实数的自然数 $M$。也就是说，我们可以选择 $M \in \mathbb{N}$ 使得 $M > \frac{1}{x}$。
+    $\bullet$ 情况 1：假设 $x > 0$。考虑实数 $\frac{1}{x} \in \mathbb{R}$。由于 $\mathbb{R}$ 中的自然数是无限且无界的，因此我们可以选择一个\dotuline{大于}该实数的自然数 $M$。也就是说，我们可以选择 $M \in \mathbb{N}$ 使得 $M > \frac{1}{x}$。
 
-    （注意：想想为什么会这样。我们还没有\emph{证明} $\mathbb{N}$ 是无限的，或者数字沿着 $\mathbb{R}$ 的数轴``永远延续下去''，但我们希望这些想法对你来说直观且合理。）
+    （注意：想想为什么会这样。我们还没有\dotuline{证明} $\mathbb{N}$ 是无限的，或者数字沿着 $\mathbb{R}$ 的数轴``永远延续下去''，但我们希望这些想法对你来说直观且合理。）
 
     取 $M \in \mathbb{N}$ 且 $M > \frac{1}{x}$。由于 $x > 0$，我们可以将不等式两边同时乘以 $x$；由于 $M > 0$（因此 $\frac{1}{M} > 0$），我们可以再次乘以 $\frac{1}{M}$。由此得到 $x > \frac{1}{M}$。相应地，$x \ne A_M$，因为 $-\frac{1}{M} < x < \frac{1}{M}$ 为假。
 
     由于 $x \notin A_M$，所以 $x$ 肯定不是所有此类集合的元素。因此 $\displaystyle{x \notin \bigcap_{n \in \mathbb{N}} A_n}$
 
-    \emph{情况 2}：假设 $x < 0$。我们采用跟前面类似的论证；这次，我们只考虑 $-x$，因为 $-x > 0$。使用与上面相同的逻辑，我们肯定可以找到满足 $M > \frac{1}{-x} = -\frac{1}{x}$ 的自然数 $M \in \mathbb{N}$。整理不等式可得 $x < -\frac{1}{M}$。因此 $x \notin A_M$，所以 $\displaystyle{x \notin \bigcap_{n \in \mathbb{N}} A_n}$。
+    $\bullet$ 情况 2：假设 $x < 0$。我们采用跟前面类似的论证；这次，我们只考虑 $-x$，因为 $-x > 0$。使用与上面相同的逻辑，我们肯定可以找到满足 $M > \frac{1}{-x} = -\frac{1}{x}$ 的自然数 $M \in \mathbb{N}$。整理不等式可得 $x < -\frac{1}{M}$。因此 $x \notin A_M$，所以 $\displaystyle{x \notin \bigcap_{n \in \mathbb{N}} A_n}$。
 
     综上，我们已经证明，任意 $x \in \mathbb{R}$ 且 $x \ne 0$ 都不是至少一个 $A_n$ 集合的元素，因此任何这样的 $x$ 都不是它们交集的元素。因此，$\displaystyle{{0} \subseteq \bigcap_{n \in \mathbb{N}} A_n}$，并且我们已经通过双重包含论证证明了该主张。
 \end{proof}

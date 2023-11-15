@@ -73,7 +73,7 @@
 
 现在，让我们提出一个更严格的归纳法版本：
 
-\begin{theorem}{数学归纳法原理}
+\begin{theorem}{数学归纳法原理}\label{theorem3.8}
     令 $P(n)$ 为某个取决于自然数 $n$ 的``事实''或``观察结果''。假设
     \begin{enumerate}
         \item $P(1)$ 是一个真实的陈述。
@@ -87,7 +87,7 @@
 \begin{proof}
     将集合 $S$ 定义为陈述 $P$ 为真的自然数。即定义 $S = \{n \in \mathbb{N} \mid P(n) \text{为真}\}$。根据定义，$S \subseteq N$。
 
-    此外，该定理的假设保证 $1 \in S$，并且每当 $k \in S$ 时，我们也知道 $k + 1 \in S$。这意味着 $S$ 是\emph{归纳集}。通过定义 $\mathbb{N}$ 后的观察，我们知道 $\mathbb{N} \subseteq S$。
+    此外，该定理的假设保证 $1 \in S$，并且每当 $k \in S$ 时，我们也知道 $k + 1 \in S$。这意味着 $S$ 是\dotuline{归纳集}。通过定义 $\mathbb{N}$ 后的观察，我们知道 $\mathbb{N} \subseteq S$。
 
     因此 $S = \mathbb{N}$，因此命题 $P(n)$ 对于每个自然数 $n$ 都成立。
 \end{proof}
