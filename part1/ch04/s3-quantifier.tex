@@ -1,12 +1,244 @@
 % !TeX root = ../../book.tex
 \section{量词：存在量词和全称量词}
 
+现在，我们将介绍一些方便的符号，使我们能够缩短迄今为止看到的一些语句，并用数学符号表达冗长的、基于语言的短语。这些符号的另一个好处是我们能够更轻松地表达和分析数学陈述。具体来说，我们现在介绍符号 ``$\forall$'' 和 ``$\exists$''。
+
+\begin{definition}
+    符号 ``$\forall$'' 代表短语 ``\dotuline{对于所有}''。
+
+    符号 ``$\exists$'' 代表短语 ``\dotuline{存在}''。
+
+    我们称 ``$\forall$'' 为全称量词，称 ``$\exists$'' 为存在量词。
+
+    以 ``$\forall$'' 开头的数学陈述被称为``全称量化''，以 ``$\exists$'' 开头的数学陈述被称为``存在量化''。
+\end{definition}
+
 \subsection{用法和符号}
 
-\subsection{短语``such that''以及量词的顺序}
+可以用 ``$\forall$'' 替换的其他常见短语还有``对于每个''、``对于任意''、``每当''、``给定任何''甚至``如果''。
 
-\subsection{``固定''变量和依赖}
+可以用 ``$\exists$'' 替换的其他常见短语还有``对于某个''、``至少有一个''、``有''甚至``某个''。
+
+\begin{example}
+    让我们先来看几个简单的例子，以开始我们的实践。以下每种情况，我们都希望使用这些符号来表达数学思想，或者尝试以更``罗嗦''的方式解释量化陈述。
+    \begin{itemize}
+        \item ``每个实数的平方都是非负数。''
+            这是一个简单直白的陈述，事实上，这个陈述为\verb|真|。我们可以将其写为：
+            \[\forall x \in \mathbb{R} \centerdot x^2 \ge 0\]
+            ``大点'' 将陈述的量化部分与关于变量 $x$ 的声明（在量化中引入）分开。\\
+            另一种写法是：
+            \begin{center}
+                定义 $S(x)$ 为 ``$x^2 \ge 0$''。那么命题就是：$\forall x \in \mathbb{R} \centerdot S(x)$。
+            \end{center}
+        \item ``存在 $\mathbb{N}$ 的一个子集以 $7$ 作为元素。''
+            这是一个\emph{存在}声明。它断言我们可以找到具有特定属性的对象。我们将其写为：
+            \[\exists S \in \mathcal{P}(\mathbb{N}) \centerdot 7 \in S\]
+            请记住，$\mathcal{P}(\mathbb{N})$ 是 $\mathbb{N}$ 的\emph{幂集}，即 $\mathbb{N}$ 的所有子集的集合；因此，根据要求，$S \in \mathcal{P}(\mathbb{N})$ 意味着 $S \subseteq \mathbb{N}$。
+        \item ``每个整数都有一个\emph{加法逆元}（即，当与原始数字相加时，结果为 $0$）。''
+            ``加法逆元''的概念是一个通用概念，适用于一些称为\emph{环}和\emph{域}的数学对象。我们不会在本书中讨论这些对象，但你会在抽象代数课程中接触它们。\\
+            我们可以将此声明写为:
+            \[\forall a \in \mathbb{Z} \centerdot \exists b \in \mathbb{Z} \centerdot a + b = 0\]
+            读作：
+            \begin{center}
+                对于任意整数 $a$，都存在一个整数 $b$，使得 $a + b = 0$。
+            \end{center}
+            或
+            \begin{center}
+                无论给定什么整数 $a$，我们都可以找到一个具有 $a + b = 0$ 性质的整数 $b$。
+            \end{center}
+            同样，我们可以通过将 $I(a, b)$ 定义为 ``$a + b = 0$'' 来稍微缩短符号，然后将声明写为：
+            \[\forall \in \mathbb{Z} \centerdot \exists b \in \mathbb{Z} \centerdot I(a, b)\]
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    以下是正确使用 ``$\forall$'' 的一些示例，以及如何使用该符号的一些等效表述。
+    \begin{itemize}
+        \item $\forall x \in \mathbb{R} \centerdot x^2 \ge 0$
+        \item 对于所有实数 $x$，我们有 $x^2 \ge 0$。
+        \item 每个实数 $x$ 都满足 $x^2 \ge 0$。
+        \item 当 $x$ 为实数时，我们知道 $x^2 \ge 0$。
+    \end{itemize}
+    同样，下面是符号 ``$\exists$'' 的正确用法和等效表述的示例。
+    \begin{itemize}
+        \item $\exists x \in \mathbb{R} \centerdot x^2 - 4x + 4 = 0$
+        \item 存在实数 $x$ 使得 $x^2 - 4x + 4 = 0$。
+        \item 存在实数 $x$ 满足 $x^2 - 4x + 4 = 0$。
+        \item 某个实数 $x$ 具有 $x^2 - 4x + 4 = 0$ 的性质。
+    \end{itemize}
+\end{example}
+
+\subsubsection*{朗读量化陈述}
+
+\begin{example}
+    现在来看一些更难的例子。让我们回顾一下我们在上一节末尾写的短语，并使用这个新的符号来表达它们。考虑一下这个陈述：
+    \begin{center}
+        对于每个实数 $x$，存在一个实数 $y$，使得 $y = x^3$。
+    \end{center}
+    为了以符号形式表达这一点，我们将 $P(x, y)$ 定义为命题 ``$y = x^3$''，然后将该陈述写为：
+    \[\exists y \in \mathbb{R} \centerdot \forall x \in \mathbb{R} \centerdot P(x, y)\]
+    从逻辑上讲，这是正确的，并且相当简洁。目前，我们有时会使用一些``辅助短语''来重写该陈述，以帮助我们更好地阅读出来。特别是，我们在朗读时会使用这些``辅助短语''，因此我们将它们写下来，为你提供一些口头解释逻辑符号的额外练习。我们将上面的陈述朗读为
+    \begin{center}
+        存在一个实数 $y$，使得对于每个实数 $x$，陈述 $P(x, y)$ 成立。
+    \end{center}
+    短语``使得''就是一个``辅助短语''，它将存在量化与短语的其余部分联系起来。下一小节包含有关何时以及如何使用此辅助短语的一些重要信息！
+\end{example}
+
+上述陈述的量化部分之间的``大点''只是用于分隔陈述的各个部分，使其更易于阅读。它对应于说话中的停顿或休止，就像逗号一样，但有时它具有语音含义（例如 ``$\exists y \in \mathbb{R}$'' 部分后面的``使得''）。
+
+不过，我们不想使用逗号，因为我们已经将它们用于其他含义。例如，
+\[x, y \in S\]
+表示 ``$x$ 和 $y$ 都是集合 $S$ 的元素''。``大点''是不同的符号。
+
+相对而言，由于我们的数学生涯还很年轻，因此我们鼓励你尽量写下``使得''和``为\verb|真|''等辅助短语来指导你的理解。这会提醒你句子的含义，并帮助你练习以简洁的形式阅读和书写此类陈述。请记住，你在学习一门语言，你需要练习将句子从你知道的一种语言（汉语）\emph{翻译}成另一种语言（数学）。例如，你可能想将上面例子写为（或者，至少在你的脑海里读作）：
+\[\exists y \in \mathbb{R} \;\text{使得}\; \forall x \in \mathbb{R} \centerdot P(x, y) \;\text{为}\verb|真|\]
+（顺带一提，当在白板/黑板或纸上书写时，通常会用 ``s.t.'' 代替 ``such that'' 或``使得''，以节省书写时间。这只是表明 ``such that'' 或``使得''这个短语在数学写作中是多么普遍；我们已经有了一个约定的缩写了！）
+
+\subsection{短语``使得''以及量词的顺序}
+
+请注意，辅助短语``使得''总是跟在\emph{存在}量化之后，并且\emph{只能}跟在存在量化之后。这是因为带有 ``$\exists$'' 的声明断言了具有某种属性的对象的存在，而陈述的其余部分是对该特殊属性的描述。因此，这里用``使得''是有合理的，可以帮助我们正确阅读句子。考虑下面这个数学陈述：
+\[\exists y \in \mathbb{R} \centerdot \forall x \in \mathbb{R} \centerdot P(x, y)\]
+如果我们朗读上面的陈述，但把``使得''这个短语放错了地方，把它放在 ``$\forall$'' 后面而不是 ``$\exists$'' 后面，会发生什么？这会产生这样一句话：
+\begin{center}
+    \textcolor{red}{$\exists y \in \mathbb{R} \quad \forall x \in \mathbb{R}$ 使得 $P(x, y)$ 为真}
+\end{center}
+我们前面分析过这可以用两种方式解释，但这两种方式\emph{都不是}真正正确的含义，这就是我们用\textcolor{red}{红色}书写的原因！
+
+一方面，有人可能会说这样的句子根本不符合语法，也没有任何意义，因为 ``使得'' 不属于\emph{全称}量化。这相当于举手说：``我不知道你的意思！''
+
+另一方面，人们可能会稍微解读一下这句话，并认为作者真正的意思是
+\[\exists y \in \mathbb{R}, \forall x \in \mathbb{R}, \;\text{使得}\; P(x, y) \;\text{为}\verb|真|\]
+或用语言表达
+\begin{center}
+    对于每个 $y \in \mathbb{R}$，存在 $x \in \mathbb{R}$，使得 $P(x, y)$ 为\verb|真|。
+\end{center}
+这里，逗号表示短语顺序的倒置，这在英语中很常见。（例如，考虑以下句子：``我笑了 \emph{30 Rock} 的每一集，全心全意地。''这与说``我全心全意地笑了 \emph{30 Rock} 的每一集。''）这句话是等效的，那么， 写作
+\[\exists y \in \mathbb{R} \centerdot \forall x \in \mathbb{R}, \;\text{使得}\; P(x, y) \;\text{为}\verb|真|\]
+这与我们考虑的原始数学陈述不同，事实上，它实际上是我们在上一节中看到的另一个陈述（参见第 \ref{sec:section4.2.4} 节），它是错误的！回想一下 \ref{sec:section4.2.4} 节中的类似陈述，只是语序颠倒了：
+\begin{center}
+    存在一个实数 $x$，对于每个实数 $y$，我们有 $y = x^3$。
+\end{center}
+我们可以用符号将其表示为
+\[\exists x \in \mathbb{R} \centerdot \forall y \in \mathbb{R} \;\text{使得}\; P(x, y) \;\text{为}\verb|真|\]
+看呐！短语``使得''放置错位置导致对句子的合理语言解释与最初的含义完全相反。哎呀！这就是为什么我们必须\emph{始终且仅在}\textbf{存在量化}之后小心使用``使得''。请记住，我们不会总是写出辅助短语，因此当你在脑海中朗读陈述或读给他人听时，必须谨记正确使用它，以确保获得正确的、预期的解释。
+
+上一节中这个例子的目的是指出词序的重要性。现在我们有了符号来代替这些单词和短语，我们想强调这些符号的顺序也十分重要。我们上面看到的两个数学陈述包含完全相同的单词和符号，但顺序不同，一个为\verb|假|，另一个为\verb|真|。可见，顺序是极其重要的！
+
+\subsection{``固定''变量和依赖}\label{sec:section4.3.3}
+
+当我们讨论量词顺序的主题时，我们还要提到以下示例来强调量词的顺序决定何时将变量视为表达式中的\textbf{固定变量}。
+
+考虑一下这句话：``任何大于或等于 $4$ 的偶数都可以写成两个质数之和。''（回想一下，这是我们上一节中讨论过的著名的\textbf{哥德巴赫猜想}。）为了从逻辑上和符号上表达这个陈述，我们可以写成
+\begin{align*}
+    &\text{令} X \text{为除} 2 \text{以外的偶数的集合。}\\
+    &\text{设} P \text{为质数集。}\\
+    &\text{定义} Q(n, a, b) \text{为``}n = a + b\text{''。}\\
+    &\text{那么声明就是：}
+\end{align*}
+\[\forall n \in X \centerdot \exists a, b \in P \centerdot Q(n, a, b)\]
+
+请注意，我们在这里使用了一些简写。像``$\exists a, b \in P$'' 这样的短语完全可以表达上述陈述，而不必写成
+\[\forall n \in X \centerdot \exists a \in P \centerdot \exists b \in P \centerdot Q(n, a, b)\]
+当两个变量被量化为同一集合中的元素，并且两个紧挨着时，将它们组合成一个量化是很常见的。我们甚至可能会看到这样的数学陈述，
+\[\forall x, y \in \mathbb{Z} \centerdot \exists a, b, c, d \in \mathbb{Z} \centerdot a + b + c + d = x + y \;\text{且}\; a + b \ne x \;\text{且}\; c + d \ne y\]
+（顺便问一下，这个陈述断言了什么？它为\verb|真|还是为\verb|假|？它取决于 $\mathbb{Z}$ 的上下文吗？如果我们将两处都换成 $\mathbb{N}$ 或 $\mathbb{R}$ 会怎样？）
+
+\subsubsection*{量化``固定''变量}
+
+回顾上面的例子，我们定义了 $Q(n, a, b)$。我们提出这个例子的原因是为了指出初始量化 ``$\forall n \in X$'' 用于\emph{固定} $n$ 的特定值，该值将用于陈述的其余部分。之后，断言 ``$\exists a, b \in P$'' 及其后续属性 $Q(n, a, b)$ 取决于 $n$ 的\emph{固定}但\emph{任意}值。
+
+整个陈述说的是，无论选择什么样的 $n$，我们都可以找到满足属性 $Q$ 的值 $a, b$。（当然，请注意，$a, b$ 的这些值可能\emph{取决于} $n$。）但是，量化顺序告诉我们这些值 $a, b$ 可能\emph{取决于}所选的 $n$。这就是我们要强调的。
+
+作为示例，考虑语句中变量 $n$ 的特定值。我们知道 $8 \in X$ 因为 $8$ 是偶数且 $8 \ge 4$。当 $n = 8$ 时会发生什么？你能找到 $a, b \in P$ 使得 $a + b = 8$ 吗？当然可以，我们可以让 $a = 3$ 且 $b = 5$。那么当 $n = 14$ 时呢？你能找到满足 $a+b = 14$ 的 $a, b \in P$ 吗？当然可以，你现在的选择必然与以前的\emph{不同}。这就是我们所说的 $a$ 和 $b$ \emph{依赖于} $n$ 的意思。（顺便问一下，在 $n = 14$ 时，你能找到 $a$ 和 $b$ 吗？我们可以想出几个可行的选择！）
+
+为了确保你充分理解这部分讨论的内容，请考虑以下问题并回答：上面的陈述和下面的陈述有何区别？
+\[\exists n \in X \centerdot \exists a, b \in P \centerdot Q(n, a, b)\]
+这个陈述为\verb|真|还是为\verb|假|？为什么？
 
 \subsection{指定量化集}
 
+关于量词还有一点我们需要强调，每当使用量词时，我们都必须指定一个集合。下面这句话
+\[\forall x \centerdot x^2 \ge 0\]
+可能``看上去为\verb|真|''，但实际上\textbf{毫无意义}。$x$ 是什么？它从何而来？``对于每一个 $x$ …… ''从哪里获取？如果 $x$ 不是数字怎么办？
+
+我们需要指定对象 $x$ ``来自''哪里，以便我们知道 $x^2 \ge 0$ 是否是一个明确定义、符合语法的短语，更不用说它是否为\verb|真|。如果我们将句子修改为
+\[\forall x \in \mathbb{R} \centerdot x^2 \ge 0\]
+那么这就是一个定义明确、符合语法（并且正确！）的数学陈述。但是，如果我们将句子修改为
+\[\forall x \in \mathbb{C} \centerdot x^2 \ge 0\]
+那么这就是一个定义明确但错误的数学陈述！这是因为 $i \in \mathbb{C}$ 但 $i^2 = -1 < 0$。（请记住，本书中我们不会大量使用复数 $\mathbb{C}$ 的集合，但它提供了一些有趣且具有启发性的示例，就像上面这个。）
+
+这里的主要教训是\textbf{上下文}确实很重要。它可以改变陈述的含义及其真值。因此，我们必须始终确保指定一个从中提取变量值的集合。
+
+\subsubsection*{一个例外}
+
+打脸来得好快，我们不得不承认``永远指定量化集''这一规则有一个例外，但这个例外是有充分理由的。考虑以下声明：
+\begin{center}
+    对于任意集合 $A, B,C$，等式 $(A \cup B) \cap C = (A \cap C) \cup (A \cap B)$ 成立。
+\end{center}
+这个数学陈述为\verb|真|。（你能证明这一点吗？尝试使用双重包含论证！）
+
+我们如何以符号形式写出这个陈述呢？这是一个\emph{全称}量化（``对于任意……''），因此我们需要使用 ``$\forall$'' 符号。这里的变量（用 $A,B,C$ 表示）是\emph{集合}。他们来自哪里？我们将从什么集合中提取它们？
+
+我们非常确定你想说``所有集合的集合''。但这存在一个大问题！还记得我们在上一章讨论的罗素悖论吗？（请参阅第 \ref{sec:section3.3.5} 节。）所有可能集合的集合本身并\emph{不是}一个集合！因此，我们不能将这个陈述符号化地写成
+\[\forall A, B,C \in \underline{\qquad} \centerdot (A \cup B) \cap C = (A \cap C) \cup (A \cap B)\]
+因为我们不知道如何用\emph{集合}来填补空白。
+
+由于这个问题，我们将继续使用``对于任意集合 $A,B,C$ ……''之类的短语，而不是用符号形式表达。当我们自己做笔记或在草稿纸上解题时，可以随意写下 ``$\forall A,B,C$''，并且知道它其实代表了集合的量化。然而，当更正式地书写时（例如，书面作业），你应该坚持使用上面的措辞。
+
 \subsection{问题与练习}
+
+口头或书面简要回答以下问题。这些题目全都基于你刚刚阅读的部分，因此如果你无法想起特定的定义、概念或示例，请返回重新阅读相应部分。确保自己在继续之前可以自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $\forall$ 和 $\exists$ 和有什么不一样？
+    \item 如何朗读下面的陈述？
+        \[\forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot x = y^3\]
+    \item 下面的语句为什么不是正确的数学陈述？
+        \[\exists y \centerdot y + 3 > 10\]
+        以下两个陈述之间有何区别（如果有的话）？
+        \[\exists x \in \mathbb{N} \centerdot ∃y \in \mathbb{N} \centerdot x + y = 5\]
+        \[\exists x, y \in \mathbb{N} \centerdot x + y = 5\]
+        它们为\verb|真|还是为\verb|假|？
+    \item 以下两个陈述之间有何区别（如果有的话）？
+        \[\exists a, b \in \mathbb{Z} \centerdot a \cdot b = -3\]
+        \[\exists \heartsuit, \diamondsuit \in \mathbb{Z} \centerdot \heartsuit \cdot \diamondsuit = -3\]
+        它们为\verb|真|还是为\verb|假|？
+    \item 为什么下列语句不是正确的量化陈述？
+        \textcolor{red}{\begin{itemize}
+            \item $\exists x \centerdot x > 7$
+            \item $\forall y \in \mathbb{Z}$
+            \item $\forall z > 2 \centerdot z^2 > 4$
+            \item $\forall w \in \mathbb{Z} \centerdot w^2 = t \centerdot \exists t \in \mathbb{N}$
+        \end{itemize}}
+\end{enumerate}
+
+\subsubsection*{试一试}
+
+尝试回答以下简答题。这些题目要求你实际动笔写一写，或（对朋友/同学）口头描述一些东西。目的是让你练习使用新概念、定义和符号。别担心，这些题本来就很简单。确保能够解决这些问题将对你有所帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 回顾 \ref{sec:section4.3.3} 节，我们用符号表示法表达了哥德巴赫猜想。我们将 $X$ 定义为除 $2$ 之外的所有偶数的集合。用符号、量词和集合构建符（也许还有集合运算，具体取决于你的操作方式）编写 $X$ 的定义。
+    \item 写一个以量词开头的数学陈述的示例，如果该量词是 ``$\exists$''，则该陈述为\verb|真|，但如果该量词为  ``$\forall$''，则该陈述为\verb|假|。
+    \item 写一个变量命题 $P(x)$ 的例子，使得
+        \[\forall x \in \mathbb{Z} \centerdot P(x)\]
+        为\verb|真|，但
+        \[\forall x \in \mathbb{N} \centerdot P(x)\]
+        为\verb|假|。
+    \item 对于以下每个数学陈述，使用量词将其写成符号形式。（首先确保正确定义可能需要的任何变量命题！）然后，确定该陈述为\verb|真|还是为\verb|假|。
+        \begin{enumerate}[label=(\alph*)]
+            \item 存在一个严格大于每个整数的实数。
+            \item 每个整数都具有其平方小于或等于其立方的性质。
+            \item 每个自然数的平方根都是实数。
+            \item $\mathbb{N}$ 的每个子集都以数字 $3$ 作为元素。
+        \end{enumerate} 
+    \item 阅读以下每个量化陈述的符号表示并朗读出来。然后，确定该陈述为\verb|真|还是为\verb|假|。
+        \begin{enumerate}[label=(\alph*)]
+            \item $\forall x \in \mathbb{N} \centerdot \exists y \in \mathbb{Z} \centerdot x + y < 0$
+            \item $\exists x \in \mathbb{N} \centerdot \forall y \in \mathbb{Z} \centerdot x + y < 0$
+            \item $\exists A \in \mathcal{P}(\mathbb{Z}) \centerdot \mathbb{N} \subset A \subset \mathbb{Z}$\\（回想一下，$⊂$ 的意思是``是……的真子集''。）
+            \item 设 $P$ 为素数集。\\
+                    $\forall x \in P \centerdot \exists t \in \mathbb{Z} \centerdot x = 2t + 1$
+            \item $\forall a \in \mathbb{N} \centerdot \exists b \in \mathbb{Z} \centerdot \forall c \in \mathbb{N} \centerdot a + b < c$
+            \item $\exists b \in \mathbb{Z} \centerdot \forall a, c \in \mathbb{N} \centerdot a + b < c$
+        \end{enumerate} 
+\end{enumerate}   
