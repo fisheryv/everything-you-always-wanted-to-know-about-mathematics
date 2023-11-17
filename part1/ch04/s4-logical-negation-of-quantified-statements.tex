@@ -1,2 +1,250 @@
 % !TeX root = ../../book.tex
-\section{量化陈述的逻辑否定}
+\section{量化陈述的逻辑否定}\label{sec:section4.4}
+
+让我们回到之前使用过的示例陈述。定义 $P(x, y)$ 为 ``$y = x^3$''，然后定义 $Q_1$ 为陈述
+\[\text{``}\exists y \in \mathbb{R} \centerdot \forall x \in \mathbb{R} \centerdot P(x, y)\text{''}\]
+定义 $Q_2$ 为陈述
+\[\text{``}\forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot P(x, y)\text{''}\]
+请记住，$Q_1$ 为\verb|假|，$Q_2$ 为\verb|真|。
+
+我们怎么知道 $Q_1$ 为\verb|假|？它表示存在某个具有特定属性的实数。要声明整个语句为\verb|假|，我们可能必须验证该属性并\emph{不}适用于\emph{每个}实数 $y$，但这需要很长时间！集合 $\mathbb{R}$ 无穷大！一种更有效的方法是证明该陈述的\textbf{否定}形式为\verb|真|。
+
+我们所说的``否定''指的是\textbf{逻辑否}，即在逻辑意义上与原始陈述``相反''的陈述。数学陈述的逻辑否具有与原始陈述相反的真值，因此，如果我们得到 $Q_1$ 的否定形式并证明它为\verb|真|，那么我们就证明了 $Q_1$ 本身为\verb|假|。
+
+但是我们如何否定一个陈述呢？当我们注意到我们必须以某种方式证明关于\emph{每个}实数 $y$ 的某些事情时，我们已经有了正确的想法，因为原始陈述声称\emph{存在}。在本节中，我们将探讨如何正确地否定此类陈述。
+
+我们应该注意到，到目前为止我们所讨论的内容背后有一些微妙但深刻的数学概念。为什么一个数学命题要么为\verb|真|，要么为\verb|假|呢？一个厚颜无耻（但完全正确）的回答是，``因为你把`\textbf{数学陈述}'定义为那样，傻逼！''是的，我们确实是这么做的，但我们\emph{为什么}要这么做呢？\verb|真|/\verb|假|二元性对数学为什么是\emph{有益的}，或\emph{必要的}？这些都是有意义又难以回答的问题，绝对值得思考。对这些主题的讨论必然会深入研究数学哲学和人类思想，这当然是有趣且有价值的追求，但超出了本书/课程的范畴和目标。我们将依靠我们对真理的共同的、直觉的理解。
+
+\subsection{否定全称量化}
+
+全称声明（即 ``$\forall$''）的否定通常是一个存在声明（即``$\exists$''），反之亦然。在我们解决更大的否定任意量化陈述的问题之前，让我们看一个简单的例子。
+
+假设 $S$ 为集合，$R(x)$ 是定义在每个 $x \in S$ 上的数学陈述。该陈述
+\[\forall x \in S \centerdot R(x)\]
+对集合 $S$ 中变量 $x$ 的每个可能值断言变量命题的真值。它表示，无论我们引用集合 $S$ 的哪个元素 $x$，我们都可以\emph{必然}得出命题 $R(x)$ 为\verb|真|。现在，如果这个陈述为\verb|假|，我们该如何\emph{证明}这一点呢？
+
+如果每个元素 $x \in S$ 都满足某个属性为\verb|假|，则必定\emph{至少}有一个元素\emph{不}满足该属性。为了证明这一点，我们需要找到这样的元素；我们必须定义（或找到）一个元素 $x$ 并解释为什么 $R(x)$ 对于该特定元素不成立。（想想我们如何在语言上理解这个否定。我们在日常语言中一直这样做，甚至没有思考它。）那么，结论是，原始陈述的否定是
+\[\exists x \in S \;\text{使得}\; R(x) \;\text{为假}\]
+
+我们引入符号 $\neg$ 表示``\textbf{逻辑否}''或``\textbf{不}''。有了这个符号，我们就可以重写否定陈述
+\[\neg\big(\forall x \in S \centerdot R(x)\big)\]
+为
+\[\exists x \in S \centerdot \neg R(x)\]
+上面陈述的结论短语 $\neg R(x)$ 可以简化，具体取决于 $R(x)$ 是什么。例如，如果 $S = \mathbb{R}$ 且 $R(x)$ 为 ``$x^2 \ge 0$''，则否定陈述为
+\[\text{``}\exists x \in \mathbb{R} \;\text{使得}\; x^2 < 0 \text{''}\]
+因为 ``$x^2 < 0$'' 在逻辑上等价于 ``$\neg(x^2 \ge 0)$''。
+
+但一般来说，我们必须将其保留为 ``$\neg R(x)$''，而不进一步深入命题 $R$。我们还将指出，一般来说，短语 ``$R(x)$ 为\verb|假|'' 和 ``$\neg R(x)$ 为\verb|真|'' 在逻辑上是等价的；他们都断言命题 $R(x)$ 不正确。
+
+我们现在正在发展的这个概念就是\emph{反例}的含义，你以前可能听说过这个术语。为了\emph{反驳}全称量化陈述，我们必须证明存在量化陈述；该证明涉及显式定义集合中不满足指定属性的元素，这就是\textbf{反例}一词的由来。
+
+\subsection{否定存在量化}
+
+类似 
+\[\exists x \in S \centerdot R(x)\] 
+这样的陈述提出了存在性声明。它表示必须存在某个元素 $x$ 满足属性 $R(x)$。为了反驳这一主张，我们需要证明 $x$ 的任何值实际上都无法满足属性 $R$。因此，我们可以说陈述
+\[\neg\big(\exists x \in S \centerdot R(x)\big)\]
+在逻辑上等价于陈述 
+\[\forall x \in S \centerdot \neg R(x)\]
+
+如果我们考虑如何反驳这种存在性声明，就会发现这是合理的。假设你正在与某位朋友进行辩论，他告诉你某些 kwyjibo 具有它是 Zooqa 的属性。你会如何反驳他/她？你可能会说，``不对！给我任意你想要的 kwyjibo。我知道这不可能是 zooqa，原因如下……''然后你会解释为什么该属性无论如何都不成立。
+
+现在，当你说``给我任意''时，你实际上是在执行全称量化！你是说，\emph{无论}你考虑哪种 kwyjibo，有些事情都是真的；也就是说，对于\emph{每个} kwyjibo，或 $\forall x \in K$（其中 $K$ 是所有 kwyjibo 的集合），某些事情为\verb|真|。
+
+想一想并思考以下为什么我们发现/定义的逻辑否定是合理的。在本章后面，当我们考虑证明技术时，我们将解释考虑\emph{任意} kwyjibo 的策略以及为什么这实际上证明了我们上面刚刚写出的逻辑否定。眼下，我们希望你了解
+\[\forall x \in S \centerdot \neg R(x)\] 
+和
+\[\exists x \in S \centerdot R(x)\]
+具有相反的真值。
+
+\subsection{一般量化陈述的否定}
+
+到目前为止，我们所做的观察引出了否定量化陈述的一般方法。我们在第 \pageref{sec:section4.4} 页定义的陈述 $Q_1$ 的形式为
+\[\exists y \in \mathbb{R} \centerdot C(y)\]
+其中 $C(y)$ 是陈述的其余部分（当然，这\emph{取决于} $y$ 的值）。我们将 $C(y)$ 视为量化变量 $y$ 的某些\emph{属性}；该属性内部可能有其他量词和变量，但从根本上讲，它只是断言 $y$ 的一些事实。
+
+为了否定这一说法，我们按照上面讨论的方法写做
+\[\forall y \in \mathbb{R} \centerdot \neg C(y)\]
+现在，我们知道 $C(y)$ 本身就是一个全称量化陈述：
+\[\forall x \in \mathbb{R} \centerdot y = x^3\]
+我们也知道如何否定这种类型的陈述！其否定形式 $\neg C(y)$ 为
+\[\exists x \in \mathbb{R} \centerdot y = x^3\]
+这一步仅使用了我们上面看到的另一个否定方法。然后，把它们放在一起，我们可以说 $\neg Q_1$ 为陈述
+\[\forall y \in \mathbb{R} \centerdot \exists x \in \mathbb{R} \centerdot y \ne x^3\]
+我们可以\emph{证明}这个说法是正确的，从而证明原始陈述一定为\verb|假|。
+
+（我们将此证明留作练习。提示：给定任意 $y \in \mathbb{R}$，定义一个 $x$ 值，该值将迫使 $y \ne x^3$ 为真。请注意，你对 $x$ 的选择取决于 $y$ 的值；它们是如何依赖的？）
+
+看看这个否定是如何产生的：我们认识到原始陈述是一个\textbf{嵌套量词}序列（即连续几个量化变量的序列），末尾有一个变量命题，并且我们看到我们可以将量词序列的一部分视为它自身的陈述。然后，我们将否定从外部量词 ``传递到内部量词''，并将这些否定拼凑在一起。
+
+遵循同样的想法，我们可以弄清楚如何识别具有较长量词序列的陈述。例如，看看下面这个陈述
+\[\forall a \in A \centerdot \exists b \in B \centerdot \exists c \in C \centerdot \forall d, e \in D \centerdot Q(a, b, c, d, e)\]
+要开始否定它，我们先从第一个量化处断开，并将其余部分视为其自身的命题 $R(a)$，并且它仅依赖于 $a$：
+\[\forall a \in A \centerdot \big(\underbrace{\exists b \in B \centerdot \exists c \in C \centerdot \forall d, e \in D \centerdot Q(a, b, c, d, e)}_{R(a)}\big)\]
+因此否定可以写成
+\[\exists a \in A \centerdot \neg R(a)\]
+但我们必须找出 $\neg R(a)$ 的另一种写法。我们需要重复上面的做法！只需将 ``$\exists b \in B$'' 与其余部分分开……接着你就知道是怎么回事了。尝试自己完成这些步骤，并确保最终得到以下结果，这就是原始陈述的逻辑否定：
+\[\exists a \in A \centerdot \forall b \in B \centerdot \forall c \in C \centerdot \exists d, e \in D \centerdot \neg Q(a, b, c, d, e)\]
+
+一般来说，我们可以这样说：要否定仅由量词和变量命题组成的命题，只需将每个 ``$\forall$'' 切换为 ``$\exists$''，反之亦然，即可否定命题。不要改变我们量化的任何集合，只改变量词本身和随后的命题；改变讨论范围是没有意义的。稍后，我们将了解如何否定其他类型的陈述，即由其他连词构建的更复杂的陈述。在此之前，我们需要继续定义和讨论其他连词。
+
+\subsection{方法总结}
+
+让我们总结一下本节的内容。
+\begin{itemize}
+    \item \textbf{否定全称量化：} \\
+        设 $X$ 为集合，$P(x)$ 为命题。则全称量化的否定，
+        \[\neg \big(\forall x \in X \centerdot P(x)\big)\]
+        写为
+        \[\exists x \in X \centerdot \neg P(x)\]
+        用语言表达，我们已经证明了
+        \begin{center}
+            对于每个 $x \in X, P(x)$ 不都成立。
+        \end{center}
+        等价于
+        \begin{center}
+            存在元素 $x \in X$ 使得 $P(x)$ 不成立。
+        \end{center}
+    \item \textbf{否定存在量化：}
+        设 $X$ 为集合，$Q(x)$ 为命题。则存在量化的否定，
+        \[\neg \big(\exists x \in X \centerdot Q(x)\big)\]
+        写为
+        \[\forall x \in X \centerdot \neg Q(x)\]
+        用语言表达，我们已经证明了
+        \begin{center}
+            不存在 $x \in X$ 使得 $Q(x)$ 成立。
+        \end{center}
+        等价于
+        \begin{center}
+            对于每个元素 $x \in X, Q(x)$ 都不成立。
+        \end{center}
+\end{itemize}
+
+\subsubsection*{不要更改量化集！}
+
+我们上面提到过，当否定一个陈述时，改变讨论范围是没有意义的。要思考为什么这是合理的，可以举一个现实生活中的例子。
+
+假设我们说``这个书架上的每一本书都是用英语写的''。你如何证明我们在撒谎，我们的陈述实际上为\verb|假|？你必须在\emph{这个书架}上找出一本不是用英文编写的书。你不能从走廊那头的房间里拿一本法国小说说：``瞧，你错了！''这并不能证明我们的主张；因为讨论的领域不同，我们没有对其他房间书架上发生的事情做出任何声明。我们只是对这个\emph{特定}书架做出了断言。
+
+同理，当否定陈述
+\[\forall b \in T \centerdot P(b)\]
+时，我们在不改变讨论领域（集合 $T$）的情况下得到
+\[\exists b \in T \centerdot \neg P(b)\]
+最初的声明仅断言了 $T$ 中元素的某些性质，因此它的否定也应仅断言这一点。
+
+\subsection{排中律}
+
+你知道吗？让我们实际讨论一下为什么我们可以谈论陈述及其\textbf{逻辑否定}。我们对\textbf{数学/逻辑陈述}的定义中包含这样一个想法：陈述的句子必须仅有一个真值，要么为\verb|真|，要么为\verb|假|。为什么我们可以这样做？在这里我们需要对定义负责！数学家必须为他们的系统设定基本规则 --- \textbf{公理}，而我们希望我们的逻辑系统能够确保我们提出的每一个主张都是正确的或错误的，而不是两者兼有或二者皆无。
+
+这种二元性确实是我们系统的\textbf{公理}。它在大多数数学中被广泛采用，被称为``\textbf{排中律}''。这个名字来源于这样一个想法，即每一个主张都要么为\verb|真|要么为\verb|假|，所以这两者之间没有\emph{中间立场}；中间的部分被排除在外。
+
+从本质上讲，这使得我们在数学方面的工作卓有成效：每个主张都有一个真值，而我们的目标就是找到该真值。有时，我们必须依靠这个公理，即我们商定的定律，来\emph{确保}某些主张要么为\verb|真|要么为\verb|假|，但不知道具体是哪个真值。下面是一个有趣且颇具代表性的例子。
+
+\begin{proposition}
+    存在实数 $a$ 和 $b$ 都为无理数，而 $a^b$ 为有理数。
+\end{proposition}
+
+（请记住，有理数是可以表示为整数相除形式的数，无理数是非有理数的实数。你能想到有理数和无理数的一些例子吗？）
+
+\begin{proof}
+    我们知道 $\sqrt{2}$ 为无理数。（问题：为什么？你能证明这一点吗？现在就试试。我们也将很快证明这一点！）
+
+    $\sqrt{2}^{\sqrt{2}}$ 要么是有理数，要么是无理数。（这里使用了排中律。）让我们分别考虑这两种情况。
+    \begin{itemize}
+        \item 假设 $\sqrt{2}^{\sqrt{2}}$ 为有理数。那么令 $a=\sqrt{2}, b=\sqrt{2}$，$a, b$ 都是无理数，而 $a^b$ 为有理数。
+        \item 假设 $\sqrt{2}^{\sqrt{2}}$ 为无理数。那么令 $a=\sqrt{2}^{\sqrt{2}}, b=\sqrt{2}$，$a, b$ 都是无理数，而
+        \[a^b = \big(\sqrt{2}^{\sqrt{2}}\big)^{\sqrt{2}} = \sqrt{2}^{\sqrt{2} \cdot \sqrt{2}} = (\sqrt{2})^2 = 2\]
+        为有理数。
+    \end{itemize}
+    无论哪种情况，我们都找到了实数 $a, b \in \mathbb{R}$，其中 $a$ 和 $b$ 都为无理数，而 $a^b$ 为有理数。这证明改命题为\verb|真|。
+\end{proof}
+
+这是一个\textbf{非构造性}证明的例子。它告诉我们某些东西存在（甚至将其缩小到两种可能性），但实际上并没有\emph{确切}告诉我们哪种可能性是我们要寻找的可能性。正是对排中律的直接运用才构成了这种情况。
+
+（问题：你能证明 $\sqrt{2}^{\sqrt{2}}$ 是无理数吗？这是真的，但没有已知的``简单''方法来证明这一事实。也许你可以找到一个！）
+
+本书中大多数证明都是\textbf{构造性}的（但不是全部）。也许你觉得这样很好，我们也倾向于觉得这样不错。如果我们声称某事物存在，我们应该能够向你\emph{展示}它，对吗？如果我们只是谈论\emph{为什么}某些这样的事物存在于某个地方，而无法指明它，你可能会相信我们，但你一定对此感觉不佳。因此，构造性证明\emph{在主观上会更好一些}，我们将尽可能地采用构造性证明。但有时，构造性证明并不显而易见，我们不得不采用非构造性证明，就像我们在上面所做的那样。
+
+\subsection{回顾：索引集运算与量词}
+
+回顾一下第 \ref{sec:section3.6.2} 节，我们分别在定义 \ref{def:definition3.6.1} 和 \ref{def:definition3.6.2} 中定义了对索引集执行的集合操作（并集和交集）。主要思想是我们可以使用速记符一次性表达整个集合类的并集/交集。
+
+仔细看看这些定义。例如，一个对象是否是索引并集的元素的特征是什么？该对象必须至少是并集中一个组成集合的元素。也就是说，需要存在某个以该对象为元素的集合。这听起来像是\emph{存在量化}，不是吗？
+
+同理，一个对象是否是索引交集的元素的特征是什么？该对象需要是所有组成集合的元素。也就是说，对于所有这些集合，该对象必须是其中的元素。这是一个\emph{全称量化}。
+
+通过这些观察，我们可以使用新的量词符号重写索引集运算的定义：
+
+\clearpage 
+
+\begin{definition}
+    假设 $I$ 为索引集，且对于某全集 $U$, $\forall i \in I, A_i \subseteq U$。则
+    \[\bigcup_{i \in I} A_i = \{x \in U \mid \exists k \in I \centerdot x \in A_k\}\]
+    \[\bigcap_{i \in I} A_i = \{x \in U \mid \forall i \in I \centerdot x \in A_i\}\]
+\end{definition}
+
+再次尝试做一下第 \ref{sec:section3.6.2} 节中的一些示例和练习。现在这些定义更有意义了吗？
+
+\subsection{问题与练习}
+
+口头或书面简要回答以下问题。这些题目全都基于你刚刚阅读的部分，因此如果你无法想起特定的定义、概念或示例，请返回重新阅读相应部分。确保自己在继续之前可以自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 数学命题的\emph{否定}是什么？陈述及其否定是如何相关的？
+    \item 为什么 $\forall$ 命题的否定是 $\exists$ 命题？\\
+        为什么 $\exists$ 命题的否定是 $\forall$ 命题？
+    \item 什么是非构造性证明？该术语适用于什么类型的主张（$\exists$ 或 $\forall$）？
+    \item 考虑声明
+        \[\forall x \in S \centerdot P(x)\]
+        为什么它的否定不是下面这两个？
+        \textcolor{red}{
+            \[\forall x \notin S \centerdot P(x)\]
+            \[\exists x \notin S \centerdot \neg P(x)\]
+        }
+\end{enumerate}
+
+\subsubsection*{试一试}
+
+尝试回答以下简答题。这些题目要求你实际动笔写一写，或（对朋友/同学）口头描述一些东西。目的是让你练习使用新概念、定义和符号。别担心，这些题本来就很简单。确保能够解决这些问题将对你有所帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 对于以下每个陈述，写出其否定形式。哪一个 --- 原式形式还是否定形式 --- 为\verb|真|？
+        \begin{enumerate}[label=(\alph*)]
+            \item $\forall x \in \mathbb{R} \centerdot \exists n \in \mathbb{N} \centerdot n > x$
+            \item $\exists n \in \mathbb{N} \centerdot \forall x \in \mathbb{R} \centerdot n > x$
+            \item $\forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot y = x^3$
+            \item $\exists y \in \mathbb{R} \centerdot \forall x \in \mathbb{R} \centerdot y = x^3$
+        \end{enumerate}
+    \item 对于以下每个陈述，写出其否定形式。哪一个 --- 原式形式还是否定形式 --- 为\verb|真|？
+        \begin{enumerate}[label=(\alph*)]
+            \item $\exists S \in \mathcal{P}(\mathbb{N}) \centerdot \forall x \in \mathbb{N} \centerdot x \in S$
+            \item $\forall S \in \mathcal{P}(\mathbb{N}) \centerdot \exists x \in \mathbb{N} \centerdot x \in S$
+            \item $\forall x \in \mathbb{N} \centerdot \exists S \in \mathcal{P}(\mathbb{N}) \centerdot x \in S$
+            \item $\exists x \in \mathbb{N} \centerdot \forall S \in \mathcal{P}(\mathbb{N}) \centerdot x \in S$
+        \end{enumerate}
+    \item 设 $I = \{x \in \mathbb{R} \mid 0 < x < 1\}$。\\
+        对于以下每个定义的集合，用量词写出确定数字 $y \in \mathbb{R}$ 是否为集合元素的定义条件。\\
+        然后，确定集合是什么，并使用集合构建符写出答案。\\
+        （并尝试使用双重包含论证来证明你的主张！）
+        \begin{enumerate}[label=(\alph*)]
+            \item $\displaystyle{S =\bigcup_{x \in I}\{y \in \mathbb{R} \mid x < y < 2\}}$
+            \item $\displaystyle{T =\bigcap_{x \in I}\{y \in \mathbb{R} \mid -x < y < x\}}$
+            \item $\displaystyle{V =\bigcup_{x \in I}\{y \in \mathbb{R} \mid -3x < y < 4x\}}$
+        \end{enumerate}
+    \item 令 $P = \{y \in \mathbb{R} \mid y > 0\}$。考虑下面这个声明：
+        \[\forall \varepsilon \in P \centerdot \exists \delta \in P \centerdot \forall x \in \{y \in \mathbb{R} \mid -\delta < y < \delta\} \centerdot |x^3| < \varepsilon\]
+        写出该命题的逻辑否定形式。\\
+        这个陈述表达了什么？它的否定形式表达了什么？\\
+        哪一个为\verb|真|？你能证明这一点吗？
+    \item 设 $A,B,C,D$ 为任意集合。\\
+        设 $P(x),Q(x, y),R(x, y, z)$ 为任意变量命题。\\
+        写出下列各命题的否定形式。
+        \begin{enumerate}[label=(\alph*)]
+            \item $\forall a \in A \centerdot \exists b \in B \centerdot Q(a, b)$
+            \item $\forall a \in A \centerdot \neg P(a)$
+            \item $\forall c \in C \centerdot \forall d \in D \centerdot \neg Q(c, d)$
+            \item $\forall a_1, a_2 \in A \centerdot \forall d \in D \centerdot R(a_1, a_2, d)$
+            \item $\forall b_1, b_2, b_3 \in B \centerdot \neg R(b_1, b_2, b_3)$
+            \item $\exists b \in B \centerdot \forall c \in C \centerdot \forall d \in D \centerdot R(d, b, c)$
+        \end{enumerate}
+\end{enumerate}

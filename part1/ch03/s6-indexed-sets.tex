@@ -73,11 +73,11 @@
     ``对所有 2023 赛季 NBA 球队，取并集。'' 
 \end{quote}
 
-\subsection{索引并集和交集}
+\subsection{索引并集和交集}\label{sec:section3.6.2}
 
 让我们给出多个集合并集运算的精确定义，因为之前我们只是严格定义了两个集合的并集。
 
-\begin{definition}
+\begin{definition}\label{def:definition3.6.1}
     由集合 $I$ 索引的一组集合 $A_i$ 的并集为
     \[\bigcup_{i \in I} A_i = \{x \in U \mid \text{对于某个（至少一个）} i \in I, x \in A_i \}\]
     其中我们假设存在全集 $U$, 且对于所有 $i \in I$, $A_i \subseteq U$。
@@ -87,7 +87,7 @@
 
 遵循这个思路，我们可以对集合交集做出类似的定义。
 
-\begin{definition}
+\begin{definition}\label{def:definition3.6.2}
     由集合 $I$ 索引的一组集合 $A_i$ 的交集为
     \[\bigcap_{i \in I} A_i = \{x \in U \mid \text{对于每个} i \in I, x \in A_i \}\]
     其中我们假设存在全集 $U$, 且对于所有 $i \in I$, $A_i \subseteq U$。
