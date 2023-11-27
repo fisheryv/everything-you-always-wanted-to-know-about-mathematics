@@ -1,2 +1,135 @@
 % !TeX root = ../../book.tex
 \section{集合}
+
+\subsection{标准集}
+
+\begin{itemize}
+    \item \textbf{自然数}为
+        \[\mathbb{N} = \{1,2,3,4,5,\dots\}\]
+        注意： $0 \notin \mathbb{N}$
+    \item 对于每个 $n \in \mathbb{N}$ ，集合 $[n]$ （``\textbf{中括号} $n$''）定义为：
+        \[[n] = \{x \in \mathbb{N} \mid 1 \le x \le n\} = \{1,2,3,\dots,n\}\]
+    \item \textbf{整数}为
+        \[\mathbb{Z} = \{\dots,-3,-2,-1,0,1,2,3,\dots\}\]
+    \item \textbf{有理数}为
+        \[\mathbb{Q} = \{x \in \mathbb{R} \mid \exists a,b \in \mathbb{Z}. b \ne 0 \;\text{且}\; \frac{a}{b}=x\}\]
+    \item \textbf{实数}用 $\mathbb{R}$ 表示。任何一个实数要么是\textbf{有理数}要么是\textbf{无理数}。
+    \item \textbf{空集}是没有任何元素的集合。写作 $\varnothing$ 或 $\{\:\}$
+\end{itemize}
+
+
+\subsection{集合构建符}
+
+\begin{itemize}
+    \item 如果 $U$ 是一个集合，$P(x)$ 是对任意给定 $x$ 成立或不成立的某种\textbf{属性}，那么我们总是可以通过如下方式定义一个新集合：
+        \[S = \{x \in U \mid \;\text{具有}\; P(x)\}\]
+    \item 此为\textbf{集合构建符}。必须包含\textbf{全集} $U$ 和\textbf{属性} $P(x)$。
+\end{itemize}
+
+\subsection{元素和子集}
+
+\begin{itemize}
+    \item ``$x$ 是集合 $S$ 的元素''，可以写做
+        \[x \in S\]
+        ``$x$ 不是集合 $S$ 的元素''，可以写做
+        \[x \notin S\]
+    \item ``$S$ 是 $T$ 的子集''，可以写做
+        \[S \subseteq T\]
+        这是由条件语句``$S$ 的每个元素也是 $T$ 的元素''定义的。可以表示为
+        \[\forall x \in U . x \in S \implies x \in T\]
+        即，对于全集（假设 $S,T \subseteq U$）中的每个元素 $x$，只要 $x \in S$，我们就知道 $x\in T$。
+    \item 要证明一个集合是另一个集合的子集，比如 $S \subseteq T$，我们需要这样做
+        \begin{align*}
+            &\text{设}\; x \in S \;\text{为任意固定元素}\\
+            &\dots \text{此处是证明过程（略）}\dots\\
+            &\text{所以} x \in T\\
+            &\text{这就证明了} S \subseteq T
+        \end{align*}
+    \item ``$S$ 是 $T$ 的真子集''，可以写做
+        \[S \subset T\]
+        这意味着 $S \subseteq T$ 且 $S \ne T$。
+    \item 空集是任意集合的子集，即 $\forall S,\varnothing \subseteq S$。
+    \item 任意集合都是其本身的子集，即 $\forall S, S \subseteq S$。
+\end{itemize}
+
+\subsection{幂集}
+
+\begin{itemize}
+    \item 设 $S$ 是一个集合，$S$ 的幂集记作 $\mathcal{P}(S)$，其定义如下：
+        \[\mathcal{P}(S) = \{A \mid A \subseteq S\}\]
+        即，$\mathcal{P}(S)$ 是 $S$ 所有子集的集合。
+    \item 对于任意集合 $S$，空集 $\varnothing \in \mathcal{P}(S)$ 且  $S \in \mathcal{P}(S)$。
+\end{itemize}
+
+\subsection{集合相等}
+
+\begin{itemize}
+    \item ``集合 $S$ 和集合 $T$ 相等''，我们写作 $S=T$，定义为
+        \[S = T \;\text{当且仅当}\; S \subseteq T \;\text{且}\; T \subseteq S\]
+    \item 要\textbf{证明}两个集合相等，比如 $S=T$，我们需要这么做：
+        \begin{align*}
+            &\text{首先，我们证明}S \subseteq T\\
+            &\text{设任意固定} x \in S \\
+            &\dots \text{此处是证明过程（略）}\dots\\
+            &\text{所以}x \in T\\
+            &\text{因此}S \subseteq T\\
+            \\
+            &\text{接着，我们证明}T \subseteq S\\
+            &\text{设任意固定} y \in T \\
+            &\dots \text{此处是证明过程（略）}\dots\\
+            &\text{所以}y \in S\\
+            &\text{因此}T \subseteq S\\
+            \\
+            &\text{因此}S = T
+        \end{align*}
+        这被称为\textbf{双重包含论证}。
+\end{itemize}
+
+\subsection{集合运算}
+
+设 $S,T,U$ 为三个集合，且 $S \subseteq U, T \subseteq U$。
+
+\begin{itemize}
+    \item 两个集合的\textbf{并集}定义为
+        \[ S \cup T = \{x \in U \mid x \in S \:\text{或}\: x \in T\}\]
+        即至少属于两个集合 $S$ 和 $T$ 之一的所有元素的集合。
+    \item 两个集合的\textbf{交集}定义为
+        \[S \cap T = \{x \in U \mid x \in S \:\text{且}\: x \in T\}\]
+        即同时属于两个集合 $S$ 和 $T$ 的所有元素的集合。
+    \item 两个集合的\textbf{差集}定义为
+        \[S - T = \{x \in U \mid x \in S \:\text{且}\: x \notin T\}\]
+        即所有属于 $S$ 但不属于 $T$ 的元素的集合。
+    \item 集合的\textbf{补集}定义为
+        \[\overline{S} = \{x\in U \mid x \notin S\}=U-S\]
+        即全集中所有不属于 $S$ 的元素的集合。
+    \item 两个集合的\textbf{笛卡尔积}定义为
+        \[S \times T = \{(x,y) \mid x \in S \:\text{且}\: y \in T\}\]
+        即所有有序对的集合，其中第一个坐标是 $S$ 的元素，第二个坐标是 $T$ 的元素。
+\end{itemize}
+
+\subsection{索引集运算}
+
+假设 $I$ 是一个索引集，$U$ 是全集，我们定义（对于每个 $i \in I$）集合 $A_i \subseteq U$。
+
+\begin{itemize}
+    \item 所有 $A_i$ 集的\textbf{索引并集}定义为
+        \[\bigcup_{i \in I}A_i = \{x \in U \mid \exists k \in I. x \in A_k\}\]
+        即全集中所有元素 $x$ 的集合，满足 $x$ 是并集中\textbf{至少一个}索引集合的元素。
+    \item 所有 $A_i$ 集的\textbf{索引交集}定义为
+        \[\bigcap_{i \in I}A_i = \{x \in U \mid \forall i \in I.x \in A_i\}\]
+        即全集中所有元素 $x$ 的集合，满足 $x$ 是交集中\textbf{所有}索引集合的元素。
+\end{itemize}
+
+\subsection{分割}
+
+\begin{itemize}
+    \item 设 $S$ 是一个集合，$S$ 的分割是成对不相交且并集为 $S$ 的集合的集合。也就是说，分割由索引集 $I$ 和满足以下条件的\emph{非空集合} $S_i$（由每个 $i \in I$ 定义）构成：
+        \begin{align*}
+            & \forall i \in I \centerdot S_i \ne \varnothing\\
+            & \forall i \in I \centerdot S_i \subset S\\
+            & \forall i,j \in I \centerdot i \ne j \implies S_i \cap S_j = \varnothing\\
+            & \bigcup_{i \in I} S_i= S
+        \end{align*}
+\end{itemize}
+
+
