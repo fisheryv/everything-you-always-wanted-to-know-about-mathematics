@@ -1,2 +1,627 @@
 % !TeX root = ../../book.tex
 \section{逻辑等价}
+
+本节的主要目标是介绍\textbf{逻辑等价}的概念并证明一些基本命题。本质上，我们想要确定复杂的逻辑陈述实际上是否具有``相同的''真值。由于数学陈述可能依赖于某些命题变量，因此我们可能无法对其真值做出具体结论。然而，我们有时可以证明两个数学陈述对于它们所包含的变量的所有可能值都具有\emph{相同的真值}。这是一个非常好的结论！我们可以说它们具有相同的真值，无论它是什么。从这个意义上讲，我们正在证明这两个陈述在逻辑上是\textbf{等价的}。
+
+\subsection{定义与使用}
+
+以下定义为上一段中描述的逻辑等价概念引入了一个方便的符号：
+
+\begin{definition}
+    令 $P$ 和 $Q$ 为数学陈述。我们使用符号 ``$\iff$'' 表示``\dotuline{逻辑等价}于''，或``具有相同的真值''。
+
+    也就是说，当 $P$ 和 $Q$ 始终具有相同的真值时，无论为\verb|真|还为\verb|假|，我们都写为 ``$P \iff Q$''。
+
+    ``$P \iff Q$'' 读作，``$P$ 逻辑等价于 $Q$'' 或 ``$P$ \dotuline{当且仅当} $Q$''。
+
+    这种类型的陈述称为\dotuline{双向条件关系}（或\dotuline{双向蕴含}）。
+\end{definition}
+
+让我们复用上一节中的真值表，并为 $\iff$ 符号添加一列新列：
+
+\begin{center}
+    \begin{tabular}{c|c|c|c|c|c|c}
+          $P$      & $Q$      & $\neg P$ &  $\neg P \lor Q$ & $P \implies Q$ & $Q \implies P$ & $P \iff Q$ \\
+          \hline
+          \verb|T| & \verb|T| & \verb|F| &      \verb|T|    &    \verb|T|    &    \verb|T|    & \verb|T|\\
+          \verb|T| & \verb|F| & \verb|F| &      \verb|F|    &    \verb|F|    &    \verb|T|    & \verb|F|\\
+          \verb|F| & \verb|T| & \verb|T| &      \verb|T|    &    \verb|T|    &    \verb|F|    & \verb|F|\\
+          \verb|F| & \verb|F| & \verb|T| &      \verb|T|    &    \verb|T|    &    \verb|T|    & \verb|T|\\
+    \end{tabular}
+\end{center}
+在 $P \iff Q$ 列中，当（且仅当）$P$ 和 $Q$ 具有相同真值时，该项具有真值 \verb|T|。这种情况发生在第 $1$ 行（两者都为 \verb|T|）和第 $4$ 行（两者都为 \verb|F|）。请注意，$P \iff Q$ 具有真值 \verb|T| 当且仅当
+\[(P \implies Q) \land (Q \implies P)\]
+是一个真命题。这就是\textbf{逻辑等价}的概念：$P \iff Q$ 意味着 $P \implies Q$ 和 $Q \implies P$ 同时成立。无论 $P$ 的真值如何，$Q$ 都保证具有相同的真值，反之亦然：
+\begin{itemize}
+    \item 假设 $P$ 为\verb|真|，则 $P \implies Q$ 告诉我们 $Q$ 也必须为\verb|真|。
+    \item 假设 $P$ 为\verb|假|，则 $Q \implies P$ 告诉我们 $Q$ 不可能为\verb|真|（因为在这种情况下 $Q \implies P$ 将为\verb|假|），因此 $Q$ 也必须为\verb|假|。
+\end{itemize}
+无论哪种情况，$P$ 和 $Q$ 都具有相同的真值。
+
+\subsubsection*{示例}
+
+\begin{example}
+    回看上面真值表中的第三列和第四列。他们证明了以下逻辑等价关系：
+    \[(P \implies Q) \iff (\neg P \lor Q)\]
+    无论 $P \implies Q$ 的真值是什么（当然，取决于 $P$ 和 $Q$），它都必然与 $\neg P \lor Q$ 具有相同的真值。我们之前已经提到过这种等价关系，将来我们会经常用到它。
+\end{example}
+
+\begin{example}
+    请看下面的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c}
+              $P$      & $Q$      & $\neg P$ &  $\neg Q$  & $P \implies Q$ & $\neg Q \implies \neg P$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|F| &  \verb|F|  &    \verb|T|    &    \verb|T|    \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|T|  &    \verb|F|    &    \verb|F|    \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|F|  &    \verb|T|    &    \verb|T|    \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|T|  &    \verb|T|    &    \verb|T|    \\
+        \end{tabular}
+    \end{center}
+    无论 $P$ 和 $Q$ 的真值如何，我们发现 $P \implies Q$ 和 $\neg Q \implies \neg P$ 具有相同的真值。因此，它们是\emph{逻辑等价}的，我们可以写做：
+    \[(P \implies Q) \iff (\neg Q \implies \neg P)\]
+    这是我们上一节中陈述（但没有证明）的事实：
+    \begin{center}
+        条件陈述的逆否命题与原陈述逻辑等价。
+    \end{center}
+
+    这一事实的另一种证明方法利用了将条件陈述改写为析取的方式。回忆一下上一个示例中提到的逻辑等价关系
+    \[(P \implies Q) \iff (\neg P \lor Q)\]
+    现在，考虑原始条件陈述的逆否形式：
+    \[\neg Q \implies \neg P\]
+    将相同的析取形式应用于该陈述会产生以下等价关系：
+    \[(\neg Q \implies \neg P) \iff \big(\neg(\neg Q) \lor \neg P\big)\]
+    而 $\neg(\neg Q)$ 等价于 $Q$，并且析取的顺序是无关的（即 $P \lor Q$ 和 $Q \lor P$ 具有相同的真值），因此我们得到
+    \[(\neg Q \implies \neg P) \iff (\neg P \lor Q) \iff (P \implies Q)\]
+    这从另一个角度证明了，条件陈述与其逆否形式具有相同的真值！
+\end{example}
+
+\begin{example}
+    在本节后面部分，我们将证明以下逻辑等价，无论命题 $P$、$Q$ 和 $R$ 是什么，它们都成立：
+    \begin{align*}
+        \neg(P \land Q) &\iff \neg P \lor \neg Q \\
+        (P \land Q) \land R &\iff P \land (Q \land R) \\
+        P \lor (Q \land R) &\iff (P \lor Q) \land (P \lor R) \\
+        \neg (P \implies Q) &\iff P \land \neg Q
+    \end{align*}
+    其中每一个都断言 $\iff$ 符号两边的表达式具有相同的真值。你能弄明白为什么这些说法是正确的吗？你能想到如何证明它们吗？
+\end{example}
+
+\subsubsection*{当且仅当}
+
+逻辑等价与短语``当且仅当''具有良好的关系。说 ``$P$ 当且仅当 $Q$'' 意味着我们断言 ``$P$ 当 $Q$'' 且 ``$P$ 仅当 $Q$'' 都成立。其中一个对应于 $P \implies Q$，另一个对应于 $Q \implies P$，因此断言两者都为\verb|真|意味着正如我们所描述的：
+\begin{center}
+    $P \iff Q$ 与 $(P \implies Q) \land (Q \implies P)$ 含义相同。
+\end{center}
+
+那么，哪一个对应哪一个呢？当我们说 ``$P$ 当 $Q$'' 时，这意味着 ``如果 $Q$，则 $P$''。即，
+\begin{center}
+    $P$ 当 $Q$ 与 $Q \implies P$ 含义相同。
+\end{center}
+
+要弄清楚另一个方向有点困难！``$P$ 仅当 $Q$'' 的真正含义是什么？这句话断言，在 $P$ 成立的情况下，$Q$ 也一定成立。也就是说，知道 $P$ 成立意味着我们也立即知道 $Q$ 成立。换句话说，只要 $P$ 为真，我们就必然知道 $Q$ 为真。这相当于 $P \implies Q$ 成立！
+
+另一种思考方式是这样的。说 ``仅当 $Q$ 时 $P$'' 与说 ``不可能 $P$ 成立而 $Q$ 不成立'' 相同。该陈述的逻辑表达式为
+\[\neg(P \land \neg Q)\]
+在本节后面部分，我们将讲解并证明\textbf{德摩根逻辑定律}。其中一条定律告诉我们如何否定括号内的陈述。（事实上，你可能已经知道这些逻辑定律。如果不知道，你可以先预览一下 \ref{sec:section4.6.5} 和 \ref{sec:section4.6.6} 节。）结论是：
+\[\neg P \lor Q\]
+正如我们已将发现的，这逻辑等价于 $P \implies Q$！酷。再一次证实 ``P 仅当 Q'' 意味着 $P \implies Q$。
+
+\subsubsection*{在定义中使用 $\iff$}
+
+我们会经常在\textbf{定义}中使用 ``$\iff$'' 符号来指示所定义的术语是定义中所用属性的等效术语。
+例如：
+\begin{center}
+    我们说 $x \in \mathbb{Z}$ 为\textbf{偶数} $\iff \exists k \in \mathbb{Z} \centerdot x = 2k$
+\end{center}
+也就是说，整数为偶数的概念相当于知道该数字是某整数的两倍。类似地，我们可以定义\textbf{奇数}：
+\begin{center}
+    我们说 $x \in \mathbb{Z}$ 为\textbf{奇数} $\iff \exists k \in \mathbb{Z} \centerdot x = 2k+1$
+\end{center}
+请注意，以上是正式定义，并且是保证整数为偶数（或奇数）的唯一方法。我们很快就会使用这些定义来严格证明有关整数和算术的一些事实。每次我们想要断言一个特定的整数（称之为 $x$）是偶数时，我们需要证明存在一个满足 $x = 2k$ 的整数 $k$。也就是说，我们必须通过诉诸定义中给出的逻辑等价来\emph{满足定义}。
+
+\subsubsection*{双向条件陈述：技术上的区别}
+
+我们还可以使用 ``$\iff$'' 符号同时表达两个条件陈述。从技术上讲，这与断言逻辑等价并\emph{不完全}相同，但它传达了类似的思想，因此我们允许以两种方式使用该符号。
+
+逻辑等价涉及一些未定义的命题，它断言两个命题将具有相同的真值，而不管这些命题的真值如何。例如，
+\[(P \implies Q) \iff (\neg P \lor Q)\]
+是逻辑等价的良好例子。如果不告诉你 $P$ 和 $Q$ 是什么，我们就无法确定 $P \implies Q$ 和 $\neg P \land Q$ 到底是什么意思。然而，我们不需要知道 $P$ 和 $Q$ 具体是什么就可以知道这两个陈述肯定具有相同的真值。
+
+当 ``$\iff$'' 两侧的陈述实际上是正确的数学陈述，没有未定义的命题时，情况则略有不同。例如，考虑以下陈述：
+\[\forall x \in \mathbb{R} \centerdot (x > 0) \iff \Big(\frac{1}{x}>0\Big)\]
+这是一个逻辑断言，它断言，只要 $x$ 为实数，知道这两个事实之一（$x > 0$ 或 $\frac{1}{x} > 0$）成立就必然保证另一个事实成立。也就是说，如果我告诉你我心里有一个实数并且它为正数，你就会得出结论，它的倒数也为正数。反过来，如果我告诉你我心里有一个实数，其倒数为正数，你就会得出结论，这个数本身也为正数。这是\emph{双向的}。（问题：如果我告诉你我心里有一个\emph{负}实数会怎样？你能得出关于其倒数的任何结论吗？为什么能或为什么不能？）
+
+你看出这有什么区别了吗？给定任意 $x \in \mathbb{R}$，陈述 ``$x > 0$'' 肯定为\verb|真|或为\verb|假|。它的真值并非悬而未决。这与上面给出的例子不同，在上面给出的例子中，各个陈述的真值是未知的，但我们仍然可以声明两个陈述的真值必然是相同的。
+
+由于缺乏更好、更广泛的术语来描述此类陈述，我们将它们称为\textbf{双向条件陈述}。这是因为它们实际上代表了两个``方向相反''的条件陈述：
+\[\forall x \in \mathbb{R} \centerdot \Bigg[\Bigg((x > 0) \implies \Big(\frac{1}{x}>0\Big)\Bigg) \land \Bigg(\Big(\frac{1}{x}>0\Big) \implies (x > 0)\Bigg)\Bigg]\]
+这就是上面陈述所说的：陈述的每一部分都蕴涵着另一部分。
+
+该术语在其他数学著作中不一定是标准术语，但我们想指出这种技术差异，以便你了解它。你可能会在数学逻辑学家或集合论学家面前使用``逻辑等价''这个短语，他们可能会感到困惑或对你使用它的方式感到冒犯。请注意，这并不是一个大问题！由于我们现在是初次学习这些基本思想，因此我们不一定要记住这些概念背后的所有技术细节。此外，在本书的其余部分中，我们可以互换使用``逻辑等价''和``双x向条件''。目前这么做没什么问题，是可以接受的。
+
+使用 ``$\iff$'' 符号的主要目的是断言两个陈述\emph{具有相同的真值}。``逻辑等价''和``双向条件''之间唯一的区别在于其中包含的陈述是否具有任意未定义的命题。从总体上看，这是一个很小的区别，所以我们在这里简单粗暴地将它们合在一起。
+
+\subsection{必要条件和充分条件}
+
+数学中偶尔会使用两个术语来表达双向条件陈述的两个方向：\textbf{充分条件}和\textbf{必要条件}。它们与双向条件的``当''和``如果''完全对应。这些术语是由数学家所提问题的自然类型带来的。
+
+\subsubsection*{充分条件：$P$ 当 $Q$}
+
+如果我们发现了一个数学对象的一些有趣的事实或属性（称之为 $P$），我们可能会想，``我们什么时候才能\emph{保证}这样的属性成立？我们是否可以检验某些条件，以便立即给出`肯定'的答案？'' 这就是\textbf{充分条件}，能够保证 $P$ 成立的属性。它是``充分''的，因为它``足以''得出 $P$ 的结论；我们不需要任何其他额外信息。
+
+假设我们已经将命题 $Q$ 确定为 $P$ 的充分条件。我们如何逻辑地表达这一点呢？好吧，知道 $Q$ 就足以得出 $P$ 的结论，所以我们可以轻松地将其写为条件陈述：
+\begin{center}
+    $Q \implies P \qquad$ 意味着 $Q$ 是 $P$ 的充分条件
+\end{center}
+换句话说，这个条件陈述表达的是：``$P$ 当 $Q$''。
+
+\subsubsection*{必要条件：$P$ 仅当 $Q$}
+
+我们也可能想知道，``我们如何保证 $P$ 为假？我们是否可以检验某些条件从而立即得知这一点？''这就是\textbf{必要条件}，即属性 $P$ 成立所必需或必要的属性。这个条件不一定足以得出 $P$ 成立的结论，但为了让 $P$ 有可能成立，这个条件最好也成立。
+
+思考一下这里的逻辑联系。假设我们已知属性 $Q$ 是 $P$ 的必要条件。我们如何符号化地表达 $P$ 和 $Q$ 之间的关系？没错，我们可以使用条件陈述。知道 $P$ 成立就告诉我们 $Q$ 肯定成立；$P$ 必然为真。这可以表示为
+\begin{center}
+    $P \implies Q \qquad$ 意味着 $Q$ 是 $P$ 的必要条件
+\end{center}
+换句话说，这个条件陈述表达的是：``$P$ 仅当 $Q$''。
+
+我们也可以从逆否的角度来思考这一点。如果 $Q$ 不成立，则 $P$ 也不成立。即，
+\[\neg Q \implies \neg P\]
+这是上面条件陈述 $P \implies Q$ 的逆否形式。我们知道这是原陈述的逻辑等价形式。
+
+\subsubsection*{示例}
+
+\begin{example}
+    令 $P(x)$ 表示命题 ``$x$ 为能被 $6$ 整除的整数''。对于以下每个条件，确定其是否是 $P(x)$ 成立的\textbf{必要}条件或\textbf{充分}条件（或可能两者都是！）。
+    \begin{enumerate}[label=(\arabic*)]
+        \item 令 $Q(x)$ 为 ``$x$ 为可被 $3$ 整除的整数''。
+            \begin{itemize}
+                \item 为了确定 $Q(x)$ 是否是必要条件，我们假设 $P(x)$ 成立。我们也能推导出 $Q(x)$ 成立吗？是的！说一个整数 $x$ 能被 $6$ 整除，意味着它能被 $2$ 和 $3$ 整除。因此，它肯定能被 $3$ 整除，所以 $Q(x)$成立。
+                \item 为了确定 $Q(x)$ 是否是充分条件，我们假设 $Q(x)$ 成立。我们也能推导出 $P(x)$ 成立吗？知道 $x$ 是一个能被 $3$ 整除的整数，那么它是否也\emph{一定}能被 $2$ 整除，从而得出它能被 $6$ 整除的结论？我们认为不是！举个反例 $x = 3$；注意 $Q(3)$ 成立，但 $P(3)$ 不成立。
+            \end{itemize}
+            这说明 $Q(x)$ 只是必要条件，不是充分条件。
+        \item 令 $R(x)$ 为 ``$x$ 为可被 $12$ 整除的整数''。\\
+            按照与上例类似的推理，我们可以得出结论，$R(x)$ 是 $P(x)$ 的充分条件，但不是必要条件（因为我们可以举出反例 $x = 6$，其中 $P(6)$ 成立，但 $R(6)$ 不成立）。
+        \item 令 $S(x)$ 为 ``$x$ 为 $x^2$ 可被 $6$ 整除的整数''。\\
+            这个问题留给你来完成……$S(x)$ 是 $P(x)$ 的必要条件吗？是充分条件吗？\\
+            请注意我们给定 $x$ 本身是一个整数……
+    \end{enumerate}
+\end{example}
+
+\subsection{证明逻辑等价：结合律}
+
+现在，让我们实际\textbf{证明}一些逻辑等价！在此过程中，我们将努力提高使用量词和连词来阅读、理解和编写逻辑陈述的能力。我们还将推导出一些基本的逻辑结论，让我们可以在不久的将来应用这些结论来发展证明技术。这些技术将成为我们其他工作的基础，我们所做的其他一切都将涉及这些证明策略和逻辑概念的某种组合。
+
+让我们从一些较简单的符号逻辑定律开始。某些事物满足\emph{结合律}本质上意味着我们可以随意地``绕过括号''并最终得到相同的结果。你经常使用加法满足结合律这一事实！要将 $x$ 与 $y + z$ 相加，只需将 $z$ 与 $x+y$ 相加即可，我们知道会得到相同的答案。也就是说，我们可以放心地说
+\[x + (y + z) = (x + y) + z\]
+我们可以将括号移动到任何我们想要的地方，所以最终我们可以省略它们，然后写做
+\[x+y+z\]
+因为加法的顺序是无关紧要的。同样的结论也适用于逻辑陈述的合取和析取，这就是我们现在要证明的。
+
+\begin{theorem}
+    设 $P, Q, R$ 为逻辑陈述。则
+    \[P \land (Q \land R) \iff (P \land Q) \land R\]
+    且
+    \[P \lor (Q \lor R) \iff (P \lor Q) \lor R\]
+\end{theorem}
+
+实际上，我们将通过两种不同的方式证明此命题：
+\begin{enumerate}[label=(\arabic*)]
+    \item 通过真值表
+    \item 通过语义（即单词）
+\end{enumerate}
+它们都是有效的证明，但我们想向你展示它们，以便你决定更喜欢哪种风格。
+
+\begin{proofs}{证明 1. }
+    首先，我们通过真值表证明该命题。观察合取的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c}
+              $P$    & $Q$   & $R$ & $P \land Q$ &  $Q \land R$  & $P \land (Q \land R)$ & $(P \land Q) \land R$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|T| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|T| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|T| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|F|  &    \verb|T|    &\verb|F| &    \verb|F|    \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|F| & \verb|F| & \verb|F| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+        \end{tabular}
+    \end{center}
+
+    因为 $P \land (Q \land R)$ 和 $(P \land Q) \land R$ 在每种情况下都具有相同的真值，因此 $P \land (Q \land R) \iff (P \land Q) \land R$。\\
+
+    接着观察析取的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c}
+              $P$    & $Q$   & $R$ & $P \lor Q$ &  $Q \lor R$  & $P \lor (Q \lor R)$ & $(P \lor Q) \lor R$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|T| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|T| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|T| & \verb|F| & \verb|T| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|T|  &    \verb|F|    &\verb|T| &    \verb|T|    \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|F| & \verb|F| & \verb|F| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+        \end{tabular}
+    \end{center}
+
+    因为 $P \lor (Q \lor R)$ 和 $(P \lor Q) \lor R$ 在每种情况下都具有相同的真值，因此 $P \lor (Q \lor R) \iff (P \lor Q) \lor R$。
+\end{proofs}
+
+\begin{proofs}{证明 2. }
+    接着，让我们通过语义分析来证明该命题。考虑第一个命题，
+    \[P \land (Q \land R) \iff (P \land Q) \land R\]
+    为了证明符号两侧是\emph{逻辑等价}的，我们需要证明以下两个条件陈述都为\verb|真|：
+    \[P \land (Q \land R) \implies (P \land Q) \land R\]
+    \[(P \land Q) \land R \implies P \land (Q \land R)\]
+    \begin{itemize}
+        \item[($\implies$)] 首先，我们来证明第一个条件陈述。假设 $P \land (Q \land R)$ 为\verb|真|。这意味着 $P$ 为\verb|真|且 $Q \land R$ 为\verb|真|。根据定义，这意味着 $P$ 为\verb|真|，$Q$ 为\verb|真|，$R$ 为\verb|真|。当然，根据定义，$P \land Q$ 为\verb|真|，$R$ 为\verb|真|。因此，$(P \land Q) \land R$ 也为\verb|真|。 
+        \item[($\impliedby$)] 接着，我们来证明第二个条件陈述。假设 $(P \land Q) \land R$ 为\verb|真|。这意味着 $P \land Q$ 为\verb|真|且 $R$ 为\verb|真|。根据定义，这意味着 $P$ 为\verb|真|，$Q$ 为\verb|真|，$R$ 为\verb|真|。当然，根据定义，$P$ 为\verb|真|，$Q \land R$ 为\verb|真|。因此，$P \land (Q \land R)$ 也为\verb|真|。
+    \end{itemize}
+    由于我们已经证明了上述两个条件陈述成立，因此我们可以得出结论，二者确实是逻辑等价的。\\
+
+    接下来，考虑该定理的第二个命题，
+    \[P \lor (Q \lor R) \iff (P \lor Q) \lor R\]
+    为了证明符号两侧是\emph{逻辑等价}的，我们需要证明以下两个条件陈述都为\verb|真|：
+    \[P \lor (Q \lor R) \implies (P \lor Q) \lor R\]
+    \[(P \lor Q) \lor R \implies P \lor (Q \lor R)\]
+    \begin{itemize}
+        \item[($\implies$)] 我们先来证明第一个条件陈述。假设 $P \lor (Q \lor R)$ 为\verb|真|。这意味着 $P$ 为\verb|真|或 $Q \lor R$ 为\verb|真|。这里有两种情况。
+        \begin{enumerate}
+            \item 假设 $P$ 为\verb|真|。根据定义，这意味着 $P \lor Q$ 为\verb|真|。因此，根据定义 $(P \lor Q) \lor R$ 也为\verb|真|。
+            \item 假设 $Q \lor R$ 为\verb|真|。 这意味着 $Q$ 为\verb|真|或 $R$ 为\verb|真|。同样地，这里又有两种情况。
+            \begin{enumerate}[label=(\alph*)]
+                \item 假设 $Q$ 为\verb|真|。根据定义，这意味着 $P \lor Q$ 为\verb|真|。因此，根据定义 $(P \lor Q) \lor R$ 也为\verb|真|。
+                \item 假设 $R$ 为\verb|真|。根据定义，这意味着 $(P \lor Q) \lor R$ 为\verb|真|。
+            \end{enumerate}
+        \end{enumerate} 
+        无论何种情况，我们都得到 $(P \lor Q) \lor R$ 为\verb|真|。因此，该条件陈述为\verb|真|。
+        \item[($\impliedby$)] 我们再来证明第二个条件陈述。假设 $(P \lor Q) \lor R$ 为\verb|真|。这意味着 $P \lor Q$ 为\verb|真|或 $R$ 为\verb|真|。这里有两种情况。
+        \begin{enumerate}
+            \item 假设 $P \lor Q$ 为\verb|真|。这意味着 $P$ 为\verb|真|或 $Q$ 为\verb|真|。这里又有两种情况。
+            \begin{enumerate}[label=(\alph*)]
+                \item 假设 $P$ 为\verb|真|。根据定义，这意味着 $P \lor (Q \lor R)$ 为\verb|真|。
+                \item 假设 $Q$ 为\verb|真|。根据定义，这意味着 $Q \lor R$ 为\verb|真|。因此，根据定义，$P \lor (Q \lor R)$ 为\verb|真|。
+            \end{enumerate}
+            \item 假设 $R$ 为\verb|真|。根据定义，这意味着 $Q \lor R$ 为\verb|真|。因此，根据定义，$P \lor (Q \lor R)$ 为\verb|真|。
+        \end{enumerate}   
+        无论何种情况，我们都得到 $P \lor (Q \lor R)$ 为\verb|真|。因此，该条件陈述为\verb|真|。 
+    \end{itemize}
+    由于我们已经证明了上述两个条件陈述成立，因此我们可以得出结论，二者确实是逻辑等价的。
+\end{proofs}
+
+仔细理解上述证明，我们通过这些证明完成了什么？我们已经证明了什么，如何证明？为什么它有效？
+
+在继续讨论和比较这两种证明方法之前，让我们先提一下这些证明的结论。我们证明了逻辑连词 ``$\land$'' 和 ``$\lor$'' 满足结合律，因此我们在处理仅涉及一个此类连词的陈述时，括号的顺序并不重要。例如，我们知道 ``$P \land (Q \land R)$'' 与 ``$(P \land Q) \land R$'' 具有相同的含义。因此，以后我们会省略括号，只写做：`$P \land Q \land R$''。
+
+\subsubsection*{反思：真值表与语义证明}
+
+我们先来谈谈真值表。由于 $P,Q,R$ 为逻辑陈述，因此它们各自的真值要么为\verb|真|要么为\verb|假|。真值表的八行考虑了这三个成分陈述所有可能的真值组合。前三列告诉我们 $P,Q,R$ 为真还是为假。接下来的两列对应于命题中逻辑陈述的更复杂的组成部分，最后两列对应于定理中的两个实际命题。通过比较最后两列，我们可以确定这两个陈述在逻辑上是否等价。（请记住，``逻辑等价''的意思是``无论给 $P, Q, R$ 分配什么真值，都具有相同的真值''。因此，观察到最后两列逐行具有相同的真值，就足以表明这两个陈述是逻辑等价的。）
+
+接下来，我们来谈谈语义证明。你对这种证明方式感觉如何？你一定会觉得这种证明方法很冗长，对吧？不过，抛开这一点，这种证明方法是良好的证明吗？整个证明过程清楚吗？逻辑是正确的吗？重读上面的证明并思考这些问题。需要强调的是这里的证明是完全正确的。当试图证明析取（``或''陈述）成立时，分情况讨论至关重要。当我们假设某件事为\verb|真|并推断其他事为\verb|真|时，这就是我们证明条件陈述为\verb|真|的方式。我们很快就会进一步分析这些技术，但我们希望为你提供这个示例对你以后有所帮助。
+
+在本节的其余部分，我们将使用真值表来验证此类简单的命题。这种证明方式要短得多！我们认为，如果你需要更加令人信服的证明或额外练习将符号逻辑命题解释为自然语言句子，你可以详细了解语义证明，就像我们上面给出的那样。
+
+\subsection{证明逻辑等价：分配律}
+
+算术中，你一定知道乘法分配率。也就是说，我们知道
+\[\forall x, y, z \in \mathbb{R} \centerdot x \cdot (y + z) = x \cdot y + x \cdot z\]
+我们用符号表示法写了出来！你明白为什么它表达了你所知的乘法分配律规则吗？
+
+在这里我们将研究并证明两个类似的定律。他们会告诉我们逻辑连词 ``$\land$'' 和 ``$\lor$'' 也满足分配。
+
+\begin{theorem}
+    设 $P, Q, R$ 为逻辑陈述。则
+    \[P \land (Q \lor R) \iff (P \land Q) \lor (P \land R)\]
+    且
+    \[P \lor (Q \land R) \iff (P \lor Q) \land (P \lor R)\]
+\end{theorem}
+
+\begin{proof}
+    我们使用真值表来验证这两个命题。对于第一个命题，请看下面的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c|c}
+              $P$ & $Q$ & $R$ & $Q \lor R$ & $P \land Q$  & $P \land R$ & $P \land (Q \lor R)$ & $(P \land Q) \lor (P \land R)$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|T| &  \verb|T|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|T| & \verb|F| &  \verb|T|  &   \verb|T|   &\verb|F| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|F| & \verb|T| &  \verb|T|  &   \verb|F|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|F|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|T|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|T|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|T|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|F| & \verb|F| &  \verb|F|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+        \end{tabular}
+    \end{center}
+
+    请注意，最后两列的真值是相同的，从而证明了要求的逻辑等价。\\
+
+    对于第二个命题，请看下面的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c|c}
+              $P$ & $Q$ & $R$ & $Q \land R$ & $P \lor Q$  & $P \lor R$ & $P \lor (Q \land R)$ & $(P \lor Q) \land (P \lor R)$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|T| &  \verb|T|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|T| & \verb|F| &  \verb|F|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|F| & \verb|T| &  \verb|F|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|F|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|T|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|F|  &   \verb|T|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|F|  &   \verb|F|   &\verb|T| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|F| & \verb|F| &  \verb|F|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+        \end{tabular}
+    \end{center}
+
+    同理，最后两列的真值是相同的，从而证明了要求的逻辑等价。
+\end{proof}
+
+\subsection{证明逻辑等价：德摩根定律（逻辑）}\label{sec:section4.6.5}
+
+接下来我们会证明一些涉及否定的逻辑等价。以下两条定律以英国数学家\textbf{奥古斯塔斯·德·摩根(Augustus De Morgan)}的名字命名。他因建立这些逻辑定律以及引入\textbf{数学归纳法}这一术语而广受赞誉！我们深深感激他在数学方面的工作。
+
+德摩根逻辑定律陈述了一些关于否定合取和析取的逻辑等价。
+
+\begin{theorem}
+    设 $P$ 和 $Q$ 为逻辑陈述。则
+    \[\neg (P \land Q) \iff \neg P \lor \neg Q\]
+    且
+    \[\neg (P \lor Q) \iff \neg P \land \neg Q\]
+\end{theorem}
+
+\begin{proof}
+    我们通过真值表证明第一个命题：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c}
+              $P$      & $\neg P$ &   $Q$   &  $\neg Q$  & $P \land Q$ & $\neg (P \land Q)$ & $\neg P \lor \neg Q$ \\
+              \hline
+              \verb|T| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|T|    &    \verb|F|   & \verb|F| \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|T|  &    \verb|F|    &    \verb|T|   & \verb|T| \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|F|  &    \verb|F|    &    \verb|T|   & \verb|T| \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|F|    &    \verb|T|   & \verb|T| \\
+        \end{tabular}
+    \end{center}
+    
+    然后用真值表证明第二个命题：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c}
+              $P$      & $\neg P$ &   $Q$    &  $\neg Q$  & $P \lor Q$ & $\neg (P \lor Q)$ & $\neg P \land \neg Q$ \\
+              \hline
+              \verb|T| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|T|    &    \verb|F|   & \verb|F| \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|T|  &    \verb|T|    &    \verb|F|   & \verb|F| \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|F|  &    \verb|T|    &    \verb|F|   & \verb|F| \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|F|    &    \verb|T|   & \verb|T| \\
+        \end{tabular}
+    \end{center}
+\end{proof}
+
+这两条定律非常有用！事实上，我们可以用它们来证明关于集合的类似陈述。
+
+\subsection{使用逻辑等价：德摩根定律（集合）}\label{sec:section4.6.6}
+
+以下陈述 ``看起来很像'' 我们上面看到的德摩根逻辑定律中的陈述。当我们看过证明后，就会明白为什么它们看起来如此相似！
+
+\begin{theorem}
+    设 $A, B$ 为任意集合，并假设 $A, B \subseteq U$，因此补集运算是在全集 $U$ 上定义的。那么，
+    \[\overline{A \cup B} = \overline{A} \cap \overline{B}\]
+    且
+    \[\overline{A \cap B} = \overline{A} \cup \overline{B}\]
+\end{theorem}
+
+我们将使用逻辑等价和德摩根逻辑定律来证明这一定理。我们的方法将证明，在任何一种情况下，等式左侧集合元素的属性在逻辑上等价于右侧集合元素的属性。这同时证明了双重包含论证法的两个部分。
+
+\begin{proof}
+    我们先来证明第一个集合相等关系。设 $x \in U$ 是任意固定元素。则，
+    \begin{align*}
+        x \in \overline{A \cup B} &\iff x \notin A \cup B &\quad \text{补集的定义}\\
+        &\iff \neg(x \in A \cup B) &\quad \notin \text{的定义}\\
+        &\iff \neg[(x \in A) \lor (x \in B)] &\quad \cup \;\text{和} \lor \text{的定义}\\
+        &\iff \neg(x \in A) \land \neg(x \in B) &\quad \text{德摩根逻辑定律}\\
+        &\iff (x \notin A) \land (x \notin B) &\quad \notin \text{的定义}\\
+        &\iff x \in \overline{A} \land x \in \overline{B} &\quad \text{补集的定义}\\
+        &\iff x \in \overline{A} \cap \overline{B} &\quad \land \;\text{和} \cap \text{的定义}
+    \end{align*}
+    请记住，``$\land$'' 是逻辑运算，而 ``$\cap$'' 是集合运算。我们必须小心我们写的每句话中用哪个运算才有意义。另外，请注意，我们在证明中间使用了德摩根逻辑定律，将析取的否定转换为两个否定的合取。
+
+    这个逻辑等价链表明
+    \[x \in \overline{A \cup B} \iff x \in \overline{A} \cap \overline{B}\]
+    因此，在全集 $U$ 上，$\overline{A \cup B}$ 中元素的属性在逻辑上等价于 $\overline{A} \cap \overline{B}$ 中元素的属性。因此，
+    \[\overline{A \cup B} = \overline{A} \cap \overline{B}\]
+
+    接着我们用类似的方法来证明第二个等式。设 $x \in U$ 是任意固定元素。则，
+    \begin{align*}
+        x \in \overline{A \cap B} &\iff x \notin A \cap B &\quad \text{补集的定义}\\
+        &\iff \neg(x \in A \cap B) &\quad \notin \text{的定义}\\
+        &\iff \neg[(x \in A) \land (x \in B)] &\quad \cap \;\text{和} \land \text{的定义}\\
+        &\iff \neg(x \in A) \lor \neg(x \in B) &\quad \text{德摩根逻辑定律}\\
+        &\iff (x \notin A) \lor (x \notin B) &\quad \notin \text{的定义}\\
+        &\iff x \in \overline{A} \lor x \in \overline{B} &\quad \text{补集的定义}\\
+        &\iff x \in \overline{A} \cup \overline{B} &\quad \lor \;\text{和} \cup \text{的定义}
+    \end{align*}
+
+    这个逻辑等价链表明
+    \[x \in \overline{A \cap B} \iff x \in \overline{A} \cup \overline{B}\]
+    因此，在全集 $U$ 上，$\overline{A \cap B}$ 中元素的属性在逻辑上等价于 $\overline{A} \cup \overline{B}$ 中元素的属性。因此，
+    \[\overline{A \cap B} = \overline{A} \cup \overline{B}\]
+
+    综上，我们证明了定理中所述的两个等式。
+\end{proof}
+
+请注意这两个证明之间惊人的相似之处。他们使用完全相同的方法，唯一的区别是将 ``$\cap$'' 翻转为 ``$\cup$''，反之亦然。因为我们已经证明了如何做到这一点（德摩根逻辑定律），所以我们可以引用该结果并使这个证明简短而有趣。你是否同意这比用双重包含论证法证明两个集合相等要容易得多、简洁得多？（尝试一下！）
+
+\subsection{通过条件陈述证明集合包含}
+
+只要有可能，就多使用我们在上一节中使用的方法，以及德摩根逻辑和集合定律；也就是说，可以随意通过条件陈述和逻辑等价证明集合关系。一般来说，当你证明相等时，你需要确保你的所有主张确实都是 ``$\iff$'' 主张。在上一节中，我们只应用了关于逻辑等价的定义和定理，因此我们肯定证明中 ``$\iff$'' 箭头的所有方向都是成立的。每当你写出这样的证明时，完成后回过头再读一遍，并在每一行问自己：``这真的正确吗？这里的含义是双向的吗？''
+
+让我们看看该技术的另一个实际例子。它会稍微复杂一些，因为给出的主张与德摩根逻辑定律本质上并不相同，因此我们必须定义一些变量命题。不过，我们会引用我们刚刚证明的逻辑定律，并用它来建立集合定律。
+
+\begin{proposition}
+    设 $A, B, C$ 为任意集合，且 $A, B, C \subseteq U$，其中 $U$ 为全集。则，
+    \[A \cap (B - C) = (A \cap B) - C\]
+\end{proposition}
+
+与前面的例子（德摩根集合定律）非常相似，我们将在左侧元素和右侧元素之间建立逻辑等价关系。（同样地，这就像同时证明双重包含证明的两面。）为此，我们只需建立一些变量命题，分别指代 $A, B, C$ 元素的属性。接下来，结果将遵循逻辑法则。
+
+\begin{proof}
+    设 $A, B, C$ 为任意集合，且 $A, B, C \subseteq U$，其中 $U$ 为全集。我们定义以下变量命题：
+    \begin{center}
+        设 $P(x)$ 为 ``$x \in A$'' \\
+        设 $Q(x)$ 为 ``$x \in B$'' \\
+        设 $R(x)$ 为 ``$x \in C$'' \\
+    \end{center}
+    设 $x \in U$ 是任意固定元素。有了这些定义，我们可以编写以下逻辑等价链：
+    \begin{align*}
+        x \in A \cap (B - C) &\iff x \in A \land (x \in B - C) &\quad \cap \text{的定义} \\
+        &\iff x \in A \land (x \in B \land x \notin C) &\quad - \text{的定义}\\
+        &\iff P(x) \land (Q(x) \land \neg R(x)) &\quad P(x), Q(x), R(x), \notin \text{的定义} \\
+        &\iff (P(x) \land Q(x)) \land \neg R(x) &\quad \land \text{分配律} \\
+        &\iff (x \in A \land x \in B) \land x \notin C &\quad P(x), Q(x), R(x) \text{的定义}\\
+        &\iff (x \in A \cap B \land x \notin C) &\quad \cap \text{的定义} \\
+        &\iff x \in (A \cap B) - C &\quad - \text{的定义}
+    \end{align*}
+    这表明
+    \[x \in A \cap (B - C) \iff x \in (A \cap B) - C\]
+    对于全集 $U$ 中的任何元素 $x$ 都成立。因此，
+    \[A \cap (B - C) = (A \cap B) - C\]
+\end{proof}
+
+想想为什么我们需要确保所有这些声明都是正确的\emph{当且仅当}陈述。我们确保等式一侧集合中元素的任意元素 $x$ 也必然是另一侧集合的元素；但是，此外，我们还确保任何不是集合元素的元素 $x$ 也不是另一个集合的元素。双向条件陈述``两个方向都成立''，因此我们同时证明了主张的``是……的元素''和``不是……的元素''。
+
+为了说明我们之前的警告，请考虑以下声明的示例证明，其中 $\iff$ 声明在一个``方向''上不成立。
+
+\begin{proposition}\label{prop:proposition4.6.11}
+    设 $X, Y, Z$ 为任意集合，且 $X, Y, Z \subseteq U$，其中 $U$ 为全集。则，以下包含关系成立：
+    \[(X \cup Y ) - Z \subseteq X \cup (Y - Z)\]
+\end{proposition}
+
+你可能发现了这个命题就是练习 \ref{exc:exercises3.11.17}！在练习中，我们要求你使用包含论证来证明这个主张，取任意 $x \in U$ 并假设它是左侧集合的元素，然后推论它一定也是右侧集合的元素。我们将在这里做（本质上）相同的事情，但论证将用逻辑术语和符号重新表达。我们这样做是为了
+\begin{enumerate}
+    \item 让我们更多地练习这种类型的论证；
+    \item 准确地识别论证中``反''方向不成立的地方。 
+\end{enumerate}
+请记住，在练习 \ref{exc:exercises3.11.17} 中，我们还要求你找到一个示例来表明 $\supseteq$ 方向\emph{不一定}为\verb|真|。这意味着朝这个方向进行的逻辑论证会在某个地方失败。我们将准确地看到它在哪里失败，并且我们可以用它来帮助我们提出所需的反例。
+
+\begin{proof}
+    设 $X,Y,Z$ 为任何集合，且 $X,Y,Z \subseteq U$，其中 $U$ 为全集。设 $x \in U$ 是任意固定元素。我们可以写出以下逻辑等价链：
+    \begin{align*}
+        x \in (X \cup Y ) - Z &\iff x \in X \cup Y \land x \notin Z &\quad - \text{的定义}\\
+        &\iff (x \in X \lor x \in Y ) \land x \notin Z &\quad \cup \text{的定义} \\
+        &\iff (x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z) &\quad \text{德摩根逻辑定律} \\
+    \end{align*}
+    \fcolorbox{red}{white}{%
+        \parbox{\textwidth}{%
+            从这里开始，我们可以进一步断言哪些逻辑等价？我们可以化简右侧并将其表示为
+            \[x \in X - Z \lor x \in X - Z\]
+            因此
+            \[x \in (X - Z) \cup (Y - Z)\]
+            这不是我们要证明的原始命题，但到目前为止，这个过程有效证明了另一个命题，即
+            \[(X \cup Y ) - Z = (X - Z) \cup (Y - Z)\]
+            然而，我们要证明命题右边是
+            \[X \cup (Y - Z)\]
+            但我们并不是要证明相等，而是证明\emph{包含关系}。因此，我们其余证明的目标是证明下面条件声明：
+            \[\big((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\big) \implies x \in X \cup (Y - Z)\]
+            为了帮助我们弄清楚如何得到上面的公式，让我们在这里做一些临时工作，重写右侧的陈述；然后，我们就可以看到为什么上面公式成立：
+            \begin{align*}
+                x \in X \cup (Y - Z) &\iff x \in X \lor x \in Y - Z &\quad \cup \text{的定义} \\
+                &\iff x \in X \lor (x \in Y \land x \notin Z) &\quad - \text{的定义}
+            \end{align*}
+            这与我们上面推导的最后一个逻辑等价类似，但这里与左边的项不同。你能看出上面的蕴涵关系吗？想一想，然后继续阅读剩下的证明。
+        }
+    }
+    \newline
+    \newline \\
+    现在，我们想证明
+    \[\big((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\big) \implies x \in X \cup (Y - Z)\]
+    为此，我们假设左侧表达式为\verb|真|。这意味着
+    \[x \in X \land x \notin Z\]
+    或
+    \[x \in Y \land x \notin Z\]
+    （或者两者都为\verb|真|）。因此，我们有两种情况：
+    \begin{enumerate}
+        \item 假设第一个表达式\verb|真|，则 $x \in X \land x \notin Z$。这当然意味着 $x \in X$，因此 $x \in X \lor x \in Y - Z$ 成立。
+        \item 假设第二个表达式\verb|真|，则 $x \in Y \land x \notin Z$。这意味着 $x \in Y - Z$，因此 $x \in X \lor x ∈ Y - Z$ 成立。
+    \end{enumerate}
+    无论哪种情况，我们都会有 $x \in X \lor x \in Y - Z$ 成立，因此，无论哪种情况，根据 $\cup$ 的定义
+    \[x \in X \cup (Y - Z)\]
+    都成立。
+
+    综上，这表明对于每个元素 $x \in U$ 
+    \[x \in (X \cup Y ) - Z \implies x \in X \cup (Y - Z)\]
+    都成立。因此，根据 $\subseteq$ 的定义，我们有
+    \[(X \cup Y ) - Z \subseteq X \cup (Y - Z)\]
+\end{proof}
+
+认清我们在哪里以及我们想去哪里，帮助我们完成了这个证明。我们没有希望仅使用逻辑等价来完成证明，因为事实上，声明中给出的集合并不总是相等！回顾证明，我们能否识别出逻辑等价无效的步骤，并且我们能否使用它来构建反驳这些集合始终相等这一（错误）主张的反例？
+
+我们已经得到下面这个有效陈述
+\[(x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\]
+并且我们用它推导出下面陈述
+\[x \in X \lor (x \in Y \land x \notin Z)\]
+从我们证明采用的论证来看，很明显，第一个陈述确实蕴涵了第二个陈述；也就是说，如果我们假设第一个陈述成立，我们可以得出第二个陈述也成立。它们之间唯一的区别在于第一项，并且知道 ``$\land$'' 陈述的两个部分都成立肯定可以让我们得出其中特定的一个成立的结论。
+
+这种推论在另一个方向上不起作用。假设第二个陈述成立。如果正确的项是有效的 --- $x \in Y \land x \notin Z$ --- 那么这也使得第一个陈述成立。然而，由于我们有一个 ``$\lor$'' 陈述，我们必须考虑左边项成立的情况。在这种情况下，仅知道 $x \in X$ 并不能让我们推出 $x \in X \land x \notin Z$ 成立。假设 ``$\land$'' 成立，我们可以推断出其任一部分都成立，但仅知道其中一部分成立并不能告诉我们两者都成立！
+
+我们可以用它来构造一个反例。我们看到，只需保证有某个特定元素 $x \in U$ 满足第二个陈述的左项，即 $x \in X$，但不满足第一个陈述的左项，即 $x \in X \land x \notin Z$。换句话说，我们只需保证有一个元素 $x \in X \cap Z$ 即可。下面的示例恰恰实现了这一点。
+
+\begin{example}
+    我们声称
+    \[(X \cup Y ) - Z \subseteq X \cup (Y - Z)\]
+    对于任意集合 $X,Y,Z$ 都成立，但不一定相等。请参阅命题 \ref{prop:proposition4.6.11} 的证明，了解为什么上述包含关系确实成立。
+\end{example}
+
+现在，考虑以下示例。我们定义
+\begin{align*}
+    X &= \{1\} \\
+    Y &= \{2\} \\
+    Z &= \{1, 2\}
+\end{align*}
+注意到
+\[(X \cup Y ) - Z = (\{1\} \cup \{2\}) - \{1, 2\} = \{1, 2\} - \{1, 2\} = \varnothing\]
+且
+\[X \cup (Y - Z) = \{1\} \cup (\{2\} - \{1, 2\}) = \{1\} \cup \{\varnothing\} = \{1\}\]
+由于 $\varnothing \subset \{1\}$ （真）子集，在这种情况下，我们得出结论：
+\[(X \cup Y ) - Z \ne X \cup (Y - Z)\]
+这表明上述命题中的相等不一定成立。
+
+这个策略让我们能够以更高效、更严格的方式完成许多涉及集合的证明！我们可以使用我们已经\emph{证明}的逻辑符号和定律，而不是凭直觉使用``与''和``或''的语言学定义。正式出于这个原因，本节中的许多练习都涉及集合。建议你需要回看第 \ref{ch:chapter03} 章以记起相关定义！
+
+\subsection{问题与练习}
+
+口头或书面简要回答以下问题。这些题目全都基于你刚刚阅读的部分，因此如果你无法想起特定的定义、概念或示例，请返回重新阅读相应部分。确保自己在继续之前可以自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 什么是逻辑结合律？
+    \item 什么是逻辑分配律？
+    \item 什么是德摩根逻辑定律？什么是德摩根集合定律？它们之间有什么关系？
+    \item 充分条件和必要条件有什么区别？
+    \item 当一个条件既是充分条件又是必要条件会发生什么？
+\end{enumerate}
+
+\subsubsection*{试一试}
+
+尝试回答以下简答题。这些题目要求你实际动笔写一写，或（对朋友/同学）口头描述一些东西。目的是让你练习使用新概念、定义和符号。别担心，这些题本来就很简单。确保能够解决这些问题将对你有所帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 上文中，我们使用真值表来证明德摩根逻辑定律。你能给出德摩根逻辑定律的语义证明吗？你能向非数学家朋友解释德摩根定律并让他们相信这些定律是有效的吗？
+    \item 设 $P(x)$ 为变量命题 ``$x$ 是能被 $10$ 整除的整数''。为这个陈述提出两个必要条件和两个充分条件。
+    \item 设 $A,B,C$ 为任意集合，且 $A,B,C \subseteq U$，其中 $U$ 为全集。使用逻辑等价和逻辑定律来证明以下主张。
+        \begin{enumerate}[label=(\alph*)]
+            \item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+            \item $(A \cup B) \cap \overline{A} = B - A$
+            \item $\overline{\overline{A} \cup B} = A \cap \overline{B}$
+            \item $(A - B) \cap \overline{C} = A - (B \cup C)$
+        \end{enumerate}
+    \item 使用条件陈述和逻辑等价证明包含关系
+        \[A - (B \cup C) \subseteq A \cap \overline{B \cap C}\]
+        对于任意集合 $A,B,C$ 成立。\\
+        然后，找到一个反例证明相等关系不一定成立。\\
+        （\textbf{提示：}一般来说，构建集合严格包含的一个有用的思路是，看是否可以将一侧设为空集。）
+    \item 设 $D,E,F$ 为任意集合。考虑集合
+        \[D - (E - F)\]
+        和
+        \[(D - E) - F\]
+        上面两个集合的关系如何？它们总是相等吗？还是一个总是另一个的子集？\\
+        清楚地陈述你的主张，然后证明它们或提供相关的反例。
+\end{enumerate}
