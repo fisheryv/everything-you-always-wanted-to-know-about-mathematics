@@ -1398,6 +1398,7 @@
 \usepackage{pgfplots}
 \usepackage{scalerel}
 \usepackage{mathdots}
+\usepackage{centernot}
 \newcommand{\longdiv}{\smash{\mkern-0.43mu\vstretch{1.31}{\hstretch{.7}{)}}\mkern-5.2mu\vstretch{1.31}{\hstretch{.7}{)}}}}
 
 \usetikzlibrary{quotes,arrows.meta}
@@ -1440,3 +1441,5 @@
     \pgfmathparse{\get #1[#2]+#3}%
     \gset #1[#2]=\pgfmathresult
   }
+
+  \newcommand\notimplies{\centernot\implies}
