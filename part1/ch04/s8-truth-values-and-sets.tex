@@ -1,2 +1,44 @@
 % !TeX root = ../../book.tex
-\section{真值与集合}{[选学]真值与集合}
+\section[真值与集合]{[选学]真值与集合}
+
+集合（及其对应关系和运算）和逻辑真值（及其对应关系和连词）之间存在着方便且有趣的关系。我们将在这一节给出这种关系并演示一些示例，如果你愿意，可以进一步研究它。在本书后面的学习中，不需要这些知识和概念，但我们相信，思考这些知识并在头脑中理清它们将有助于你真正理解逻辑和集合的基础知识。
+
+假设我们有两个变量命题，$P(x)$ 和 $Q(x)$。并且，假设这些命题对于来自某个全集 $U$ 的任意输入 $x$ 都有意义。（当然，这个集合 $U$ 取决于 $P(x)$ 和 $Q(x)$ 中的具体陈述，但对于一般性讨论，我们并不真正关心它们是什么。）对于这些命题中的每一个，我们都可以定义一个\textbf{真值集}；也就是说，我们可以考虑全集 $U$ 中令这些命题为\verb|真|的所有 $x$ 的集合。我们定义
+\begin{align*}
+    T_P &= \{x \in U \mid P(x) \text{为真}\} \\
+    T_Q &= \{x \in U \mid Q(x) \text{为真}\}
+\end{align*}
+
+也许命题 $P(x)$ 和 $Q(x)$ 会以某种方式关联。我们假设
+\[\forall x \in U \centerdot P(x) \implies Q(x)\]
+成立。这对\textbf{真值集}来说意味着什么？该条件陈述表示任何满足 $P(x)$（即 $P(x)$ 为\verb|真|）的 $x$ 也必须满足 $Q(x)$。换句话说，换成真值集，我们有
+\[\forall x \in U \centerdot x \in T_P \implies x \in T_Q\]
+而这正是``子集''的定义。因此我们得到，当上面的条件陈述成立时，
+\[T_P \subseteq T_Q\]
+
+我们进一步假设
+\[\forall x \in U \centerdot P(x) \iff Q(x)\]
+成立。应用与我们刚刚推导 $T_P \subseteq T_Q$ 相同的推理方式来推导 $\iff$ 的``另一个方向''（即 $Q(x) \implies P(x)$ 部分），可以得到 $T_Q \subseteq T_P$。根据集合相等的定义，这意味着当上面的双向条件陈述成立时，
+\[T_P = T_Q\]
+
+我们还可以组合命题 $P(x)$ 和 $Q(x)$。让我们考虑命题 $P(x) \land Q(x)$。使该合取为\verb|真|的 $x$ 有哪些？我们如何根据我们定义的真值集来描述这些 $x$ 的实例？想一想，你会发现所有这些 $x$ 的实例的特征都是真值集的交集；我们需要 $P(x)$ 和 $Q(x)$ 同时成立，因此 $x$ 的实例需要在两个真值集中都存在。
+
+类似地，我们可以考虑析取 $P(x) \lor Q(x)$。当 $x$ 的实例令\emph{至少一个}命题为\verb|真|时，该 $x$ 的实例令该陈述为\verb|真|。因此，$x$ 必须至少来自其中一个真值集，因此它必然来自真值集的\emph{并集}。
+
+让我们总结一下我们发现的这些关系：
+\begin{align*}
+    \forall x \in U & \centerdot \big(P(x) \implies Q(x)\big) \iff \big(T_P \subseteq T_Q \big) \\
+    \forall x \in U & \centerdot \big(P(x) \iff Q(x)\big) \iff \big(T_P = T_Q \big) \\
+    \forall x \in U & \centerdot \big(P(x) \land Q(x)\big) \iff \big(T_P \cap T_Q \big) \\
+    \forall x \in U & \centerdot \big(P(x) \lor Q(x)\big) \iff \big(T_P \cup T_Q \big) 
+\end{align*}
+
+你能使用真值集描述以下陈述的特征吗？请将你的答案填在空白处！
+\begin{align*}
+    \forall x \in U \centerdot \big(P(x) \land \neg Q(x)\big) & \iff \underline{\qquad\qquad\qquad} \\
+    \big(\exists x \in U \centerdot P(x)\big) & \iff \underline{\qquad\qquad\qquad} \\
+    \forall x \in U \centerdot \big(\neg P(x) & \iff \underline{\qquad\qquad\qquad}\big) \\
+    \big(\forall x \in U \centerdot \neg P(x)\big) & \iff \underline{\qquad\qquad\qquad}
+\end{align*}
+
+（注意：最后两个陈述有什么不同？）
