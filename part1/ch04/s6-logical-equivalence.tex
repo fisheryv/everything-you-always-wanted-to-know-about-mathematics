@@ -3,7 +3,7 @@
 
 本节的主要目标是介绍\textbf{逻辑等价}的概念并证明一些基本命题。本质上，我们想要确定复杂的逻辑陈述实际上是否具有``相同的''真值。由于数学陈述可能依赖于某些命题变量，因此我们可能无法对其真值做出具体结论。然而，我们有时可以证明两个数学陈述对于它们所包含的变量的所有可能值都具有\emph{相同的真值}。这是一个非常好的结论！我们可以说它们具有相同的真值，无论它是什么。从这个意义上讲，我们正在证明这两个陈述在逻辑上是\textbf{等价的}。
 
-\subsection{定义与使用}
+\subsection{定义与使用}\label{sec:section4.6.1}
 
 以下定义为上一段中描述的逻辑等价概念引入了一个方便的符号：
 
@@ -508,10 +508,16 @@
     \begin{align*}
         x \in (X \cup Y ) - Z &\iff x \in X \cup Y \land x \notin Z &\quad - \text{的定义}\\
         &\iff (x \in X \lor x \in Y ) \land x \notin Z &\quad \cup \text{的定义} \\
-        &\iff (x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z) &\quad \text{德摩根逻辑定律} \\
+        &\iff (x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z) &\quad \text{德摩根逻辑定律} 
     \end{align*}
+    
+    \setlength{\fboxrule}{2pt}
+    \setlength\fboxsep{5mm}
+    \begin{center}
     \fcolorbox{red}{white}{%
-        \parbox{\textwidth}{%
+        \parbox{0.85\textwidth}{%
+            \textcolor{red}{\textbf{草稿：}}
+
             从这里开始，我们可以进一步断言哪些逻辑等价？我们可以化简右侧并将其表示为
             \[x \in X - Z \lor x \in X - Z\]
             因此
@@ -530,8 +536,7 @@
             这与我们上面推导的最后一个逻辑等价类似，但这里与左边的项不同。你能看出上面的蕴涵关系吗？想一想，然后继续阅读剩下的证明。
         }
     }
-    \newline
-    \newline \\
+    \end{center}
     现在，我们想证明
     \[\big((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\big) \implies x \in X \cup (Y - Z)\]
     为此，我们假设左侧表达式为\verb|真|。这意味着

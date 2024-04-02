@@ -1443,3 +1443,11 @@
   }
 
   \newcommand\notimplies{\centernot\implies}
+
+  \newcommand\hashx{\mathbin{\mathpalette\xhash\relax}}
+  \newcommand{\xhash}[2]{\ooalign{%
+    $#1\xxhash{#1}{-45}$\cr
+    $#1\xxhash{#1}{45}$\cr
+    }%
+  }
+  \newcommand{\xxhash}[2]{\rotatebox[origin=c]{#2}{$#1\mid\mid$}}

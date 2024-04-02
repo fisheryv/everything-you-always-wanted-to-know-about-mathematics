@@ -1,20 +1,1056 @@
 % !TeX root = ../../book.tex
-\section{书写证明：策略与案例}
+\section{撰写证明：策略与案例}
 
-\subsection{证明 $\exists$}\label{sec:section4.9.1}
+激动人心的时刻到了，接下来我们要实现我们一直以来的目标：撰写\textbf{证明}！
 
-\subsection{证明 $\forall$}\label{sec:section4.9.2}
+本节中，我们将应用本章学到的所有基本逻辑原则。具体来说，我们将学习如何使用这些基本逻辑原则来撰写能够证明数学陈述真实性（或虚假性）的形式论证。一般来说，很难描述如何得出哪些数学陈述为\verb|真|，哪些为\verb|假|。但在某种程度上，我们在这里制定的策略会帮助我们发现真相。但更重要的是，它们给我们提供了模板和指南，指导我们如何向他人呈现真理并阐述\emph{为什么}它确实是正确的。
 
-\subsection{证明 $\lor$}\label{sec:section4.9.3}
+正如我们所讨论的，仅仅是找出某些有趣的事实并希望他人这些事实是不够的。我们需要能够解释这些事实；我们需要提出一个论点，让别人相信它的真实性。我们不一定要解释它来自哪里，或者为什么我们需要研究它（尽管有时你可能会回答这些隐含的问题，如果你认为这对潜在读者有所帮助的会话）。一般来说，我们只需要确保其他人 --- 同伴、同学或数学家同行 --- 可以拿起我们的书面证明，阅读它，并完全信服我们声称为\verb|真|的东西确实为\verb|真|。
 
-\subsection{证明 $\land$}\label{sec:section4.9.4}
+\subsubsection*{本节概要}
+
+大多数情况下，我们希望你能够看到随后的策略如何直接来自与命题、量词、连词和否定相关的基本逻辑原理。我们将本节分为若干小节，每个小节对应一个特定的量词或连词。
+
+当你面对一个数学陈述并且需要证明它时，只需从左到右阅读该命题。你首先读到了什么？如果是 ``$\exists$'' 量词，请参阅第 \ref{sec:section4.9.1} 节。如果是 ``$\forall$'' 量词，请参阅第 \ref{sec:section4.9.2} 节。之后，你面临什么类型的声明？随后的变量命题是什么形式？如果 ``$\lor$'' 陈述，请参阅第 \ref{sec:section4.9.3} 节。如果是条件陈述，请参阅第 \ref{sec:section4.9.5} 节。如果是假设为 ``$\lor$'' 陈述、结论为 ``$\land$'' 陈述的条件陈述，请参阅所有三个章节 --- \ref{sec:section4.9.3}、\ref{sec:section4.9.4} 和 \ref{sec:section4.9.5} --- 并将它们适当地组合起来！一般来说，我们从现在开始编写的每个证明（除了归纳证明，我们将在下一章中讨论）都将是这些策略的组合。你使用哪些策略以及如何组合它们取决于你想要证明的陈述以及你决定如何处理这个问题。
+
+在每个小节中，我们提供了一些模板和示例。你可能会发觉模板限制太多，甚至可能太正式；我们理解，但我们认为，从长远来看，目前尽可能严格地遵循我们的格式是有益的。这些模板以及所相应的使用示例旨在强调这些证明策略背后的逻辑原则。频繁使用会让你对这些逻辑概念进行额外的练习，并且我们坚信，这将有助于你在未来将它们融会贯通，用起来得心应手。
+
+对于提供的每个示例，我们将\setlength\fboxsep{1pt}\fcolorbox{blue}{white}{证明策略用蓝色框}框起来，将\fcolorbox{olivegreen}{white}{示例实现用绿色框}框起来，将\fcolorbox{red}{white}{必要的临时工作用红色框}框起来。对策略或实现的任何其他讨论都写在在这些框之外。
+
+此外，我们在本节（以及下一节）中讨论的几个示例本身就是有趣且实用的结论。你会注意到其中一些有名称或描述性标题，表明这一结论的重要性或常用性。虽然本节的核心要点是\textbf{证明策略}（明确证明策略并了解如何使用这些策略），但我们鼓励你也将这些示例本身视为有趣的事实。当有必要时，我们会再次提出这一想法，但我们会保持这些讨论尽可能简短，以免分散对本节整体结构的注意力。
+
+\subsubsection*{直接证法 vs. 间接证法}
+
+你还会注意到，每个小节都包含直接证法和间接证法的策略。你可能还不熟悉这些术语。它们指的是我们是否试图
+\begin{enumerate}[label=(\arabic*)]
+    \item 通过证明命题为\verb|真|来直接证明一个命题；
+    \item 通过排中律间接证明命题的逻辑否定为\verb|假|。
+\end{enumerate}
+
+一般来说，这两种形式的证明策略同样有效，但许多读者通常认为\textbf{直接}证明在主观上更好。（有时，你可能会撰写一个实际上内藏直接证明的间接证明！）当我们讨论示例并要求你在练习中自己撰写证明时，将评估和讨论这些主观想法。
+
+你会注意到，我们所有的间接证明都以短语 ``为了引出矛盾而假设'' 开头，通常缩写为 ``AFSOC''。这是一个重要且有用的短语。它向读者发出信号，表明我们将做出假设，但我们并不真正认为该假设是有效的。相反，我们将使用这个假设来推导出一些为\verb|假|的结论，一个\textbf{矛盾}。这将使我们得出最初的假设是无效的，因此它的逻辑否定（即我们希望证明的原始陈述）实际上为\verb|真|。你会看到我们使用符号 ``$\hashx$'' 来表示矛盾，而我们也一定会指出\emph{为什么}我们发现了矛盾。我们不会让读者自己去弄清楚！
+
+好了，序言就这么多。让我们直接进入\textbf{证明的世界}！
+
+\subsection{证明 $\exists$ 声明}\label{sec:section4.9.1}
+
+``$\exists$'' 声明是一种\emph{存在性声明}。它断言某个特定对象是某个集合的元素，并且具有特定的属性。为了证明这种说法，我们需要找到一个这样的对象，并为读者验证
+\begin{enumerate}[label=(\arabic*)]
+    \item 该对象是正确集合的元素；
+    \item 该对象具有正确的属性。
+\end{enumerate}
+
+\subsubsection*{直接证法}
+
+\setlength{\fboxrule}{2pt}
+\setlength\fboxsep{5mm}
+\begin{center}
+\noindent \fcolorbox{blue}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{blue}{\textbf{策略：}}\\
+        声明：$\exists x \in S \centerdot P(x)$ \\
+        \emph{直接证明策略：} \\
+        \hspace*{1cm} 定义一个具体的例子，$y = \underline{\qquad\qquad}$。\\
+        \hspace*{1cm} 证明 $y \in S$。\\
+        \hspace*{1cm} 证明 $P(y)$ 成立。
+    }
+}
+\end{center}
+
+\newpage
+
+\begin{example}
+    求解线性方程组：
+    \begin{center}
+        陈述：给定 $a, b, c, d, e, f \in \mathbb{R}$，且 $ad - bc \ne 0$。
+    \end{center}
+    我们声称，存在某个 $x, y \in \mathbb{R}$，使得以下线性方程组成立
+    \begin{align}
+        ax + by &= e \label{eq:4.1}\\
+        cx + dy &= f \label{eq:4.2}
+    \end{align}
+    将 $S(x, y)$ 定义为 ``$x$ 和 $y$ 同时满足上述两个方程 (\ref{eq:4.1}) 和 (\ref{eq:4.2})''。则我们声称
+    \[\exists x, y \in \mathbb{R} \centerdot S(x, y)\]
+    首先，我们必须做一些初步工作来构建解决方案。然后，我们才可以撰写证明来定义对象 $x$ 和 $y$ 并说明它们成立的原因。
+    \begin{center}
+    \noindent \fcolorbox{red}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{red}{\textbf{草稿：}}
+
+        我们需要 $ax + by = e$ 和 $cx + dy = f$ 同时成立，并且我们想知道哪个 $x$ 和 $y$ 可以实现这一点。
+
+        让我们将第一个和第二个方程乘以正确的系数（分别是 $d$ 和 $-b$），这样我们就可以通过将两个方程相加来消掉 $y$ 项：
+        \begin{center}
+            \begin{tabular}{r@{\,}c@{\,}c@{\,}c@{\,}c@{\,}l}
+                    & $adx$ & $+$ & $bdy$  & $=$ & $de$ \\
+            $+(-$   & $bcx$ & $-$ & $bdy$  & $=$ & $-bf)$\\
+            \hline
+                    & $(ad$ & $-$ & $bc)x$ & $=$ & $de - bf$ \\
+            \end{tabular}
+        \end{center}
+        然后除以 $x$ 的系数可得 $x = \frac{de-bf}{ad-bc}$。这是一个有效解，因为 $ad - bc \ne 0$。\\
+
+        同理我们可以消掉 $x$ 项，求得 $y$：
+        \begin{center}
+            \begin{tabular}{r@{\,}c@{\,}c@{\,}c@{\,}c@{\,}l}
+                    & $acx$ & $+$ & $bcy$  & $=$ & $ce$ \\
+            $+(-$   & $acx$ & $-$ & $ady$  & $=$ & $-af)$\\
+            \hline
+                    & $(bc$ & $-$ & $ad)y$ & $=$ & $ce - af$ \\
+            \end{tabular}
+        \end{center}
+        除以 $y$ 的系数可得 $y = \frac{af-ce}{ad-bc}$。
+    }
+    }
+    \end{center}
+    这里的主要经验是，我们不需要在下面的证明中展示草稿中的工作！我们不认为读者愿意费力翻阅我们杂乱的笔记，去了解我们是如何得出线性方程组的解的。相反，我们假设读者只关心解是什么以及为什么它是正确的解。这使得证明更加简洁，因此可以更容易、更快速地阅读。
+
+    \begin{center}
+        \noindent \fcolorbox{olivegreen}{white}{%
+            \parbox{0.85\textwidth}{%
+                \linespread{1.5}\selectfont
+                \textcolor{olivegreen}{\textbf{实现：}}
+                \begin{proof}
+                    由于 $ad - bc \ne 0$ （根据假设），我们可以定义
+                    \[x = \frac{de - bf}{ad - bc} \qquad \text{和} \qquad y = \frac{af - ce}{ad - bc}\]
+                    并知道 $x, y \in \mathbb{R}$。则，
+                    \begin{align*}
+                        ax + by &= \frac{(ade - abf) + (abf - bce)}{ad - bc} = \frac{ade - bce}{ad - bc} = \frac{e(ad - bc)}{ad - bc} = e \\
+                        cx + dy &= \frac{(cde - bcf) + (adf - cde)}{ad - bc} = \frac{adf - bcd}{ad - bc} = \frac{f(ad - bc)}{ad - bc} = f
+                    \end{align*}
+                    所以 $S(x, y)$ 成立。
+                \end{proof}
+            }
+        }
+    \end{center}
+
+    如果你学过线性代数，你会发现 $ad-bc$ 项是矩阵 $\begin{bmatrix}
+        a & b \\
+        c & d 
+        \end{bmatrix}$ 的\textbf{行列式}。$ad - bc \ne 0$ 这个前提条件意味着该系数矩阵\emph{存在逆矩阵}，即它是``非奇异''的。在这种情况下，对于任意 $e, f \in \mathbb{R}$ 线性方程组都有解。
+\end{example}
+
+\subsubsection*{间接证法（反证法）}
+
+该策略依赖于 $\exists$ 声明的逻辑否定：
+\[\neg \big(\exists x \in S \centerdot P(x)\big) \iff \forall x \in S \centerdot \neg P(x)\]
+
+我们先假设否命题成立然后从中推导出一系列矛盾，这意味着否命题为\verb|假|，所以原命题\verb|真|。
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$\exists x \in S \centerdot P(x)$ \\
+            \emph{间接证明策略：} \\
+            \hspace*{1cm} 为了引出矛盾而假设，对于每个 $y \in S, \neg P(y)$ 成立。 \\
+            \hspace*{1cm} 推导得出矛盾。
+        }
+    }
+\end{center}
+
+\begin{example}
+    鸽笼原理的一个实例：
+    \begin{center}
+        陈述：假设 $n \in \mathbb{N}$ 且我们有 $n$ 个实数 $a_1, a_2, \dots, a_n \in \mathbb{R}$。\\
+        我们声称其中一个数字至少与数列的平均值一样大。即，
+        \[\exists B \in [n] \centerdot a_B \ge \frac{1}{n}\sum_{i=1}^{n}a_i\]
+    \end{center}
+
+    \begin{center}
+        \noindent \fcolorbox{olivegreen}{white}{%
+            \parbox{0.85\textwidth}{%
+                \linespread{1.5}\selectfont
+                \textcolor{olivegreen}{\textbf{实现：}}
+                \begin{proof}
+                    为了引出矛盾而假设，所有数字都小于数列平均值，即
+                    \[\forall i \in [n] \centerdot a_i < \frac{1}{n}\sum_{i=1}^{n}a_i\]
+                    定义常数 $S = \sum_{i=1}^{n}a_i$，则 $a_i < \frac{S}{n}$。\\
+                    然后我们可以对所有 $a_i$ 求和并发现
+                    \[S = \sum_{i=1}^{n}a_i < \sum_{i=1}^{n}\frac{S}{n} = n \cdot \frac{S}{n} = S\]
+                    这说明实数 $S$ 严格小于它本身：$S < S$。这里存在矛盾。$\hashx$
+
+                    因此，最初的假设是错误的，原命题成立。
+                \end{proof}
+            }
+        }
+    \end{center}
+
+    如前所述，这是\textbf{鸽笼原理}的一个实例。当我们学习\textbf{组合学}时，将在 \ref{sec:section8.6} 节再次研究和使用这个原理。
+\end{example}
+
+\subsection{证明 $\forall$ 声明}\label{sec:section4.9.2}
+
+``$\forall$'' 声明一种\emph{全称性声明}。它断言集合中的\emph{所有}元素都具有某些共同的属性。为了证明这种说法，我们需要证明集合中的\emph{每个}元素都具有该属性。为了``一次性''完成证明，我们需要考虑集合中任意固定元素，并证明它具有所需的属性。因为这个对象是任意的，所以我们的论证适用于集合中的每个元素。因为这个对象是固定的，所以我们可以在整个证明中通过名称来引用它。
+
+\subsubsection*{直接证法}
+
+\begin{center}
+\noindent \fcolorbox{blue}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{blue}{\textbf{策略：}}\\
+        声明：$\forall x \in S \centerdot P(x)$ \\
+        \emph{直接证明策略：} \\
+        \hspace*{1cm} 设 $y \in S$ 是任意固定元素。\\
+        \hspace*{1cm} 证明 $P(y)$ 成立。
+    }
+}
+\end{center}
+
+\begin{example}
+    算术几何平均值不等式的一个实例：
+    \begin{center}
+        陈述：$\forall x, y \in \mathbb{R} \centerdot xy \le (\frac{x+y}{2})^2$。
+    \end{center}
+    \begin{center}
+        \noindent \fcolorbox{olivegreen}{white}{%
+            \parbox{0.85\textwidth}{%
+                \linespread{1.5}\selectfont
+                \textcolor{olivegreen}{\textbf{实现：}}
+                \begin{proof}
+                    设 $x, y \in \mathbb{R}$ 是任意固定元素。\\
+                    我们知道 $0 \le (x-y)^2$。\\
+                    展开整理得 $2xy \le x^2+y^2$。\\
+                    两边同时加上 $2xy$，可得 $2xy \le x^2 + 2xy + y^2$。\\
+                    因式分解可得 $4xy \le (x+y)^2$。\\
+                    两边同时除以 $4$ 可得
+                    \[xy \le (\frac{x+y}{2})^2\] 
+                \end{proof}
+            }
+        }
+    \end{center}
+    这个结论被称为\textbf{算术几何平均值不等式(Arithmetic-Geometric Mean Inequality)}，因为它涉及两个实数的算术平均值(Arithmetic Mean)和几何平均值(Geometric Mean)。
+
+    $x$ 和 $y$ 的算术平均值为 $\frac{a+b}{2}$。
+
+    $x$ 和 $y$ 的几何平均值为 $\sqrt{xy}$（请注意，这只适用于 $xy \ge 0$ 时，即 $x$ 和 $y$ 具有相同的符号（无论是正数、负数或是零）。
+
+    算术几何平均值不等式（简称 AGM）断言算术平均值(AM)始终大于等于几何平均值(GM)。一个有用的助记符是将 ``\textbf{AGM}'' 读作 ``算术平均值大于几何平均值(\textbf{A}rithmetic Mean \textbf{G}reater than \textbf{G}eometric Mean)''。
+
+    我们上面证明的是一个更为通用的版本，因为它适用于所有实数 $x$ 和 $y$，而不仅仅是那些具有相同符号的实数。然而，假设 $xy \ge 0$，我们可以简单地两边取平方根，即可得到算术几何平均值不等式的``常规''形式：$\sqrt{xy} \le \frac{x+y}{2}$。
+\end{example}
+
+\subsubsection*{间接证法（反证法）}
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$\forall x \in S \centerdot P(x)$ \\
+            \emph{间接证明策略：} \\
+            \hspace*{1cm} 为了引出矛盾而假设，$\exists y \in S$ 使得 $\neg P(y)$ 成立。 \\
+            \hspace*{1cm} 推导得出矛盾。
+        }
+    }
+\end{center}
+
+\begin{example}
+    $\sqrt{2} $ 为无理数。
+    \begin{center}
+        陈述：$ \forall a, b \in \mathbb{Z} \centerdot \frac{a}{b} \ne \sqrt{2}$。
+    \end{center}
+    （注：该声明直接诉诸有理数 $\mathbb{Q}$ 的定义。它说 $\sqrt{2} \notin \mathbb{Q}$ 因为该数无法表示为整数之比。）
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                为了引出矛盾而假设 $\exists a, b \in \mathbb{Z} \centerdot \frac{a}{b} = \sqrt{2}$。
+
+                我们可以假设 $\frac{a}{b}$ 已经化简到最简形式，因此 $a$ 和 $b$ 没有公因数。（如果不是这种情况，我们可分子分母同时以除以公因数并获得最简形式。）
+
+                给定这样的 $a,b \in \mathbb{Z}$。
+
+                （注：我们将在第 \ref{sec:section4.9.8} 节讨论短语``给定这样的$\underline{\qquad}$''。它不仅意味着断言这样的 $a, b \in \mathbb{Z}$ \emph{存在}，而且我们想要这些变量具有一些\emph{特定}实例，以便我们可以使用它们来完成余下的证明。）
+
+                这意味着 $\frac{a}{b} = \sqrt{2}$，所以 $\frac{a^2}{b^2} = 2$。
+
+                因此 $2b^2 = a^2$，所以根据定义 $a^2$ 为偶数。
+
+                因为 $a^2$ 为偶数，则 $a$ 也为偶数。
+
+                （注意：这一点需要证明。我们将在第 \ref{sec:section4.9.6} 节证明这一点，你也可以自己尝试证明一下。）
+
+                因此，$\exists k \in \mathbb{Z} \centerdot a = 2k$。给定这样的 $k$，使得 $a^2 = 4k^2$。
+
+                则 $2b^2 = 4k^2$，所以 $b^2 = 2k^2$。
+
+                因此，根据定义，$b^2$ 为偶数。同理，我们可以推导出 $b$ 为偶数。
+
+                这说明 $a$ 和 $b$ 都为偶数，它们有公因数 $2$。
+
+                这与我们假设 $a$ 和 $b$ 没有公因数相矛盾。$\hashx$
+
+                因此，假设必定有误，所以该声明为真。
+            \end{proof}
+        }
+    }
+\end{center}
+
+\subsection{证明 $\lor$ 声明}\label{sec:section4.9.3}
+
+``$\lor$'' 声明断言两个陈述中至少有一个为\verb|真|。如果碰巧这两个陈述之一显然为\verb|假|，那么就尝试证明另一个为\verb|真|。这就是这里的直接证法；它很简单，因此我们不会提供实现示例。
+
+\subsubsection*{直接证法}
+
+\begin{center}
+\noindent \fcolorbox{blue}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{blue}{\textbf{策略：}}\\
+        声明：$P \lor Q$ \\
+        \emph{直接证明策略：} \\
+        \hspace*{1cm} 证明 $P$ 成立，否则证明 $Q$ 成立。
+    }
+}
+\end{center}
+
+当然，直接证法依赖于你能够提前获知哪一个陈述（$P$ 还是 $Q$）为\verb|真|。如果你能做到这一点，那么这甚至不是一个真正的``策略''。只需实施适用于 $P$（或 $Q$，视情况而定）的任何策略。
+
+\subsubsection*{间接证法（证明``另一种情况''）}
+
+这种方法比直接证法有趣得多。一般来说，当陈述 $P$ 和 $Q$ 实际上是变量命题，并且对于某些实例 $P$ 为\verb|真|，而对于其他实例 $Q$ 为\verb|真|时，这种证法非常有用。在这种情况下，我们可以直接说：``如果 $P$ 为\verb|真|，那么我们的证明就已经完成了，而不是准确地描述哪些实例满足 $P$，哪些实例满足 $Q$。因此，我们需要担心的是 $P$ 为\verb|假|的情况；对于这些情况，我们需要证明 $Q$ 仍然为\verb|真|。''
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \lor Q$ \\
+            \emph{间接证明策略 1：} \\
+            \hspace*{1cm} 假设 $\neg P$ 成立，证明 $Q$ 成立。
+        }
+    }
+\end{center}
+
+\begin{example}
+    当一个实数小于它的平方时，
+    \begin{center}
+        陈述：假设 $ x \in \mathbb{R}$ 且 $x^2 \ge x$。
+
+        我们声明 $x \ge 1$ 或 $x \le 0$。
+    \end{center}
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                设 $x \in \mathbb{R}$ 是任意固定的，并假设 $x^2 > x$。
+                
+                如果 $x \le 0, x^2 \ge x$ 显然成立。于是我们假设另一种情况，即 $x>0$。
+
+                根据条件，$x^ \ge x$，因为 $x > 0$，我们可以不等式两边同时除以 $x$，得 $x \ge 1$。
+            \end{proof}
+        }
+    }
+\end{center}
+
+这证明了实数小于（或等于）其平方的必要条件。这个条件（即 $x \ge 1 \lor x \le 0$）也是充分条件吗？请你证明一下！其实很简单，一旦你证出来了，将二者合在一起就可以证明这个双条件陈述：
+\[\forall x \in \mathbb{R} \centerdot x^2 \ge x \iff (x \ge 1 \lor x \le 0)\]
+
+
+\subsubsection*{间接证法（反证法）}
+
+这种证法与上面的间接证法很像，我们都会假设逻辑否定成立，然后推断出一些荒谬的东西。我们通过将其应用于前一个示例的相同声明来说明该策略。
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$\forall x \in S \centerdot P(x)$ \\
+            \emph{间接证明策略 2：} \\
+            \hspace*{1cm} 为了引出矛盾而假设，$\neg P \land \neg Q$ 成立。推导得出矛盾。
+        }
+    }
+\end{center}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                设 $x \in \mathbb{R}$ 是任意固定的，并假设 $x^2 > x$。
+                
+                为了引出矛盾而假设，$0 < x$ 且 $x < 1$。
+
+                因为 $x>0$，我们可以在不等式两边同时乘以 $x$ 并保持符号不变。
+
+                $x<1$ 两边同时乘以 $x$，那么我们得到 $x^2<x$。
+
+                这与我们假设 $x^2 > x$ 矛盾。$\hashx$
+
+                因此我们的假设不成立。该声明为真。
+            \end{proof}
+        }
+    }
+\end{center}
+
+这种证法与之前的证法相比如何？我们证明的是完全相同的主张，但证法略有不同。你认为哪个更好？哪个更容易书写？此外，你能回过头用量词和``$\implies$''重写原来的声明吗？完成之后，你明白这两个证明完成了什么吗？尝试一下！
+
+\subsection{证明 $\land$ 声明}\label{sec:section4.9.4}
+
+``$\land$'' 声明断言两个陈述都为\verb|真|。有一种明显而直接的方法可以做到这一点：只需证明一个陈述，然后再证明另一个陈述！
+
+我们将向你展示此方法的实现示例，因为我们示例中的 $\land$ 语句位于 $\exists$ 声明\emph{之后}。因此，实际上需要做一些临时工作来弄清楚如何定义一个确实满足这两个所需属性的对象。这将是我们的第一个说明性示例，说明如何组合这些证明策略来证明同时使用量词和连词的陈述。
+
+\subsubsection*{直接证法}
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \land Q$ \\
+            \emph{直接证明策略：} \\
+            \hspace*{1cm} 证明 $P$ 成立。证明 $Q$ 成立。
+        }
+    }
+\end{center}
+
+\begin{example}
+    两个数中较小数的平方可能更大。
+    \begin{center}
+        陈述：$ \forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot (x \ge y \land x^2 < y^2)$。
+    \end{center}
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{red}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{red}{\textbf{草稿：}}\\
+        让我们取一个特定的 $x$，比如 $x = 4$。我们需要找到一个平方大于 $x^2 = 16$ 的更小的实数。
+
+        关键是 $y \in \mathbb{R}$，所以我们可以使用负数。在这种情况下，选择一个较大的负数，例如 $y = -5$，就会使上面声明成立。
+
+        让我们再取一个不同的 $x$，比如 $x = -2$。这个数字已经是负数了，所以只要选择任意更小的数字，比如 $y = -3$，就可以了。
+
+        我们下面的证明就根据 $x$ 是正数还是非正数分为两种情况。
+    }
+    }
+\end{center}
+
+现在我们可以开始证明了
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proofs}{证明 1}
+                设 $x \in \mathbb{R}$ 是任意固定的。我们考虑两种情况。
+                
+                \begin{itemize}
+                    \item 假设 $x \le 0$。
+                    
+                        定义 $y = x - 1$。注意，此时 $y \in \mathbb{R}$ 且 $y < x$。
+
+                        由此可得
+                        \[y^2 = (x-1)^2 = x^2-2x+1 = x^2-(2x-1)\]
+                        因为 $x \le 0$，所以 $2x \le 0$，因此 $2x-1 \le -1$，由此可得
+                        \[x^2-(2x-1) \ge x^2+1 > x^2\]
+                        因此 $y^2 > x^2$。
+                    \item 假设 $x > 0$。
+                        定义 $y = -x - 1$。注意，此时 $y \in \mathbb{R}$ 且 $y < 0, x>0$，所以 $y \le x$（其实 $y < x$）。
+
+                        由此可得
+                        \[y^2 = (-x-1)^2 = x^2+2x+1 = x^2+(2x+1)\]
+                        因为 $x > 0$，所以 $2x+1 > 0$，由此可得
+                        \[x^2+(2x+1) > x^2\]
+                        因此 $y^2 > x^2$。
+                \end{itemize}
+                无论哪种情况，我们都找到了满足条件的 $y$，即 $y \in \mathbb{R}$ 且 $y \le x$ 使得 $x^2 < y^2$。 因此，该声明为真。
+            \end{proofs}
+        }
+    }
+\end{center}
+
+为什么我们称其为``证明 1''？根据我们在临时工作中的观察，我们将证明分为两种情况。具体来说，我们认识到我们将根据 $x$ 的符号不同以不同的方式定义 $y$（用 $x$ 表示）。其实我们可以不用分情况讨论的方式来重写这个证明。这就是``证明 2''，我们希望你来完成它！重申一下这里的目标，我们希望你以一种通用的方式用 $x$ 定义 $y$ 并重写上述证明，无论 $x$ 的符号如何，该证明都有效。
+
+（提示：当 $x < 0$ 时 $-x$ 是什么？这是我们之前见过的函数吗？）
+
+\subsubsection*{间接证法（反证法）}
+
+该方法与其他间接证法一样。我们只是对一个声明进行逻辑否定，假设它成立，然后推断出一些荒谬的东西。这意味着该假设无效，因此原始陈述为\verb|真|。
+
+我们希望你尝试用此方法证明上一个示例中的声明。（注意：你可以在完成上面要求的``证明 2''后再做这件事。）然后，比较一下这两种方法的效果，并在这种情况下你更喜欢哪一种。
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \land Q$ \\
+            \emph{间接证明策略：} \\
+            \hspace*{1cm} 为了引出矛盾而假设，$\neg P \lor \neg Q$ 成立。\\
+            \hspace*{1cm} 考虑第一种情况，即 $\neg P$ 成立，找出矛盾。\\
+            \hspace*{1cm} 考虑第二种情况，即 $\neg Q$ 成立，找出矛盾。
+        }
+    }
+\end{center}
 
 \subsection{证明 $\implies$}\label{sec:section4.9.5}
 
+回顾一下 \ref{sec4.5.3} 节可能会对你有所帮助，我们该节引入了连词``$\implies$''。具体来说，我们希望你记住 $P \implies Q$ 意味着\emph{只要} $P$ 成立，$Q$ 也\emph{必然}成立。当 $P$ 本身（\textbf{假设}）为\verb|假|时，该条件陈述为\verb|真|。因此，我们的证明策略不需要考虑这种情况。我们需要做的就是\emph{假设} $P$ 成立，并推断 $Q$ 也成立。我们只需要考虑``只要 $P$ 成立，$Q$ 也成立''这种情况。
+
+\subsubsection*{直接证法}
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \implies Q$ \\
+            \emph{直接证明策略：} \\
+            \hspace*{1cm} 假设 $P$ 成立，证明 $Q$ 成立。
+        }
+    }
+\end{center}
+
+\begin{example}
+    平方的单调性：
+
+    \begin{center}
+        陈述：$\forall y \in \mathbb{R} \centerdot y>1 \implies y^2-1>0$
+    \end{center}
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                设 $y \in \mathbb{R}$ 是任意固定的，且 $y > 1$。
+                
+                不等式两边同时乘以 $y$（因为 $y>0$），可得 $y^2>y$。
+
+                因为 $y>1$，我们可以得到 $y^2>y>1$，所以 $y^2>1$。
+
+                两边同时减 $1$ 得 $y^2-1>0$。
+            \end{proof}
+        }
+    }
+\end{center}
+
+我们将其称为``平方的单调性''，因为它说明了实数的某种特定属性是单调的。这是一个用来表示某种不等式在运算下保持不变的术语。在这个案例中，某个数大于 $1$ 的事实通过``平方运算''得以保持。也就是说，我们证明了如果 $y > 1$，那么 $y^2 > 1^2$ 也成立。
+
+上面的例子相当简单，但我们之所以把他包括进来是为了强调条件陈述的证明策略。现在，让我们来看一个更难的例子。
+
+（你可能会注意到，练习 \ref{exc:exercises4.11.22} 有一个看起来类似的问题陈述。也许看了本例之后，你会想要如何解决另一个。）
+
+\begin{example}\label{ex:example4.9.8}
+    解决不等式问题：
+
+    声明：我们定义以下变量命题：
+
+    \begin{align*}
+        P(x) \;\text{为}\; \frac{x-3}{x+2}>1-\frac{1}{x} \\
+        Q(x) \;\text{为}\; \frac{x+3}{x+2}<1+\frac{1}{x}
+    \end{align*}
+
+    定义 $S = \{x \in \mathbb{R} \mid x > 0\}$。
+
+    我们声明
+    \[\forall x \in S \centerdot P(x) \implies Q(x)\]
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{red}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{red}{\textbf{草稿：}}\\
+        我们猜测直接证法能够证明出来，所以我们尝试整理 $P(x)$ 内的不等式，使其``看起来像'' $Q(x)$ 内的不等式。
+
+        所以我们从这个不等式开始
+        \[\frac{x-3}{x+2}>1-\frac{1}{x}\]
+        不等式两边同时乘以 $x+2$。我们能这么做吗？当然可以，因为 $x>0$ 所以 $x+2>0$。由此可得
+        \[x-3>(x+2)-\frac{x+2}{x} = x+2-1-\frac{2}{x} = x+1-\frac{2}{x}\]
+        我们需要在某处构造出 $x+3$，所以两边同时加上 $2+\frac{2}{x}$ 可得
+        \[x-1+\frac{2}{x} > x+3\]
+        我们可不可以两边同时除以 $x+2$ 让右边变成分数形式呢？等一下！我们已经化简了分数 $\frac{x+2}{x}$ 并将其移到了一边。也许我们不该一上来就化简它，所以我们试着还原回来：
+        \[x+3<x-1+\frac{2}{x} = (x+2)+\frac{x+2}{x}-4=(x+2)\Big(1+\frac{1}{x}\Big)-4\]
+        这样看起来好多了！我们甚至还有一些负 $4$ 形式的``回旋余地''。我们知道右侧小于我们想要的值，所以结果成立。
+    }
+    }
+\end{center}
+
+让我们将上面的代数步骤重新整理并解释一下，使其成为一个正式的证明。
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                设 $x \in S$ 是任意固定的。
+                
+                假设 $P(x)$ 成立；这意味着
+                \[\frac{x-3}{x+2}>1-\frac{1}{x}\]
+                我们将证明不等式
+                \[\frac{x+3}{x+2}<1+\frac{1}{x}\]
+                也必然成立。
+                
+                因为 $x \in S$，我们可知 $x>0$ 并且 $x+2>0$ 也必然成立。因此我们可以在不等式两边同时乘以 $x+2$，得
+                \[x-3 > (x+2)\Big(1-\frac{1}{x}\Big)=x+2-\frac{x+2}{x}\]
+                两边同时加上 $3+\frac{x+2}{x}$ 再同时减去 $2$，交换不等号方向（为了更易读）可得
+                \[x+3<x-2+\frac{x+2}{x}\]
+                因为 $x-2<x+2$，可得
+                \[x+3<x+2+\frac{x+2}{x}\]
+                提取公因式得
+                \[x+3<(x+2)\Big(1+\frac{1}{x}\Big)\]
+                又因为 $x+2>0$，不等式两边同时除以 $x+2$ 得
+                \[\frac{x+3}{x+2}<1+\frac{1}{x}\]
+                而这正是我们要证明的不等式。以上证明了 $P(x) \implies Q(x)$，又因为 $x$ 是任意的，因此我们证明了声明的结论。
+            \end{proof}
+        }
+    }
+\end{center}
+
+这里的关键教训在于我们如何进行临时性工作并在证明中以不同的方式呈现它。我们删除了不必要的化简和重构步骤，但我们也注意到为什么每个步骤在我们执行时都是有效的。经验丰富的数学家可能会跳过其中几个步骤，并将其留给读者来验证，但由于我们还处于数学职业生涯的早期，因此我们认为展示尽可能丰富的细节是谨慎的做法。
+
+\subsubsection*{逆否证法}
+
+回顾 \ref{sec:section4.6.1} 节。在那里，我们证明了条件陈述与它的逆否命题逻辑等价。也就是说，条件陈述
+\[P \implies Q\]
+必然与
+\[\neg Q \implies \neg P\]
+具有相同的真值。
+
+因此，当我们试图证明 $P \implies Q$ 成立时，我们可以直接证明 $\neg Q \implies \neg P$ 成立！根据 $P$ 和 $Q$ 的含义，有时候其逆否形式更容易理解，或者我们可以更快地找到证明。事实上，当 $P$（或 $Q$，或二者兼而有之）在某个地方存在``不''时，逆否策略特别有用；通过考虑它的否定，我们可以用``肯定''的断言来代替否定。
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \implies Q$ \\
+            \emph{逆否策略：} \\
+            \hspace*{1cm} 假设 $\neg Q$ 成立，证明 $\neg P$ 成立。
+
+            （注意，这是 $\neg Q \implies \neg P$ 的直接证明策略。）
+        }
+    }
+\end{center}
+
+\begin{example}
+    偶数的乘积：
+
+    陈述：令 $E(x)$ 为命题``$x$ 为偶数''。
+
+    我们声明
+    \[\forall m,n \in \mathbb{Z} \centerdot E(m \cdot n) \implies \big(E(m) \lor E(n)\big)\]
+
+    换句话说，只要两个整数的乘积是偶数，就必然意味着至少有一个整数是偶数。
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                我们用逆否证法证明这一点
+                
+                令 $m,n \in \mathbb{Z}$ 为任意固定的。
+                
+                假设 $\neg E(m) \land \neg E(n)$。
+                
+                也就是说 $m$ 为奇数且 $n$ 也为奇数。
+
+                这意味着 $\exists k,l \in \mathbb{Z} \centerdot m=2k+1 \land n=2l+1$。
+
+                给定这样的 $k,l$，那么
+                \[m \cdot n = (2k+1)(2l+1) = 4kl+2k+2l+1 = 2(2kl+k+l)+1\]
+                因为 $2kl+k+l \in \mathbb{Z}$，这表明 $m \cdot n$ 为奇数。
+
+                因此 $\neg E(m \cdot n)$ 成立，所以我们证明了
+                \[\big(\neg E(m) \land \neg E(n)\big) \implies \neg E(m \cdot n)\]
+                其逆否形式就是我们要证明的声明。
+            \end{proof}
+        }
+    }
+\end{center}
+
+请注意，我们在证明的开头向读者指出，我们将使用逆否证法。如果我们不这样做，读者可能会感到困惑！我们的读者可能会想：``为什么我们假设 $\neg E(m)$ 成立？这有什么好处？！''。通过事先透露我们的策略，确保读者能够跟上思路，避免不必要的困惑。
+
+\subsubsection*{间接证法（反证法）}
+
+该方法依赖于条件陈述的逻辑否定。重读 ref{sec:section4.7} 节，看看我们在哪里证明了
+\[\neg (P \implies Q) \iff (P \land \neg Q)\]
+这里的证明技术利用了这种等价性。
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \implies Q$ \\
+            \emph{间接证明策略：} \\
+            \hspace*{1cm} 为了引出矛盾而假设 $P$ 成立而 $Q$ 不成立。得出矛盾。
+        }
+    }
+\end{center}
+
+\begin{example}
+    令人惊讶的算术几何平均不等式：
+
+    陈述：$\forall x \in \mathbb{R} \centerdot x > 0 \implies x + \frac{1}{x} \ge 2$
+\end{example}
+
+让我们直接进入证明，不做任何临时性工作，因为我们认为这个证明读起来相当简单。后面，我们将讨论其他替代策略。
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                令 $x \in \mathbb{R}$ 为任意固定的。
+
+                假设 $x>0$。
+
+                为了引出矛盾而假设 $x+\frac{1}{x} < 2$。
+
+                因为 $x>0$，我们可以在不等式两边同时乘以 $x$ 得
+                \[x^2 + 1 < 2x\]
+                整理并配方后，我们可以
+                \[(x-1)^2 < 0\]
+                这与 $(x-1)^2 \ge 0$ 矛盾。$\hashx$
+                
+                因此我们得原假设不成立，由此可得声明成立。
+            \end{proof}
+        }
+    }
+\end{center}
+
+现在，你可能对这个例子的标题感到好奇。这与算术几何平均不等式有什么关系呢？（回想一下，我们在 \ref{sec:section4.9.2} 节证明了这一事实。）精明的读者可能会意识到，这一事实不仅是一个不等式（就像算术几何平均不等式一样），而且这个证明中的几个步骤与我们证明算术几何平均不等式时所做的相似。具体来说，为了证明算术几何平均不等式，我们首先使用了特定平方表达式非负的这一事实。同样，在这个证明中，我们也利用了平方表达式\emph{应该}非负这一事实。这两个证明之间的相似性表明了一些潜在的内在关系。实际上，我们可以直接\emph{应用}算术几何平均不等式（请注意，以一种巧妙的方式！）以不同的方式证明上述事实。
+
+花几分钟时间思考一下，在查看我们给出的证明之前，看看你是否能想出接下来如何证明。应用算术几何平均等式意味着什么？那个结果适用于任何 $x$ 和 $y$，但在这里我们只有一个 $x$。我们能否巧妙地选择 $y$ 应该是什么，以便这里的结果立刻``呼之欲出''吗？试试看！然后，继续阅读……
+
+\begin{proof}
+    令 $x \in \mathbb{R}$ 是任意固定的。假设 $x>0$。
+
+    定义 $y = \frac{1}{x}$，所以 $y \in \mathbb{R}$。
+
+    接着对 $x$ 和 $y$ 应用算术几何平均不等式（因为其对\emph{任意} $x,y \in \mathbb{R}$ 一定成立）。可得
+    \[x \cdot \frac{1}{x} \le \Big(\frac{x+\frac{1}{x}}{2}\Big)^2\]
+
+    两边稍微化简一下得
+    \[1 \le \frac{1}{4}\Big(x+\frac{1}{x}\Big)^2\]
+
+    然后左右两边同时乘以 $4$ 得
+    \[4 \le \Big(x+\frac{1}{x}\Big)^2\]
+
+    不等式两边都非负，我们可以两边同时开平方得
+    \[2 \le x+\frac{1}{x}\]
+
+    这就是要证明的声明。
+\end{proof}
+
+这里有一个宝贵的经验：
+
+\begin{center}
+    始终关注论证与证明之间的相似之处，而不仅仅是已证明的结果。
+\end{center}
+
+通过应用另一个已被证明的结果，往往可以节省一些工作！（在这种情况下，我们并没有节省太多的写作时间；但是，如果我们没有注意到反证法有效的话，我们可能会节省一些时间。特别是，我们可能没有想到第一个证明中出现的因式分解技巧。）
+
 \subsection{证明 $\iff$}\label{sec:section4.9.6}
+
+回想一下，``$\iff$'' 连词完全是根据 ``$\implies$'' 连词定义的。也就是说，
+\[P \iff Q\]
+逻辑等价于两个条件陈述：
+\[(p \implies Q) \land (Q \implies P)\]
+这就产生了一个明显的策略：证明一个条件陈述，然后证明另一个！这里最常见的错误是仅仅证明了其中一个陈述，而不是同时证明两者。永远记住这一点！
+
+\subsubsection*{直接证法}
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \iff Q$ \\
+            \emph{直接证明策略：} \\
+            \hspace*{1cm} 证明 $P \implies Q$ （使用上一小节介绍的任意一种策略）。
+
+            \hspace*{1cm} 证明 $Q \implies P$ （使用上一小节介绍的任意一种策略）。
+        }
+    }
+\end{center}
+
+\begin{example}
+    偶数的平方为偶数：
+
+    陈述：一个整数是偶数当且仅当它的平方是偶数。
+
+    让我们用逻辑符号符号重写这个声明。
+    
+    设 $E(z)$ 为命题``$z$ 为偶数''。 那么我们声称
+    \[\forall z \in \mathbb{Z} \centerdot \Big(E(z) \iff E(z^2)\Big)\]
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                （$\implies$）首先，假设 $z$ 为偶数，因此 $\exists k \in \mathbb{Z} \centerdot z = 2k$。给定这样一个 $k$。由于 $z = 2k$，我们可以将两边平方并得到
+                \[z^2=(2k)^2=4k^2=2(2k^2)\]
+                
+                定义 $l=2k^2$。注意 $l \in \mathbb{Z}$ 且 $z^2=2l$。
+
+                这证明了 $z^2$ 为偶数。
+
+                因此 $E(z) \implies E(z^2)$
+
+                （$\implies$）接着，我们用反证法证明 $E(z^2) \implies E(z)$。
+
+                假设 $z$ 为奇数，因此 $\exists m ∈ \in \mathbb{Z} \centerdot z = 2m + 1$。给定这样一个 $m$。
+
+                由于 $z = 2m + 1$，我们可以将两边平方并得到
+                \[z^2=(2m+1)^2=4m^2+4m+1=2(2m^2+2m)+1\]
+
+                定义 $n=2m^2+2m$。注意 $n \in \mathbb{Z}$ 且 $z^2=2n+1$。
+
+                这证明了 $z^2$ 为奇数。
+
+                因此，$\neg E(z) \implies \neg E(z^2)$；根据逆否策略，可得 $E(z^2) \implies E(z)$。
+
+                综上，
+                \[E(z) \iff E(z^2)\]
+
+                由于 $z$ 是任意的，因此上面的证明对所有整数 $z$ 都成立。
+            \end{proof}
+        }
+    }
+\end{center}
+
+\subsubsection*{间接证法（反证法）}
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \iff Q$ \\
+            \emph{间接证明策略：} \\
+            \hspace*{1cm} 为了引出矛盾而假设 $\neg (P \implies Q) \lor \neg (Q \implies P)$。
+
+            \hspace*{1cm} 考虑第一种情况，即 $P \land \neg Q$ 成立。找出矛盾点。
+
+            \hspace*{1cm} 考虑第二种情况，即 $Q \land \neg P$ 成立。找出矛盾点。
+        }
+    }
+\end{center}
+
+使用这一策略——尤其是何时使用这一策略——取决于实际的陈述 $P$ 和 $Q$。一般来说，直接证法可能会更好（并非总是如此），但如果你发现自己陷入困境，可以考虑尝试一下原命题的否定形式—— $P \land \neg Q$ 和 $Q \land \neg P$ ——看一下能否帮你解决问题。有时这种策略非常值得一试！
+
+\subsubsection*{中介证法（TFAE）}
+
+由于缺乏更好的术语，我们将这种策略称为\textbf{中介证法}。正如你将看到的那样，这并不完全是直接证法，也不是间接证法。在使用这一策略时，我们不必考虑任何逻辑否定，但我们也没有直接将陈述 $P$ 和 $Q$ 链接起来。
+
+相反，该方法要求我们找到某个\emph{中间}陈述 $R$ 并证明两个双条件陈述：即 $P \iff R$ 和 $R \iff Q$。这会产生以下条件陈述链
+\[P \iff R \iff Q\]
+它告诉我们所有三个陈述都具有相同的真值。特别是，$P$ 和 $Q$ 必然始终具有相同的真值，因此我们得出 $P \iff Q$ 的结论。
+
+\textbf{TFAE} 是 ``the following are equivalent'' 的缩写，意思是``以下是等效的''。我们选择用这个缩写来命名该策略是因为它是数学中的一个常见短语；它用在提出一系列``相互暗示''的条件/属性的定理中。也就是说，一些定理列出了几个属性并断言它们在逻辑上都是等价的，因此``以下是等价的''。为了证明这样的定理，我们需要一遍又一遍地使用上述策略，并证明这些陈述确实是等价的。这里唯一的区别是我们必须构造出要使用的中间陈述。（但是，无论是谁提出并证明了 TFAE 式的定理，也必须首先给出所有这些陈述！）
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \iff Q$ \\
+            \emph{中介策略：} \\
+            \hspace*{1cm} 定义陈述 $R$。
+
+            \hspace*{1cm} 证明 $P \iff R$（使用上面介绍的任意一种策略）。
+
+            \hspace*{1cm} 证明 $R \iff Q$（使用上面介绍的任意一种策略）。
+        }
+    }
+\end{center}
 
 \subsection{反驳主张}\label{sec:section4.9.7}
 
+我们现在已经讨论（并且在许多例子中看到）了如何\textbf{证明}任意类型的数学陈述。棒极了！但你可能会说，``呃……如果我想\textbf{反驳}某个陈述怎么办？''我们对这个问题的回答简短而贴心：\emph{没有区别}。 
+
+反驳一个陈述意味着你想证明它的真值为\verb|假|。根据逻辑否定的定义，这意味着你想要证明陈述的否定为\verb|真|。因此，你可以使用我们在本节中探讨的任意策略得到并写出该逻辑否定并证明该陈述为\verb|真|。
+
+为了便于说明，让我们看个实际例子。具体来说，我们想要反驳 ``$\forall$'' 主张，这意味着我们想要证明 ``$\exists$''主张。这就是\textbf{反例}概念发挥作用的地方。
+
+\subsubsection*{反例}
+
+一般来说，\textbf{反例}是反驳全称量化陈述的实例。因为它可以证明 ``$\exists$'' 声明，并且得到\emph{相反}的结论，因此它表明这个特定的例子不具有所声明的属性。
+
+\begin{example}
+    回顾例 \ref{ex:example4.9.8}。其中，我们定义了集合
+    \[S = {x \in \mathbb{R} \mid x > 0}\]
+
+    然后定义了两个变量命题：
+    \begin{align*}
+        P(x) \;\text{为}\; \frac{x-3}{x+2}>1-\frac{1}{x} \\
+        Q(x) \;\text{为}\; \frac{x+3}{x+2}<1+\frac{1}{x}
+    \end{align*}
+
+    接着我们证明
+    \[\forall x \in S \centerdot P(x) \implies Q(x)\]
+
+    本例中，我们考虑如下命题
+    \[\forall x \in S \centerdot Q(x) \implies S(x)\]
+\end{example}
+
+具体来说，我们要反驳它。不过，在我们开始之前，请你自行研究一下该声明。试着证明一下它，尽管我们已经告诉你它为\verb|假|！你是否发现你的``证据''在某个地方失效了？为什么会发生这种情况？你能通过你的观察来帮助你找到该主张的反例吗？看看你能找到什么，然后继续阅读。
+
+\begin{center}
+    \noindent \fcolorbox{red}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{red}{\textbf{草稿：}}\\
+        首先，我们需要对我们所反驳的主张进行逻辑否定：
+        \[\exists x \in S \centerdot Q(x) \land \neg P(x)\]
+
+        这意味着我们需要找到一个满足三个条件的特定实数 $x$：
+        \begin{enumerate}[label=(\arabic*)]
+            \item 不等式 $x > 0$
+            \item 不等式 
+                \[\frac{x+3}{x+2}<1+\frac{1}{x}\]
+            \item 不等式
+                \[\frac{x-3}{x+2} \le 1-\frac{1}{x}\]
+        \end{enumerate}
+
+        我们有几个策略可以选择，就像我们上面提到的那样，我们可以尝试（当然是错误的）证明第一个不等式蕴含第二个不等式，并确定它在哪里失效。或者，我们可以使用``有根据的猜测''法``尝试一些值''。
+
+        无论如何，知道 $x \in \mathbb{R}$ 且 $x > 0$ 表明我们可以尝试 $x$ 的``极端''值。这意味着``极小'' $x$（即 $x$ 接近 $0$）或``极大'' $x$（即不断增加的 $x$ 值，直到我们找到一个有效值为止）。
+
+        首先使用一些``较小''值似乎更容易，所以让我们尝试 $x = 1$。我们看到 (1) 成立，因为 $1 > 0$，(2) 也成立，因为 $\frac{4}{3} < 2$，(3) 也成立，因为 $-\frac{2}{3} < 0 \le 0$。酷，就是这样！
+    }
+    }
+\end{center}
+
+\begin{proof}
+    这里，我们将反驳 $\forall x \in \mathbb{R} \centerdot Q(x) \implies P(x)$ 这一主张。
+
+    考虑 $x = 1$。注意 $x \in \mathbb{R}$ 并且 $x > 0$。
+
+    另外，请注意 $Q(1)$ 成立，因为
+    \[\frac{1+3}{1+2} = \frac{4}{3} < 2=1+\frac{1}{1}\]
+
+    并且，请注意 $P(1)$ 不成立，因为
+    \[\frac{1-3}{1+2} = -\frac{2}{3} \not{>} 0=1-\frac{1}{1}\]
+
+    因此，我们证明
+    \[\exists x \in S \centerdot Q(x) \land \neg P(x)\]
+
+    这反驳了主张。
+\end{proof}
+
 \subsection{在证明中使用假设}\label{sec:section4.9.8}
 
+创建和编写正式证明的另一个重要方面是，我们有时会得到要使用的\textbf{假设}。当我们陈述一个定理时，通常会涉及一些\textbf{假设}和一个\textbf{结论}。我们可以暂时将这些假设添加到我们的数学工具包中；我们可以利用它们得出期望的结论。同样地，在此过程中，我们可能会发现一些进一步的事实和观察，并且我们可以保留这些事实和观察，并用它们来证明结论。在这一小节中，我们想指出在证明中使用假设时可能出现的三个观察结果和问题。
+
+\subsubsection*{``$P \lor Q$'' 意味着分情况讨论}
+
+如果在证明中的某个时刻，你假设或推论 $P \lor Q$ 成立，那该如何继续呢？知道这个析取成立意味着至少一个成分陈述——$P$ 或 $Q$——成立。因此，你可以分别考虑这两种情况。例如，证明中可能包含如下部分：
+\begin{quote}
+    因为 $P \lor Q$，我们有两种情况。
+
+    \qquad 情况 1：假设 $P$ 成立。则……
+
+    \qquad 情况 2：假设 $Q$ 成立。则……
+\end{quote}
+只要你在这两种情况下都能达到你想要的目标，你就可以得出推论。
+
+请注意，无需考虑 $P$ 和 $Q$ 都成立的情况。其一，这可能不一定会发生。而且，如果你最终仅使用其中一个陈述来推断出您想要的结论，那么就没有必要暂时假设两个陈述。
+
+我们在某些证明中一直使用分情况讨论。现在，我们确切了解了它们为何有效！当存在潜在的析取陈述时，我们使用分情况讨论。
+
+\subsubsection*{``存在'' vs. ``给定''}
+
+这是一个微妙但重要的区别。如果你在证明中写下类似
+\[\exists x \in S \centerdot P(x)\]
+这样的声明，你声明了什么呢？从技术上讲，你实际上只是声明上面的陈述是一个为\verb|真|的声明；你断言\emph{确实}存在某些 $x \in S$ 具有 $P(x)$ 属性。但是，如果你随后开始引用 $x$ …… 那么这是无效的！在\emph{存在}断言中，你没有引入该断言的\emph{特定实例}。可能存在多个这样的 $x$ 元素。你是想讨论所有这些元素吗？或者只是一个特定元素？不要让读者凭直觉准确地理解你要做什么！
+
+如果你知道或假设某些存在声明（如上面的声明），并且你想实际引入一个满足该存在声明的变量，请使用下面这个美妙的短语：
+\begin{quote}
+    ``给定这样一个 $x$。''
+\end{quote}
+这向读者发出信号，表明你不仅在说这样的 $x$ 存在，而且还将在证明中将其发挥作用。对于书面论证的其余部分，你希望字母 $x$ 代表具有该属性的元素。此后，你可以通过名称引用该对象 $x$。
+
+如果你断言多个变量存在并想要引入它们，只需使用类似的短语和稍微不同的动词即可。例如，你可能会写这样的内容：
+\begin{quote}
+    …… 因此我们推论 $\exists x, y, z \in \mathbb{Z}$ 使得 $P(x, y, z)$ 成立。给定这样的 $x、y、z$。考察 ……
+\end{quote}
+
+\subsubsection*{``$P \implies Q$'' vs. ``$P$, 所以 $Q$''}
+
+这种区别与我们上面提到的例子类似。具体来说，编写声明来断言其有效性与编写声明向读者表明你正在从中得出结论之间存在区别。在最后一个例子中，这就是声明某物存在与引入这样一个对象之间的区别。
+
+这里的区别在于，断言条件陈述（如 $P \implies Q$）表示此条件关系存在与使用该陈述来推断 $Q$ 成立。从技术上讲，在论文中仅仅写下``$P \implies Q$'' 并不能断言 $Q$ 成立。你必须让你的读者非常清楚你也知道 $P$ 并且正在使用条件陈述来推导 $Q$。
+
+回顾一下我们在 \ref{sec:section4.5.6} 节中的讨论。在那里，我们描述了这一重要区别，并提到了 ``分离规则'' 的方法。正如我们提到的，如果你想实际推导 $Q$，你应该编写如下内容：
+\begin{quote}
+    $P \implies Q$ 因为 ……
+
+    另外，$P$ 成立，因为 ……
+
+    因此，$Q$ 成立。
+\end{quote}
+
 \subsection{问题和练习}\label{sec:section4.9.9}
+
+口头或书面简要回答以下问题。这些题目全都基于你刚刚阅读的部分，因此如果你无法想起特定的定义、概念或示例，请返回重新阅读相应部分。确保自己在继续之前可以自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $\exists$ 声明的直接证法是什么？证明对象存在的重要步骤是什么？
+    \item $\implies$ 声明的直接证法是什么？如何通过反证法证明 $\implies$ 声明？这些方法有何不同？
+    \item 如何证明 $\iff$ 声明？
+    \item 什么是算数几何平均不等式？该缩写从何而来？
+    \item 逆否策略适用于哪种类型的声明？为什么它有效？
+    \item 什么是反例
+    \item ``$\exists a \in A \centerdot P(a)$'' 和 ``$\exists a \in A \centerdot P(a)$, 给定这样一个 $a$'' 有什么区别？
+\end{enumerate}
+
+\subsubsection*{试一试}
+
+尝试回答以下简答题。这些题目要求你实际动笔写一写，或（对朋友/同学）口头描述一些东西。目的是让你练习使用新概念、定义和符号。别担心，这些题本来就很简单。确保能够解决这些问题将对你有所帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 证明 $\forall x \in \mathbb{R} \centerdot x^2 \ne 1 \implies x \ne 1$。
+    \item 证明 $\forall n \in \mathbb{N} \centerdot n \ge 5 \implies 2n^2 > (n+1)^2$
+    \item 用逻辑符号表达下列命题，然后证明。
+        \begin{quote}
+            存在一个偶自然数，可以用两种不同的方式写成两个素数之和。
+        \end{quote}
+    \item 证明每个自然数要么小于 $\sqrt{10}$ 要么大于 $3$。即，证明
+        \[\forall n \in \mathbb{N} \centerdot n<\sqrt{10} \lor x>3\]
+    \item 设 $A,B,C,D$ 为集合。证明，如果 $A \cup B \subset C \cup D$ 且 $C \subset A$ 且 $A \cap B = \varnothing$，则 $B \subset D$。
+    \item 定义 $P = \{y \in \mathbb{R} \mid y > 0\}$。证明
+        \[\forall \varepsilon \in P \centerdot \forall x, y \in \mathbb{R} \centerdot \exists \delta \in P \centerdot |x - y| < \delta \implies |(3x - 4) - (3y - 4)| < \varepsilon\]
+        你还能证明以下声明吗？和上面的声明有什么不同呢？
+        \[\forall \varepsilon \in P \centerdot \exists \delta \in P \centerdot \forall x, y \in \mathbb{R} \centerdot  |x - y| < \delta \implies |(3x - 4) - (3y - 4)| < \varepsilon\]
+    \item 设 $E(x)$ 为命题 ``$x$ 为偶数''。证明
+        \[\forall a, b \in \mathbb{Z} \centerdot E(a) \land E(b) \iff E(a + b) \land E(a \cdot b)\]
+    \item 回顾一下 $\sqrt{2}$ 是无理数的证明。修改它以证明 $\sqrt{3}$ 也是无理数。\\
+        尝试用相同的思路证明 $\sqrt{6}$ 是无理数。\\
+        \textbf{挑战}：你能证明 $\sqrt{p}$ 对于每个素数 $p$ 都是无理数吗？
+    \item 证明有无限多个有理数。\\
+        \textbf{提示}：用反证法来证明。（假设有有限多个有理数……）
+\end{enumerate}

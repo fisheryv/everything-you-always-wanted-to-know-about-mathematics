@@ -1,5 +1,5 @@
 % !TeX root = ../../book.tex
-\section{数学陈述的否定}
+\section{数学陈述的否定}\label{sec:section4.7}
 
 我们已经看到过如何否定量化陈述。有了德摩根定律，我们现在知道如何否定 $\land$ 和 $\lor$ 陈述。那么剩下的就只有条件陈述了！
 
@@ -40,13 +40,16 @@
         \newline
         出于这些原因，我们希望避免使用 $\notimplies$ 这种表示法。它在数学上确实存在某种意义，但在符号逻辑意义上并没有真正明确的定义。无论如何，它绝对不是 $\implies$ 的逻辑否定。
 \end{itemize}
-现在我们已经解决了这些常见错误，让我们强调一下 $P \implies Q$ 的正确否定。我们发现记住条件陈述的 ``$\lor$'' 版本非常有帮助；基于 ``$\lor$'' 版本，可以很容易地应用德摩根定律得到该陈述的否定：\\
-\newline
+现在我们已经解决了这些常见错误，让我们强调一下 $P \implies Q$ 的正确否定。我们发现记住条件陈述的 ``$\lor$'' 版本非常有帮助；基于 ``$\lor$'' 版本，可以很容易地应用德摩根定律得到该陈述的否定：
+
+\setlength{\fboxrule}{2pt}
+\begin{center}
 \fcolorbox{olivegreen}{white}{%
-    \parbox{\textwidth}{%
+    \parbox{0.8\textwidth}{%
         \[\neg (P \implies Q) \iff \neg (\neg P \lor Q) \iff P \land \neg Q\]
     }
 }
+\end{center}
 
 \subsubsection*{否定 $\iff$}
 
@@ -105,9 +108,11 @@
 
     哪个陈述（原始陈述还是否定陈述）为\verb|真|？你能给出证明吗？
 \end{example}
-\newline
+\setlength{\fboxrule}{0.8pt}
+\setlength\fboxsep{5mm}
+\begin{center}
 \fcolorbox{black}{white}{%
-    \parbox{\textwidth}{%
+    \parbox{0.85\textwidth}{%
         将上面示例中的陈述与以下陈述进行对比：
         \[\forall X \in \mathcal{P}(\mathbb{Z}) \centerdot \forall x \in X \centerdot (x \ge 1 \implies X \subseteq \mathbb{N})\]
         二者唯一的区别是括号的位置不同，但这完全改变了陈述的含义！
@@ -121,7 +126,7 @@
         此框中的陈述为假，我们鼓励你自己找出原因。
     }
 }
-\newline
+\end{center}
 
 \begin{example}
     设 $O(x)$ 为命题 ``$x$ 为奇数''，设 $E(x)$ 为命题 ``$x$ 为偶数''。给出下面陈述的逻辑否定
