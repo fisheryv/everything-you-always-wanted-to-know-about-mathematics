@@ -1,2 +1,280 @@
 % !TeX root = ../../book.tex
-\section{弱归纳法}
+\section{常规归纳法}
+
+这一部分讨论了我们之前见过的归纳论证方法。在接下来的部分中，你将了解为什么我们把这种方法称为``常规''归纳法。
+
+\subsection{定理的陈述与证明}
+
+在这里，我们回顾一下第 \ref{ch:chapter03} 章中提到的\textbf{数学归纳原理}。思考一下这个原理是如何类比于\textbf{多米诺骨牌}的，或者任何其他能帮助你理解归纳过程的比喻。如果你没有阅读 \ref{sec:section3.8 } 节关于如何定义 $\mathbb{N}$ 的可选内容，你可能错过了这个定理的陈述。不过不用担心，相信你仍然能够理解并以符合归纳过程的方式来阐述它。
+
+\begin{theorem}[数学归纳原理]
+    设 $P(n)$ 为某个依赖于自然数 $n$ 的``事实''或``观察''。假设
+    \begin{itemize}
+        \item $P(1)$ 为\verb|真|。
+        \item 给定任意 $k \in \mathbb{N}$，如果 $P(k)$ 为\verb|真|，必然可以得出 $P(k+1)$ 为\verb|真|。
+    \end{itemize}
+    那么，陈述 $P(n)$ 对于每个自然数 $n \in \mathbb{N}$ 都必然成立。
+\end{theorem}
+
+看看这些冗长的句子、短语和模糊的术语。一个依赖于自然数的``事实''？这听起来像是一个\textbf{变量命题}，对吧？``如果……那么必然可得……''这听起来像是一个\textbf{条件陈述}，不是吗？这些表达都是为了阐明一些逻辑基础，我们现在可以利用上一章学到的概念和符号重新表述整个定理。在查看我们的版本之前，你可以先尝试自己给出新的表述。同时，回忆一下我们是如何\emph{证明}该定理的。（如果你跳过了这部分可选阅读也没关系。）回头看看 \ref{sec:section3.8.2} 节并唤醒记忆，因为我们将遵循相同的证明方法，但这次我们将使用已有的逻辑符号和工具。准备好了吗？那我们开始吧！
+
+\begin{theorem}[数学归纳原理]
+    设 $P(n)$ 为变量命题。假设
+    \begin{itemize}
+        \item $P(1)$ 为\verb|真|。
+        \item $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$ 为\verb|真|。
+    \end{itemize}
+    那么，$\forall n \in \mathbb{N} \centerdot P(n)$ 为\verb|真|。
+\end{theorem}
+
+这就是全部内容了！这段话包含了所有相同的理念---某个初始事实成立，并且每一个事实都能推导出下一个事实，从而让所有事实都成立---但它是通过逻辑符号和语言来表述的。你能看出它们传达的是同一个意思吗？确保你理解了再继续阅读！
+
+现在，我们的目标是要\emph{证明}这个定理。没错，我们要证明数学归纳法是一个有效的证明方法！我们已经通过真值表证明了条件陈述与其逆否命题逻辑等价，这为我们提供了一种证明策略。
+
+不过，展开证明之前，我们希望你阅读关于如何定义自然数的章节，即 \ref{sec:section3.8} 节。这一节包含了一些关键定义，我们将在接下来的证明中使用这些定义。在那里，我们定义了什么是\textbf{归纳集}，并证明了 $\mathbb{N}$ 是``最小''的归纳集，这意味着 $\mathbb{N}$ 是宇宙中所有归纳集的子集。这正是我们希望 $\mathbb{N}$ 具备的特性，而这些定义正是为了实现这一点。我们将在这里提供这些重要的定义---稍微用逻辑符号改写一下，并略去一些集合论的概念---但我们还是建议你阅读一下 \ref{sec:section3.8} 节，以充分理解讨论的全部内容。
+
+\begin{definition}
+    设 $I$ 为集合。如果 $I$ 满足如下条件：
+    \begin{enumerate}
+        \item $1 \in I$
+        \item 对于任意元素 $k$，蕴涵 $k \in I \implies k + 1 \in I$ 成立
+    \end{enumerate}
+    则 $I$ 称为\dotuline{归纳集}。
+\end{definition}
+
+\begin{definition}
+    所有\dotuline{自然数}的集合是集合
+    \[\mathbb{N}:=\{x \mid \text{对于每个归纳集 }I, x \in I\}\]
+    换句话说，$\mathbb{N}$ 是最小的归纳集：
+    \[\mathbb{N} = \bigcap_{I \in \{S \mid S \text{ 为归纳集}\}} I\] 
+\end{definition}
+
+我们来证明一下！
+
+\begin{proof}
+    设 $P(n)$ 为定义在每个自然数上的变量命题。假设定理中给出的两个条件成立，即
+    \begin{enumerate}
+        \item $P(1)$ 为\verb|真|
+        \item $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$ 为\verb|真|。
+    \end{enumerate}
+
+    设 $S$ 为 $P(n)$ 为\verb|真|的实例的集合。也就是说，定义
+    \[S = \{n \in \mathbb{N} \mid P(n) \text{ 为真}\}\]
+
+    根据定义（使用集合构建符），$S \subseteq \mathbb{N}$。
+
+    条件（1）确保 $1 \in S$。
+
+    条件（2）确保 $\forall k \in \mathbb{N} \centerdot k \in S \implies k+1 \in S$。
+
+    这两个条件共同保证 $S$ 是\emph{归纳集}。根据上面 $\mathbb{N}$ 的定义，我们知道 $\mathbb{N} \subseteq S$。
+
+    因此，通过双包含论证可得 $S = \mathbb{N}$。这意味着陈述 $P(n)$ 对于\emph{每个}自然数 $n$ 都成立，即 $\forall n \in \mathbb{N} \centerdot P(n)$ 为\verb|真|！
+\end{proof}
+
+虽然理解该证明背后的集合论原理不是使用归纳法或编写归纳证明的必要条件，但我们认为，深入探讨这些逻辑基础会增进你的理解，或者至少能激发你对数学逻辑和集合论的兴趣。
+
+通过重新表述数学归纳原理（PMI），我们实现了一个重要目标：现在我们可以清楚地判断一个归纳论证是否成功。在进行``归纳证明''时，核心任务就是根据定理的表述来验证条件（1）和（2）（即验证命题 $P(n)$ 的``真值集合''是一个归纳集）。
+
+\subsection{使用归纳法：证明模板}
+
+根据前文的考察，我们可以设计一个标准的``\textbf{归纳证明}''模板。（这个模板也可以并入上一章的证明策略中，进一步丰富我们的数学工具箱！）值得注意的是，模板中的每个步骤都旨在确保证明的条理清晰、逻辑严密且易于理解：
+
+\begin{itemize}
+    \item 首先，我们需要定义一个命题 $P(n)$，明确告诉读者我们的证明目标。
+    \item 然后，我们需要验证\textbf{基础情形（BC）}，确保满足数学归纳原理（PMI）的第一个条件。
+    \item 接下来，我们要验证条件陈述 $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$，以证明归纳原理中的第二个条件。为此，我们将采用直接证明策略，分为以下两个步骤：
+        \begin{itemize}
+            \item 首先，我们提出\textbf{归纳假设（IH）}，假设存在任意固定自然数 $k$ 使得 $P(k)$ 成立。
+            \item 然后，我们进行\textbf{归纳步骤（IS）}，基于这个假设推导出 $P(k+1)$ 也成立。
+        \end{itemize} 
+    \item 在这些步骤---\textbf{基础情形（BC）、归纳假设（IH）和归纳步骤（IS）}---之中，我们验证了数学归纳原理的所有条件，并可以得出结论：$\forall n \in \mathbb{N} \centerdot P(n)$。
+    
+    最后，我们总结此结论，告诉读者我们已经完成了证明。
+\end{itemize}
+
+\subsubsection*{\textcolor{blue}{``归纳证明''模板}}
+
+\setlength{\fboxrule}{2pt}
+\setlength\fboxsep{5mm}
+\begin{center}
+\noindent \fcolorbox{blue}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textbf{目标：} 证明 $\forall n \in \mathbb{N} \centerdot P(n)$
+        \begin{proof}\\
+            设 $P(n)$ 为命题 ``$\underline{\qquad\qquad\qquad}$''。\\
+            我们对 $n$ 采用归纳法证明 $\forall n \in \mathbb{N} \centerdot P(n)$。\\
+            \textbf{基础情况}：$P(1)$ 成立，因为 $\underline{\qquad\qquad\qquad}$。\\
+            \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的，假设 $P(k)$ 成立。\\
+            \textbf{归纳步骤}：推导出 $p(k+1)$ 也成立。\\
+            根据数学归纳原理可得$\forall n \in \mathbb{N} \centerdot P(n)$。
+        \end{proof}
+    }
+}
+\end{center}
+
+\subsubsection*{常见问题及说明}
+
+以下是一些忠告和建议。这些建议基于我们对质量优秀、结构严谨的归纳论证应具备的特质的理解，同时也包括了我们多年来观察到学生们经常犯的一些常见错误。
+
+\begin{itemize}
+    \item \textbf{一定要定义命题。}
+    
+    有时候，问题或练习的描述中会直接给出命题的定义。但并不是所有情况下命题都会明确以 $P(n)$ 的形式出现。如果后文中需要引用这个命题，而它未被显式定义，那么引用 $P(n)$ 就没有任何意义。因此，如果你打算引用某个命题，请确保首先对其进行定义。
+
+    为了表达简洁，你可以使用这样的表述：``设 $P(n)$ 为前文中定义的命题。''（但请确保变量 $n$ 确实是之前命题中使用的，以保证表述的一致性！）
+
+    \item \textbf{明确表明你正在使用数学归纳法，并指出是对哪个变量应用归纳。}
+    
+    在未来，你可能会遇到涉及多个变量的归纳证明。此外，仅仅因为你的整个证明遵循某种归纳结构，并不意味着读者就理解你正在使用归纳法。因此，最好在一开始就告诉读者你正在使用归纳法，这可以避免很多不必要的误解。
+
+    \item \textbf{基础情形尽可能详细清晰。}
+    
+    不要仅仅说明 $P(1)$ 是什么，并期待读者能理解其为何成立。这个责任在证明者，而非读者！
+
+    同样，不要只是单纯地写出命题 $P(1)$ 并在旁边打一个 $\checkmark$。这样做并没有证明任何东西！
+
+    如果命题 $P(1)$ 是一个方程（这是常见的情况），你需要展示方程两边为什么相等，而不是简单地写下方程并期望读者自己理解。
+
+    \item \textbf{归纳假设和归纳步骤共同运用直接证明策略证明 $\implies$ 关系。}
+    
+    归纳假设引入了一个任意且固定的自然数 $k$，并假设 $P(k) \implies P(k+1)$。这是我们的假设基础。我们接着用这个假设来推导 $P(k+1)$，从而证明归纳法中条件(2)的条件陈述。
+
+    这里一定要明确指出变量 $k$ 的范围！像``假设 $P(k)$''这样的陈述是不够的。$k$ 是什么？是自然数吗？正确的表述应该是``设 $k \in \mathbb{N}$ 并假设 $P(k)$ 成立''，这对数学读者来说，``设 $k \in \mathbb{N}$''隐含着``设 $k \in \mathbb{N}$（任意且固定）''。
+
+    \item \textbf{在归纳假设中明确写出 $P(k)$ 的含义大有帮助。}
+    
+    首先，这种表述有助于读者理解你的假设，并更好地跟进证明的其他部分。
+
+    此外，这也有助于你明确如何证明 $P(k+1)$，这是你在此步骤中的目标。如果你在解决这一步骤时感到困难（可能是在考试或作业中），不妨在纸上先写下 $P(k)$ 的含义，在下面写下 $P(k+1)$ 的含义。现在你能看出它们之间可能的联系了吗？尝试从 $P(k)$ 向下分析，从 $P(k+1)$ 向上分析，并在中间找到它们的联系。
+
+    \item \textbf{在归纳步骤中必须调用归纳假设！}
+    
+    如果你没有使用归纳假设，那么为何还需要使用归纳法呢？
+
+    当你使用归纳假设时，明确指出你正在这样做。不要指望读者能记住或识别这一点。
+
+    \item \textbf{最后，明确给出你的结论}
+    
+    明确告诉读者你完成了什么。\\
+\end{itemize}
+
+以上，我们讨论了如何撰写一个好的归纳证明，接下来让我们动手实践一下。
+
+\subsection{示例}
+
+\begin{example}
+    奇数之和是平方数。
+
+    \textbf{声明}：前 $n$ 个奇数之和为 $n^2$。
+
+    （注意：我们之前在 \ref{sec:section1.4.3} 节中见过这个谜题，并在 \ref{sec:section2.3.4} 节中引导你使用归纳法详细分析它。现在，我们将在这里给出该命题的良好证明。）
+\end{example}
+
+\begin{proof}
+    设 $P(n)$ 为命题
+    \[1+3+5+ \dots +2n-1 = \sum_{i=1}^n (2i-1) = n^2\]
+    我们通过对 $n$ 用归纳法证明 $\forall n \in \mathbb{N} \centerdot P(n)$。
+
+    \textbf{基本情况}：考虑 $n=1$，不难发现
+    \[\sum_{i=1}^1 (2i-1) = 1 \quad \text{且} \quad 1=1^2\]
+    故
+    \[\sum_{i=1}^1 (2i-1) = 1^2\]
+    因此 $P(1)$ 成立。
+
+    \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的。假设 $P(k)$ 成立，这意味着
+    \[\sum_{i=1}^k (2i-1) = k^2\]
+
+    \textbf{归纳步骤}：考虑 $k+1$，通过分离出第 $k+1$ 项可得
+    \[\sum_{i=1}^{k+1} (2i-1) = 2(k + 1) - 1 + \sum_{i=1}^k (2i-1) = 2k + 1 + \sum_{i=1}^k (2i-1)\]
+    利用归纳假设，替换上面等式右边的求和，将其化简为
+    \[\sum_{i=1}^{k+1} (2i-1) = 2k+1+k^2\]
+    因式分解后得
+    \[\sum_{i=1}^{k+1} (2i-1) = (k+1)^2\]
+    因此 $P(k+1)$ 成立。
+
+    根据数学归纳原理，我们可以得出结论 $\forall n \in \mathbb{N} \centerdot P(n)$。
+\end{proof}
+
+下面是几何级数求和公式的良好归纳法证明。\\
+
+\begin{example}
+    几何级数求和公式：
+
+    \textbf{声明}：对于所有 $q \in \mathbb{R}-\{0,1\}$ 且 $n \in \mathbb{N}$，下列公式成立：
+    \[\sum_{i=0}^{n-1}q^i = 1+q+q^2+\dots+q^{n-1} = \frac{q^n-1}{q-1}\]
+\end{example}
+
+\begin{proof}
+    设 $q \in \mathbb{R}-\{0,1\}$ 是任意固定的。定义 $P(n)$ 为命题
+    \[\sum_{i=0}^{n-1}q^i = \frac{q^n-1}{q-1}\]
+    我们通过对 $n$ 用归纳法证明 $\forall n \in \mathbb{N} \centerdot P(n)$。
+
+    \textbf{基本情况}：考虑 $n=1$，不难发现
+    \[\sum_{i=0}^{n-1}q^i = \sum_{i=0}^{0}q^i = q^0\]
+    因为 $q \neq 0$，所以 $q^0=1$，因此
+    \[\sum_{i=0}^{n-1}q^i = \sum_{i=0}^{0}q^i = q^0 = 1\]
+    同时
+    \[\frac{q^n-1}{q-1} = \frac{q-1}{q-1}\]
+    因为 $q \neq 1$，所以
+    \[\frac{q^n-1}{q-1} = \frac{q-1}{q-1} = 1\]
+    因此 $P(1)$ 成立。
+
+    \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的。假设 $P(k)$ 成立，这意味着
+    \[\sum_{i=0}^{k-1}q^i = \frac{q^k-1}{q-1}\]
+
+    \textbf{归纳步骤}：我们要证明 $P(k+1)$ 成立，即
+    \[\sum_{i=0}^{k}q^i = \frac{q^{k+1}-1}{q-1}\]
+    \begin{align*}
+        \sum_{i=0}^{k}q^i &= \Bigg(\sum_{i=0}^{k-1}q^i\Bigg)+q^k &\qquad \text{求和运算符的定义}\\
+        &= \frac{q^k-1}{q-1} + q^k &\qquad \text{代入归纳假设}\\
+        &= \frac{q^k-1+q^k(q-1)}{q-1} &\qquad \text{通分}\\
+        &= \frac{q^k-1+q^{k+1}-q^k}{q-1} &\qquad \text{展开}\\ 
+        &= \frac{q^{k+1}-1}{q-1} &\qquad \text{合并同类项}
+    \end{align*}
+    这表明 $P(k+1)$ 成立。
+
+    根据数学归纳原理，我们可以得出结论 $\forall n \in \mathbb{N} \centerdot P(n)$。
+\end{proof}
+
+\emph{扩展问题}：为什么上例中我们需要声明 $q \notin \{0, 1\}$?
+
+$q=0$ 会发生什么？我们的证明会在哪一步出问题？该求和公式还成立吗？如果成立，请证明它；如果不成立，尝试修正它。
+
+同理，请尝试回答 $q=1$ 的情况。
+
+\subsection{问题和练习}
+
+口头或书面简要回答以下问题。这些题目全都基于你刚刚阅读的部分，因此如果你无法想起特定的定义、概念或示例，请返回重新阅读相应部分。确保自己在继续之前可以自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 数学归纳原理是什么？它是如何被证明的？
+    \item 什么是数学归纳法的基本情况？它与数学归纳原理有什么关系？
+    \item 归纳假设和归纳步骤有什么关系？它们与数学归纳原理又有什么关系？
+    \item 为什么在归纳步骤中调用归纳假设很重要？
+\end{enumerate}
+
+\subsubsection*{试一试}
+
+尝试回答以下简答题。这些题目要求你实际动笔写一写，或（对朋友/同学）口头描述一些东西。目的是让你练习使用新概念、定义和符号。别担心，这些题本来就很简单。确保能够解决这些问题将对你有所帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 证明，对于所有 $n \in \mathbb{N}$
+        \[\sum_{i=1}^{n} i^3 = \bigg[\frac{n(n+1)}{2}\bigg]^2\]
+    \item 证明奇数的平方都比 $8$ 的倍数多 $1$。也就是说证明，对于所有 $n \in \mathbb{N}$
+        \[(2n+1)^2-1 \text{是 8 的整数倍}\]
+    \item 考虑声明：对于所有 $n \in \mathbb{N}, 7^n-4^n$ 是 $3$ 的整数倍。
+    
+    用逻辑符号重写该声明，然后用归纳法证明它。
+    \item 斐波那契数列定义为
+    \[f_0=1 \quad\text{且}\quad f_1=1 \quad\text{且}\quad \forall n=\mathbb{N}-\{1\} \centerdot f_n=f_{n-1}+f_{n-2}\]
+    用归纳法证明对于所有 $n \in \mathbb{N}$ 下列声明都成立：
+    \begin{enumerate}[label=(\alph*)]
+        \item $\displaystyle\sum_{i=1}^{n} f_i = f_{n+2}-1$
+        \item $\displaystyle\sum_{i=1}^{n} f_{2i-1} = f_{2n}$
+        \item $f_{4n}$ 是 $3$ 的整数倍
+        \item \textbf{挑战 1}：($n$ 是 $3$ 的整数倍) $\implies$ ($f_n$ 为偶数)
+        \item \textbf{挑战 2}：($n$ 不是 $3$ 的整数倍) $\implies$ ($f_n$ 为奇数)
+    \end{enumerate}
+\end{enumerate}
