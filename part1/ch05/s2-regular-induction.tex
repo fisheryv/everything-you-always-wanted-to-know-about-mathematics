@@ -53,7 +53,7 @@
 
 \begin{proof}
     设 $P(n)$ 为定义在每个自然数上的变量命题。假设定理中给出的两个条件成立，即
-    \begin{enumerate}
+    \begin{enumerate}[label=(\arabic*)]
         \item $P(1)$ 为\verb|真|
         \item $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$ 为\verb|真|。
     \end{enumerate}
@@ -82,13 +82,13 @@
 
 \begin{itemize}
     \item 首先，我们需要定义一个命题 $P(n)$，明确告诉读者我们的证明目标。
-    \item 然后，我们需要验证\textbf{基础情形（BC）}，确保满足数学归纳原理（PMI）的第一个条件。
+    \item 然后，我们需要验证\textbf{基础情况（BC）}，确保满足数学归纳原理（PMI）的第一个条件。
     \item 接下来，我们要验证条件陈述 $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$，以证明归纳原理中的第二个条件。为此，我们将采用直接证明策略，分为以下两个步骤：
         \begin{itemize}
             \item 首先，我们提出\textbf{归纳假设（IH）}，假设存在任意固定自然数 $k$ 使得 $P(k)$ 成立。
             \item 然后，我们进行\textbf{归纳步骤（IS）}，基于这个假设推导出 $P(k+1)$ 也成立。
         \end{itemize} 
-    \item 在这些步骤---\textbf{基础情形（BC）、归纳假设（IH）和归纳步骤（IS）}---之中，我们验证了数学归纳原理的所有条件，并可以得出结论：$\forall n \in \mathbb{N} \centerdot P(n)$。
+    \item 在这些步骤---\textbf{基础情况（BC）、归纳假设（IH）和归纳步骤（IS）}---之中，我们验证了数学归纳原理的所有条件，并可以得出结论：$\forall n \in \mathbb{N} \centerdot P(n)$。
     
     最后，我们总结此结论，告诉读者我们已经完成了证明。
 \end{itemize}
@@ -129,7 +129,7 @@
     
     在未来，你可能会遇到涉及多个变量的归纳证明。此外，仅仅因为你的整个证明遵循某种归纳结构，并不意味着读者就理解你正在使用归纳法。因此，最好在一开始就告诉读者你正在使用归纳法，这可以避免很多不必要的误解。
 
-    \item \textbf{基础情形尽可能详细清晰。}
+    \item \textbf{基础情况尽可能详细清晰。}
     
     不要仅仅说明 $P(1)$ 是什么，并期待读者能理解其为何成立。这个责任在证明者，而非读者！
 
