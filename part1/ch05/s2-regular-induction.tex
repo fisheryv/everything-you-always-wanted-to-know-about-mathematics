@@ -9,21 +9,21 @@
 
 \begin{theorem}[数学归纳原理]
     设 $P(n)$ 为某个依赖于自然数 $n$ 的``事实''或``观察''。假设
-    \begin{itemize}
+    \begin{enumerate}
         \item $P(1)$ 为\verb|真|。
         \item 给定任意 $k \in \mathbb{N}$，如果 $P(k)$ 为\verb|真|，必然可以得出 $P(k+1)$ 为\verb|真|。
-    \end{itemize}
+    \end{enumerate}
     那么，陈述 $P(n)$ 对于每个自然数 $n \in \mathbb{N}$ 都必然成立。
 \end{theorem}
 
 看看这些冗长的句子、短语和模糊的术语。一个依赖于自然数的``事实''？这听起来像是一个\textbf{变量命题}，对吧？``如果……那么必然可得……''这听起来像是一个\textbf{条件陈述}，不是吗？这些表达都是为了阐明一些逻辑基础，我们现在可以利用上一章学到的概念和符号重新表述整个定理。在查看我们的版本之前，你可以先尝试自己给出新的表述。同时，回忆一下我们是如何\emph{证明}该定理的。（如果你跳过了这部分可选阅读也没关系。）回头看看 \ref{sec:section3.8.2} 节并唤醒记忆，因为我们将遵循相同的证明方法，但这次我们将使用已有的逻辑符号和工具。准备好了吗？那我们开始吧！
 
-\begin{theorem}[数学归纳原理]
+\begin{theorem}[数学归纳原理]\label{theorem5.2.2}
     设 $P(n)$ 为变量命题。假设
-    \begin{itemize}
+    \begin{enumerate}[label=(\arabic*)]
         \item $P(1)$ 为\verb|真|。
         \item $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$ 为\verb|真|。
-    \end{itemize}
+    \end{enumerate}
     那么，$\forall n \in \mathbb{N} \centerdot P(n)$ 为\verb|真|。
 \end{theorem}
 
@@ -63,9 +63,9 @@
 
     根据定义（使用集合构建符），$S \subseteq \mathbb{N}$。
 
-    条件（1）确保 $1 \in S$。
+    条件 (1) 确保 $1 \in S$。
 
-    条件（2）确保 $\forall k \in \mathbb{N} \centerdot k \in S \implies k+1 \in S$。
+    条件 (2) 确保 $\forall k \in \mathbb{N} \centerdot k \in S \implies k+1 \in S$。
 
     这两个条件共同保证 $S$ 是\emph{归纳集}。根据上面 $\mathbb{N}$ 的定义，我们知道 $\mathbb{N} \subseteq S$。
 
@@ -74,7 +74,7 @@
 
 虽然理解该证明背后的集合论原理不是使用归纳法或编写归纳证明的必要条件，但我们认为，深入探讨这些逻辑基础会增进你的理解，或者至少能激发你对数学逻辑和集合论的兴趣。
 
-通过重新表述数学归纳原理（PMI），我们实现了一个重要目标：现在我们可以清楚地判断一个归纳论证是否成功。在进行``归纳证明''时，核心任务就是根据定理的表述来验证条件（1）和（2）（即验证命题 $P(n)$ 的``真值集合''是一个归纳集）。
+通过重新表述数学归纳原理（PMI），我们实现了一个重要目标：现在我们可以清楚地判断一个归纳论证是否成功。在进行``归纳证明''时，核心任务就是根据定理的表述来验证条件 (1) 和 (2)（即验证命题 $P(n)$ 的``真值集合''是一个归纳集）。
 
 \subsection{使用归纳法：证明模板}
 
@@ -82,13 +82,13 @@
 
 \begin{itemize}
     \item 首先，我们需要定义一个命题 $P(n)$，明确告诉读者我们的证明目标。
-    \item 然后，我们需要验证\textbf{基础情况（BC）}，确保满足数学归纳原理（PMI）的第一个条件。
+    \item 然后，我们需要验证\textbf{基本情况（BC）}，确保满足数学归纳原理（PMI）的第一个条件。
     \item 接下来，我们要验证条件陈述 $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$，以证明归纳原理中的第二个条件。为此，我们将采用直接证明策略，分为以下两个步骤：
         \begin{itemize}
             \item 首先，我们提出\textbf{归纳假设（IH）}，假设存在任意固定自然数 $k$ 使得 $P(k)$ 成立。
             \item 然后，我们进行\textbf{归纳步骤（IS）}，基于这个假设推导出 $P(k+1)$ 也成立。
         \end{itemize} 
-    \item 在这些步骤---\textbf{基础情况（BC）、归纳假设（IH）和归纳步骤（IS）}---之中，我们验证了数学归纳原理的所有条件，并可以得出结论：$\forall n \in \mathbb{N} \centerdot P(n)$。
+    \item 在这些步骤---\textbf{基本情况（BC）、归纳假设（IH）和归纳步骤（IS）}---之中，我们验证了数学归纳原理的所有条件，并可以得出结论：$\forall n \in \mathbb{N} \centerdot P(n)$。
     
     最后，我们总结此结论，告诉读者我们已经完成了证明。
 \end{itemize}
@@ -105,9 +105,9 @@
         \begin{proof}\\
             设 $P(n)$ 为命题 ``$\underline{\qquad\qquad\qquad}$''。\\
             我们对 $n$ 采用归纳法证明 $\forall n \in \mathbb{N} \centerdot P(n)$。\\
-            \textbf{基础情况}：$P(1)$ 成立，因为 $\underline{\qquad\qquad\qquad}$。\\
+            \textbf{基本情况}：$P(1)$ 成立，因为 $\underline{\qquad\qquad\qquad}$。\\
             \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的，假设 $P(k)$ 成立。\\
-            \textbf{归纳步骤}：推导出 $p(k+1)$ 也成立。\\
+            \textbf{归纳步骤}：推导出 $P(k+1)$ 也成立。\\
             根据数学归纳原理可得$\forall n \in \mathbb{N} \centerdot P(n)$。
         \end{proof}
     }
@@ -129,7 +129,7 @@
     
     在未来，你可能会遇到涉及多个变量的归纳证明。此外，仅仅因为你的整个证明遵循某种归纳结构，并不意味着读者就理解你正在使用归纳法。因此，最好在一开始就告诉读者你正在使用归纳法，这可以避免很多不必要的误解。
 
-    \item \textbf{基础情况尽可能详细清晰。}
+    \item \textbf{基本情况尽可能详细清晰。}
     
     不要仅仅说明 $P(1)$ 是什么，并期待读者能理解其为何成立。这个责任在证明者，而非读者！
 
@@ -164,8 +164,7 @@
 
 \subsection{示例}
 
-\begin{example}
-    奇数之和是平方数。
+\begin{example}[奇数之和是平方数]
 
     \textbf{声明}：前 $n$ 个奇数之和为 $n^2$。
 
@@ -199,9 +198,8 @@
 
 下面是几何级数求和公式的良好归纳法证明。\\
 
-\begin{example}
-    几何级数求和公式：
-
+\begin{example}[几何级数求和公式]
+    
     \textbf{声明}：对于所有 $q \in \mathbb{R}-\{0,1\}$ 且 $n \in \mathbb{N}$，下列公式成立：
     \[\sum_{i=0}^{n-1}q^i = 1+q+q^2+\dots+q^{n-1} = \frac{q^n-1}{q-1}\]
 \end{example}
