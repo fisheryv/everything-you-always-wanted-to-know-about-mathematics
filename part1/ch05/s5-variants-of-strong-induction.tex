@@ -1,2 +1,52 @@
 % !TeX root = ../../book.tex
 \section{强归纳法的变体}
+
+就像常规归纳法有几种变体（例如用不同的基本情况、在不同的集合上进行归纳、倒序归纳等），强归纳法也有一种变体需要讨论。你会发现，``最小犯罪''论证本质上是用\emph{反证法}进行的强归纳证明。这种论证方法在归纳证明中时有出现，理解其工作原理非常有用！
+
+此外，我们将陈述并证明自然数集的一个性质，那就是著名的\textbf{良序原理}。为什么要在本节中介绍它呢？你会看到这个原理与归纳法和强归纳法有着密切的联系！
+
+\subsection{``最小犯罪''论证}
+
+\subsubsection*{利用逆否命题}
+
+请记住，条件陈述逻辑等价于其逆否陈述。而且，关于归纳法的定理陈述中都包含有条件陈述。它们通常出现在条件 (2) 中，表示归纳假设 (IH) 和归纳步骤 (IS) 的作用。那么，如果我们考虑这些条件陈述的逆否形式，会发生什么呢？这不会改变定理的真实性，但确实会影响我们如何将归纳法用作证明技术。让我们来探讨一下！
+
+以下是强归纳法的条件陈述：
+\[\forall k \in \mathbb{N} \centerdot \big(\forall i \in [k] \centerdot P(i)\big) \implies P(k+1)\]
+两边同时取否并调换方向，我们便得到了其逆否形式：
+\[\forall k \in \mathbb{N} \centerdot \neg P(k+1) \implies \big(\exists i \in [k] \centerdot \neg P(i)\big)\]
+在应用强归纳法时，我们要证明 $P(1) \dots$ 到 $P(k)$ 一起可以推出 $P(k+1)$。这个陈述的新版本采用了一种不同的方法：假设 $P(k+1)$ 为假，然后推导出之前的某个实例也为假。
+
+\subsubsection*{工作机制}
+
+\subsubsection*{证明模板}
+
+\subsubsection*{示例}
+
+\subsection{$\mathbb{N}$ 的良序原理}
+
+\subsubsection*{动机}
+
+\subsubsection*{陈述与证明}
+
+\begin{theorem}
+    $\mathbb{N}$ 的所有非空子集都有一个最小元素。用逻辑形式表示为
+    \[\forall S \in \mathcal{P}(\mathbb{N}) \centerdot [S \ne \varnothing \implies (\exists \ell \in S \centerdot (\forall x \in S \centerdot \ell \le x))]\]
+\end{theorem}
+
+\subsubsection*{归纳法、强归纳法与良序原理}
+
+\begin{theorem}
+    以下三个命题全都逻辑等价：
+    \begin{itemize}
+        \item 数学归纳原理
+        \item 强归纳原理
+        \item 良序原理
+    \end{itemize}
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+\subsection{问题和练习}
