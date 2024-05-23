@@ -1,11 +1,11 @@
 % !TeX root = ../../book.tex
 \section{强归纳法的变体}
 
-就像常规归纳法有几种变体（例如用不同的基本情况、在不同的集合上进行归纳、倒序归纳等），强归纳法也有一种变体需要讨论。你会发现，``最小犯罪''论证本质上是用\emph{反证法}进行的强归纳证明。这种论证方法在归纳证明中时有出现，理解其工作原理非常有用！
+就像常规归纳法有几种变体（例如用不同的基本情况、在不同的集合上进行归纳、倒序归纳等），强归纳法也有一种变体需要讨论。你会发现，``最小罪犯''论证本质上是用\emph{反证法}进行的强归纳证明。这种论证方法在归纳证明中时有出现，理解其工作原理非常有用！
 
 此外，我们将陈述并证明自然数集的一个性质，那就是著名的\textbf{良序原理}。为什么要在本节中介绍它呢？你会看到这个原理与归纳法和强归纳法有着密切的联系！
 
-\subsection{``最小犯罪''论证}
+\subsection{``最小罪犯''论证}
 
 \subsubsection*{利用逆否命题}
 
@@ -19,13 +19,106 @@
 
 \subsubsection*{工作机制}
 
+从技术角度讲，这里并没有什么新内容！这种方法有效是因为条件陈述和它的逆否命题逻辑等价。然而，这种方法让人感觉有些不爽。倒着推论，假设我们的命题在某处失败，从而证明它在\emph{更早的}地方也失败，这种方法听起来很奇怪。这难道不是我们要做的事情的反面吗？这种方法的关键有两点：
+\begin{enumerate}[label=(\arabic*)]
+    \item 我们已经建立了一个基本情况；
+    \item 这种``更早失败''的论证是针对\emph{任意} $k$ 提出的。
+\end{enumerate}
+
+我们的思路是这样的。假设我们有一个命题 $P(n)$，并且我们想要证明 $\forall n \in \mathbb{N} \centerdot P(n)$。首先，我们证明 $P(1)$ 成立。这很好。接下来，我们假设对于某个\emph{任意} $k \in \mathbb{N}, P(k+1)$ 失败。（注意 $k + 1 \ge 2$，所以我们并不是假设 $P(1)$ 失败，因为我们已经知道它成立。）通过一些推理，我们得出一个更早的实例也失败。假设对于某个满足 $1 \le \ell \le k$ 的 $\ell, P(\ell)$ 失败。
+
+我们刚才提出的论点适用于\emph{任意} $k$，因此同样的论点也适用于我们生成的新值 $\ell$。这保证了在某些满足 $1 \le m \le \ell-1$ 的 $m$ 上，命题 $P(m)$ 会失败。然后，我们可以将同样的论点重新应用于 $m$ 的值，这样不断重复下去……你可能已经看出这个过程会如何发展下去了。最终，我们会``用完''命题可能失败的所有先前实例，最终必须回到 $P(1)$。而我们已经知道 $P(1)$ 是成立的！
+
+这里的核心思想可以总结如下：如果我们有一个有效的基本情况，并且没有最小的失败实例，那么命题在所有情况下都成立。这就是``最小罪犯''（Minimal Criminal）这个短语的由来。(当然，这个名称既形象又有趣。) ``罪犯''（Criminal）指的是命题失败的实例，而证明以下推论
+\[\forall k \in \mathbb{N} \centerdot \neg P(k+1) \implies \exists i \in [k] \centerdot \neg P(i)\]
+相当于表明没有``最小''的这种实例。
+
+另一个表达相同思想的短语是``无最小反例''（No Least Counterexample）。你可能在其他书中看到过这个短语，要知道它指的是同一个思想。它传达了一个观点，即没有一个反例使得所有之前的实例都成立。另外，这种方法的另一个术语是``无穷递降''（Infinite Descent）。虽然这个短语不那么直观，但它实际上描述了我们方法的工作机制。通过证明我们总能找到一个更小的反例，我们表明存在一个命题失败的``向后''实例序列。然而，这个序列不能是``无穷递降''的，因为我们最终会遇到 $P(1)$，而我们已经证明 $P(1)$ 是有效的。请注意，这两个术语都可以使用。我们选择``最小罪犯''是因为它更有趣。
+
 \subsubsection*{证明模板}
 
+我们先简要展示一下如何编写这样一个证明模板，然后直接给出一个有趣事实的示例证明。这里没有什么特别新颖的内容。我们只是将直接证明策略应用于 $\implies$ 陈述，只不过这个语句是我们之前见过的陈述的逆否命题。
+
+\subsubsection*{\textcolor{blue}{``最小罪犯论证证明''模板}}
+
+\setlength{\fboxrule}{2pt}
+\setlength\fboxsep{5mm}
+\begin{center}
+\noindent \fcolorbox{blue}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textbf{目标：} 证明 $\forall n \in \mathbb{N} \centerdot P(n)$
+        \begin{proof}\\
+            设 $P(n)$ 为命题 ``$\underline{\qquad\qquad\qquad}$''。\\
+            我们对 $n$ 采用归纳法（``最小罪犯''论证）证明 $\forall n \in \mathbb{N} \centerdot P(n)$。\\
+            \textbf{基本情况}：$P(1)$ 成立，因为 $\underline{\qquad\qquad\qquad}$。\\
+            \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的，假设 $P(k)$ 不成立。\\
+            \textbf{归纳步骤}：推导出 $\exists \ell \in \mathbb{N}$ 满足 $1 \le \ell \le k$ 使得 $P(\ell)$ 不成立。\\
+            由此可得 $\forall n \in \mathbb{N} \centerdot P(n)$。
+        \end{proof}
+    }
+}
+\end{center}
+
+如果你担心忘记这个模板的技术细节，只需记住核心思想：
+\begin{quotation}
+    所谓``最小罪犯''论证，是通过应用归纳证明中通常的归纳假设 (IH) 和归纳步骤 (IS) 的\textbf{逆否命题}来进行的。
+\end{quotation}
+
 \subsubsection*{示例}
+
+以下结果本身就很值得关注。（事实上，我们将在 \ref{sec:section7.6.3} 节讨论无限集的``大小''时用到它，是不是很有趣？）我们鼓励你在开始证明之前先试着理解这个命题。试着理解它为什么是正确的以及它是如何运作的。用小的 $n$ 值来检验。然后，当你阅读证明时，看看你的草稿是否反映了你可能观察到的模式。\\
+
+\begin{example}[将自然数唯一地表示为乘积]
+    
+    \textbf{声明：}每个 $n \in \mathbb{N}$ 都可以\emph{唯一地}表示为 $2$ 的幂乘以一个奇数。即
+    \[\forall n \in \mathbb{N} \centerdot \exists m, \ell \in \mathbb{N} \cup \{0\} \centerdot n = 2^m \cdot (2\ell + 1)\]
+    并且存在唯一的 $\ell, m$ 满足此等式。
+\end{example}
+
+\begin{proof}
+    我们通过对 $n$ 应用归纳法来证明这个命题；具体来说，我们使用``最小罪犯''论证法。
+
+    \textbf{基本情况}：不难发现 $n = 1$ 可以表示为 $1 = 2^0 \cdot (2 \cdot 0 + 1)$。此外，这是唯一的表示，因为任何其他 $2$ 的幂都会使乘积大于等于 $2$，而任何其他奇数都会使乘积至少为 $3$。
+
+    \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的，假设 $P(k+1)$ 不成立，即 $k+1$ 没有这样的表示，或者有多个这样的表示。我们将根据 $k+1$ 的奇偶性分为两种情况。
+
+    \textbf{情况 1}：假设 $k+1$ 为偶数。这意味着 $\frac{k+1}{2} \in \mathbb{N}$。
+
+    首先，假设 $k+1$ \emph{没有}这样的表示，那么 $\frac{k+1}{2}$ 也没有。因为如果 $\frac{k+1}{2}$ 有这样的表示，我们可以乘以 $2$ （将 $2$ 的幂加 $1$）从而得到 $k+1$ 的表示。
+
+    因此，在这种情况下 $P(\frac{k+1}{2})$ 不成立（因为没有这样的表示）。
+
+    其次，假设 $k+1$ 有至少\emph{两种}这样的表示：
+    \[k + 1 = 2^{m_1}(2\ell_1 + 1) \qquad k + 1 = 2^{m_2}(2\ell_2 + 1)\]
+    假设上面两种表示是不同的，即 $(m_1, \ell_1) \ne (m_2, \ell_2)$。因为 $k+1$ 为偶数，我们知道 $m_1, m_2 > 1$，将 $2$ 的幂降 $1$ 得
+    \[\frac{k+1}{2}=2^{m_1-1}(2\ell_1+1) \qquad \frac{k+1}{2}=2^{m_2-1}(2\ell_2+1)\]
+    $\frac{k+1}{2}$ 的两种表示方式（注意 $m_1-1, m_2-1 \ge 0$）。这是两种\emph{不同}的表示方式，因为根据之前的假设 $(m_1-1, \ell_1) \ne (m_2-1, \ell_2)$。
+
+    因此，在这种情况下 $P(\frac{k+1}{2})$ 不成立（因为不唯一）。
+
+    \textbf{情况 2}：假设 $k+1$ 为奇数。这意味着 $\exists \ell \in \mathbb{N} \cup \{0\} \centerdot k+1 = 2\ell + 1$。我们当然可以将 $k+1$ 表示为：
+    \[k+1 = 2^0 \cdot (2\ell + 1)\]
+    同时，这是唯一的表示方法。采用 $2$ 的不同次幂会使乘积为偶数（但 $k+1$ 为奇数）。而采用不同奇数因子会改变乘积。因此，这种情况产生了矛盾。$\hashx$
+
+    根据归纳法，$\forall n \in \mathbb{N} \centerdot P(n)$ 成立。
+\end{proof}
+
+有趣吧？实际上，这个证明比我们一开始提到的要复杂一些。具体来说，基于奇偶性的情况使得这个问题有点复杂。其中一个情况（偶数的情况）遵循``最小罪犯''论证法。另一个情况（奇数的情况）实际上可以真正证明出来。在这个证明中，我们假设 $P(k+1)$ 不成立，但后来发现当 $k+1$ 为奇数时实际上是成立的。这就是矛盾所在。回想起来，这似乎有点迂回，但它允许我们将整个证明作为``最小罪犯''论证来呈现，而不是分别进行两个独立的证明，一个针对奇数，一个针对偶数。
+
+此外，我们不仅要证明这些表示的存在性，还要证明它们的\emph{唯一性}。这就是为什么在 $k+1$ 为偶数的情况下需要进行两方面的考虑。为了证明这些表示的存在性，我们必须证明 $k+1$ 不可能没有表示；为了证明唯一性，我们必须证明 $k+1$ 不可能有两个或以上表示。
 
 \subsection{$\mathbb{N}$ 的良序原理}
 
 \subsubsection*{动机}
+
+我们都知道自然数 $\mathbb{N}$ 上的关系``$\le$''。对于任意两个元素 $x, y \in \mathbb{N}$，总有以下两种情况之一：要么 $x \le y$，要么 $y \le x$（当且仅当 $x = y$ 时，两者皆满足）。我们还知道：
+\[\forall x, y, z \in \mathbb{N} \centerdot (x \le y \land y \le z) \implies x \le z\]
+且 $\forall x \in \mathbb{N}$，总有 $x \le x$。这使得 $\mathbb{N}$ 成为一个\textbf{有序}集，我们称``$\le$''是 $\mathbb{N}$ 上的一种\emph{顺序关系}。（详见 \ref{sec:section6.3} 节。）
+
+此外，这种关系实际上是一种\textbf{良序关系}。我们不会正式定义这个术语，但良序关系的一个关键特点是不存在\emph{无穷递降链}。想象一下在 $\mathbb{N}$ 中是否存在一个无穷序列 $a_1, a_2, a_3, \dots$，使得 $a_1 > a_2 > a_3 > \dots$？这是不可能的！（注意这些不等式是严格的。）意思是说，从某个数字 $a_1 \in \mathbb{N}$ 开始，如果我们``递降''，最终会到达 $1$，我们不能再``递降''了。
+
+我们不会全面讨论良序关系 --- 这可以在集合论或形式逻辑的课程中讨论 --- 而是专注于这一概念在 $\mathbb{N}$ 上的应用。这是一个很有用的性质，我们以后也会涉及到。在本节中，我们将阐述良序原理，并请你帮助我们证明它，然后展示它与数学归纳法之间的关系。
 
 \subsubsection*{陈述与证明}
 
@@ -34,7 +127,19 @@
     \[\forall S \in \mathcal{P}(\mathbb{N}) \centerdot [S \ne \varnothing \implies (\exists \ell \in S \centerdot (\forall x \in S \centerdot \ell \le x))]\]
 \end{theorem}
 
+想一想这与我们之前提到的自然数中不存在无穷递降链的关系。如果确实存在无穷递降链，我们可以定义 $S$ 为链中所有元素的集合。这个集合将\textbf{没有}最小元素。假设集合中有一个元素 $a_n$，那么 $a_{n+1}$ 也在集合中，且 $a_{n+1} < a_n$。因此，这个集合不会有最小元素。
+
+我们希望你来证明这个定理，因为我们认为完成详细推理过程会大有裨益。证明分为几个步骤。一个关键点是，这个证明是通过\textbf{归纳法}完成的！也就是说，通过这种方式证明良序原理，我们可以展示数学归纳原理\emph{蕴含}了良序原理。
+
+\begin{proof}
+    用归纳法证明。留给读者作为习题 \ref{exc:exercises5.7.21}。
+\end{proof}
+
+一个简单的额外发现是，任何子集 $S \subseteq \mathbb{N}$ 的最小元素必须是\emph{唯一的}。也就是说，不可能存在两个（或更多）最小元素。假设集合 $S$ 中确实有两个最小元素，分别是 $\ell$ 和 $m$。根据最小元素的定义，我们知道 $\ell \le m$ 且 $m \le \ell$。这意味着 $\ell = m$，所以它们实际上是同一元素！
+
 \subsubsection*{归纳法、强归纳法与良序原理}
+
+如前所述，因为我们使用归纳法证明了良序原理，这说明数学归纳原理蕴含良序原理。接下来的定理实际上表明，这两个定理是\textbf{逻辑等价}的，它们互相蕴含。此外，它还表明强归纳原理也蕴含良序原理，反之亦然。事实上，这三个定理在逻辑上是等价的！
 
 \begin{theorem}
     以下三个命题全都逻辑等价：
@@ -46,7 +151,81 @@
 \end{theorem}
 
 \begin{proof}
-    
+    我们可以用以下简写来表示每个定理：
+    \begin{itemize}
+        \item \textbf{PMI}：数学归纳原理 (Principle of Mathematical Induction)
+        \item \textbf{PSI}：强归纳原理 (Principle of Strong Induction)
+        \item \textbf{WOP}：良序原理 (Well-Ordering Principle)
+    \end{itemize}
+    根据我们对 PSI 和 WOP 的证明，我们可以推断出
+    \[\text{PMI} \implies \text{PSI} \quad\text{且}\quad \text{PMI} \implies \text{WOP}\]
+    我们在 \ref{sec:section5.4.2} 节证明了
+    \[\text{PSI} \implies \text{PMI}\]
+    因此我们得到
+    \[\text{PMI} \iff \text{PSI} \quad\text{且}\quad \text{PMI} \implies \text{WOP}\]
+    要完成这个证明，我们需要证明 $\text{WOP} \implies \text{PMI}$。这样我们就证明了 $\text{WOP} \iff \text{PMI}$。通过上述等价性，我们可以推断出这三个定理在逻辑上是等价的。
+
+    为了证明这一点，我们假设 WOP 是成立，并用它来证明 PMI。（可以回顾一下定理 \ref{theorem5.2.2} 中 PMI 的陈述，以理解我们这样做的原因。）
+
+    假设有一个命题 $P(n)$，定义在 $n \in \mathbb{N}$ 上。假设 $P(1)$ 为\verb|真|，并且对于所有的 $k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$。我们需要证明对于所有的 $n \in \mathbb{N} \centerdot P(n)$ 都成立。
+
+
+    定义集合 $F$ 为 $P(n)$ 的``失败实例''集合。即定义：
+    \[F = \{n \in \mathbb{N} \mid P(n) \text{ 为假}\}\]
+    为了证明 $\forall n \in \mathbb{N} \centerdot P(n)$，我们将为了引出矛盾而假设 $F \ne \varnothing$。
+
+    由于我们使用了集合构造符，所以 $F \subseteq \mathbb{N}$。根据之前的假设，$\exists f \in F$。给定该 $f$。
+
+    基于这两个条件，WOP 适用于集合 $F$，这意味着 $F$ 有一个最小元素。设 $\ell$ 为这个最小元素。我们知道 $\ell \in F$，并且
+    \[\forall x \in F \centerdot \ell \le x\]
+    考虑 $\ell = 1$ 的情况。这是不可能的，因为我们上面的假设说 $P(1)$ 成立，所以 $1 \notin F$。
+
+    考虑 $\ell \ge 2$ 的情况。我们上面的假设说
+    \[\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)\]
+    这逻辑等价与其逆否命题
+    \[\forall k \in \mathbb{N} - \{1\} \centerdot \neg P(k) \implies \neg P(k-1)\]
+    将这一点应用到元素 $\ell \in \mathbb{N} - \{1\}$ 上，我们可以推断出 $\neg P(\ell - 1)$ 也成立。换句话说，$P(\ell-1)$ 为\verb|假|。
+
+    这意味着 $\ell-1 \in F$。然而，这与 $\ell$ 是 $F$ 的最小元素相矛盾，因为 $\ell - 1 < \ell$。$\hashx$
+
+    因此，必定是 $F = \varnothing$，而这意味着 $\forall n \in \mathbb{N} \centerdot P(n)$。
+
+    这证明了 PMI 成立。
 \end{proof}
 
+让我们来看一下这个证明的核心部分。为了证明 $P(n)$ 对所有 $n$ 都成立，我们假设它对某个特定的 $n$ 会失败，即这个元素 $f \in F$。从这里开始，你可能会想，``如果 $P(f)$ 失败，那么 $P(f-1)$ 也会失败，接着 $P(f-2)$ 也会失败，……\textbf{依次类推}，直到 $P(1)$，但是我们知道 $P(1)$ 为\verb|真|。''然而，这种``依次类推''的论证正是 PMI 和 WOP 所要解决的问题！你不能用一个含糊的``继续下去''来证明你可以这样做。这就是为什么我们要使用 WOP 来找出 $F$ 的最小元素。你可能会觉得我们引入 $f \in F$ 然后不再使用它很奇怪。其实，我们需要 $f$ 的存在来证明 $F \ne \varnothing$，从而能够应用 WOP。
+
 \subsection{问题和练习}
+
+口头或书面简要回答以下问题。这些题目全都基于你刚刚阅读的部分，因此如果你无法想起特定的定义、概念或示例，请返回重新阅读相应部分。确保自己在继续之前可以自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item ``最小罪犯 (Minimal Criminal)''论证和强归纳法 (Strong Induction) 证明之间有什么区别？
+    \item 我们证明了每个自然数 $n \in \mathbb{N}$ 都可以写成 $2$ 的幂和一个奇数的乘积。这种表示法还有什么其他特性？
+    \item 我们证明了自然数集 $\mathbb{N}$ 是良序的。你认为整数集 $\mathbb{Z}$ 也有此性质吗？有理数集 $\mathbb{Q}$ 呢？实数集 $\mathbb{R}$ 呢？
+    \item 数学归纳法 (PMI)、强归纳法 (PSI) 和良序原理 (WOP) 在逻辑上是等价的，这是什么意思？
+\end{enumerate}
+
+\subsubsection*{试一试}
+
+尝试回答以下简答题。这些题目要求你实际动笔写一写，或（对朋友/同学）口头描述一些东西。目的是让你练习使用新概念、定义和符号。别担心，这些题本来就很简单。确保能够解决这些问题将对你有所帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 请证明良序原理。这也是练习 \ref{exc:exercises5.7.21}。快来试试吧！
+    \item 请证明 $\sqrt{3}$ 为无理数。\\
+        （\textbf{提示}：为了引出矛盾而假设 $\sqrt{3} = \frac{a}{b}$，其中 $a, b \in \mathbb{N}$ 且分数是最简形式。使用递降法 (descent argument) 来反驳这里最简形式的假设。）
+    \item 使用良序原理证明每个自然数（除了 $1$）都可以写成 $2$ 和 $3$ 的非负整数倍之和。\\
+        例如：$2 = 2, 8 = 6 + 2, 101 = 3 \times 33 + 2$。
+    \item 考虑以下方程：$4x^4 + 2y^4 = z^4$。在这个问题中，你将通过良序原理来论证此方程在 $(x, y, z) \in \mathbb{N}^3$ 时\textbf{无解}。
+        \begin{enumerate}[label=(\alph*)]
+            \item 为了引出矛盾而假设 $(x, y, z) \in \mathbb{N}^3$ 是一个解，并进一步假设在所有解中，这个解的 $x$ 值是最小的。也就是说，我们定义
+            \[T = \{x \in \mathbb{N} \mid \exists y, z \in \mathbb{N} \centerdot 4x^4 + 2y^4 = z^4\}\]
+            并预设这个集合是非空的（即方程有解），因此 $T$ 有一个最小元素。
+            \item 推导出 $z$ 为偶数。\\
+            \textbf{提示}：在本部分和接下来的两部分中，你可以使用以下事实：某个自然数 $m$ 的倍数和/差也是 $m$ 的倍数。
+            \item 推导出 $y$ 为偶数。
+            \item 推导出 $x$ 为偶数。
+            \item 据此推导出存在另一个解 $(a, b, c)$，其第一个变量的值更小，即 $a < x$。
+            \item 解释为什么这证明了无解。
+        \end{enumerate}
+\end{enumerate}
