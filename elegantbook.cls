@@ -151,8 +151,25 @@
 }}{\relax}
 
 
-\RequirePackage{indentfirst,comment}
+\RequirePackage{indentfirst,comment,fontspec}
 % fontsetting
+\newfontfamily\sandbox[Path=fonts/]{SANDBOX-TTF.ttf}
+\newfontfamily\Frick[Path=fonts/]{Frick0.3-Condensed.otf}
+\newfontfamily\Floane[Path=fonts/]{Floane-Regular.otf}
+\newfontfamily\cabin[
+Extension = .otf,
+UprightFont = *-Regular,
+    BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+BoldItalicFont = *-BoldItalic,]{Cabin}
+\newfontfamily\sansa[Path=fonts/, Extension = .ttf,
+UprightFont = *-Regular,
+    BoldFont = *-Bold,
+  ItalicFont = *-Italic,
+BoldItalicFont = *-Bold-Italic,]{Sansation}
+\newfontfamily\dense[Path=fonts/]{Dense-Regular.otf}
+\newfontfamily\rodondo[Path=fonts/]{Rodondo.otf}
+
 \ifdefstring{\ELEGANT@math}{mtpro2}{
   \let\Bbbk\relax
   \RequirePackage[lite]{mtpro2}
@@ -324,6 +341,14 @@
 \definecolor{bule}{RGB}{18,29,57}
 \colorlet{coverlinecolor}{second}
 
+\definecolor{coverbgcolor}{HTML}{FAE6AA}
+\definecolor{coverfgcolor}{HTML}{FAD200} %DE3A29 橙色
+\definecolor{covertitle}{HTML}{1C2B61}
+\newlength\outermarginwidth
+\setlength\outermarginwidth{2cm}
+\newlength\covershift
+\setlength\covershift{5cm}
+
 
 % ----- Title Style -----
 \ifdefstring{\ELEGANT@titlestyle}{hang}{\def\style{hang}}{\relax}
@@ -342,6 +367,7 @@
 \newcommand{\institute}[1]{\gdef\@institute{#1}}
 \newcommand{\version}[1]{\gdef\@version{#1}}
 \newcommand{\extrainfo}[1]{\gdef\@extrainfo{#1}}
+\newcommand{\bookseries}[1]{\def\@bookseries{#1}}
 
 \RequirePackage{mwe}
 \newcommand{\logo}[1]{\gdef\@logo{#1}}
@@ -1164,6 +1190,74 @@
 \fancypagestyle{plain}{\renewcommand{\headrulewidth}{0pt}\fancyhf{}\renewcommand{\headrule}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\, #1}{}}
 \renewcommand{\chaptermark}[1]{\markboth{\xchaptertitle\, #1}{}}
+
+\newcommand*\makecover{
+    %% Use the Tikz library positioning and clear the page header and footer
+    \usetikzlibrary{positioning}
+    \thispagestyle{empty}
+    \begin{tikzpicture}[remember picture,overlay]
+        \shade[left color=coverbgcolor, right color=coverbgcolor!10]
+        (current page.north west) rectangle (current page.south east);% 填充封面背景颜色
+        \fill[coverfgcolor]
+        ([xshift=\outermarginwidth,yshift=4\outermarginwidth]current page.west) rectangle (current page.south east);
+        
+        \draw[line width=4pt, color=white]([yshift=4\outermarginwidth]current page.west)--([yshift=4\outermarginwidth]current page.east); % 绘制横线
+        
+        \draw[line width=4pt, color=white]([xshift=-4.26\outermarginwidth]current page.north)--([xshift=-4.26\outermarginwidth]current page.south); % 绘制竖线
+        
+       \node[anchor=south] at ([xshift=9\outermarginwidth,yshift=-.68\covershift]current page.north west) {
+        \parbox{.2\paperwidth}{
+        \filright
+        \color{coverfgcolor!70}\sandbox\fontsize{80}{80}\selectfont GTM}
+        };
+        \node[anchor=south] at ([xshift=6\outermarginwidth,yshift=-.4\covershift]current page.north west) {
+        \parbox{.8\paperwidth}{
+        \filright
+        \color{black!70}\sandbox\fontsize{20}{22}\selectfont\@bookseries}
+        }; %系列丛书名称
+        \node[ anchor=south] at ([xshift=.6\outermarginwidth,yshift=-.46\paperheight]current page.north)
+    {\parbox{.8\paperwidth}{%
+            \filright%
+            \color{covertitle}\cabin\bfseries\fontsize{50}{50}\selectfont\@title\\[0.5ex]
+            \color{white}\sansa\fontsize{30}{30}\selectfont
+            \ifdefvoid{\@subtitle}{}{\@subtitle}
+        }};% 封面标题与副标题
+    % \node[anchor=west,font=\rmfamily\bfseries\fontsize{25}{25}\itshape\selectfont,text=white] at ([xshift=1.4\outermarginwidth,yshift=-.8\covershift]current page.west) {\@edition};
+    \node[anchor=west,font=\cabin\bfseries\Huge,text=covertitle] at ([xshift=1.7\outermarginwidth,yshift=2.1\covershift]current page.west) {\@author【著】};
+    \node[anchor=west,font=\cabin\bfseries\Huge,text=covertitle] at ([xshift=1.7\outermarginwidth,yshift=1.85\covershift]current page.west) {\@translator【译】};
+    % \node[anchor=south,text=black!70,font=\rmfamily\fontsize{20}{20}\selectfont,] at
+    % ([xshift=1.2\covershift,yshift=-.1\covershift]current page.south) %
+    % {\raisebox{-.15\covershift}{\includegraphics[width=0.1\linewidth]{\@presslogo}}\hspace*{1ex}\parbox[c][\covershift][c]{.4\textwidth}{\@pressname}};%
+    \node at (0.46\paperwidth,-0.62\paperheight) {\includegraphics[width=15cm,height=15cm]{figure/\@cover}};
+    \end{tikzpicture}%
+    \newpage
+}
+
+\newcommand*\makeunder{
+    %% Use the Tikz library positioning and clear the page header and footer
+    \usetikzlibrary{positioning}
+    \thispagestyle{empty}
+    \begin{tikzpicture}[remember picture,overlay]
+        \shade[left color=coverfgcolor, right color=coverbgcolor]
+        (current page.north west) rectangle (current page.south east);% 填充封面背景颜色
+        
+        \draw[line width=4pt, color=white]([yshift=4\outermarginwidth]current page.west)--([yshift=4\outermarginwidth]current page.east);
+
+        % \node[anchor=south] at ([xshift=6.1\outermarginwidth,yshift=-.4\covershift]current page.north west) {
+        % \parbox{.8\paperwidth}{
+        % \filright
+        % \color{black!70}\sandbox\fontsize{20}{22}\selectfont\@bookseries}
+        % }; %系列丛书名称
+        
+    % \node[anchor=west,font=\rmfamily\bfseries\fontsize{25}{25}\itshape\selectfont,text=white] at ([xshift=1.4\outermarginwidth,yshift=-.8\covershift]current page.west) {\@edition};
+    
+    \node[anchor=south,text=black!70,font=\sansa\fontsize{20}{20}\selectfont,] at
+    ([xshift=.54\covershift,yshift=-.1\covershift]current page.south) %
+    {\parbox[c][\covershift][c]{.4\textwidth}{Fisher}};%
+    \node at (0.38\paperwidth,-0.74\paperheight){\includegraphics[width=3.43cm,height=1cm]{figure/\@logo}};
+    \end{tikzpicture}%
+    \newpage
+}
 
 
 \renewcommand*{\maketitle}{%

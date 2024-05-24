@@ -1,19 +1,18 @@
 \documentclass[lang=cn,color=green,12pt]{elegantbook}
 
-\title{你想知道的关于数学的一切}
+\title{你想知道的\\关于数学的一切}
 \subtitle{抽象数学与证明撰写指南}
-
-\author{Dr. Brendan W. Sullivan}
+\author{Brendan W. Sullivan}
 \translator{于 $\quad$ 儿}
 \date{2024-04-19}
 \version{v0.6.0}
+\bookseries{Grand Talent Mission Vol.2}
+\logo{logo-yuer.png}
+\cover{cover.png}
 
 % \extrainfo{不要以为抹消过去，重新来过，即可发生什么改变。—— 比企谷八幡}
 
 \setcounter{tocdepth}{2}
-
-% \logo{logo-blue.png}
-\cover{cover.png}
 
 % 本文档命令
 \usepackage{array}
@@ -27,7 +26,10 @@
 
 \begin{document}
 
-\maketitle
+\makecover
+% \maketitle
+\input{front/title_page}
+
 \frontmatter
 
 \tableofcontents
@@ -59,5 +61,8 @@
 
 % \end{appendices}
 
+\newpage
+
+\makeunder
 
 \end{document}
