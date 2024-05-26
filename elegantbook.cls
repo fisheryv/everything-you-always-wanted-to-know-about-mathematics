@@ -1254,7 +1254,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
     \node[anchor=south,text=black!70,font=\sansa\fontsize{20}{20}\selectfont,] at
     ([xshift=.54\covershift,yshift=-.1\covershift]current page.south) %
     {\parbox[c][\covershift][c]{.4\textwidth}{Fisher}};%
-    \node at (0.38\paperwidth,-0.74\paperheight){\includegraphics[width=3.43cm,height=1cm]{figure/\@logo}};
+    \node at (0.38\paperwidth,-0.79\paperheight){\includegraphics[width=3.43cm,height=1cm]{figure/\@logo}};
     \end{tikzpicture}%
     \newpage
 }
