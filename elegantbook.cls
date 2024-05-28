@@ -1228,7 +1228,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
     % \node[anchor=south,text=black!70,font=\rmfamily\fontsize{20}{20}\selectfont,] at
     % ([xshift=1.2\covershift,yshift=-.1\covershift]current page.south) %
     % {\raisebox{-.15\covershift}{\includegraphics[width=0.1\linewidth]{\@presslogo}}\hspace*{1ex}\parbox[c][\covershift][c]{.4\textwidth}{\@pressname}};%
-    \node at (0.46\paperwidth,-0.62\paperheight) {\includegraphics[width=15cm,height=15cm]{figure/\@cover}};
+    \node [opacity=0.6] at (0.4\paperwidth,-0.62\paperheight) {\includegraphics[width=15cm,height=15cm]{figure/\@cover}};
     \end{tikzpicture}%
     \newpage
 }
@@ -1422,7 +1422,6 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
 \thispagestyle{empty}%
 \newpage%
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
-
 
 % https://tex.stackexchange.com/questions/56839/chaptername-is-used-even-for-appendix-chapters-in-toc
 \usepackage{calc}
