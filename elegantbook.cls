@@ -446,7 +446,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
   \newcommand{\lemmaname}{引理}
   \newcommand{\propositionname}{命题}
   \newcommand{\corollaryname}{推论}
-  \newcommand{\examplename}{例题} %
+  \newcommand{\examplename}{示例} %
   \newcommand{\instancename}{示例} %
   \newcommand{\problemname}{问题} % 问题
   \newcommand{\exercisename}{练习} % 练习=习题

@@ -36,13 +36,13 @@
 
 $A = B$ 的情况经常出现，所以 $R$ 定义了同一集合中元素对之间的关系。下一个例子就是针对这种情况的。\\
 
-\begin{example}
+\begin{example} \label{ex:example6.2.5}
     设 $A=B=\mathbb{Z}$，定义 $\mathbb{Z}$ 上的关系 $R$ 如下：
     \[(x, y) \in R \iff x \text{ 和 } y \text{ 具有相同的奇偶性}\]
     则 $(2,8) \in R, (-3, 7) \in R, (-99, -99) \in R$，但 $(1,2) \notin R, (0, -3) \notin R$，且 $(\pi, 0) \notin R$（因为 $\pi \notin \mathbb{Z}$）。
 \end{example}
 
-\begin{example}
+\begin{example} \label{ex:example6.2.6}
     定义 $\mathbb{R}$ 上的关系 $L$ 如下：
     \[(x, y) \in L \iff x < y\]
     则 $(-1, \pi) \in L$ 且 $(0, 100) \in L$，但 $(2, 2) \notin L$ 且 $(\pi, -1) \notin L$。
@@ -72,7 +72,7 @@ $A = B$ 的情况经常出现，所以 $R$ 定义了同一集合中元素对之�
 
 \subsubsection*{相等关系}
 
-\begin{example}
+\begin{example} \label{ex:example6.2.9}
     另一种在任意集合 $X$ 上定义关系的方法是定义相等关系。也就是说，如果 $(x, y) \in R \iff x = y$。需要注意的是，这种定义与集合 $X$ 的具体内容无关，只要它是一个\emph{集合}即可。
 \end{example}
 
@@ -200,7 +200,7 @@ $A = B$ 的情况经常出现，所以 $R$ 定义了同一集合中元素对之�
     \[\exists k \in \mathbb{Z} \centerdot y = kx\]
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:example6.2.16}
     定义 $\mathbb{Z}$ 上的关系 $R$
     \[(x, y) \in R \iff x \mid y\]
     让我们判断 $R$ 是否满足关系的四个性质，然后证明或证伪我们所有的主张！
@@ -272,7 +272,7 @@ $A = B$ 的情况经常出现，所以 $R$ 定义了同一集合中元素对之�
 
 在继续之前，我们再来看一个例子。这个有趣的``游戏''是从集合中选取元素，并构造出满足特定性质的关系 $R$。（注意：$4$ 个性质的组合有 $16$ 种不同的可能。）在习题中，我们会问你类似的问题，所以让我们通过一个例子来演示一下。\\
 
-\begin{example}
+\begin{example}\label{ex:example6.2.17}
     \textbf{目标}：设 $S$ 为班上同学的集合。定义一个关系 $R$ 
     \begin{enumerate}[label=(\arabic*)]
         \item 不具有自反性
@@ -307,7 +307,7 @@ $A = B$ 的情况经常出现，所以 $R$ 定义了同一集合中元素对之�
 
 （这些类型的问题将在下一小节中进一步探讨，我们将研究一种行为类似于 ``$\le$'' 和 ``$\ge$'' 关系的特定类型的关系。它们被称为\textbf{顺序关系}。）
 
-\subsection{习题}
+\subsection{习题}\label{sec:section6.2.5}
 
 \subsubsection*{温故知新}
 
@@ -353,14 +353,14 @@ $A = B$ 的情况经常出现，所以 $R$ 定义了同一集合中元素对之�
         \item 证明 $\bigstar$ 具有对称性
         \item 证明 $\bigstar$ 具有传递性
     \end{enumerate}
-    （请记住，``$\mid$'' 表示``整除''。请确保使用定义 \ref{def:definition6.2.15} 给出的正式定义。）
+    （请记住，``$\mid$'' 表示``整除''。请确保使用定义 \ref{def:definition6.2.15} 给出的正式定义。）\label{exc:exercises6.2.2}
     \item 定义 $\mathbb{Z}$ 上的关系 $\sim$ 为
     \[\forall x, y \in \mathbb{Z} \centerdot x \sim y \iff 3 \mid x + 2y\]
     \begin{enumerate}[label=(\alph*)]
         \item 证明 $\sim$ 具有自反性
         \item 证明 $\sim$ 具有对称性
         \item 证明 $\sim$ 具有传递性
-    \end{enumerate}
+    \end{enumerate} \label{exc:exercises6.2.3}
     \item 定义 $\mathbb{R}$ 上的关系 $T$ 为，对于任意 $x, y \in \mathbb{R}$
     \[(x, y) \in T \iff \Big(\frac{y}{x} \in \mathbb{R} \land \frac{y}{x} \ge 0\Big)\]
     \begin{enumerate}[label=(\alph*)]
