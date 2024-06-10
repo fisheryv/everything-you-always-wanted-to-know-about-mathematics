@@ -16,6 +16,7 @@
 \RequirePackage{etoolbox}
 \SetupKeyvalOptions{family=ELEGANT, prefix=ELEGANT@, setkeys=\kvsetkeys}
 \newcommand{\ekv}[1]{\kvsetkeys{ELEGANT}{#1}}
+\newcommand\degree{^\circ}
 
 % ----- Colors -----
 \DeclareStringOption[blue]{color}
