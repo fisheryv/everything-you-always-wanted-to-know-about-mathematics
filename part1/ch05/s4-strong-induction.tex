@@ -184,7 +184,7 @@
     \begin{align*}
         s_{k+1} &= 1+\sum_{i=0}^{k} s_i & s_{k+1}\text{ 的定义}\\
         &= 1+\sum_{i=0}^{k} 2^i & \text{利用归纳假设：}P(0) \land P(1) \land \dots \land P(k)\\
-        &= 1 + (2^{k+1}-1) & \text{标准答案（见练习 } \ref{ex:exercises2.7.1} \text{）}\\
+        &= 1 + (2^{k+1}-1) & \text{标准答案（见练习 } \ref{exc:exercises2.7.1} \text{）}\\
         &= 2^{k+1}
     \end{align*}
 
@@ -195,7 +195,7 @@
 
 与下一个例子不同的是，在这个例子中，我们确切知道使用了归纳假设（IH）的哪些实例（即全部实例）。而在下一个例子中，我们将也会使用归纳假设（IH），但无法确切地指出使用了哪个实例。你会明白我们的意思的！\\
 
-\begin{example}
+\begin{example}\label{ex:example5.4.3}
     首先，我们需要向你介绍（或者提醒你）一些关于质数和自然数的概念。
 
     \textbf{质数}：\textbf{质数}是下面集合的元素
