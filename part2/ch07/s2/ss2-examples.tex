@@ -63,7 +63,7 @@
 
 我们并不总是能明确一个定义的关系是否真正是一个函数。面对一个给定的定义域、值域和一个``规则''或集合，我们该如何验证它们是否构成一个函数呢？接下来我们将给出一个定义（完全基于之前讨论的函数定义）来解决这个问题：
 
-\begin{definition}
+\begin{definition}\label{def:definition7.2.5}
     给定定义域 $A$、值域 $B$ 和``规则'' $f$，我们说 $f$ 是一个\dotuline{良好定义的函数}，当且仅当
     \begin{enumerate}[label=(\arabic*)]
         \item 该规则定义在 $A$ 的所有元素上；
@@ -76,9 +76,59 @@
 \begin{example}
     设函数 $a : \mathbb{Z} \to \mathbb{N}$ 定义为
     \[\forall z \in \mathbb{Z} \centerdot f(z) = |2z + 1|\]
-    
+    等一下，我们怎么确定对于任意\emph{整数} $z$，$|2z + 1|$ 为\emph{自然数}？这不是那么显然，但我们可以证明出来。
+
+    假设 $z \in \mathbb{Z}$ 满足 $z \ge 1$。则 $2z+1 \in \mathbb{Z}$ 且 $|2z+1| = 2z+1 \ge 3$。因此 $f(x) \in \mathbb{N}$。
+
+    假设 $z \in \mathbb{Z}$ 满足 $z \le -1$。则 $2z+1 \in \mathbb{Z}$ 且 $2z+1 \le -1$。因此 $f(x) = |2z + 1| ≥ 1 \in \mathbb{N}$。所以 $f(x) \in \mathbb{N}$。
+
+    假设 $z = 0$。则 $f(z) = |2 \cdot 0 + 1| = 1$，所以 $f(z) \in \mathbb{N}$。
+
+    无论哪种情况，我们发现定义函数 $f$ 的``规则''确实会生成一个自然数，这个数是\emph{值域}中的元素。而且，它只生成这样一个数。因此，这是一个良好定义的函数。
+\end{example}
+
+\begin{example}
+    设 $P$ 为世上所有人的集合。函数 $b : P \to \mathbb{N} \cup \{0\}$ 定义为
+    \[b = \{(p, n) \mid p \in P \land p \;\text{有}\; n ;\text{个姐妹}\}\]
+    （请注意，为了练习，我们这里使用了一种强调集合的符号风格。另外，将数学符号和文字结合起来可能看起来有些奇怪，例如 ``$b(p) = p \;\text{这个人有多少个姐妹}$''。）
+
+    这是一个良好定义的函数吗？我们认为是的。假如你走到某人面前（即某个元素 $p \in P$），问他们有多少姐妹（即 $b(p)$ 的值）。他们会告诉你一个非负整数，并且他们不可能给出两个\emph{不同的}数字。
+
+    现在，你可能会指出，在今天这个离婚和再婚普遍的社会中，很多人有\emph{同父异母或同母异父的姐妹} (half-sisters)，而 $\frac{1}{2} \notin \mathbb{N} \cup \{0\}$。这个观点很合理。但是，在``简化假设''下，即假设每个人都有\emph{整数数量}的姐妹，这个函数是良好定义的。
 \end{example}
 
 \subsubsection*{恒等函数}
 
+\begin{example}
+    设 $S$ 为集合。是否\emph{必然}存在一个从 $S$ 到 $S$ 的函数？当然，我们可以想到许多从 $\mathbb{R}$ 到 $\mathbb{R}$ 的函数，但如果 $S$ 只是某个任意集合呢？我们能保证存在一个从 $S$ 到 $S$ 的函数吗？事实证明……是的，我们可以！回想一下我们在讨论关系时曾考虑过的一个类似问题（参见示例 \ref{ex:example6.2.9}）。我们知道在集合 $S$ 上我们总是可以定义\emph{等价关系}；也就是说，我们可以通过 $(x, y) \in R \iff x = y$ 在 $S$ 上定义 $R$。对于每个 $x \in S$，这个关系由所有形式为 $(x, x)$ 的有序对组成。这个关系是否表示一个函数？我们只需检查定义属性：每个输入是否只有一个输出？看起来确实如此！集合中的任意元素只等于它自己，而不等于其他任何元素。因此，$R$ 确实表示一个函数。这是一个特别的函数，我们给它起了一个特定的名字。
+\end{example}
+
+\begin{definition}
+    设 $S$ 为集合。$S$ 上的\dotuline{恒等函数}为函数 $Id : S \to S$ 定义为
+    \[\forall x \in S \centerdot Id(x) = x\]
+\end{definition}
+
+也就是说，恒等函数``输出与输入完全相同''。（可以把函数想象成一台机器，这台懒惰的机器什么也不做，只是原样输出输入的内容。）
+
+有时，我们需要引用在\emph{不同}集合上定义的恒等函数。为避免混淆，我们用 $Id_S$ 表示``\textbf{集合 $S$ 上的}恒等函数''。
+
 \subsubsection*{不是函数的例子}
+
+有时候，在解决问题时，我们可能会提出一个关于两个集合之间的``规则''，并想知道它是否是一个函数。也许我们需要它是一个函数来帮助我们解决问题。那么，这个规则在什么情况下可能不成立呢？换句话说，我们可以通过什么来证明一个提出的规则不是一个函数呢？回顾一下\textbf{良好定义的函数}的定义（见定义 \ref{def:definition7.2.5}），有三种不同的情况可能出错：
+
+\begin{itemize}
+    \item 可能存在某个定义域中的元素\textbf{没有对应的``输出''}。
+    \item 可能存在某个定义域中的元素\textbf{有多个``输出''}。
+    \item 可能存在某个定义域中的元素只有一个``输出''，但该``输出''\textbf{不在值域中}。
+\end{itemize}
+以下例子说明了这些情况。\\
+
+\begin{example}
+    设函数 $G : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 定义为
+    \[\forall (a, b) \in \mathbb{N} \times \mathbb{N} \centerdot G(a, b) = a - b\]
+    这\textbf{不是}一个良好定义的函数，因为有定义域中的很多元素其输出不在值域中。例如，$(5, 10) \in \mathbb{N} \times \mathbb{N}$ 且 $G(5, 10) = -5$，但 $-5 \notin \mathbb{N}$。
+\end{example}
+
+\begin{example}
+    假设 $W$ 为所有英语单词的集合。定义 $A: W \to W$ 为输入一个单词并输出一个不是原单词的变位词。这\textbf{不是一个良好定义的}函数，原因有几个。例如，$A(\text{HI})$ 和 $A(\text{FUNCTION})$ 都不存在。此外，像 $A(\text{INTEGRAL})$ 这样的单词有多个（即非唯一的）输出：TRIANGLE, ALERTING, ALTERING……。
+\end{example}
