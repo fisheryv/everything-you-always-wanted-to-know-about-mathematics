@@ -1,0 +1,84 @@
+% !TeX root = ../../../book.tex
+
+\subsection{示例}
+
+让我们使用新的定义来看几个函数（以及非函数）的例子。在处理这些例子时，我们将介绍定义和使用函数的正确符号，并描述如何``可视化''某些函数，以便更好地理解它们。
+
+\subsubsection*{符号}
+
+有几种正确定义函数的方法。以下都是定义``实数平方函数''的正确方法：
+\begin{quotation}
+    定义函数 $f \subseteq \mathbb{R} \times \mathbb{R}$ 为 $(x, y) \in f \iff y = x^2$。
+
+    定义函数 $f : \mathbb{R} \to \mathbb{R}$ 为 $f=\big\{(x,x^2) \mid x \in \mathbb{R}\big\}$。
+
+    定义函数 $f : \mathbb{R} \to \mathbb{R}$ 为 $\forall x \in \mathbb{R} \centerdot f(x) = x^2$。
+\end{quotation}
+考虑每种方法为什么符合我们上面给出的函数定义。第一种方法直接表明函数是一种\emph{集合}，即从 $\mathbb{R}$ 到 $\mathbb{R}$ 的关系。第二种方法使用相同的概念，但通过集合构建符来表示 $f$，而不是用\emph{充要条件}语句。第三种方法表明每个 $f$ 的``输入''都有\emph{唯一}一个``输出''，所以我们可以简单地声明\emph{对于所有} $x \in \mathbb{R}$ 的``输出''。
+
+我们\emph{通常}会坚持使用第三种符号风格，因为它更容易理解，并且更符合我们对函数的直观认识。有时，我们也会使用其他符号风格；例如，我们想要强调函数的底层结构，或者仅仅可能是为了更容易书写。不过，一般来说，在定义函数时，我们需要为读者明确所有重要的组成部分：\emph{定义域}、\emph{值域}、\emph{函数名}，以及分配有序对的\emph{规则}或\emph{集合}。
+
+如果你在想为什么在定义函数时指定\emph{值域}如此重要，可以从编写计算机代码的角度来考虑。当你定义一个函数时，通常需要\emph{声明}输出变量的数据类型。（当然，这也取决于具体的编程语言。）以 \verb|Java| 为例，你可能会写
+\begin{verbatim}
+    public int PlusOne (int x) {
+        return x+1;
+    }
+\end{verbatim}
+上面代码定义了一个函数，它输入一个整数，加一后输出另一个整数。请注意，你必须告诉程序输入的数据类型是什么以及输出的数据类型是什么。\\
+
+\begin{example}
+    考虑一个将自然数转换为其二进制表示的函数。我们用 $B$ 表示这个函数。通过计算，我们希望 $B(1) = 1, B(2) = 10, B(10) = 1010$。那么，这个函数的定义域是什么？值域是什么？你能严格地写出它的定义\emph{规则}吗？还是用文字描述更好呢？
+
+    我们可以这样定义这个函数。设 $S$ 为所有由 $0$ 和 $1$ 组成的有限二进制字符串的集合。然后定义函数 $B : \mathbb{N} \to S$ 为
+    \[B = \{(n, s) \mid n \in \mathbb{N} \;\text{且}\; s \;\text{为}\; n \;\text{的二进制表示}\}\]
+\end{example}
+
+\begin{example}
+    再次考虑``平方函数''：设 $f : \mathbb{R} \to \mathbb{R}$ 定义为 $\forall x \in \mathbb{R}, f(x) = x^2$。这函数与下面的函数有区别吗？
+    \begin{itemize}
+        \item 设函数 $g : \mathbb{R} \to \mathbb{C}$ 定义为
+            \[\forall x \in \mathbb{R} \centerdot g(x) = x^2\]
+        \item 设函数 $h : \mathbb{Z} \to \mathbb{R}$ 定义为
+            \[\forall x \in \mathbb{Z} \centerdot h(x) = x^2\]
+    \end{itemize}
+
+    函数 $g$ 的值域不同，但实际上，$\mathbb{R} \subseteq \mathbb{C}$。所有有序对 $(x, x^2) \in g$ 仍然满足 $x \in \mathbb{R}$ 且 $x^2 \in \mathbb{R}$。从这个角度来看，$f$ 和 $g$ 是\emph{相同的}函数，我们可以写做 $f = g$。稍后，我们将详细探讨两个函数相等的确切含义。目前，只需说明 $f$ 和 $g$ 对应的底层关系具有相同的实数有序对作为元素即可。理论上，函数 $g$ \emph{允许}第二个值为复数，但由于定义域和``规则''的设定，这实际上不会发生。
+
+    函数 $h$ 的定义域不同，并且 $\mathbb{Z} \subset \mathbb{R}$（是 $\mathbb{R}$ 的真子集）。因此，在函数 $f$ 对应的关系中，有许多有序对并不属于函数 $h$ 对应的关系。例如，$(\frac{1}{2}, \frac{1}{4}) \in f$ 但 $(\frac{1}{2}, \frac{1}{4}) \notin h$。换句话说，$f(\frac{1}{2}) = \frac{1}{4}$，但 $h(\frac{1}{2})$ 的概念没有\emph{良好定义}，因为 $\frac{1}{2}$ 不属于 $h$ 的定义域。
+\end{example}
+
+\begin{example}
+    我们也可以\textbf{分段}定义函数。例如，考虑定义在 $\mathbb{R}$ 上的\emph{绝对值函数}：
+
+    设函数 $a : \mathbb{R} \to \mathbb{R}$ 定义为
+    \[\forall x \in \mathbb{R} \centerdot a(x) = 
+    \begin{cases}
+         x &\text{如果}\; x \ge 0 \\
+        -x &\text{如果}\; x < 0
+     \end{cases}\]
+     定义域中的每个元素都\emph{恰好}落入某一种情况，因此没有歧义。
+\end{example}
+
+\subsubsection*{``良好定义的''函数}
+
+我们并不总是能明确一个定义的关系是否真正是一个函数。面对一个给定的定义域、值域和一个``规则''或集合，我们该如何验证它们是否构成一个函数呢？接下来我们将给出一个定义（完全基于之前讨论的函数定义）来解决这个问题：
+
+\begin{definition}
+    给定定义域 $A$、值域 $B$ 和``规则'' $f$，我们说 $f$ 是一个\dotuline{良好定义的函数}，当且仅当
+    \begin{enumerate}[label=(\arabic*)]
+        \item 该规则定义在 $A$ 的所有元素上；
+        \item 对于每个 $a \in A$，该规则都输出集合 $B$ 中的唯一一个元素。
+    \end{enumerate}
+\end{definition}
+
+让我们用一个例子来说明这个概念。在本节的后面，我们还会看到一些不是函数的例子，并且会再次引用这个\textbf{良好定义的函数}的定义。\\
+
+\begin{example}
+    设函数 $a : \mathbb{Z} \to \mathbb{N}$ 定义为
+    \[\forall z \in \mathbb{Z} \centerdot f(z) = |2z + 1|\]
+    
+\end{example}
+
+\subsubsection*{恒等函数}
+
+\subsubsection*{不是函数的例子}
