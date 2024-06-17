@@ -7,11 +7,11 @@
 以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 在不查阅资料的情况下，写出\textbf{函数}的定义。然后，与我们的定义进行比较。你的定义传达了相同的信息吗？如果没有，你遗漏了什么内容？
-    \item 函数的\textbf{定义域}和\textbf{值域}有什么区别？
-    \item 函数\textbf{良好定义}是什么意思？
-    \item 什么是\textbf{恒等函数}？它是如何定义的？
-    \item 我们怎样证明两个函数\textbf{相等}？
+    \item 用\textbf{像}来定义\textbf{满射}。然后，再用量词来定义满射。
+    \item 描述证明函数是\textbf{单射}的两种不同方法。
+    \item 一个函数可以既是单射又是满射吗？如果可以，举一个例子。
+    \item 一个函数可以既不是单射也不是满射吗？如果可以，举一个例子。
+    \item 对于以下每一个示意图，判断它们是否是函数；如果是，判断它是否是单射或满射。
 \end{enumerate}
 
 \subsubsection*{小试牛刀}
@@ -19,13 +19,23 @@
 尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 用适当的符号定义一个函数，该函数输入一个整数并输出其绝对值的平方根。\\
-        该函数的定义域是什么？值域是什么？
-    \item 用适当的符号定义一个函数，该函数输入一对自然数并输出它们的平均值 (算术平均数)。\\
-        该函数的定义域是什么？值域是什么？
-    \item 设 $A = \{-2, -1, 0, 1, 2\}$。定义 $g : A \to A$ 为 $\forall x \in A \centerdot g(x) = x^2 - 3$。画出示意图以判断 $g$ 是否是良好定义的？
-    \item 设 $X$ 是任意集合。用适当的符号定义一个函数，该函数输入 $X$ 的一个\emph{子集}并输出该集合的补集 (在 $X$ 的上下文中)。\\
-        该函数的定义域是什么？值域是什么？
-    \item 设 $B = \{-1, 0, 1\}$。定义 $h : B \to B$ 为 $\forall b \in B \centerdot h(b) = b^3$。这与哪个特殊函数相等？
-    \item 设 $f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{N}$ 为 $\forall (x, y) \in \mathbb{Z} \times \mathbb{Z} \centerdot f(x, y) = \frac{1}{2}|x + 1| \cdot |y|$。这是一个良好定义的函数吗？为什么？
+    \item 假设 $f : \mathbb{R} \to \mathbb{R}$ 是\emph{单调递增}函数，即
+        \[\forall x, y \in \mathbb{R} \centerdot x < y \implies f(x) < f(y)\]
+        证明 $f$ 必为\emph{单射}。\\
+        然后，通过定义一个递增但不是满射的函数，证明 $f$ \emph{不一定}是满射。
+    \item 设函数 $g : \mathbb{R} - \{-1\} \to \mathbb{R}$ 定义为 
+        \[\forall x \in \mathbb{R} - \{-1\} \centerdot g(x) = \frac{x}{1+x}\]
+        $g$ 是\emph{单射}吗？请证明你的声明。
+    \item 给出函数 $f : \mathcal{P}(\mathbb{N}) \to \mathbb{N}$ 为满射的一个例子，并\emph{证明}它确实是满射。\\
+        （\textbf{提示}：尤其要注意 $\varnothing \in \mathcal{P}(\mathbb{N})$。你可以回看 \ref{sec:section5.5.2} 获得一些灵感……）
+    \item 给出函数 $F : \mathbb{N} \to \mathcal{P}(\mathbb{N})$ 为单射的一个例子，并\emph{证明}它确实是单射。\\
+        然后\emph{证明}函数 $F$ \emph{不是}满射。\\
+        （注意：我们要求你\emph{在不知道函数定义的情况下}，证明它不是满射。我们知道这是正确的！你将在本章后面了解到我们使用的这个小技巧……）
+    \item 假设函数 $f : A \to B$ 和 $g : B \to C$ 都是满射。证明 $g \circ f:A \to C$ 也是满射。
+    \item 设函数 $f : A \to B$ 为单射。定义函数 $g : A \to Im_f (A)$ 为 $\forall x \in A \centerdot g(x) = f(x)$。证明 $g$ 为双射。
+    \item 定义函数 $F:\mathbb{R} \times \mathbb{R} \to \mathbb{R} \times \mathbb{R}$ 为 $F(x, y) = (x+y, 2x-y)$。证明 $F$ 为双射。\\
+        (\textbf{提示}：试着在草稿上解一个二元方程组。你可以参考 \ref{sec:section1.3.2} 节中的一些建议。)
+    \item 设 $A, B$ 为集合，$g: A \to B$ 为\emph{单射}。\\
+        设 $X \subseteq A$。定义函数 $h : X \to B$ 为 $\forall x \in X \centerdot h(x) = g(x)$。（也就是说 $h$ 和 $g$ 定义在相同``规则''下，但 $h$ 的``定义域更小''。）\\
+        证明 $h$ 也是单射。
 \end{enumerate}

@@ -189,7 +189,7 @@
                 ytick align=inside,
                 extra x ticks={0}
                 ]       
-                \addplot[blue, line width=1pt, domain=-15:15, samples=300] {x^2/(1+x^2)};
+                \addplot[blue, line width=1pt, domain=-15:15, samples=300, smooth] {x^2/(1+x^2)};
             \end{axis}
         \end{tikzpicture}
     \end{center}
@@ -214,7 +214,7 @@
     \begin{proof}
         首先，我们来证明 $Im_f (\mathbb{R}) \subseteq T$。
 
-        设 $y \in Im_f (R)$ 为任意固定元素。根据像的定义，$\exists x \in \mathbb{R}$ 是的 $f(x) = y$。给定这样的 $x$。
+        设 $y \in Im_f (\mathbb{R})$ 为任意固定元素。根据像的定义，$\exists x \in \mathbb{R}$ 是的 $f(x) = y$。给定这样的 $x$。
 
         因为 $x \in \mathbb{R}$，我们知道 $x^2 \ge 0$ 且 $0 < x^2+1$，我们可以推导出 $0 < \frac{1}{x^2+1}$。
 
@@ -224,7 +224,7 @@
 
         这证明了 $0 \le \frac{x^2}{1+x^2} < 1$。因为 $y = f(x) = \frac{x^2}{1+x^2}$，这等价于 $0 \le y < 1$。
 
-        因此 $y \in T$，所以 $Im_f (R) \subseteq T$。\\
+        因此 $y \in T$，所以 $Im_f (\mathbb{R}) \subseteq T$。\\
 
         接着，我们来证明 $T \subseteq Im_f (\mathbb{R})$。
 
@@ -237,7 +237,7 @@
         请注意 $0 \le y < 1 \implies -y > -1$，所以 $1-y > 0$。因此 $\frac{y}{1-y} \ge 0$ 且 $x \in \mathbb{R}$ 可以明确定义为平方根，并且 $x$ 属于定义域 $\mathbb{R}$。
         
         注意到 $x^2=\frac{y}{1-y}$，所以
-        \[f(x) = \frac{x^2}{1+x^2} = \frac{\frac{y}{1-y}}{1+\frac{y}{1-y}}\frac{\frac{y}{1-y}}{\frac{(1-y)+y}{1-y}}=\frac{\frac{y}{1-y}}{\frac{1}{1-y}}=\frac{y}{1-y} \cdot \frac{1-y}{1} = \frac{y}{1} = y\]
+        \[f(x) = \frac{x^2}{1+x^2} = \frac{\frac{y}{1-y}}{1+\frac{y}{1-y}}=\frac{\frac{y}{1-y}}{\frac{(1-y)+y}{1-y}}=\frac{\frac{y}{1-y}}{\frac{1}{1-y}}=\frac{y}{1-y} \cdot \frac{1-y}{1} = \frac{y}{1} = y\]
         这证明 $y \in Im_f (R)$，所以 $T \subseteq Im_f (R)$。\\
 
         综上，利用双重包含论证，我们得到结论 $T = Im_f (\mathbb{R})$。
@@ -253,13 +253,13 @@
     \[\forall (a, b) \in \mathbb{N} \times \mathbb{N} \centerdot p(a, b) = ab + a\]
     $Im_p(\mathbb{N})$ 是什么？
 
-    这个例子可能会感觉有点棘手，因为它涉及到集合的笛卡尔积。也就是说，函数 $p$ 接受一对自然数作为输入，并输出一个自然数。在这种情况下，一个好的方法是先代入一些值，看看结果如何。请参考下面的数值表，左列表示 $a$ 的值，顶行表示 $b$ 的值，表格中的项是 $p(a, b)$ 的值。
+    这个例子可能会感觉有点棘手，因为它涉及到集合的笛卡尔积。也就是说，函数 $p$ 接受一对自然数作为输入，并输出一个自然数。在这种情况下，一个好的方法是先代入一些值，看看结果如何。请参考下面的数值表，左列表示 $a$ 的值，顶行表示 $b$ 的值，表格中的值是 $p(a, b)$ 的值。
 
     \begin{center}
         \begin{tabular}{c|ccccc}
-              &  1 &  2 &  3 &  4 & 5  \\
+              &  1 &  2 &  3 &  4 &  5 \\
             \hline
-            1 &  2 &  3 &  4 &  5 & 6  \\
+            1 &  2 &  3 &  4 &  5 &  6 \\
             2 &  4 &  6 &  8 & 10 & 12 \\
             3 &  6 &  9 & 12 & 15 & 18 \\
             4 &  8 & 12 & 16 & 20 & 24 \\

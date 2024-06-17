@@ -1,3 +1,167 @@
 % !TeX root = ../../../book.tex
 
-\subsection{关于像的证明}
+\subsection{单射函数}
+
+在证明一个函数是满射时，我们会选择值域中的任意元素，并在定义域中寻找\emph{至少一个}元素与之对应。有时对应的元素\emph{只有一个}，有时有\emph{多个}，有时则\emph{没有}。现在，我们来探讨恰好``只有一个''的情况。这里我们不假设函数已经是满射，而是施加一个条件：任何给定的输出\emph{最多只能有一个}输入。可能恰好有一个输入，也可能没有，但绝不会有两个或以上。这类函数非常特殊，因此我们给它们起了个名字。
+
+\subsubsection*{定义}
+
+\begin{definition}
+    设 $A, B$ 为集合，$f: A \to B$ 为函数。我们说 $f$ 是\dotuline{单射}函数，当且仅当它具有如下性质
+    \[\forall a_1, a_2 \in A \centerdot a_1 \ne a_2 \implies f(a_1) \ne f(a_2)\]
+    同样地，我们可以说 ``$f$ 是单射的''（形容词形式），或者说 ``$f$ 是一个单射''（名词形式）。
+
+    换句话说，这个性质要求``不同的输入会产生不同的输出''。另外，记住命题的逆否命题与原命题逻辑等价，我们可以将这个性质表示为
+    \[\forall a_1, a_2 \in A \centerdot f(a_1) = f(a_2) \implies a_1 = a_2\]
+    这意味着``如果两个输出相等，它们必然来自相同的输入''。
+\end{definition}
+
+想一想这个定义是如何传达我们之前描述的概念的。假设我们有一个单射函数 $f : A \to B$，并且给定一个元素 $b \in B$。这个定义是否意味着\emph{最多只有一个}元素 $x \in A$ 满足 $f(x) = b$？这个定义允许哪些可能性？
+
+\subsubsection*{引言}
+
+我们可以通过一个特定的函数应用来理解这个概念。想象函数是一个\emph{密码机}，你可以用它和朋友发送和接收秘密消息。你的朋友写下一条秘密消息，把它放入编码器，然后输出一个加密的代码，他把这个代码发给你。稍后，你收到了这个加密代码。你希望这个代码只对应\emph{一条}输入消息。假设你尝试解码它，结果同时得到\verb|我恨你|\textbf{和}\verb|我爱你|两条信息，你会怎么想？你的朋友是否想同时发这两条信息给你？如果这两条矛盾的信息被编码成相同的加密消息，那说明你设计的编码系统很糟糕！在这种情况下，拥有一个编码函数会更好，其中两个\emph{不同的}输入不可能产生\emph{相同的}输出。这正是单射定义要求的属性。
+
+\subsubsection*{单射定义的否定}
+
+我们可以通过示意图和单射定义的\textbf{否定}来理解\emph{单射}的属性。首先，让我们给出单射定义的否定：
+\[\neg \big(\forall a_1, a_2 \in A \centerdot a_1 \ne a_2 \implies f(a_1) \ne f(a_2)\big) \iff \big(\exists a_1, a_2 \in A \centerdot a_1 \ne a_2 \land f(a_1) = f(a_2)\big)\]
+（记住，$P \implies Q$ 的否定为 $P \land \neg Q$！）
+
+一个函数\emph{不是}单射的，当且仅当我们能找到两个\emph{不同的}定义域元素，它们对应\emph{相同的}值域元素。
+
+基于这一点，下面是单射函数和非单射函数的典型例子：
+
+\begin{multicols}{2}
+    \begin{center}
+        {\begin{tikzpicture}[scale=1]
+            \foreach \x in {0,...,4}
+            {
+                \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
+            }
+            \draw (4,-1.2) ellipse (1 and 2);
+    
+            \foreach \x in {0,...,3}
+            {
+                \node at (0, -\x*0.8)[circle,fill,inner sep=3pt]{};
+            }
+            \draw (0,-1.2) ellipse (1 and 2);
+    
+            \draw[-latex] (0.2,-0.0) -- (3.8,0.0); 
+            \draw[-latex] (0.2,-0.8) -- (3.8,-2.4); 
+            \draw[-latex] (0.2,-1.6) -- (3.8,-1.2); 
+            \draw[-latex] (0.2,-2.4) -- (3.8,-0.6); 
+            
+            \node[below] at (0, -3.2){$A$};
+            \node[below] at (4, -3.2){$B$};
+            \node[below] at (2, -4){单射};
+            \node[above] at (2, 0.4){$f:A \to B$};
+        \end{tikzpicture}}
+    \end{center}
+
+    \begin{center}
+        {\begin{tikzpicture}[scale=1]
+            \foreach \x in  {0,...,4}
+            {
+                \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
+            }
+            \draw (4,-1.2) ellipse (1 and 2);
+    
+            \foreach \x in  {0,...,3}
+            {
+                \node at (0, -\x*0.8)[circle,fill,inner sep=3pt]{};
+            }
+            \draw (0,-1.2) ellipse (1 and 2);
+    
+            \draw[-latex] (0.2,-0.0) -- (3.8,0.0); 
+            \draw[-latex, red] (0.2,-0.8) -- (3.8,-0.55); 
+            \draw[-latex] (0.2,-1.6) -- (3.8,-2.4); 
+            \draw[-latex, red] (0.2,-2.4) -- (3.8,-0.65); 
+            \node[red] at (0, -0.8)[circle,fill,inner sep=3pt]{};
+            \node[red] at (0, -2.4)[circle,fill,inner sep=3pt]{};
+            \node[red] at (4, -0.6)[circle,fill,inner sep=3pt]{};
+            
+            \node[below] at (0, -3.2){$A$};
+            \node[below] at (4, -3.2){$B$};
+            \node[below] at (2, -4){非单射};
+            \node[above] at (2, 0.4){$f:A \to B$};
+        \end{tikzpicture}}
+    \end{center}
+\end{multicols}
+
+非单射函数中，有两个不同的定义域元素会输出相同的值域元素，而单射函数则不会出现这种情况。用否定的方式来描述一个属性可能会感觉有点奇怪 --- 一个函数只有在\emph{没有}……的情况下才是单射 --- 但实际上这在数学中是相当常见的。（稍后我们在讨论\emph{无限}集时会看到``……\emph{不是}有限集'' 这种类似的陈述。）这种否定的表述很容易记住，我们总是可以将其与另一种肯定的表述联系起来：单射函数对于\emph{任意}给定的输出只有 $0$ 或 $1$ 个对应的输入。
+
+\subsubsection*{示例}
+
+我们来讨论一下如何证明或证伪一个函数是单射。在尝试证明一个函数\emph{是}单射时，上述定义的前两种方法很有用：可以取定义域中的任意两个不同元素，证明它们的输出不同，或者取两个相同的输出，证明它们来自相同的输入。通过反证法，也可以用否定的方式来证明一个函数是单射。此外，第三种方法在证明一个函数\emph{不是}单射时很有帮助：只需找到两个不同的输入却有相同的输出作为反例即可。
+
+让我们通过一些例子来看看这些方法的实际应用。实际上，我们会用到上一节讨论满射时提到的一些例子！\\
+
+\begin{example}
+    考虑函数 $p : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 定义为 $p(a,b) = ab$。$p$ 是单射吗？
+
+    尝试一些特定的 $(a, b)$ 值后，我们可以发现 $p$ 绝对不是单射。选择任意一个有两种不同因式分解的数字，例如 $12 = 3 \cdot 4 = 2 \cdot 6$。通过设 $(a, b) = (3, 4)$ 和 $(c, d) = (2, 6)$，我们可以轻松证明这一点。实际上，我们只需注意到 $(a, b)$ 是顺序相关的，就能更容易地证明这一点。
+
+    \begin{proof}
+        这个函数不是单射。
+
+        设 $ (a, b) = (1, 2), (c, d) = (2, 1)$。因为 $1 \ne 2$，所以 $ (a, b) \ne (c, d)$。然而 $p(a, b) = 1 \cdot 2 = 2$ 并且 $p(c, d) = 2 \cdot 1 = 2$。因此 $p(a, b) = p(c, d)$。这证明了 $p$ 不是单射。
+    \end{proof}
+\end{example}
+
+\begin{example}
+    设 $C$ 为美国所有汽车的集合。设 $S$ 为所有由字母和数字组成的长度最多为 $7$ 的字符串的集合（这些是可能出现在汽车牌照上的\emph{潜在}字符串）。
+
+    设 $f : C \to S$ 定义为输入一辆车，输出其牌照字符串。函数 $f$ 是单射吗？
+
+    不，我们不这么认为！相同的车牌字符串可能会出现在不同州的不同汽车上\footnote{在中国不会出现这种情况，中国的机动车都是一车一号，因此是一个单射 --- 译者注}。虽然我们没有具体的例子，但希望你能理解这个概念。我们能修改函数定义使其成为单射吗？当然可以试试！假设 $S$ 是美国各州的集合。定义函数 $g : C \to L \times S$，将输入的汽车映射到该车的车牌字符串和所属州的有序对。这将是一个单射，因为在同一个州内没有两辆车可以有相同的车牌。（再次强调，这不是正式的证明，我们只是用一个非数值的例子来说明单射的概念。）
+\end{example}
+
+\begin{example}
+    设函数 $d : \mathbb{N} \times \mathbb{N} \to \mathbb{Z}$ 定义为
+    \[\forall (a, b) \in \mathbb{N} \times \mathbb{N} \centerdot d(a, b) = a - b\]
+    我们来判断 $d$ 是否是单射，并证明我们的结论。
+
+    事实表明 $d$ 不是一个单射！注意到 $a - b = (a + 1) - (b + 1)$。我们可以据此找到一个反例：
+
+    考虑 $(2, 1) \in \mathbb{N} \times \mathbb{N}$ 和 $(3, 2) \in \mathbb{N} \times \mathbb{N}$。易得 $d(2, 1) = 1$ 且 $d(3, 2) = 1$。由于 $(2, 1) \ne (3, 2)$，但 $d(2, 1) = d(3, 2)$，因此我们可以得出 $d$ 不是单射。
+\end{example}
+
+\begin{example}
+    设函数 $F : \mathcal{P}(\mathbb{N}) \to \mathcal{P}(\mathbb{Z})$ 定义为
+    \[\forall X \in \mathcal{P}(\mathbb{N}) \centerdot F(X) = \bigcup_{a \in X} \{a, -a\}\]
+    你看出这个函数的作用了吗？（你能解释为什么它是一个\emph{良好定义}的函数吗？）
+
+    我们通过几个例子来帮助你理解：
+    \begin{align*}
+        F\big(\{1\}\big) &= \bigcup_{a \in \{1\}} \{a, -a\} = \{-1,1\} \\
+        F\big(\{1,3,5\}\big) &= \bigcup_{a \in \{1,3,5\}} \{a, -a\} = \{-1,1\} \cup \{-3,3\} \cup \{-5,5\} \\
+        &= \{-5,-3,-1,1,3,5\}\\
+        F\big(\varnothing\big) &= \bigcup_{a \in \varnothing} \{a, -a\} = \varnothing \\
+        F\big(\mathbb{N}\big) &= \mathbb{Z} - \{0\}
+    \end{align*}
+
+    我们声称 $F$ 是一个单射。在阅读我们的证明之前，请先思考一下如何证明这一点。特别是，基于单射的正式定义，考虑一下我们可能采用的不同策略。某种策略会不会比另一种更有效呢？
+
+    \begin{proof}
+        我们要证明 $F$ 是单射。
+        
+        设 $X,Y \in \mathcal{P}(\mathbb{N})$。假设 $X \ne Y$，我们要证明 $F(X) \ne F(Y)$。
+
+        因为 $X \ne Y$，我们有两种情况：要么 $X \nsubseteq Y$，要么 $Y \nsubseteq X$。\\
+
+        假设 $X \nsubseteq Y$，这意味着 $\exists n \in X \centerdot n \notin Y$。给定这样的 $n$。
+
+        因为 $n \in \{-n, n\}$ 且 $n \in X$，根据 $F$ 的定义可得 $n \in F(X)$。
+
+        然而，因为 $n \notin Y$，可得 $\forall a \in Y \centerdot n \notin {-a, a}$。由于 $n \notin Y$ 并且 $n \in \mathbb{N}, Y \subseteq \mathbb{N}$，所以 $\forall a \in Y \centerdot n \ne -a \in \mathbb{Z}$。
+
+        因此 $n \notin F(Y)$。这证明了 $F(X) \ne F(Y)$。\\
+
+        同理，对于 $Y \nsubseteq X$，我们可以采用与上面完全相同的论证，只需将 $X$ 和 $Y$ 互换一下（即每一步中交换 $X$ 和 $Y$），从而证明 $F(Y) \ne F(X)$。\\
+
+        综上，我们证明了 $\forall X, Y \in \mathcal{P}(\mathbb{N}) \centerdot X \ne Y \implies F(X) \ne F(Y)$。因此 $F$ 是一个单射。
+    \end{proof}
+
+    思考一下，如果我们使用不同的方法来证明这个问题会怎样。如果我们从假设 $X, Y \in \mathcal{P}(\mathbb{N})$ 且 $F(X) = F(Y)$ 开始，我们能推导出 $X = Y$ 吗？
+\end{example}
