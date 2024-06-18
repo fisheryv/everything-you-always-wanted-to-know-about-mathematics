@@ -1,17 +1,16 @@
 % !TeX root = ../../../book.tex
 
-\subsection{习题}
+\subsection{习题}\label{sec:section7.5.4}
 
 \subsubsection*{温故知新}
 
 以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 在不查阅资料的情况下，写出\textbf{函数}的定义。然后，与我们的定义进行比较。你的定义传达了相同的信息吗？如果没有，你遗漏了什么内容？
-    \item 函数的\textbf{定义域}和\textbf{值域}有什么区别？
-    \item 函数\textbf{良好定义}是什么意思？
-    \item 什么是\textbf{恒等函数}？它是如何定义的？
-    \item 我们怎样证明两个函数\textbf{相等}？
+    \item 函数复合运算满足结合律吗？（也就是说，括号的顺序是否重要？）为什么满足或者为什么不满足？
+    \item 函数复合运算满足交换律吗？（也就是说，我们可以颠倒顺序进行运算吗？）为什么满足或者为什么不满足？
+    \item 假设 $f : A \to B$ 和 $g : B \to A$ 为函数。我们如何证明 $g = f^{-1}$？
+    \item 假设 $f : A \to B$ 为双射。它的反函数也是双射吗？
 \end{enumerate}
 
 \subsubsection*{小试牛刀}
@@ -19,13 +18,23 @@
 尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 用适当的符号定义一个函数，该函数输入一个整数并输出其绝对值的平方根。\\
-        该函数的定义域是什么？值域是什么？
-    \item 用适当的符号定义一个函数，该函数输入一对自然数并输出它们的平均值 (算术平均数)。\\
-        该函数的定义域是什么？值域是什么？
-    \item 设 $A = \{-2, -1, 0, 1, 2\}$。定义 $g : A \to A$ 为 $\forall x \in A \centerdot g(x) = x^2 - 3$。画出示意图以判断 $g$ 是否是良好定义的？
-    \item 设 $X$ 是任意集合。用适当的符号定义一个函数，该函数输入 $X$ 的一个\emph{子集}并输出该集合的补集 (在 $X$ 的上下文中)。\\
-        该函数的定义域是什么？值域是什么？
-    \item 设 $B = \{-1, 0, 1\}$。定义 $h : B \to B$ 为 $\forall b \in B \centerdot h(b) = b^3$。这与哪个特殊函数相等？
-    \item 设 $f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{N}$ 为 $\forall (x, y) \in \mathbb{Z} \times \mathbb{Z} \centerdot f(x, y) = \frac{1}{2}|x + 1| \cdot |y|$。这是一个良好定义的函数吗？为什么？
+    \item 设 $O$ 为奇数集，设 $E$ 为偶数集。定义\textbf{双射}函数 $f : O \to E$，并通过找到它的反函数证明 $f$ 确实为双射。
+    \item 在这个问题中，我们希望你能通过一个例子来展示，当我们尝试找到一个函数的反函数时，验证两个复合函数\textbf{都能}得到恒等函数是多么重要。\\
+    定义集合 $A, B$ 以及函数 $f : A \to B, g : B \to A$ 使得
+    \[\forall x \in A \centerdot g(f(x)) = x\]
+    但
+    \[\exists y \in B \centerdot f(g(y)) \ne y\]
+    （\textbf{建议}：你可以找一个例子，其中 $A$ 和 $B$ 都只有一到两个元素……或者，你可以找一个例子，其中 $A=B=\mathbb{N}$。）
+    \item 设 $U = \{y \in \mathbb{R} \mid -1 < y < 1\}, I = \{y \in \mathbb{R} \mid -6 < y < 12\}$。\\
+        设函数 $g : U \to I$ 定义为 $\forall x \in U \centerdot g(x) = 9x + 3$。
+        证明 $g$ 是双射，并找到 $g^{-1}$。
+    \item 定义函数 $f : \mathbb{Z} \to \mathbb{N}$ 为
+    \[\forall z \in \mathbb{Z} \centerdot f(z) = \begin{cases}
+        -2z + 2 & \text{如果}\; z \le 0 \\
+        2z-1 & \text{如果}\; z > 0
+    \end{cases}\]
+    证明 $f$ 是双射，并找到 $f^-1$。\\
+    （\textbf{提示}：你给出的反函数也是分段定义的。在你的证明中要小心处理可能出现的各种情况。）
+    \item \textbf{挑战性问题}：定义 $I = \{y \in \mathbb{R} \mid -1 < y < 1\}$。找到函数 $f : I \to \mathbb{R}$ 是双射函数，并证明之。\\
+    （\textbf{提示}：无需使用任何三角函数。可以考虑在表达式中使用 $|x|$……）
 \end{enumerate}

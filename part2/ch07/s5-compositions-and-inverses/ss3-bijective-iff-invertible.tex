@@ -1,3 +1,100 @@
 % !TeX root = ../../../book.tex
 
 \subsection{双射 $\iff$ 可逆}
+
+正如我们一直暗示的那样，一个双射函数必定有一个逆函数。这个命题的逆命题也成立，因此我们可以陈述并证明这个``\emph{当且仅当}''命题。章节标题中的``\textbf{可逆}''通常表示``具有反函数''。
+
+\begin{theorem}
+    设 $A, B$ 为任意集合。$f : A \to B$ 为函数。则
+    \[f \;\text{为双射} \iff f \;\textbf{存在反函数}\; f^{-1}: B \to A\]
+\end{theorem}
+
+\begin{proof}
+    ($\implies$) 假设 $f$ 为双射。这意味着 $f$ 即是单射又是满射。我们需要为 $f$ 定义反函数。我们按如下规则定义函数 $g : B \to A$： 
+
+    给定 $b \in B$。因为 $f$ 是满射，我们知道 $\exists a \in A \centerdot f(a)=b$。给定这样的 $a$。因为 $f$ 是单射，我们知道
+    \[\forall x \in A \centerdot x \ne a \implies f(x) \ne f(a) = b\]
+    也就是说，我们知道 $a$ 是 $A$ 中\emph{唯一}满足 $f(a) = b$ 的元素。我们定义 $f(b) = a$。这是一个良好定义的函数。
+
+    接下来，易得 $(f \circ g)(b) = f(g(b)) = f(a) = b$，所以 $f \circ g = Id_B$。
+
+    并且 $(g \circ f)(a) = g(f(a)) = g(b) = a$，所以 $g \circ f = Id_A$。
+
+    因此，$g = f^{-1}$，所以 $f$ 是可逆的。
+
+    ($\impliedby$) 假设 $f$ 有反函数 $f^{-1} : B \to A$。
+
+    首先，我们来证明 $f$ 为单射。给定 $a_1, a_2 \in A$，易得
+
+    \begin{align*}
+        f(a1) = f(a2) &\implies f^{-1}(f(a_1)) = f^{-1}(f(a_2)) & f^{-1}: B \to A \;\text{为函数} \\
+        &\implies (f^{-1} \circ f)(a_1) = (f^{-1} \circ f)(a_2) & \text{复合的定义} \\
+        &\implies Id_A(a_1) = Id_A(a_2) & \textbf{恒等函数的定义} \\
+        &\implies a_1 = a_2 & \textbf{恒等函数的定义} \\
+    \end{align*}
+
+    因此 $f$ 为单射。
+
+    接着，我们来证明 $f$ 为满射。给定 $b \in B$。因为 $f^{-1}$ 为函数，我们知道 $\exists a \in A \centerdot f^{-1}(b)=a$。给定这样的 $a$，则易得
+
+    \begin{align*}
+        f^{-1}(b) = a &\implies f(f^{-1}(b)) = f(a) & f : A \to B \;\text{为函数} \\
+        &\implies (f \circ f^{-1})(b) = f(a) & \text{复合的定义} \\
+        &\implies Id_B(b) = f(a) & \textbf{恒等函数的定义} \\
+        &\implies b = f(a) d& \textbf{恒等函数的定义} \\
+    \end{align*}
+\end{proof}
+
+\subsubsection*{证明函数是双射}
+
+这个有用的定理为我们提供了一种新的证明函数 $f : A \to B$ 为双射的方法来。我们不必分别证明 $f$ 是单射和满射，而是可以定义一个新函数 $g : B \to A$，并证明它是 $f$ 的\textbf{反函数}，即 $g = f^{-1}$。这样一来，根据这个定理，我们就可以知道 $f$ 是双射了！根据具体情况，可以选择更容易应用或你更熟悉的策略。请记住，这两种策略都是可行的！
+
+\subsubsection*{反函数的反函数}
+
+以下推论是直接从上述定理中得出的。我们称之为推论而不是新的定理，是因为它并没有提出什么全新的内容；如你将在证明中看到的那样，它的结论只是应用了上述定理。
+
+\begin{corollary}
+    设 $A, B$ 为任意集合。$f : A \to B$ 为函数。
+
+    如果 $f$ 为双射，则 $f^{-1}$ 存在且也为双射。
+
+    此外 $\big(f^{-1}\big)^{-1} = f$。
+\end{corollary}
+
+\begin{proof}
+    假设 $f$ 有反函数 $, f^{-1} : B \to A$。则根据反函数的定义，这意味着 $f \circ f^{-1} = Id_B$ 且 $f^{-1} \circ f = Id_A$。
+
+    再次通过反函数的定义，这些条件证明了 $f^{-1}=f$！这表明 $f^{-1}$ 有一个反函数（即 $f$ 本身），因此根据上面的定理可得 $f^{-1}$ 必然为双射。
+\end{proof}
+
+\subsubsection*{复合的反函数}
+
+在我们进入练习和下一节之前，让我们总结一下本章的主要内容。具体来说，我们将在这里提出两个结论。这些结论的证明将留给你作为本章的练习。通过完成这些证明，你将能够:
+\begin{enumerate}[label=(\alph*)]
+    \item 巩固对已有概念的理解，包括函数、映射、复合、反函数等；
+    \item 获得关于如何定义函数复合的逆函数的重要结论。
+\end{enumerate}
+
+\begin{proposition}
+    设函数 $f : A \to B$ 和 $g : B \to C$ 为双射。
+
+    定义 $h : A \to C$ 为 $h = g \circ f$。
+    
+    则 $h$ 也为双射。
+\end{proposition}
+
+\begin{proof}
+    留作练习 \ref{exc:exercises7.8.9}。
+\end{proof}
+
+\begin{proposition}
+    设函数 $f : A \to B$ 和 $g : B \to C$ 为双射。
+
+    定义 $h : A \to C$ 为 $h = g \circ f$。
+    
+    则 $h$ 可逆且 $h^{-1} = f^{-1} \circ g^{-1}$。
+\end{proposition}
+
+\begin{proof}
+    留作练习 \ref{exc:exercises7.8.10}。
+\end{proof}
