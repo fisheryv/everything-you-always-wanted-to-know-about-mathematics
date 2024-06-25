@@ -9,122 +9,122 @@
 \begin{multicols}{2}
     \begin{center}
         {\begin{tikzpicture}[scale=1]
-            \foreach \x in {0,...,4}
-            {
-                \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
-            }
-            \draw (4,-1.2) ellipse (1 and 2);
-    
-            \foreach \x in {0,...,3}
-            {
-                \node at (0, -\x*0.8)[circle,fill,inner sep=3pt]{};
-            }
-            \draw (0,-1.2) ellipse (1 and 2);
-    
-            \draw[-latex] (0.2,-0.0) -- (3.8,0.0); 
-            \draw[-latex] (0.2,-0.8) -- (3.8,-2.4); 
-            \draw[-latex] (0.2,-1.6) -- (3.8,-1.2); 
-            \draw[-latex] (0.2,-2.4) -- (3.8,-0.6); 
-            
-            \node[below] at (0, -3.2){$A$};
-            \node[below] at (3, -3.2){$B$};
-            \node[above] at (2, 0.4){$f:A \to B$};
-        \end{tikzpicture}}
+                \foreach \x in {0,...,4}
+                    {
+                        \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
+                    }
+                \draw (4,-1.2) ellipse (1 and 2);
+
+                \foreach \x in {0,...,3}
+                    {
+                        \node at (0, -\x*0.8)[circle,fill,inner sep=3pt]{};
+                    }
+                \draw (0,-1.2) ellipse (1 and 2);
+
+                \draw[-latex] (0.2,-0.0) -- (3.8,0.0);
+                \draw[-latex] (0.2,-0.8) -- (3.8,-2.4);
+                \draw[-latex] (0.2,-1.6) -- (3.8,-1.2);
+                \draw[-latex] (0.2,-2.4) -- (3.8,-0.6);
+
+                \node[below] at (0, -3.2){$A$};
+                \node[below] at (3, -3.2){$B$};
+                \node[above] at (2, 0.4){$f:A \to B$};
+            \end{tikzpicture}}
     \end{center}
 
     \begin{center}
         {\begin{tikzpicture}[scale=1]
-            \foreach \x in  {0,...,4}
-            {
-                \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
-            }
-            \draw (4,-1.2) ellipse (1 and 2);
-    
-            \foreach \x in  {0,...,4}
-            {
-                \node at (0, -\x*0.6)[circle,fill,inner sep=3pt]{};
-            }
-            \draw (0,-1.2) ellipse (1 and 2);
-    
-            \draw[-latex] (0.2,-0.0) -- (3.8,-1.15); 
-            \draw[-latex] (0.2,-0.6) -- (3.8,-0.6); 
-            \draw[-latex] (0.2,-1.2) -- (3.8,-1.2); 
-            \draw[-latex] (0.2,-1.8) -- (3.8,-2.35); 
-            \draw[-latex] (0.2,-2.4) -- (3.8,-2.4); 
-            
-            \node[below] at (0, -3.2){$B$};
-            \node[below] at (4, -3.2){$C$};
-            \node[above] at (2, 0.4){$g:B \to C$};
-        \end{tikzpicture}}
+                \foreach \x in  {0,...,4}
+                    {
+                        \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
+                    }
+                \draw (4,-1.2) ellipse (1 and 2);
+
+                \foreach \x in  {0,...,4}
+                    {
+                        \node at (0, -\x*0.6)[circle,fill,inner sep=3pt]{};
+                    }
+                \draw (0,-1.2) ellipse (1 and 2);
+
+                \draw[-latex] (0.2,-0.0) -- (3.8,-1.15);
+                \draw[-latex] (0.2,-0.6) -- (3.8,-0.6);
+                \draw[-latex] (0.2,-1.2) -- (3.8,-1.2);
+                \draw[-latex] (0.2,-1.8) -- (3.8,-2.35);
+                \draw[-latex] (0.2,-2.4) -- (3.8,-2.4);
+
+                \node[below] at (0, -3.2){$B$};
+                \node[below] at (4, -3.2){$C$};
+                \node[above] at (2, 0.4){$g:B \to C$};
+            \end{tikzpicture}}
     \end{center}
 \end{multicols}
 
 直观感觉，$f$ 就像一张``地图''，为我们提供了从 $A$ 中元素到 $B$ 中元素的特定路线，而 $g$ 则是从 $B$ 中元素到 $C$ 中元素的``地图''。如果我们依次遵循这些``地图''，会发生什么呢？也就是说，让我们把这两张``地图''叠加起来，
 
 \begin{center}
-    {\begin{tikzpicture}[scale=1]
+    \begin{tikzpicture}[scale=1]
         \foreach \x in {0,...,3}
-        {
-            \node at (0, -\x*0.8)[circle,fill,inner sep=3pt]{};
-        }
+            {
+                \node at (0, -\x*0.8)[circle,fill,inner sep=3pt]{};
+            }
         \draw (0,-1.2) ellipse (1 and 2);
 
         \foreach \x in {0,...,4}
-        {
-            \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
-        }
+            {
+                \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
+            }
         \draw (4,-1.2) ellipse (1 and 2);
 
         \foreach \x in  {0,...,4}
-        {
-            \node at (8, -\x*0.6)[circle,fill,inner sep=3pt]{};
-        }
+            {
+                \node at (8, -\x*0.6)[circle,fill,inner sep=3pt]{};
+            }
         \draw (8,-1.2) ellipse (1 and 2);
 
-        \draw[-latex] (0.2,-0.0) -- (3.8,0.0); 
-        \draw[-latex] (0.2,-0.8) -- (3.8,-2.4); 
-        \draw[-latex] (0.2,-1.6) -- (3.8,-1.2); 
-        \draw[-latex] (0.2,-2.4) -- (3.8,-0.6); 
+        \draw[-latex] (0.2,-0.0) -- (3.8,0.0);
+        \draw[-latex] (0.2,-0.8) -- (3.8,-2.4);
+        \draw[-latex] (0.2,-1.6) -- (3.8,-1.2);
+        \draw[-latex] (0.2,-2.4) -- (3.8,-0.6);
 
-        \draw[-latex] (4.2,-0.0) -- (7.8,-1.15); 
-        \draw[-latex] (4.2,-0.6) -- (7.8,-0.6); 
-        \draw[-latex] (4.2,-1.2) -- (7.8,-1.2); 
-        \draw[-latex] (4.2,-1.8) -- (7.8,-2.35); 
-        \draw[-latex] (4.2,-2.4) -- (7.8,-2.4); 
-        
+        \draw[-latex] (4.2,-0.0) -- (7.8,-1.15);
+        \draw[-latex] (4.2,-0.6) -- (7.8,-0.6);
+        \draw[-latex] (4.2,-1.2) -- (7.8,-1.2);
+        \draw[-latex] (4.2,-1.8) -- (7.8,-2.35);
+        \draw[-latex] (4.2,-2.4) -- (7.8,-2.4);
+
         \node[below] at (0, -3.2){$A$};
         \node[below] at (4, -3.2){$B$};
         \node[below] at (8, -3.2){$C$};
         \node[above] at (2, 0.4){$f:A \to B$};
         \node[above] at (6, 0.4){$g:B \to C$};
-    \end{tikzpicture}}
+    \end{tikzpicture}
 \end{center}
 
 然后直接从 $A$ 到 $C$，省略中间环节：
 
 \begin{center}
-    {\begin{tikzpicture}[scale=1]
+    \begin{tikzpicture}[scale=1]
         \foreach \x in {0,...,4}
-        {
-            \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
-        }
+            {
+                \node at (4, -\x*0.6)[circle,fill,inner sep=3pt]{};
+            }
         \draw (4,-1.2) ellipse (1 and 2);
 
         \foreach \x in {0,...,3}
-        {
-            \node at (0, -\x*0.8)[circle,fill,inner sep=3pt]{};
-        }
+            {
+                \node at (0, -\x*0.8)[circle,fill,inner sep=3pt]{};
+            }
         \draw (0,-1.2) ellipse (1 and 2);
 
-        \draw[-latex] (0.2,-0.0) -- (3.8,-1.15); 
-        \draw[-latex] (0.2,-0.8) -- (3.8,-2.4); 
-        \draw[-latex] (0.2,-1.6) -- (3.8,-1.25); 
-        \draw[-latex] (0.2,-2.4) -- (3.8,-0.6); 
-        
+        \draw[-latex] (0.2,-0.0) -- (3.8,-1.15);
+        \draw[-latex] (0.2,-0.8) -- (3.8,-2.4);
+        \draw[-latex] (0.2,-1.6) -- (3.8,-1.25);
+        \draw[-latex] (0.2,-2.4) -- (3.8,-0.6);
+
         \node[below] at (0, -3.2){$A$};
         \node[below] at (4, -3.2){$C$};
         \node[above] at (2, 0.4){$g \circ f:A \to C$};
-    \end{tikzpicture}}
+    \end{tikzpicture}
 \end{center}
 
 这看起来是个合理的做法，对吧？当然是的！每当我们有数学对象时，我们总是好奇如何合理地组合、操作和泛化它们。在函数的情况下，我们称这种组合为函数的\textbf{复合}。你可能会注意到，只有当``第一个''函数的值域与``第二个''函数的定义域相同时，这种复合才有意义。这一点在下面的定义中有所体现。
@@ -168,8 +168,8 @@
 
     函数 $F \circ C$ 直接将开尔文温度转换为华氏温度。我们可以复合函数的``规则''从而找到直接转换的公式。
     \begin{align*}
-        \forall x \in \mathbb{R} \centerdot (F \circ C)(x) &= F(C(x)) = F(x - 273.15) \\
-        &= \frac{9}{5} \cdot (x - 273.15) + 32 = \frac{9}{5}-459.67
+        \forall x \in \mathbb{R} \centerdot (F \circ C)(x) & = F(C(x)) = F(x - 273.15)                                  \\
+                                                           & = \frac{9}{5} \cdot (x - 273.15) + 32 = \frac{9}{5}-459.67
     \end{align*}
 \end{example}
 
@@ -180,47 +180,47 @@
 
     设函数 $g : \mathbb{Z} \to \mathbb{N}$ 定义为
     \[\forall z \in \mathbb{Z} \centerdot g(z) = \begin{cases}
-        -z & \text{如果}\;z<0 \\
-        z+1 & \text{如果}\;z \ge 0
-    \end{cases}\]
+            -z  & \text{如果}\;z<0     \\
+            z+1 & \text{如果}\;z \ge 0
+        \end{cases}\]
 
     我们来找出 $g \circ f$。
 
     注意，只要 $x \in \mathbb{R} < 0$，我们都可以得到 $\lfloor x \rfloor < 0$。同理，只要 $x \in \mathbb{R} \ge 0$，我们都可以得到 $\lfloor x \rfloor \ge 0$。这告诉我们 $g \circ f$ 是一个\textbf{分段}函数：
     \[\forall x \in \mathbb{R} \centerdot (g \circ f)(x) = \begin{cases}
-        -\lfloor x \rfloor & \text{如果}\;z<0 \\
-        \lfloor x \rfloor+1 & \text{如果}\;z \ge 0
-    \end{cases}\]
+            -\lfloor x \rfloor  & \text{如果}\;z<0     \\
+            \lfloor x \rfloor+1 & \text{如果}\;z \ge 0
+        \end{cases}\]
     问题：这个函数是单射吗？是满射吗？试着证明你的结论。
 \end{example}
 
 \begin{example}
     定义函数 $f : \mathbb{N} \to \mathbb{N}, g : \mathbb{Z} \to \mathbb{N}, h : \mathbb{Z} \to \mathbb{N}$ 为：
     \begin{align*}
-        \forall n \in \mathbb{N} \centerdot f(n) &= n + 3 \\
-        \forall n \in \mathbb{N} \centerdot g(n) &= n^2 \\
-        \forall n \in \mathbb{N} \centerdot h(n) &= 2n - 1
+        \forall n \in \mathbb{N} \centerdot f(n) & = n + 3  \\
+        \forall n \in \mathbb{N} \centerdot g(n) & = n^2    \\
+        \forall n \in \mathbb{N} \centerdot h(n) & = 2n - 1
     \end{align*}
     （问题：你确定这些函数都是良好定义的吗？为什么？）
 
     我们可以找到 $g \circ f$ 和 $h \circ g$ 的``规则''：
     \begin{align*}
-        \forall n \in \mathbb{N} \centerdot (g \circ f)(n) &= g(f(n)) = g(n + 3) = (n + 3)^2 = n^2 + 6n + 9 \\
-        \forall n \in \mathbb{N} \centerdot (h \circ g)(n) &= h(g(n)) = h(n^2) = 2n^2-1
+        \forall n \in \mathbb{N} \centerdot (g \circ f)(n) & = g(f(n)) = g(n + 3) = (n + 3)^2 = n^2 + 6n + 9 \\
+        \forall n \in \mathbb{N} \centerdot (h \circ g)(n) & = h(g(n)) = h(n^2) = 2n^2-1
     \end{align*}
 
     我们可以由此得到进一步复合的规则，比如 $h \circ (g \circ f)$:
     \begin{align*}
-        \forall n \in \mathbb{N} \centerdot \big(h \circ (g \circ f)\big)(n) &= h\big((g \circ f)(n)\big) = h(n^2 + 6n + 9) \\
-        &= 2(n^2 + 6n + 9) - 1 \\
-        &= 2n^2 + 12n + 17
+        \forall n \in \mathbb{N} \centerdot \big(h \circ (g \circ f)\big)(n) & = h\big((g \circ f)(n)\big) = h(n^2 + 6n + 9) \\
+                                                                             & = 2(n^2 + 6n + 9) - 1                         \\
+                                                                             & = 2n^2 + 12n + 17
     \end{align*}
 
     类似地，我们可以找到 $(h \circ g) \circ f$ 的规则：
     \begin{align*}
-        \forall n \in \mathbb{N} \centerdot \big((h \circ g) \circ f\big)(n) &= (h \circ g)(f(n)) = (h \circ g)(n + 3) \\
-        &= 2(n + 3)^2 - 1 = 2(n^2 + 6n + 9) - 1 \\
-        &= 2n^2 + 12n + 17
+        \forall n \in \mathbb{N} \centerdot \big((h \circ g) \circ f\big)(n) & = (h \circ g)(f(n)) = (h \circ g)(n + 3) \\
+                                                                             & = 2(n + 3)^2 - 1 = 2(n^2 + 6n + 9) - 1   \\
+                                                                             & = 2n^2 + 12n + 17
     \end{align*}
 \end{example}
 
@@ -289,6 +289,6 @@
     定义函数 $g$ 为 $g(1) = g(2) = \bigstar$ 。
 
     则 $g \circ f$ 定义为 $(g \circ f)(1) = \bigstar, (g \circ f)(2) = \bigstar$。
-    
+
     这表明 $g \circ f$ 不是单射，因为 $(g \circ f)(1) = (g \circ f)(2)$，而 $1 \ne 2$。
 \end{proof}

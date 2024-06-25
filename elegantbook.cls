@@ -1058,7 +1058,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
 \renewcommand{\theexam}{\thesection.\arabic{exam}}
 \newenvironment{example}[1][]{
   \refstepcounter{exam}
-  \par\noindent\textbf{\color{main}{\examplename} \theexam #1 }\rmfamily}{
+  \par\noindent\textbf{\color{main}{\examplename} \theexam \enspace #1}\rmfamily}{
   \par\indent\ignorespacesafterend}
 
 %% Exercise with counter

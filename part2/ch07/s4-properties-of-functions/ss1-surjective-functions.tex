@@ -60,17 +60,17 @@
     设函数 $d : \mathbb{N} \times \mathbb{N} \to \mathbb{Z}$ 定义为
     \[\forall (a, b) \in \mathbb{N} \times \mathbb{N} \centerdot d(a, b) = a - b\]
     我们来判断 $d$ 是否是满射，并证明我们的结论。
-    
+
     我们可以先尝试一些``较小的''输入值。在下表中，左列表示 $a$，顶行表示 $b$，表格中的值是 $d(a, b) = a - b$：
     \begin{center}
         \begin{tabular}{c|ccccc}
-              &  1 &  2 &  3 &  4 &  5 \\
+              & 1 & 2  & 3  & 4  & 5  \\
             \hline
-            1 &  0 & -1 & -2 & -3 & -4 \\
-            2 &  1 &  0 & -1 & -2 & -3 \\
-            3 &  2 &  1 &  0 & -1 & -2 \\
-            4 &  3 &  2 &  1 &  0 & -1 \\
-            5 &  4 &  3 &  2 &  1 &  0 \\
+            1 & 0 & -1 & -2 & -3 & -4 \\
+            2 & 1 & 0  & -1 & -2 & -3 \\
+            3 & 2 & 1  & 0  & -1 & -2 \\
+            4 & 3 & 2  & 1  & 0  & -1 \\
+            5 & 4 & 3  & 2  & 1  & 0  \\
         \end{tabular}
     \end{center}
     看起来所有的整数 $z \in \mathbb{Z}$ 都会出现在这个表格中。然而，它们不会全部出现在某一特定的行或列中。相反，所有非负整数似乎都出现在第一列，而所有非正整数似乎都出现在第一行。让我们根据这些观察来写一个证明。我们将取任意整数 $z \in \mathbb{Z}$，并分两种情况讨论：如果 $z \ge 0$，我们将采取一种方法；如果 $z < 0$，我们将采取另一种方法。只要我们在这两种情况下都成功，我们就证明了 $d$ 是一个满射。
@@ -81,18 +81,18 @@
         设 $z \in \mathbb{Z}$ 是任意固定整数。我们要证明 $\exists (a, b) \in \mathbb{N} \times \mathbb{N} \centerdot d(a, b) = z$。为此，考虑如下两种情况：
         \begin{enumerate}[label=(\arabic*)]
             \item 假设 $z \ge 0$，则定义 $(a, b) = (z + 1, 1)$。\\
-                因为 $z \ge 0$，我们知道 $z+1 \ge 1$，因此 $z+1 \in \mathbb{N}$。这确保了 $(z + 1, 1) \in \mathbb{N} \times \mathbb{N}$。\\
-                此时 $d(z + 1, 1) = (z + 1) - 1 = z$。
+                  因为 $z \ge 0$，我们知道 $z+1 \ge 1$，因此 $z+1 \in \mathbb{N}$。这确保了 $(z + 1, 1) \in \mathbb{N} \times \mathbb{N}$。\\
+                  此时 $d(z + 1, 1) = (z + 1) - 1 = z$。
             \item 假设 $z < 0$，则定义 $ (a, b) = (1, -z + 1)$。\\
-                因为 $z < 0$，我们知道 $-z > 0$，因此 $-z+1 > 1$，这意味着 $-z+1 \in \mathbb{N}$。这确保了 $(1, -z+1) \in \mathbb{N} \times \mathbb{N}$。\\
-                此时 $d(1, -z + 1) = 1 - (-z + 1) = z$。
+                  因为 $z < 0$，我们知道 $-z > 0$，因此 $-z+1 > 1$，这意味着 $-z+1 \in \mathbb{N}$。这确保了 $(1, -z+1) \in \mathbb{N} \times \mathbb{N}$。\\
+                  此时 $d(1, -z + 1) = 1 - (-z + 1) = z$。
         \end{enumerate}
         无论哪种情况，我们都可以定义 $(a, b) \in \mathbb{N} \times \mathbb{N} \centerdot d(a, b) = z$。因为 $z \in \mathbb{Z}$ 是任意整数，所以这证明了 $d$ 是一个满射。
     \end{proof}
 \end{example}
 
 \begin{example}
-    设函数 $g : \mathbb{R} - \{-1\} \to \mathbb{R}$ 定义为 
+    设函数 $g : \mathbb{R} - \{-1\} \to \mathbb{R}$ 定义为
     \[\forall x \in \mathbb{R} - \{-1\} \centerdot g(x) = \frac{x}{1+x}\]
     （注意，我们为什么从定义域中移除了 $-1$。这是为了确保 $g$ 是\emph{良好定义的}。）
 
@@ -101,15 +101,15 @@
     \begin{center}
         \begin{tikzpicture}
             \begin{axis}[
-                ymin=-1.5,
-                ymax=3.5,
-                xmin=-5, 
-                xmax=5,
-                minor tick num=3,
-                axis lines*=middle,
-                xtick align=inside,
-                ytick align=inside
-                ]       
+                    ymin=-1.5,
+                    ymax=3.5,
+                    xmin=-5,
+                    xmax=5,
+                    minor tick num=3,
+                    axis lines*=middle,
+                    xtick align=inside,
+                    ytick align=inside
+                ]
                 \addplot[blue, line width=1pt, domain=-5:-1.1, samples=40, smooth] {x/(1+x)};
                 \addplot[blue, line width=1pt, domain=-0.9: 5, samples=60, smooth] {x/(1+x)};
                 \addplot[black, dashed, domain=-5:5, samples=2] {1};
@@ -127,9 +127,9 @@
         设 $x \in \mathbb{R} - \{-1\}$ 为任意固定元素。我们要证明 $g(x) \ne 1$。考虑如下两种情况：
         \begin{itemize}
             \item 假设 $x > -1$。\\
-                这意味着 $x+1>0$，所以 $\frac{1}{x+1}>0$。我们还知道 $x+1>x$ 对于所有 $x \in \mathbb{R}$ 都成立。不等式两边同时乘以一个正项 $\frac{1}{x+1}$ 得 $1 > \frac{x}(x+1)$，即 $g(x) = \frac{x}(x+1) \ne 1$。
+                  这意味着 $x+1>0$，所以 $\frac{1}{x+1}>0$。我们还知道 $x+1>x$ 对于所有 $x \in \mathbb{R}$ 都成立。不等式两边同时乘以一个正项 $\frac{1}{x+1}$ 得 $1 > \frac{x}(x+1)$，即 $g(x) = \frac{x}(x+1) \ne 1$。
             \item 假设 $x < -1$。\\
-                这意味着 $x+1<0$，所以 $\frac{1}{x+1}<0$。我们还知道 $x+1>x$ 对于所有 $x \in \mathbb{R}$ 都成立。不等式两边同时乘以一个负项 $\frac{1}{x+1}$ 得 $1 < \frac{x}(x+1)$，即 $g(x) =  \frac{x}(x+1) \ne 1$。
+                  这意味着 $x+1<0$，所以 $\frac{1}{x+1}<0$。我们还知道 $x+1>x$ 对于所有 $x \in \mathbb{R}$ 都成立。不等式两边同时乘以一个负项 $\frac{1}{x+1}$ 得 $1 < \frac{x}(x+1)$，即 $g(x) =  \frac{x}(x+1) \ne 1$。
         \end{itemize}
         无论哪种情况都有 $g(x) \ne 1$。因为上述两种情况覆盖了所有可能的情况，并且 $x \in \mathbb{R} - \{-1\}$ 是任意的，这证明了
         \[1 \notin Im_g(\mathbb{R} - \{-1\})\]
@@ -144,7 +144,7 @@
         特别地，我们知道 $1 \in Im_g(\mathbb{R} - \{-1\})$，所以 $\exists x \in \mathbb{R} - \{-1\} \centerdot g(x) = 1$。给定这样的 $x$。
 
         这意味着 $g(x) = \frac{x}{x+1} = 1$。两边同时乘以分母得 $x = x + 1$。两边同时减去 $x$ 得 $0 = 1$，显然这是一个矛盾。$
-        \hashx$
+            \hashx$
 
         因此，$1 \notin Im_g(\mathbb{R} - \{-1\})$，所以 $g$ 不是满射。
     \end{proofs}

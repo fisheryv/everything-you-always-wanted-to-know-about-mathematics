@@ -1,3 +1,105 @@
 % !TeX root = ../../../book.tex
 
 \subsection{有限集}
+
+在进入神秘但又引人入胜的无限集世界之前，让我们先来看看\textbf{有限集}的一些结论。这些结论更直观易懂，并且可以帮助我们练习如何利用函数及其性质来证明基数的相关事实。
+
+\subsubsection*{定理}
+
+对于每一个结论，我们会陈述一个定理、命题或引理，然后要么直接给出证明，要么通过一些练习让你协助完成证明。
+
+\begin{theorem}\label{theorem7.6.7}
+    假设 $A,B$ 为互不相交的有限集，则 $|A \cup B| = |A| + |B|$。
+\end{theorem}
+
+通过一些例子来验证这个说法为什么正确。你能理解为什么我们需要这些集合\emph{互不相交}吗？你能证明这个说法吗？请记住，我们需要在这两个集合之间找到一个\emph{双射}关系……
+
+\begin{proof}
+    设 $A,B$ 为互不相交的有限集。
+
+    我们知道 $∃a, b \in \mathbb{N} \cup \{0\}$，并且存在双射 $f : A \to [a]$ 和 $g : B \to [b]$。（也就是说，我们假设 $|A| = a, |B| = b$）。给定这样的 $a, b, f, g$。
+
+    我们要证明 $|A \cup B| = |A| + |B| = a + b$；也就是说，我们要证明存在双射 $h : A \cup B \to [a + b]$。
+
+    定义函数 $h : A \cup B \to [a + b]$ 为
+    \[\forall x \in A \cup B \centerdot h(x) = \begin{cases}
+        f(x) & \text{如果}\; x \in A \\
+        g(x)+a & \text{如果}\; x \in B
+    \end{cases}\]
+    请注意，函数 $h$ 是良好定义的，因为 $A \cap B = \varnothing$，所以每个 $x \in A \cup B$ 要么 $x \in A$ 要么 $x \in B$，不可能同时存在两个集合中。此外，对于每一个 $x \in A, 1 \le h(x) \le a$；对于每一个 $x \in B, a+1 \le h(x) \le a+b$，所以对于 $h$ 定义域中的每个 $x, h(x) \in [a+b]$。
+
+    我们声明 $h$ 的反函数 $H : [a + b] \to A \cup B$ 为
+    \[\forall y \in [a + b] \centerdot H(y) = \begin{cases}
+        f^{-1}(y) & \text{如果}\; 1 \le y \le a \\
+        g^{-1}(y-a) & \text{如果}\; a+1 \le y \le a+b
+    \end{cases}\]
+    如果该声明成立，则我们就证明了 $h$ 为双射。
+
+    首先，我们来证明 $H$ 是良好定义的。每个 $y \in [a + b]$ 都满足 $H$ 定义中的唯一一个不等式。此外，$f$ 和 $g$ 被定义为双射函数，所以 $f^{-1}$ 和 $g^{-1}$ 也是良好定义的函数（并且也是双射函数）。另外，如果 $a + 1 \le y \le a + b$，那么 $1 \le y - a \le b$，因此 $y - a \in [b]$（即 $g^{-1}$ 的定义域）。\\
+
+    接着，我们来证明 $h \circ H = Id_{[a+b]}$。给定 $y \in [a+b]$，则我们有两种情况：
+    \begin{enumerate}[label=(\arabic*)]
+        \item 假设 $1 \le y \le a$，即假设 $y \in [a]$。则
+            \[(h \circ H)(y) = h\big(f^{-1}(y)\big) = f\big(f^{-1}(y)\big)= Id_{[a]}(y) = y\]
+            这里我们使用了 $f^{-1}(y) \in A$ 这一事实。
+        \item 假设 $a + 1 \le y \le b$。即假设 $y-a \in [b]$。则
+            \begin{align*}
+                (h \circ H)(y) = h(H(y)) &= h\big(g^{-1}(y-a)\big) = g\big(g^{-1}(y-a)\big)+a \\
+                &= Id_{[b]}(y - a) + a = (y - a) + a = y
+            \end{align*}
+            这里我们使用了 $g^{-1}(y - a) \in B$ 这一事实。
+    \end{enumerate}
+    无论上面哪种情况，我们都得到 $(h \circ H)(y) = y$，并且这两种情况不相交且覆盖了所有可能。\\
+
+    最后，我们来证明 $H \circ h = Id_{A \cup B}$。给定 $x \in A \cup B$，则我们有两种情况：
+    \begin{enumerate}[label=(\arabic*)]
+        \item 假设 $x \in A$，则
+            \[(H ◦ h)(x) = H(h(x)) = H\big(f(x)\big) = f^{-1}\big(f(x)\big) = Id_A(x) = x\]
+            这里我们使用了 $f(x) \in [a]$ 这一事实。
+        \item 假设 $x \in B$。则
+        \begin{align*}
+            (H ◦ h)(x) = H(h(x)) &= H\big(g(x)+a\big) = g^{-1}\Big(\big(g(x)+a\big)-a\Big)\\
+            &= g^{-1}\big(g(x)\big) = Id_B(x) = x
+        \end{align*}
+            这里我们使用了 $g(x) \in [b]$ 这一事实。所以 $a + 1 \le g(x) + a \le a + b$。
+    \end{enumerate}
+    无论上面哪种情况，我们都得到 $(H \circ h)(x) = x$，并且这两种情况不相交且覆盖了所有可能。\\
+
+    因此，$H = h^{-1}$，所以 $h$ 具有反函数。这证明了 $h$ 为双射。
+
+    因此，$, |A \cup B| = |[a + b]| = a + b = |A| + |B|$。
+\end{proof}
+
+\begin{corollary}
+    假设 $S,T$ 为有限集且 $S \subseteq T$。则 $|T-S| = |T|-|S|$。
+\end{corollary}
+
+\begin{proof}
+    定义 $U = T - S$。此时 $U \cap S = \varnothing$。应用上面的定理可得
+    \[|U| + |S| = |U \cap S| = |T|\]
+    两边同时减去 $|S|$ 得 $ |T - S| = |U| = |T| - |S|$。
+\end{proof}
+
+你可以利用上述两个结论来证明以下推广结论：
+
+\begin{proposition}\label{prop:proposition7.6.9}
+    假设 $A,B$ 为有限集，则 $|A \cup B| = |A| + |B| - |A \cap B|$。
+\end{proposition}
+
+\begin{proof}
+    留作 \ref{sec:section7.6.5} 节练习 \ref{exc:exercises7.6.1}。
+\end{proof}
+
+上面的定理有另一个推论。
+
+\begin{corollary}\label{corollary7.6.10}
+    假设 $A_1,B_2,\dots,A_n$ 为有限集且互不相交（这意味着任意两个集合没有交集）。
+
+    则 $|A_1 \cup \dots \cup A_n| = |A_1| + \dots + |A_n|$。
+\end{corollary}
+
+\begin{proof}
+    留作 \ref{sec:section7.6.5} 节练习 \ref{exc:exercises7.6.2}。
+\end{proof}
+
+你还应该看看本章练习 \ref{exc:exercises7.8.32}。在那里，我们通过一个证明（对两个变量进行归纳）来指导你如何证明两个有限集的\emph{笛卡尔积}的大小。
