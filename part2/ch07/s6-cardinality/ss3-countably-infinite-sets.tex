@@ -175,7 +175,7 @@
 
 （在本节后面，我们将\emph{证明}这是判定集合是否为无限集的一种等价方法：即能否找到集合与其真子集之间的双射。）\\
 
-\begin{example}[$\mathbb{N} \times \mathbb{N}$ 是可数无限集]
+\begin{example}[$\mathbb{N} \times \mathbb{N}$ 是可数无限集]\label{ex:example7.6.13}
 
     在上一节关于\textbf{希尔伯特旅馆}的讨论中，我们基本上论证了 $\mathbb{N} \times \mathbb{N}$ 与 $\mathbb{N}$ 具有相同的基数。当我们有无穷多个会议，每个会议都有无穷多人时，我们仍然可以将他们全部安置在拥有无穷多间客房的酒店里！不过那只是一个直观的讨论，所以现在我们来正式证明这一事实。我们将找到这两个集合之间的一个\emph{双射}函数。我们将证明它是满射，并请你帮忙证明它是单射。
 
@@ -223,7 +223,7 @@
     综上，我们已经证明 $f$ 为双射，因此 $|\mathbb{N} \times \mathbb{N}| = |\mathbb{N}|$。也就是说，$\mathbb{N} \times \mathbb{N}$，即所有自然数有序对的集合是可数无限集。这让你感到惊讶吗？这是否有些违反直觉？你觉得所有自然数有序\emph{三元组}的集合 $\mathbb{N}^3$ 会是什么样的呢？如果我们继续考虑 $\mathbb{N} \times \mathbb{N} \times \mathbb{N} \dots$ 会发生什么呢？思考这些问题，与同学们讨论一下，并尝试证明一些结论吧！
 \end{example}
 
-\begin{example}[$\mathbb{N} \times \mathbb{N}$ 格]
+\begin{example}[$\mathbb{N} \times \mathbb{N}$ 格]\label{ex:example7.6.14}
 
     在进入下一个例子之前，我们再来看看 $|\mathbb{N} \times \mathbb{N}| = |\mathbb{N}|$ 的另一种解释。这次我们用一种更直观的方式来说明，虽然不进行正式定义，但可以帮助你理解如何在这两个集合之间建立双射。这种解释很常见，也很值得一看。
 
@@ -421,7 +421,7 @@
 
 我们先来看一个有用的结论。这个结论表明，如果我们在一个可数无限集上``添加''有限多个元素，结果仍然是可数无限集。
 
-\begin{lemma}
+\begin{lemma}\label{lemma7.6.16}
     如果 $A$ 是可数无限集，$B$ 是有限集且 $A \cap B = \varnothing$，则 $A \cup B$ 为可数无限集。
 \end{lemma}
 
@@ -467,7 +467,7 @@
 
 接下来的推论表明，实际上我们不需要假设 $A \cap B = \varnothing$。这个假设只是为了让证明过程更简单。我们希望你能证明这个推论。
 
-\begin{corollary}
+\begin{corollary}\label{corollary7.6.19}
     如果 $A$ 和 $B$ 都是可数无限集，则 $A \cup B$ 为可数无限集。
 \end{corollary}
 
@@ -509,7 +509,7 @@
 
 通过对前两个结论进行归纳，我们可以证明以下推论：
 
-\begin{corollary}
+\begin{corollary}\label{corollary7.6.21}
     假设 $A_1, \dots , A_n$ 为可数集（其中 $n \in \mathbb{N}$，所以我们有可数无限个集合），则 $A_1 \cup \dots \cup A_n$ 和 $A_1 \times \dots \times A_n$ 为可数无限集
 \end{corollary}
 
@@ -521,7 +521,7 @@
 
 你可能会好奇，当我们对\emph{可数无穷多}个集合（每个集合都是可数无限集）进行并集或乘积运算时，会发生什么情况。让我们先来探讨并集的情况。这个结果非常基础且重要，我们甚至在章节标题中重复强调了它！
 
-\begin{theorem}
+\begin{theorem}\label{theorem7.6.22}
     对于每个 $n \in \mathbb{N}$，假设我们有 $A_n$ 为可数无限集，则集合
     \[A = \bigcup_{n \in \mathbb{N}} A_n = A_1 \cup A_2 \cup A_3 \cup \dots\]
     为可数无限集。
@@ -549,7 +549,7 @@
     $A_n$ 可能相交的情况，留作练习 \ref{exc:exercises7.8.37}。
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{corollary7.6.23}
     对于每个 $n \in \mathbb{N}$，假设我们有 $A_n$ 为有限集，且这些集合互不相交。定义集合
     \[A = \bigcup_{n \in \mathbb{N}} A_n\]
     则 $A$ 为可数有限集。

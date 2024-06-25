@@ -1093,7 +1093,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
   \par}
 
   \newenvironment{spoof}{
-  \par\noindent\textbf{\color{second}\\``错误证明''：}
+  \par\noindent\textbf{\color{second}``错误证明''：}
   \color{black!90}\cfs}{
    \hfill``$\Box$''\quad 
   \par}
