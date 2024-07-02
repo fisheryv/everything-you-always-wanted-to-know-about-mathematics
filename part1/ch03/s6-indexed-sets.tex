@@ -153,15 +153,15 @@
 也就是说，划分只是一个集合中不重叠的子集的集合，其并集是整个集合。让我们在这里写下该定义，然后查看一些示例和伪例。将来我们会多次使用这个定义，所以现在让我们在讨论集合和索引并集时先定义好它。
 
 \begin{definition}\label{def:definition3.6.9}
-    设 $A$ 为集合。$A$ 的\dotuline{划分}是两两不相交且并集为 $A$ 的集合的集合。
+    设 $A$ 为集合。$A$ 的\dotuline{划分}为互不相交且并集为 $A$ 的集合所组成的集合。
 
     也就是说，划分由满足以下条件的索引集 $I$ 和非空集 $S_i$（定义在每个 $i \in I$ 上）构成：
     \begin{enumerate}[label=(\arabic*)]
         \item 对于所有 $i \in I, S_i \subseteq A$。
         \item 对于所有 $i, j \in I \;\text{且}\; i \ne j$，我们有 $S_i \cap S_j = \varnothing$。
-        \item $\bigcup_{i \in I} S_i = A$
+        \item $\displaystyle \bigcup_{i \in I} S_i = A$
     \end{enumerate}
-    这里集合 $S_i$ 称为划分的\dotuline{部分}。
+    这里的集合 $S_i$ 称为划分的\dotuline{部分}。
 \end{definition}
 
 这里的思想是集合 $S_i$ 将集合 $A$ ``分割''成不重不漏的部分。\\
