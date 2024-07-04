@@ -7,11 +7,10 @@
 以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 在不查阅资料的情况下，写出\textbf{函数}的定义。然后，与我们的定义进行比较。你的定义传达了相同的信息吗？如果没有，你遗漏了什么内容？
-    \item 函数的\textbf{定义域}和\textbf{值域}有什么区别？
-    \item 函数\textbf{良好定义}是什么意思？
-    \item 什么是\textbf{恒等函数}？它是如何定义的？
-    \item 我们怎样证明两个函数\textbf{相等}？
+    \item 如何判断一个计数方法是否\textbf{少算}了数量？又如何证明它\textbf{多算}了数量？
+    \item 解释``从 $[n]$ 中选择 $k$-元组''和``字母表与单词''之间的关系。它们在本质上为何相同？
+    \item 假设我们从箱子里有的 $n$ 个球中选择 $k$ 个球。为什么球是否\emph{可区分}很重要？
+    \item 为什么从 $(0, 0)$ 到 ($x, y)$ 的格路径数量等于 $\big({x+y \atop x}\big)$ 或 $\big({x+y \atop y}\big)$？
 \end{enumerate}
 
 \subsubsection*{小试牛刀}
@@ -19,13 +18,39 @@
 尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 用适当的符号定义一个函数，该函数输入一个整数并输出其绝对值的平方根。\\
-        该函数的定义域是什么？值域是什么？
-    \item 用适当的符号定义一个函数，该函数输入一对自然数并输出它们的平均值 (算术平均数)。\\
-        该函数的定义域是什么？值域是什么？
-    \item 设 $A = \{-2, -1, 0, 1, 2\}$。定义 $g : A \to A$ 为 $\forall x \in A \centerdot g(x) = x^2 - 3$。画出示意图以判断 $g$ 是否是良好定义的？
-    \item 设 $X$ 是任意集合。用适当的符号定义一个函数，该函数输入 $X$ 的一个\emph{子集}并输出该集合的补集 (在 $X$ 的上下文中)。\\
-        该函数的定义域是什么？值域是什么？
-    \item 设 $B = \{-1, 0, 1\}$。定义 $h : B \to B$ 为 $\forall b \in B \centerdot h(b) = b^3$。这与哪个特殊函数相等？
-    \item 设 $f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{N}$ 为 $\forall (x, y) \in \mathbb{Z} \times \mathbb{Z} \centerdot f(x, y) = \frac{1}{2}|x + 1| \cdot |y|$。这是一个良好定义的函数吗？为什么？
+    \item 找出由 $5$ 张牌组成的扑克牌型中包含\textbf{两对}牌型的数量，并证明你的结论。
+    \item 找出由 $5$ 张牌组成的扑克牌型中包含\textbf{葫芦}牌型的数量，并证明你的结论。
+    \item 计算单词 ``\verb|COMBINATORICS|'' 的所有异序词的数量。计算单词 ``\verb|MASSACHUSETTS|''的所有异序词的数量？
+    \item 考虑从 $\{1, 2, 3\}$ 中选择每个数字至少出现一次的 $4$-元组的数量。对于以下每个``证明''，通过找出一个在提出的论证中被重复计算的对象来证明它是错误的。
+          \begin{enumerate}[label=(\alph*)]
+              \item 在 $4$-元组的 $4$ 个位置中选一个位置放 $1$，然后选一个位置放 $2$，再选一个位置放 $3$。最后，从剩下的三个元素中选择一个放在第 $4$ 个位置。
+                    \[\begin{pmatrix}4\\1\end{pmatrix}\begin{pmatrix}3\\1\end{pmatrix}\begin{pmatrix}2\\1\end{pmatrix}\begin{pmatrix}3\\1\end{pmatrix} = 72\]
+              \item 从 $4$ 个位置中选择 $3$ 个位置，用元素 $1,2,3$ 填充。然后，对这 $3$ 个位置中的元素进行排列。最后，为剩下的第 $4$ 个位置选择一个数字。
+                    \[\begin{pmatrix}4\\3\end{pmatrix} \cdot 3! \cdot 3 = 72\]
+          \end{enumerate}
+    \item 在这个问题中，我们将任何由英文字母组成的字符串都视为一个单词，无论它是否在字典中有实际意义。例如，\verb|ZYQFIB| 是一个长度为 $6$ 的有效单词。
+          \begin{enumerate}[label=(\alph*)]
+              \item 长度为 $2$ 的单词有多少个？\\
+                    （用\emph{两种}方式回答该问题：一种用指数形式，另一种用两项之和。）
+              \item 长度为 $7$ 的单词中，恰好包含 $3$ 个 \verb|A| 的单词有多少个？
+              \item 长度为 $7$ 的单词中，最多包含 $2$ 个元音字母的单词有多少个？（注意：\verb|A, E, I, O, U| 是元音字母，\verb|Y| 不是。）
+          \end{enumerate}
+
+          考虑所有长度为 $n$ 的二进制字符串的集合 $S_n$。对于以下每个给定的性质，分别计算 $S_n$ 中有多少元素符合该性质。\\
+          （注意：每个性质是独立的，不需要考虑同时满足所有性质的情况。）
+          \begin{enumerate}[label=(\alph*)]
+              \item 恰有 $3$ 个位置为 $0$。
+              \item 最多 $3$ 个位置为 $0$。
+              \item 至少 $4$ 个位置为 $0$。\\
+                    （注意：用前两问的结论将 $2^n$ 写成二项式系数之和！）
+              \item $0$ 比 $1$ 多。
+          \end{enumerate}
+    \item 设 $n \in \mathbb{N}$。共有多少条格路径可以从 $(0, 0)$ 走到 $(2n, 2n)$？又有多少条格路径会经过 $(n, n)$？
+    \item 考虑下面的解释：
+          \begin{quote}
+              从一副标准扑克牌发出的 $6$ 张牌中，每种花色\emph{至少出现一次}的牌型数量为
+              \[\begin{pmatrix}13\\1\end{pmatrix}\begin{pmatrix}13\\1\end{pmatrix}\begin{pmatrix}13\\1\end{pmatrix}\begin{pmatrix}13\\1\end{pmatrix}\begin{pmatrix}48\\2\end{pmatrix}\]
+              因为我们先从每种花色中各选一张牌，然后再从剩下的 $48$ 张牌中选出两张。
+          \end{quote}
+          这个计数正确吗？如果你认为\emph{多算}了，请展示一个具体的牌型示例，并说明它是如何被重复计数的。如果你认为\emph{少算}了，请展示一个具体的牌型示例，并说明它是如何没有被计数的。
 \end{enumerate}

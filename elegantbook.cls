@@ -1104,6 +1104,12 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
     \hfill$\Box$\quad \\
   \par}
 
+\newenvironment{questions}[1]{
+  \par\noindent\textbf{\color{second} \\#1}
+  \color{black!90}\cfs}{
+     
+  \par}  
+
   \newenvironment{method}[1]{
   \par\noindent\textbf{\color{second} \\#1}
   }{
