@@ -1230,8 +1230,8 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
             \ifdefvoid{\@subtitle}{}{\@subtitle}
         }};% 封面标题与副标题
     % \node[anchor=west,font=\rmfamily\bfseries\fontsize{25}{25}\itshape\selectfont,text=white] at ([xshift=1.4\outermarginwidth,yshift=-.8\covershift]current page.west) {\@edition};
-    \node[anchor=west,font=\cabin\bfseries\Huge,text=covertitle] at ([xshift=1.7\outermarginwidth,yshift=2.1\covershift]current page.west) {\@author【著】};
-    \node[anchor=west,font=\cabin\bfseries\Huge,text=covertitle] at ([xshift=1.7\outermarginwidth,yshift=1.85\covershift]current page.west) {\@translator【译】};
+    \node[anchor=west,font=\cabin\bfseries\Huge,text=covertitle] at ([xshift=1.7\outermarginwidth,yshift=2.1\covershift]current page.west) {\@author \;/\; 著};
+    \node[anchor=west,font=\cabin\bfseries\Huge,text=covertitle] at ([xshift=1.7\outermarginwidth,yshift=1.85\covershift]current page.west) {\@translator \;/\; 译};
     % \node[anchor=south,text=black!70,font=\rmfamily\fontsize{20}{20}\selectfont,] at
     % ([xshift=1.2\covershift,yshift=-.1\covershift]current page.south) %
     % {\raisebox{-.15\covershift}{\includegraphics[width=0.1\linewidth]{\@presslogo}}\hspace*{1ex}\parbox[c][\covershift][c]{.4\textwidth}{\@pressname}};%
