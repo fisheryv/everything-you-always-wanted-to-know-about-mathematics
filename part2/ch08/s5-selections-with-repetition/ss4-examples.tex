@@ -1,3 +1,88 @@
 % !TeX root = ../../../book.tex
 
 \subsection{示例}
+
+让我们使用这个新推导出的公式来解决一些问题吧！在这个过程中，我们将探讨这个基本结论的几种不同表述。\\
+
+\begin{example}
+    假设我们有 $20$ 枚金币要分给 $3$ 个海盗。这些海盗分别是红胡子船长 (Khair ad Din，一位奥斯曼人)、黑胡子船长 (Edward Teach，一位英国人) 和基德船长 (Captain Kidd，一位苏格兰人)。
+
+    现在我们来计算在某种特定条件下，有多少种金币分配方法：
+    \begin{enumerate}[label=(\arabic*)]
+        \item 总共有多少种方法？\\
+              这就像从 $3$ 种类型中选择 $20$ 个对象，并且允许重复选择。每当我们选择一个海盗，就意味着我们给了他一枚金币。\\
+              根据上述选择公式，有
+              \[\begin{pmatrix}20+3-1\\20\end{pmatrix}=\begin{pmatrix}22\\20\end{pmatrix}=\frac{22 \cdot 21}{2}=231\]
+              种分配方法。
+        \item 如何确保每个海盗至少得到两枚金币？\\
+              我们可以先给每个海盗两枚金币，这样总共发出了 $6$ 枚金币。接下来，我们还有 $20 - 6 = 14$ 枚金币要分配给所有 $3$ 个海盗，因此有
+              \[\begin{pmatrix}14+3-1\\14\end{pmatrix}=\begin{pmatrix}16\\14\end{pmatrix}=\frac{16 \cdot 15}{2}=120\]
+              种分配方法。想想为什么这样做是有效的。实际上，我们是在重新定义``得到 $0$ 枚金币''的含义。与其从 $20$ 枚金币开始并担心是否每个海盗都能至少分得两枚金币，不如直接确保这个条件成立，然后再分配剩下的金币。
+        \item 如何确保红胡子船长和黑胡子船长至少得到 $2$ 枚金币，而基德船长至少得到 $6$ 枚金币？
+              跟上面的方法一样，我们首先给红胡子船长和黑胡子船长 每人分配 $2$ 枚金币，再给基德船长分配 $6$ 枚金币。这样，我们还剩下 $20 - 2 \cdot 2 - 6 = 10$ 枚金币需要分配给三位海盗，因此有
+              \[\begin{pmatrix}10+3-1\\10\end{pmatrix}=\begin{pmatrix}12\\10\end{pmatrix}=\frac{12 \cdot 11}{2}=66\]
+              种分配方法。
+        \item 有多少种方法可以确保红胡子船长和黑胡子船长至少得到 $2$ 枚金币，而基德船长最多得到 $2$ 枚金币？\\
+              有两种方法可以解决这个问题。
+              \begin{enumerate}[label=(\roman*)]
+                  \item 我们可以根据基德船长获得 $0$ 枚、$1$ 枚或 $2$ 枚金币来划分不同的情况。在每种情况下，我们会先给 红胡子船长和黑胡子船长各 $2$ 枚金币，然后再给基德船长相应数量（$0$ 或 $1$ 或 $2$）的金币。这样一来，我们就剩下 $16$ 或 $15$ 或 $14$ 枚金币需要在前两个海盗之间分配，因此总共有
+                        \[\begin{pmatrix}16+2-1\\16\end{pmatrix}+\begin{pmatrix}15+2-1\\15\end{pmatrix}+\begin{pmatrix}14+2-1\\14\end{pmatrix}=17+16+15=48\]
+                        种分配方法。
+                  \item 我们首先考虑\emph{所有}能确保红胡子船长和黑胡子船长每人至少得到 $2$ 枚金币的方法，然后再\emph{去除}基德船长得到太多金币（即至少 $3$ 枚金币）的情况。
+
+                        如果我们给红胡子船长和黑胡子船长每人 $2$ 枚金币，那么还剩下 $16$ 枚金币可以分配给这 $3$ 个海盗，因此有
+                        \[\begin{pmatrix}16+3-1\\16\end{pmatrix}=\begin{pmatrix}18\\16\end{pmatrix}=\frac{18 \cdot 17}{2}=153\]
+                        种分配方法。\\
+
+                        然后，如果我们给红胡子船长和黑胡子船长每人 $2$ 枚金币，给基德船长 $3$ 枚金币，再将剩下的 $13$ 枚金币分配给这 $3$ 个海盗，这一步共有
+                        \[\begin{pmatrix}13+3-1\\13\end{pmatrix}=\begin{pmatrix}15\\13\end{pmatrix}=\frac{15 \cdot 14}{2}=105\]
+                        种分配方法。\\
+
+                        我们需要从之前的计数中去除这些情况。因此，总共有
+                        \[\begin{pmatrix}18\\16\end{pmatrix}-\begin{pmatrix}15\\13\end{pmatrix}=153 - 105 = 48\]
+                        种方法可以确保红胡子船长和黑胡子船长每人至少得到 $2$ 枚金币，而基德船长最多得到 $2$ 枚金币。
+              \end{enumerate}
+              （看，我们用两种方法得到了相同的答案！）
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    考虑如下方程：
+    \[x_1 + x_2 + x_3 + x_4 + x_5 = 25\]
+    我们来找出这个方程的解的数量，其中每个变量 $x_i$ 都是非负整数。我们会施加一些条件，并计算满足这些条件的解的数量。
+    \begin{enumerate}[label=(\arabic*)]
+        \item 总共有多少组解？\\
+              利用我们推导出的公式可得
+              \[\begin{pmatrix}25+(5-1)\\5-1\end{pmatrix}=\begin{pmatrix}29\\4\end{pmatrix}=23751\]
+        \item 有多少解满足 $x_1 \ge 4$？
+              这就像要求红胡子船长至少分得 $4$ 枚金币一样。我们将预先分配 $4$ 个``计数''给变量 $x_1$，然后再把剩下的 $21$ 个``计数''分配给所有五个变量。
+
+              更正式地，我们定义 $y1 = x_1 - 4$，这样条件只要求 $y_1 \ge 0$。因此，我们要解的方程变为
+              \begin{align*}
+                  x_1 + x_2 + x_3 + x_4 + x_5 = 25 & \iff (x_1-4) + x_2 + x_3 + x_4 + x_5 = 21 \\
+                                                   & \iff y_1 + x_2 + x_3 + x_4 + x_5 = 21
+              \end{align*}
+              应用公式可得
+              \[\begin{pmatrix}21+(5-1)\\5-1\end{pmatrix}=\begin{pmatrix}25\\4\end{pmatrix}=12650\]
+        \item 有多少解满足 $x_1, x_2 \ge 5$ 且 $x_3, x_4, x_5 \ge 2$？
+              采用与上一问相同的方法，我们发现只需解方程
+              \[y_1 + y_2 + y_3 + y_4 + y_5 = 9\]
+              其中，对于 $i=1,2, y_i = x_i-5$，对于 $i=3,4,5, y_i = x_i-2$。等式右边变为 $25 - 5 - 5 - 2 - 2 - 2 = 9$。根据公式可得
+              \[\begin{pmatrix}9 +(5-1)\\5-1\end{pmatrix} = \begin{pmatrix}13\\4\end{pmatrix}=715\]
+        \item 有多少解满足 $x_2 \le 5$？
+              我们可以用两种方法来解决这个问题。
+
+              第一种方法：我们取解的总数量（本例第一问已经得到），然后去除不符合期望条件的解的数量。也就是说，$x_2 \ge 6$ 的解的数量，即
+              \[\begin{pmatrix}(25-6)+(5-1)\\5-1\end{pmatrix}=\begin{pmatrix}23\\4\end{pmatrix}\]
+              从总数中减去它，得到
+              \[\begin{pmatrix}29\\4\end{pmatrix}-\begin{pmatrix}23\\4\end{pmatrix}\] \\
+
+              第二种方法：我们可以将这个问题写成一个求和公式，找到满足 $x_2 = \ell$ 的解的数量，其中 $0 le \ell le 5$：
+              \begin{align*}
+                  \sum_{\ell=0}^{5} \begin{pmatrix}25+(4-1)-\ell\\4-1\end{pmatrix} & = \begin{pmatrix}28\\3\end{pmatrix}+\begin{pmatrix}27\\3\end{pmatrix}+\begin{pmatrix}26\\3\end{pmatrix}+\begin{pmatrix}25\\3\end{pmatrix}+\begin{pmatrix}24\\3\end{pmatrix}+\begin{pmatrix}23\\3\end{pmatrix} \\
+                                                                                   & = \sum_{k=0}^{28}\begin{pmatrix}k\\3\end{pmatrix}-\sum_{k=0}^{22}\begin{pmatrix}k\\3\end{pmatrix}                                                                                                             \\
+                                                                                   & = \begin{pmatrix}29\\4\end{pmatrix}-\begin{pmatrix}23\\4\end{pmatrix}
+              \end{align*}
+              跟第一种方法的结果完美对上。
+    \end{enumerate}
+\end{example}
