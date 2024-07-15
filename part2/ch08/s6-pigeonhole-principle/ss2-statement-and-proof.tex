@@ -1,3 +1,26 @@
 % !TeX root = ../../../book.tex
 
 \subsection{陈述与证明}
+
+这个原理有两个版本，我们会分别陈述并证明它们。第一个版本是我们在组合问题中会用到的。
+
+\begin{theorem}{抽屉原理}
+    \begin{enumerate}[label=(\arabic*)]
+        \item 如果集合 $S$ 的大小为 $|S| = n$，将 $S$ 划分为 $k$ 个互补相交且并集为 $S$ 的子集。如果 $k < n$，则划分中至少有一个子集的元素数量大于 $1$。实际上，这个子集至少包含 $\lceil \frac{n}{k} \rceil$ 个元素。\\
+              （也就是说，如果我们将 $n$ 个物体分成 $k$ 堆，那么必定有一堆至少包含 $\lceil \frac{n}{k} \rceil$ 个物体。）
+        \item 如果 $x_1, x_2, \dots , x_n$ 为实数，且满足 $\sum_{i=1}^{n} x_i \ge z$，那么至少有一个 $i$ 使得 $x_i \ge \frac{z}{n}$。\\
+              （也就是说，如果我们有 $n$ 个实数，至少有一个数的值不小于平均值）。
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    设 $k<n$ 且集合 $S$ 被划分为 $S_1,\dots, S_k$。为了引出矛盾而假设对于每一个 $i, |S_i| < \frac{n}{k}$。由于这些集合构成 $S$ 的一个划分，因此我们有
+    \[n = |S| = \sum_{i=1}^{k}|S_i| < \sum_{i=1}^{k} \frac{n}{k}=n\]
+    $n < n$ 显然矛盾。$\hashx$\\
+
+    为了引出矛盾而假设所有数字 $x_i$ 都满足 $x_i < \frac{z}{n}$。则
+    \[z = \sum_{i=1}^{n}x_i<\sum_{i=1}^{n}\frac{z}{n}=n \cdot \frac{z}{n}=z\]
+    $z < z$ 显然矛盾。$\hashx$
+\end{proof}
+
+请注意，这些证明是多么的相似啊！从代数的角度讲，它们几乎是一模一样的。事实上，它们表达了相同的基本思想。
