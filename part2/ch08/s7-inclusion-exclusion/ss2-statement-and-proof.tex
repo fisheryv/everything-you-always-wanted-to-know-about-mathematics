@@ -1,3 +1,40 @@
 % !TeX root = ../../../book.tex
 
 \subsection{陈述与证明}
+
+\begin{theorem}{容斥原理}\label{theorem8.7.1}
+    假设我们有一个全集 $U$ 和若干子集 $A_1, A_2, \dots, A_n \subseteq U$。则
+    \[|U - (A_1 \cup A_2 \cup \dots \cup A_n)| = \sum_{S \subseteq [n]} (-1)^{|S|} \Bigg|\bigcap_{i \in S} A_i\Bigg| \enspace \text{其中}\; \bigcap_{i \in [n]} A_i = U\]
+\end{theorem}
+（试着写出 $n = 1$、$n = 2$ 和 $n = 3$ 时的表达式，此时你会发现它们与我们在上一小节中写出的表达式是相同的。）
+
+为了证明这个定理，我们将使用双法计数论证法。具体来说，我们会考虑一个元素 $x \in U$，并论证它在上述方程的两边都被正确地计数。
+
+\begin{proof}
+    设 $x \in U$ 为任意固定元素。我们将考虑两种情况。
+
+    首先，假设对于每个 $i \in [n], x \notin A_i$。那么左边正好计数了 $x$ 一次，因为 $x$ 不是 $A_i$ 集合并集的元素。右边只有在 $S = \varnothing$ 的时候才计数 $x$ ，因为 $x$ 不是任何 $A_i$ 集合的元素，所以它也不是这些集合任意交集的元素。因此，$x$ 在右边也正好被计数了一次。
+
+    其次，假设 $x$ 属于一个或多个 $A_i$ 集合。这意味着 $x$ 不会在左边被计数。为了证明 $x$ 在右边也不被计数，我们定义 $B \subseteq [n]$ 为所有使得 $x \in A_i$ 的索引集，即 $\forall i \in B, x \in A_i$。这里我们需要做一些观察：
+    
+    考虑求和中不会计数 $x$ 的那些项。对于任意 $S \subseteq \mathbb{N}$，如果 $S \nsubseteq B$ ，那么 $x \notin \bigcap_{i \in S} A_i$。(这是因为存在某个 $j \in S$ 使得 $j \notin B$，而 $B$ 包含了所有使得 $x \in A_i$ 的索引。) 这意味着 $x$ 在求和中对于 $S \nsubseteq B$ 的项被计数了 $0$ 次。
+
+    接下来，根据先前证明的结果，我们知道 $B$ 的子集的奇数大小和偶数大小是相等的。对于任意这样的子集 $T \subseteq B$，我们知道 $x \in T \bigcap_{i \in T} A_i$。现在，如果 $|T|$ 为偶数，则该项为正，所以 $x$ 被计数了一次；如果 $|T|$ 为奇数，则该项为负，所以 $x$ 从计数中被移除一次。由于奇偶项的数量是相等的，我们得到 $x$ 在这些项中被计数了 $0$ 次。
+
+    综上，我们已经证明了在任何情况下，一个任意元素在方程两边被计数的次数是相同的（并且是正确的）。
+\end{proof}
+
+有时候，多个 $A_i$ 集合的所有交集具有相同的大小。在下一节中，我们会看到一些这样的例子。在这种情况下，上述表达式中的许多项可以合并，因为它们是相同的。具体来说，与其对 $S \subseteq [n]$ 的子集求和来考虑 $A_i$ 集合的所有可能交集，不如对相交的集合数量求和，而不是具体哪些集合相交。
+
+\newpage
+
+\begin{corollary}
+    假设 $U$ 为全集，$A_1, A_2, \dots , A_n$ 为 $U$ 的子集。并进一步假设任意 $k$ 个 $A_i$ 集合的交集的大小都是固定值，我们称之为 $S(k)$，与具体交集的集合无关。则
+    \[|U - (A_1 \cup A_2 \cup \dots \cup A_n)| = \sum_{k=0}^{n}(-1)^k \begin{pmatrix}n\\k\end{pmatrix}S(k)\]
+\end{corollary}
+
+\begin{proof}
+    此推论可以通过合并相同项，并结合定理 \ref{theorem8.7.1} 得出。具体来说，我们知道存在 $\big({n \atop k}\big)$ 个集合 $S \subseteq [n]$ 满足 $|S| = k$。在此推论的假设下，所有满足 $|S| = k$ 的集合将得到
+    \[\bigg|\bigcap_{i \in S} A_i\bigg|=S(k)\]
+    将这些项合并，并对 $S$ 的所有可能大小求和，我们就得到了上述结论。
+\end{proof}
