@@ -1,0 +1,88 @@
+% !TeX root = ../../../book.tex
+
+\subsection{习题}\label{sec:section6.2.5}
+
+\subsubsection*{温故知新}
+
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 如何用集合来定义\emph{（二元）关系}？
+    \item 假设我们有一个定义在集合 $A$ 和 $B$ 之间的关系 $R$。为了讨论 $R$ 是否具有\textbf{自反性}，$A$ 和 $B$ 需要满足什么条件？
+    \item 在什么情况下，一个关系具有\textbf{自反性}？请举一个集合和该集合上的自反关系的例子。
+    \item 在什么情况下，一个关系具有\textbf{对称性}？请举一个集合和该集合上的对称关系的例子。
+    \item 在什么情况下，一个关系具有\textbf{传递性}？请举一个集合和该集合上的传递关系的例子。
+    \item 在什么情况下，一个关系具有\textbf{反对称性}？请举一个集合和该集合上的反对称关系的例子。
+    \item \emph{非对称}和\emph{反对称}有什么区别？\\
+        请举一个既具有对称性又具有反对称性的关系的例子。
+\end{enumerate}
+
+\subsubsection*{小试牛刀}
+
+尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 考虑集合 $A = \{1, 2, 3\}$。对于如下每个定义在 $A$ 或 $\mathcal{P}(A)$ 上的关系，判断是否具有
+    \begin{enumerate}[i]
+        \item 自反性
+        \item 对称性
+        \item 传递性
+        \item 反对称性
+    \end{enumerate}
+
+    不需要详细解释，只需回答``\verb|是|''或``\verb|否|''并附上一两句说明即可。
+
+    \begin{enumerate}[label=(\alph*)]
+        \item 定义在 $A$ 上的关系 $R_a = \{(1, 1),(1, 2),(2, 1),(2, 2),(3, 3)\}$
+        \item 定义在 $A$ 上的关系 $R_b = \{(1, 1),(1, 2),(2, 2),(2, 3),(3, 3)\}$
+        \item 定义在 $\mathcal{P}(A)$ 上的关系 $R_c$，$\forall S, T \in \mathcal{P}(A) \centerdot (S, T) \in R_c \iff S \cap T = \varnothing$
+        \item 定义在 $\mathcal{P}(A)$ 上的关系 $R_d$，$\forall S, T \in \mathcal{P}(A) \centerdot (S, T) \in R_d \iff S \cap T \ne \varnothing$
+        \item 定义在 $\mathcal{P}(A)$ 上的关系 $R_e$，$\forall S, T \in \mathcal{P}(A) \centerdot (S, T) \in R_e \iff S \subseteq T$
+    \end{enumerate}
+    \item 定义 $\mathbb{Z}$ 上的关系 $\bigstar$ 为
+    \[\forall x, y \in \mathbb{Z} \centerdot x \;\bigstar\; y \iff 3 \mid x - y\]
+    \begin{enumerate}[label=(\alph*)]
+        \item 证明 $\bigstar$ 具有自反性
+        \item 证明 $\bigstar$ 具有对称性
+        \item 证明 $\bigstar$ 具有传递性
+    \end{enumerate}
+    （请记住，``$\mid$'' 表示``整除''。请确保使用定义 \ref{def:definition6.2.15} 给出的正式定义。）\label{exc:exercises6.2.2}
+    \item 定义 $\mathbb{Z}$ 上的关系 $\sim$ 为
+    \[\forall x, y \in \mathbb{Z} \centerdot x \sim y \iff 3 \mid x + 2y\]
+    \begin{enumerate}[label=(\alph*)]
+        \item 证明 $\sim$ 具有自反性
+        \item 证明 $\sim$ 具有对称性
+        \item 证明 $\sim$ 具有传递性
+    \end{enumerate} \label{exc:exercises6.2.3}
+    \item 定义 $\mathbb{R}$ 上的关系 $T$ 为，对于任意 $x, y \in \mathbb{R}$
+    \[(x, y) \in T \iff \Big(\frac{y}{x} \in \mathbb{R} \land \frac{y}{x} \ge 0\Big)\]
+    \begin{enumerate}[label=(\alph*)]
+        \item 找出 $x \in \mathbb{R}$ 使得 $(x,x) \notin T$。这是否意味着 $T$ 不具有自反性？为什么？
+        \item 找出 $x,y \in \mathbb{R}$ 使得 $(x,y) \in T$ 且 $(y,x) \in T$。这是否意味着 $T$ 具有对称性？为什么？
+        \item 找出 $x,y \in \mathbb{R}$ 使得 $(x,y) \in T$ 但 $(y,x) \notin T$。这是否意味着 $T$ 不具有对称性？为什么？
+        \item 判断 $T$ 是否具有传递性，并证明你的声明。
+    \end{enumerate}
+    \item 定义 $\mathcal{P}(\mathbb{N})$ 上的关系 $\leftrightarrow$ 为，对于任意 $X, Y \in \mathbb{N}$
+    \[X \leftrightarrow Y \iff \Big(X \subseteq Y \lor X \cap Y = \varnothing \Big)\]
+    证明或证伪该关系上的四个基本性质（即自反性、对称性、传递性和反对称性）。
+    \item 以下论证给出了对称性和传递性如何蕴含自反性。这个``证明''存在什么问题？
+    \begin{center}
+        \noindent
+            \parbox{0.85\textwidth}{%
+                \linespread{1.5}\selectfont
+                设 $A$ 为非空集合。设 $R$ 为 $A$ 上的关系。
+
+                假设 $R$ 具有对称性和传递性。我们将证明 $R$ 也具有自反性。
+
+                设 $x \in A$ 是任意固定的。定义集合 $T$
+                \[\{y \in A \mid (x, y) \in R\}\]
+                给定 $y \in T$，则 $(x, y) \in R$。
+
+                因为 $R$ 具有对称性，我们可以推导出 $(y,x) \in R$。
+
+                因为 $R$ 具有传递性，根据 $(x, y) \in R$ 且 $(y, x) \in R$，我们可以推导出 $(x,x) \in R$。
+
+                因为 $x$ 是任意的，我们证明了自反性成立。 
+            }
+    \end{center}
+\end{enumerate}

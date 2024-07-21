@@ -1,0 +1,38 @@
+% !TeX root = ../../../book.tex
+\subsection{与}
+
+说
+\begin{center}
+    ``$P$ 和 $Q$'' 为\verb|真|
+\end{center} 
+意味着这两个陈述都具有真值：\verb|真|。如果陈述 $P$ 或 $Q$ 之一为\verb|假|，则陈述 ``$P$ 和 $Q$'' 也为假。下面的定义概括了这个想法：
+
+\begin{definition}
+    我们在两个数学陈述之间使用符号 ``$\land$'' 来表示``和''。 例如，我们将 ``$P \land Q$'' 读作 ``$P$ 和 $Q$''。
+
+    这称为 $P$ 和 $Q$ 的合取。
+
+    当 $P$ 和 $Q$ 都为真时，``$P \land Q$'' 的真值为\verb|真|，否则真值为\verb|假|。
+\end{definition}
+
+以下是此定义的一些示例：\\
+
+\begin{example}
+    \begin{align*}
+        (1 + 3 = 4) \land (\forall x \in \mathbb{R} \centerdot x^2 \ge 0) \qquad &\text{真} \\
+        (1 + 3 = 5) \land (\forall x \in \mathbb{R} \centerdot x^2 \ge 0) \qquad &\text{假} \\
+        (1 + 3 = 5) \land (\exists x \in \mathbb{Q} \centerdot x^2 = 2)   \qquad &\text{假}
+    \end{align*}
+\end{example}
+
+\subsubsection*{符号：括号}
+
+有时删除我们在上面示例中使用的括号是很常见的。例如，上例中的第一行可以等效地写为
+\[1 + 3 = 4 \land \forall x \in \mathbb{R} \centerdot x^2 \ge 0\]
+使用括号往往会使陈述更具可读性。如果没有括号，我们必须花一些额外的时间思考语句的一部分在哪里结束以及下一部分从哪里开始，但我们最终仍然可以理解它。当括号使陈述更容易理解时，我们都应当使用括号。
+
+\subsubsection*{符号：集合和逻辑}
+
+你可能会注意到逻辑连词 ``$\land$'' 和集合运算符 ``$\cap$'' 之间的相似性。这不是巧合！
+
+正如我们将在 \ref{sec:section4.5.4} 节中讨论的那样，根据 ``$\cap$'' 集合运算符的底层逻辑，我们可以使用连词 ``$\land$'' 来编写 ``$\cap$'' 的定义。现在就尝试一下，然后如果你愿意的话，可以简单浏览一下该部分内容。但一般来说，请小心区分这两个符号！如果 $A$ 和 $B$ 为集合，则 ``$A \land B$'' 没有明确定义；正确含义应该是 ``$A \cap B$''。

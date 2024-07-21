@@ -1,0 +1,41 @@
+% !TeX root = ../../../book.tex
+\subsection{证明逻辑等价：德摩根定律（逻辑）}\label{sec:section4.6.5}
+
+接下来我们会证明一些涉及否定的逻辑等价。以下两条定律以英国数学家\textbf{奥古斯塔斯·德·摩根(Augustus De Morgan)}的名字命名。他因建立这些逻辑定律以及引入\textbf{数学归纳法}这一术语而广受赞誉！我们深深感激他在数学方面的工作。
+
+德摩根逻辑定律陈述了一些关于否定合取和析取的逻辑等价。
+
+\begin{theorem}
+    设 $P$ 和 $Q$ 为逻辑陈述。则
+    \[\neg (P \land Q) \iff \neg P \lor \neg Q\]
+    且
+    \[\neg (P \lor Q) \iff \neg P \land \neg Q\]
+\end{theorem}
+
+\begin{proof}
+    我们通过真值表证明第一个命题：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c}
+              $P$      & $\neg P$ &   $Q$   &  $\neg Q$  & $P \land Q$ & $\neg (P \land Q)$ & $\neg P \lor \neg Q$ \\
+              \hline
+              \verb|T| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|T|    &    \verb|F|   & \verb|F| \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|T|  &    \verb|F|    &    \verb|T|   & \verb|T| \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|F|  &    \verb|F|    &    \verb|T|   & \verb|T| \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|F|    &    \verb|T|   & \verb|T| \\
+        \end{tabular}
+    \end{center}
+    
+    然后用真值表证明第二个命题：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c}
+              $P$      & $\neg P$ &   $Q$    &  $\neg Q$  & $P \lor Q$ & $\neg (P \lor Q)$ & $\neg P \land \neg Q$ \\
+              \hline
+              \verb|T| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|T|    &    \verb|F|   & \verb|F| \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|T|  &    \verb|T|    &    \verb|F|   & \verb|F| \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|F|  &    \verb|T|    &    \verb|F|   & \verb|F| \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|F|    &    \verb|T|   & \verb|T| \\
+        \end{tabular}
+    \end{center}
+\end{proof}
+
+这两条定律非常有用！事实上，我们可以用它们来证明关于集合的类似陈述。

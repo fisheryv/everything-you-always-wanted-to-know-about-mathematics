@@ -1,0 +1,47 @@
+% !TeX root = ../../../book.tex
+\subsection{习题}
+
+\subsubsection*{温故知新}
+
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $\subseteq$ 的定义是什么？我们如何用它来证明 $A \subseteq B$？
+    \item 两个集合相等意味着什么？
+    \item 什么是\emph{双重包含}证明？
+    \item 什么是反例？
+    \item 假设 $A,B,U$ 是集合，且 $A,B \subseteq U$。为什么我们可以通过证明 $\overline{B} \subseteq \overline{A}$ 来证明 $A \subseteq B$ 呢？尝试说服朋友相信这是一种有效的技术。
+\end{enumerate}
+
+\subsubsection*{小试牛刀}
+
+尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 首先，\textbf{证明}如下声明：
+        \begin{center}
+            对于任意集合 $A,B,C$，子集关系 $A - (B - C) \subseteq (A - B) \cup C$ 成立。
+        \end{center}
+        接着，找到这些集合实际上总是\emph{相等}这一主张的\emph{反例}。
+    \item 假设 $A,B,C$ 是集合并且 $A \subseteq B$。证明 $A \times C \subseteq B \times C$。
+    \item 假设 $A \subseteq C$ 且 $B \subseteq D$。证明 $A \times C \subseteq B \times C$。
+    \item 设 $A = \{x \in \mathbb{R} \mid x^2 > 2x + 8\}$ 且 $B = \{x \in \mathbb{R} \mid x > 4\}$。对于以下每个主张，要么证明它是正确的，要么提供反例来证明它是错误的。
+        \begin{enumerate}[label=(\alph*)]
+            \item $A \subseteq B$
+            \item $B \subseteq A$
+        \end{enumerate}
+    \item 设 $A, B, U$ 为集合，且 $A, B \subseteq U$。通过\emph{双包含论证}证明 $A - B = A \cap \overline{B}$。
+    \item 令 $S = \{x \in \mathbb{R} \mid -2 < x < 5\}$ 且 $T = \{x \in \mathbb{R} \mid -4 \le x \le 3\}$。在 $\mathbb{R}$ 作为全集的情况下，$S \cap \overline{T}$ 是什么？找到一个集合，然后使用双包含论证证明它是正确的。
+    \item \textbf{证明}以下断言：如果 $A \subseteq B$，则 $\mathcal{P}(A) \subseteq \mathcal{P}(B)$。\label{exc:exercises3.9.7}
+    \item 对于每个 $n \in \mathbb{N}$ 令 $S_n = \{x \in \mathbb{R} \mid -\frac{1}{n} < x < \frac{1}{n}\}$。证明
+        \[\bigcap_{n \in \mathbb{N}}S_n = \{0\}\]
+    \item 设 $I = \{x \in \mathbb{R} \mid 0 < x < 1\}$。对于每个 $x \in I$，定义 $S_x = \{y \in \mathbb{R} \mid x < y < x + 1\}$。 证明
+        \[\bigcup_{x \in I}S_x = \{z \in \mathbb{R} \mid 0 < z < 2\}\]
+    \item 对于每个 $n \in \mathbb{N}$，定义集合 $A_n$ 和 $B_n$
+        \begin{align*}
+            A_n &= \Big\{x \in \mathbb{R} \mid 0 ≤ x < \frac{n - 1}{n}\Big\} \\
+            B_n &= \Big\{y \in \mathbb{R} \mid -\frac{1}{n} < y < 1\Big\}
+        \end{align*}
+        通过双重包含论证\textbf{证明}以下集合相等：
+        \[\bigcup_{n \in \mathbb{N}}A_n = \bigcap_{n \in \mathbb{N}}B_n\]
+\end{enumerate}

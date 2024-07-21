@@ -1,0 +1,37 @@
+% !TeX root = ../../../book.tex
+\subsection{习题}
+
+\subsubsection*{温故知新}
+
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 数学归纳原理是什么？它是如何被证明的？
+    \item 什么是数学归纳法的基本情况？它与数学归纳原理有什么关系？
+    \item 归纳假设和归纳步骤有什么关系？它们与数学归纳原理又有什么关系？
+    \item 为什么在归纳步骤中调用归纳假设很重要？
+\end{enumerate}
+
+\subsubsection*{小试牛刀}
+
+尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 证明，对于所有 $n \in \mathbb{N}$
+        \[\sum_{i=1}^{n} i^3 = \bigg[\frac{n(n+1)}{2}\bigg]^2\]
+    \item 证明奇数的平方都比 $8$ 的倍数多 $1$。也就是说证明，对于所有 $n \in \mathbb{N}$
+        \[(2n+1)^2-1 \text{是 8 的整数倍}\]
+    \item 考虑声明：对于所有 $n \in \mathbb{N}, 7^n-4^n$ 是 $3$ 的整数倍。
+    
+    用逻辑符号重写该声明，然后用归纳法证明它。
+    \item 斐波那契数列定义为
+    \[f_0=1 \quad\text{且}\quad f_1=1 \quad\text{且}\quad \forall n=\mathbb{N}-\{1\} \centerdot f_n=f_{n-1}+f_{n-2}\]
+    用归纳法证明对于所有 $n \in \mathbb{N}$ 下列声明都成立：
+    \begin{enumerate}[label=(\alph*)]
+        \item $\displaystyle\sum_{i=1}^{n} f_i = f_{n+2}-1$
+        \item $\displaystyle\sum_{i=1}^{n} f_{2i-1} = f_{2n}$
+        \item $f_{4n}$ 是 $3$ 的整数倍
+        \item \textbf{挑战 1}：($n$ 是 $3$ 的整数倍) $\implies$ ($f_n$ 为偶数)
+        \item \textbf{挑战 2}：($n$ 不是 $3$ 的整数倍) $\implies$ ($f_n$ 为奇数)
+    \end{enumerate}
+\end{enumerate}

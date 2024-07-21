@@ -1,0 +1,55 @@
+% !TeX root = ../../../book.tex
+\subsection{交集}
+
+此运算提取两个集合共有的元素并将它们包含在一个新集合中，称为\textbf{交集}。
+
+\begin{definition}
+    设 $A, B$ 为任意集合。$A$ 和 $B$ 的\dotuline{交集}是同时属于 $A$ 和 $B$ 的元素的集合，用 $A \cap B$ 表示。用数学符号表达如下：
+    \[A \cap B = \{x \in U \mid x \in A \;\text{且}\; x \in B\}\]
+\end{definition}
+
+\begin{example}\label{ex:example3.5.1}
+    定义如下集合：
+    \begin{align*}
+        S_1 &= \{1, 2, 3, 4, 5\}\\
+        S_2 &= \{1, 3, 7\}\\
+        S_3 &= \{2, 4, 7\}\\
+        U &= \mathbb{N}
+    \end{align*}
+    那么，我们可得
+    \begin{align*}
+        S_1 \cap S_2 &= \{1, 3\} \\
+        S_1 \cap S_3 &= \{2, 4\} \\
+        S_2 \cap S_3 &= \{7\}
+    \end{align*}
+    此外，由于交集本身也是一个集合，因此可以与其他集合再次进行交集运算，比如 $(S_1 \cap S_2) \cap S_3$ 是有意义的。然而，这两个集合没有共同元素，所以我们可以写做
+    \[(S_1 \cap S_2) \cap S_3 = \varnothing\]
+\end{example}
+
+如上例所示，两个集合没有共同元素的情况很常见，因此我们有一个特定的术语来描述此类集合：
+
+\begin{definition}
+    如果 $A \cap B = \varnothing$，则我们说 $A$ 和 $B$ \dotuline{不相交}。
+\end{definition}
+
+\subsubsection*{交集与子集}
+
+你可能已经观察到，无论 $A$ 和 $B$ 是什么，我们都有 $A \cap B \subseteq A$ 且 $A \cap B \subseteq B$。让我们证明这一事实！
+
+\begin{proposition}
+    设 $A, B$ 为任意集合。则 $A \cap B \subseteq A$ 且 $A \cap B \subseteq B$。
+\end{proposition}
+
+顺带一提，\textbf{命题}只是``微小的结果''。它并不困难或重要到足以被称为定理，但它确实需要一点证明。
+
+\begin{proof}
+    假设我们有两个集合，$A$ 和 $B$。为了证明子集关系，例如 $A \cap B \subseteq A$，我们需要证明左边集合 $(A \cap B)$ 的每个\dotuline{元素}也是右边集合 $(A)$ 的元素。
+
+    让我们考虑任意元素 $x \in A \cap B$。根据 $A \cap B$ 的定义，我们知道 $x \in A$ 和 $x \in B$。因此，我们知道 $x \in A$。这就是我们要证明的目标，所以我们证明了 $A \cap B \subseteq A$。
+
+    同理，我们也知道 $x \in B$，因此我们也证明了 $A \cap B \subseteq B$。
+\end{proof}
+
+这看起来像是单纯的观察和简单的证明，但我们仍然需要通过这些逻辑步骤来严格解释为什么这些子集关系成立。另外，请注意我们此处使用的\textbf{证明结构}。为了证明子集关系成立，我们需要考虑集合的\textbf{任意元素}并推断它也是另一个集合的元素。这将是我们证明有关子集的任何命题的方法。
+
+如果 $A \subseteq B$ 呢？$A \cap B$ 与 $A$ 和 $B$ 有什么关系？尝试证明这一点！

@@ -1,0 +1,31 @@
+% !TeX root = ../../../book.tex
+\subsection{``固定''变量和依赖}\label{sec:section4.3.3}
+
+当我们讨论量词顺序的主题时，我们还要提到以下示例来强调量词的顺序决定何时将变量视为表达式中的\textbf{固定变量}。
+
+考虑一下这句话：``任何大于或等于 $4$ 的偶数都可以写成两个质数之和。''（回想一下，这是我们上一节中讨论过的著名的\textbf{哥德巴赫猜想}。）为了从逻辑上和符号上表达这个陈述，我们可以写成
+\begin{align*}
+    &\text{令} X \text{为除} 2 \text{以外的偶数的集合。}\\
+    &\text{设} P \text{为质数集。}\\
+    &\text{定义} Q(n, a, b) \text{为``}n = a + b\text{''。}\\
+    &\text{那么声明就是：}
+\end{align*}
+\[\forall n \in X \centerdot \exists a, b \in P \centerdot Q(n, a, b)\]
+
+请注意，我们在这里使用了一些简写。像``$\exists a, b \in P$'' 这样的短语完全可以表达上述陈述，而不必写成
+\[\forall n \in X \centerdot \exists a \in P \centerdot \exists b \in P \centerdot Q(n, a, b)\]
+当两个变量被量化为同一集合中的元素，并且两个紧挨着时，将它们组合成一个量化是很常见的。我们甚至可能会看到这样的数学陈述，
+\[\forall x, y \in \mathbb{Z} \centerdot \exists a, b, c, d \in \mathbb{Z} \centerdot a + b + c + d = x + y \;\text{且}\; a + b \ne x \;\text{且}\; c + d \ne y\]
+（顺便问一下，这个陈述断言了什么？它为\verb|真|还是为\verb|假|？它取决于 $\mathbb{Z}$ 的上下文吗？如果我们将两处都换成 $\mathbb{N}$ 或 $\mathbb{R}$ 会怎样？）
+
+\subsubsection*{量化``固定''变量}
+
+回顾上面的例子，我们定义了 $Q(n, a, b)$。我们提出这个例子的原因是为了指出初始量化 ``$\forall n \in X$'' 用于\emph{固定} $n$ 的特定值，该值将用于陈述的其余部分。之后，断言 ``$\exists a, b \in P$'' 及其后续属性 $Q(n, a, b)$ 取决于 $n$ 的\emph{固定}但\emph{任意}值。
+
+整个陈述说的是，无论选择什么样的 $n$，我们都可以找到满足属性 $Q$ 的值 $a, b$。（当然，请注意，$a, b$ 的这些值可能\emph{取决于} $n$。）但是，量化顺序告诉我们这些值 $a, b$ 可能\emph{取决于}所选的 $n$。这就是我们要强调的。
+
+作为示例，考虑语句中变量 $n$ 的特定值。我们知道 $8 \in X$ 因为 $8$ 是偶数且 $8 \ge 4$。当 $n = 8$ 时会发生什么？你能找到 $a, b \in P$ 使得 $a + b = 8$ 吗？当然可以，我们可以让 $a = 3$ 且 $b = 5$。那么当 $n = 14$ 时呢？你能找到满足 $a+b = 14$ 的 $a, b \in P$ 吗？当然可以，你现在的选择必然与以前的\emph{不同}。这就是我们所说的 $a$ 和 $b$ \emph{依赖于} $n$ 的意思。（顺便问一下，在 $n = 14$ 时，你能找到 $a$ 和 $b$ 吗？我们可以想出几个可行的选择！）
+
+为了确保你充分理解这部分讨论的内容，请考虑以下问题并回答：上面的陈述和下面的陈述有何区别？
+\[\exists n \in X \centerdot \exists a, b \in P \centerdot Q(n, a, b)\]
+这个陈述为\verb|真|还是为\verb|假|？为什么？

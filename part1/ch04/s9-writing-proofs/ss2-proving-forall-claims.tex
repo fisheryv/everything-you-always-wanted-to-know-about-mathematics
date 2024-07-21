@@ -1,0 +1,114 @@
+% !TeX root = ../../../book.tex
+\subsection{证明 $\forall$ 声明}\label{sec:section4.9.2}
+
+``$\forall$'' 声明一种\emph{全称性声明}。它断言集合中的\emph{所有}元素都具有某些共同的属性。为了证明这种说法，我们需要证明集合中的\emph{每个}元素都具有该属性。为了``一次性''完成证明，我们需要考虑集合中任意固定元素，并证明它具有所需的属性。因为这个对象是任意的，所以我们的论证适用于集合中的每个元素。因为这个对象是固定的，所以我们可以在整个证明中通过名称来引用它。
+
+\subsubsection*{直接证法}
+
+\begin{center}
+\noindent \fcolorbox{blue}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{blue}{\textbf{策略：}}\\
+        声明：$\forall x \in S \centerdot P(x)$ \\
+        \emph{直接证明策略：} \\
+        \hspace*{1cm} 设 $y \in S$ 是任意固定元素。\\
+        \hspace*{1cm} 证明 $P(y)$ 成立。
+    }
+}
+\end{center}
+
+\newpage
+
+\begin{example}[算术几何平均值不等式的一个实例]
+
+    \begin{center}
+        陈述：$\forall x, y \in \mathbb{R} \centerdot xy \le (\frac{x+y}{2})^2$。
+    \end{center}
+    \begin{center}
+        \noindent \fcolorbox{olivegreen}{white}{%
+            \parbox{0.85\textwidth}{%
+                \linespread{1.5}\selectfont
+                \textcolor{olivegreen}{\textbf{实现：}}
+                \begin{proof}
+                    设 $x, y \in \mathbb{R}$ 是任意固定元素。\\
+                    我们知道 $0 \le (x-y)^2$。\\
+                    展开整理得 $2xy \le x^2+y^2$。\\
+                    两边同时加上 $2xy$，可得 $2xy \le x^2 + 2xy + y^2$。\\
+                    因式分解可得 $4xy \le (x+y)^2$。\\
+                    两边同时除以 $4$ 可得
+                    \[xy \le (\frac{x+y}{2})^2\] 
+                \end{proof}
+            }
+        }
+    \end{center}
+    这个结论被称为\textbf{算术几何平均值不等式(Arithmetic-Geometric Mean Inequality)}，因为它涉及两个实数的算术平均值(Arithmetic Mean)和几何平均值(Geometric Mean)。
+
+    $x$ 和 $y$ 的算术平均值为 $\frac{a+b}{2}$。
+
+    $x$ 和 $y$ 的几何平均值为 $\sqrt{xy}$（请注意，这只适用于 $xy \ge 0$ 时，即 $x$ 和 $y$ 具有相同的符号（无论是正数、负数或是零）。
+
+    算术几何平均值不等式（简称 AGM）断言算术平均值(AM)始终大于等于几何平均值(GM)。一个有用的助记符是将 ``\textbf{AGM}'' 读作 ``算术平均值大于几何平均值(\textbf{A}rithmetic Mean \textbf{G}reater than \textbf{G}eometric Mean)''。
+
+    我们上面证明的是一个更为通用的版本，因为它适用于所有实数 $x$ 和 $y$，而不仅仅是那些具有相同符号的实数。然而，假设 $xy \ge 0$，我们可以简单地两边取平方根，即可得到算术几何平均值不等式的``常规''形式：$\sqrt{xy} \le \frac{x+y}{2}$。
+\end{example}
+
+\subsubsection*{间接证法（反证法）}
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$\forall x \in S \centerdot P(x)$ \\
+            \emph{间接证明策略：} \\
+            \hspace*{1cm} 为了引出矛盾而假设，$\exists y \in S$ 使得 $\neg P(y)$ 成立。 \\
+            \hspace*{1cm} 推导得出矛盾。
+        }
+    }
+\end{center}
+
+\begin{example}[$\sqrt{2} $ 为无理数]
+
+    陈述：$ \forall a, b \in \mathbb{Z} \centerdot \frac{a}{b} \ne \sqrt{2}$。
+
+    （注：该声明直接诉诸有理数 $\mathbb{Q}$ 的定义。它说 $\sqrt{2} \notin \mathbb{Q}$ 因为该数无法表示为整数之比。）
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                为了引出矛盾而假设 $\exists a, b \in \mathbb{Z} \centerdot \frac{a}{b} = \sqrt{2}$。
+
+                我们可以假设 $\frac{a}{b}$ 已经化简到最简形式，因此 $a$ 和 $b$ 没有公因数。（如果不是这种情况，我们可分子分母同时以除以公因数并获得最简形式。）
+
+                给定这样的 $a,b \in \mathbb{Z}$。
+
+                （注：我们将在第 \ref{sec:section4.9.8} 节讨论短语``给定这样的$\underline{\qquad}$''。它不仅意味着断言这样的 $a, b \in \mathbb{Z}$ \emph{存在}，而且我们想要这些变量具有一些\emph{特定}实例，以便我们可以使用它们来完成余下的证明。）
+
+                这意味着 $\frac{a}{b} = \sqrt{2}$，所以 $\frac{a^2}{b^2} = 2$。
+
+                因此 $2b^2 = a^2$，所以根据定义 $a^2$ 为偶数。
+
+                因为 $a^2$ 为偶数，则 $a$ 也为偶数。
+
+                （注意：这一点需要证明。我们将在第 \ref{sec:section4.9.6} 节证明这一点，你也可以自己尝试证明一下。）
+
+                因此，$\exists k \in \mathbb{Z} \centerdot a = 2k$。给定这样的 $k$，使得 $a^2 = 4k^2$。
+
+                则 $2b^2 = 4k^2$，所以 $b^2 = 2k^2$。
+
+                因此，根据定义，$b^2$ 为偶数。同理，我们可以推导出 $b$ 为偶数。
+
+                这说明 $a$ 和 $b$ 都为偶数，它们有公因数 $2$。
+
+                这与我们假设 $a$ 和 $b$ 没有公因数相矛盾。$\hashx$
+
+                因此，假设必定有误，所以该声明为真。
+            \end{proof}
+        }
+    }
+\end{center}

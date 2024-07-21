@@ -1,0 +1,53 @@
+% !TeX root = ../../../book.tex
+\subsection{证明逻辑等价：分配律}
+
+算术中，你一定知道乘法分配率。也就是说，我们知道
+\[\forall x, y, z \in \mathbb{R} \centerdot x \cdot (y + z) = x \cdot y + x \cdot z\]
+我们用符号表示法写了出来！你明白为什么它表达了你所知的乘法分配律规则吗？
+
+在这里我们将研究并证明两个类似的定律。他们会告诉我们逻辑连词 ``$\land$'' 和 ``$\lor$'' 也满足分配。
+
+\begin{theorem}
+    设 $P, Q, R$ 为逻辑陈述。则
+    \[P \land (Q \lor R) \iff (P \land Q) \lor (P \land R)\]
+    且
+    \[P \lor (Q \land R) \iff (P \lor Q) \land (P \lor R)\]
+\end{theorem}
+
+\begin{proof}
+    我们使用真值表来验证这两个命题。对于第一个命题，请看下面的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c|c}
+              $P$ & $Q$ & $R$ & $Q \lor R$ & $P \land Q$  & $P \land R$ & $P \land (Q \lor R)$ & $(P \land Q) \lor (P \land R)$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|T| &  \verb|T|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|T| & \verb|F| &  \verb|T|  &   \verb|T|   &\verb|F| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|F| & \verb|T| &  \verb|T|  &   \verb|F|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|F|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|T|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|T|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|T|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|F| & \verb|F| &  \verb|F|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+        \end{tabular}
+    \end{center}
+
+    请注意，最后两列的真值是相同的，从而证明了要求的逻辑等价。\\
+
+    对于第二个命题，请看下面的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c|c}
+              $P$ & $Q$ & $R$ & $Q \land R$ & $P \lor Q$  & $P \lor R$ & $P \lor (Q \land R)$ & $(P \lor Q) \land (P \lor R)$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|T| &  \verb|T|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|T| & \verb|F| &  \verb|F|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|F| & \verb|T| &  \verb|F|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|F|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|T|  &   \verb|T|   &\verb|T| &\verb|T| &   \verb|T|   \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|F|  &   \verb|T|   &\verb|F| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|F|  &   \verb|F|   &\verb|T| &\verb|F| &   \verb|F|   \\
+              \verb|F| & \verb|F| & \verb|F| &  \verb|F|  &   \verb|F|   &\verb|F| &\verb|F| &   \verb|F|   \\
+        \end{tabular}
+    \end{center}
+
+    同理，最后两列的真值是相同的，从而证明了要求的逻辑等价。
+\end{proof}

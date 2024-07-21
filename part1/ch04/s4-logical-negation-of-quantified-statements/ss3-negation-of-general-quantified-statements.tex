@@ -1,0 +1,31 @@
+% !TeX root = ../../../book.tex
+\subsection{一般量化陈述的否定}
+
+到目前为止，我们所做的观察引出了否定量化陈述的一般方法。我们在第 \pageref{sec:section4.4} 页定义的陈述 $Q_1$ 的形式为
+\[\exists y \in \mathbb{R} \centerdot C(y)\]
+其中 $C(y)$ 是陈述的其余部分（当然，这\emph{取决于} $y$ 的值）。我们将 $C(y)$ 视为量化变量 $y$ 的某些\emph{属性}；该属性内部可能有其他量词和变量，但从根本上讲，它只是断言 $y$ 的一些事实。
+
+为了否定这一说法，我们按照上面讨论的方法写做
+\[\forall y \in \mathbb{R} \centerdot \neg C(y)\]
+现在，我们知道 $C(y)$ 本身就是一个全称量化陈述：
+\[\forall x \in \mathbb{R} \centerdot y = x^3\]
+我们也知道如何否定这种类型的陈述！其否定形式 $\neg C(y)$ 为
+\[\exists x \in \mathbb{R} \centerdot y = x^3\]
+这一步仅使用了我们上面看到的另一个否定方法。然后，把它们放在一起，我们可以说 $\neg Q_1$ 为陈述
+\[\forall y \in \mathbb{R} \centerdot \exists x \in \mathbb{R} \centerdot y \ne x^3\]
+我们可以\emph{证明}这个说法是正确的，从而证明原始陈述一定为\verb|假|。
+
+（我们将此证明留作练习。提示：给定任意 $y \in \mathbb{R}$，定义一个 $x$ 值，该值将迫使 $y \ne x^3$ 为真。请注意，你对 $x$ 的选择取决于 $y$ 的值；它们是如何依赖的？）
+
+看看这个否定是如何产生的：我们认识到原始陈述是一个\textbf{嵌套量词}序列（即连续几个量化变量的序列），末尾有一个变量命题，并且我们看到我们可以将量词序列的一部分视为它自身的陈述。然后，我们将否定从外部量词 ``传递到内部量词''，并将这些否定拼凑在一起。
+
+遵循同样的想法，我们可以弄清楚如何识别具有较长量词序列的陈述。例如，看看下面这个陈述
+\[\forall a \in A \centerdot \exists b \in B \centerdot \exists c \in C \centerdot \forall d, e \in D \centerdot Q(a, b, c, d, e)\]
+要开始否定它，我们先从第一个量化处断开，并将其余部分视为其自身的命题 $R(a)$，并且它仅依赖于 $a$：
+\[\forall a \in A \centerdot \big(\underbrace{\exists b \in B \centerdot \exists c \in C \centerdot \forall d, e \in D \centerdot Q(a, b, c, d, e)}_{R(a)}\big)\]
+因此否定可以写成
+\[\exists a \in A \centerdot \neg R(a)\]
+但我们必须找出 $\neg R(a)$ 的另一种写法。我们需要重复上面的做法！只需将 ``$\exists b \in B$'' 与其余部分分开……接着你就知道是怎么回事了。尝试自己完成这些步骤，并确保最终得到以下结果，这就是原始陈述的逻辑否定：
+\[\exists a \in A \centerdot \forall b \in B \centerdot \forall c \in C \centerdot \exists d, e \in D \centerdot \neg Q(a, b, c, d, e)\]
+
+一般来说，我们可以这样说：要否定仅由量词和变量命题组成的命题，只需将每个 ``$\forall$'' 切换为 ``$\exists$''，反之亦然，即可否定命题。不要改变我们量化的任何集合，只改变量词本身和随后的命题；改变讨论范围是没有意义的。稍后，我们将了解如何否定其他类型的陈述，即由其他连词构建的更复杂的陈述。在此之前，我们需要继续定义和讨论其他连词。

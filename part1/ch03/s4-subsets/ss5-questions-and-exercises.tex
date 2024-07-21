@@ -1,0 +1,50 @@
+% !TeX root = ../../../book.tex
+\subsection{习题}
+
+\subsubsection*{温故知新}
+
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $\mathbb{N} \subseteq \mathbb{R}$ 吗？ $\mathbb{R} \subseteq \mathbb{N}$ 吗？ $\mathbb{Q} \subseteq \mathbb{Z}$ 吗？为什么是或者为什么不是？
+    \item $\subset$ 和 $\subseteq$ 有什么不同？给出集合 $A, B$ 的示例，使得 $A \subseteq B$ 为真，但 $A \subset B$ 为假。
+    \item $\in$ 和 $\subseteq$ 有什么区别？给出集合 $C, D$ 的示例，使得 $C \subseteq D$ 但 $C \notin D$。
+    \item 设 $S$ 为任意集合。$S$ 的幂集是什么？它是什么类型的数学对象？它应该如何定义？
+    \item 假设 $S \subseteq T$。这是否意味着 $S = T$？为什么相等或者为什么不等？
+    \item 解释为什么对于任意集合 $S$ 都有 $\varnothing \subseteq S$ 且 $\varnothing \in \mathcal{P}(S)$。
+    \item 假设 $X \in \mathcal{P}(A)$。那么 $X$ 和 $A$ 有什么关系？
+    \item $A = P(A)$ 可能为真吗？（这个问题比较棘手，请好好思考一下！）
+\end{enumerate}
+
+\subsubsection*{小试牛刀}
+
+尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 写出集合 $\mathcal{P}(\mathcal{P}(\varnothing))$ 的元素。
+    \item 写出集合 $\mathcal{P}([1]), \mathcal{P}([2]), \mathcal{P}([3])$ 的元素。你能猜想 $\mathcal{P}([n])$ 有多少个元素吗？（你能证明这一点吗？我们不指望你现在就能证明出来，但很快就能了；好好想一想！）
+    \item 设 $A = \{x, \heartsuit, \{4\} , \varnothing\}$。对于以下陈述，判断它是对是错，并简要解释原因。
+        \begin{enumerate}[label=(\alph*)]
+            \item $x \in A$
+            \item $x \subseteq A$
+            \item $\{x, \heartsuit\} \subseteq A$
+            \item $\{x, \varnothing\} \subset A$
+            \item $\{x, \heartsuit, z, 7\} \supseteq A$
+            \item $\{x\} \in \mathcal{P}(A)$
+            \item $\{x\} \subseteq \mathcal{P}(A)$
+            \item $\{\heartsuit, x\} \in \mathcal{P}(A)$
+            \item $\{4\} \in \mathcal{P}(A)$
+            \item $\{\varnothing\} \in \mathcal{P}(A)$
+            \item $\{\varnothing\} \subseteq \mathcal{P}(A)$
+        \end{enumerate}
+        \textbf{提示：}$7$ 个为真，$4$ 个为假。
+    \item 举一个集合 $A, B$ 的例子，使得 $A \in B$ 且 $A \subseteq B$ 都为真。
+    \item $\{1, 2, 12\} \subseteq \mathbb{R}$ 吗？
+    \item $\{-5, 8, 12\} \subseteq \mathbb{N}$ 吗？
+    \item $\{1, 3, 7\} \in \mathcal{P}(\mathbb{N})$ 吗?
+    \item $\mathbb{N} \in \mathcal{P}(\mathbb{Z})$ 吗？
+    \item $\mathcal{P}(\mathbb{N}) \subseteq \mathcal{P}(\mathbb{Z})$ 吗？它们是相等的集合吗？为什么是或者为什么不是？
+    \item 给出一个无限集合 $T$ 的例子，使得 $T \in \mathcal{P}(\mathbb{Z})$ 但 $T \notin \mathcal{P}(\mathbb{N})$。
+    \item 假设 $G, H$ 是集合并且它们满足 $\mathcal{P}(G) = \mathcal{P}(H)$。我们能得出 $G = H$ 的结论吗？为什么能或者为什么不能？（不要试图正式证明这一点；只需思考并尝试说出来。）
+    \item 给出一个集合 $W$ 的例子，使得 $W \subseteq \mathcal{P}(\mathbb{N})$ 但 $W \notin \mathcal{P}(\mathbb{N})$。
+\end{enumerate}

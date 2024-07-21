@@ -1,0 +1,20 @@
+% !TeX root = ../../../book.tex
+\subsection{索引并集和交集}\label{sec:section3.6.2}
+
+让我们给出多个集合并集运算的精确定义，因为之前我们只是严格定义了两个集合的并集。
+
+\begin{definition}\label{def:definition3.6.1}
+    由集合 $I$ 索引的一组集合 $A_i$ 的并集为
+    \[\bigcup_{i \in I} A_i = \{x \in U \mid \text{对于某个（至少一个）} i \in I, x \in A_i \}\]
+    其中我们假设存在全集 $U$, 且对于所有 $i \in I$, $A_i \subseteq U$。
+\end{definition}
+
+在数学语言中，短语``对于某些 $i \in I$''意味着我们想要至少一个具有指定属性的 $i \in I$。如果一个元素 $x$ 对于每个 $i \in I$ 都满足 $x \notin A_i$，那么这表示 $x$ 不属于我们集合中的任何集合，因此它不应该包含在并集中。
+
+遵循这个思路，我们可以对集合交集做出类似的定义。
+
+\begin{definition}\label{def:definition3.6.2}
+    由集合 $I$ 索引的一组集合 $A_i$ 的交集为
+    \[\bigcap_{i \in I} A_i = \{x \in U \mid \text{对于每个} i \in I, x \in A_i \}\]
+    其中我们假设存在全集 $U$, 且对于所有 $i \in I$, $A_i \subseteq U$。
+\end{definition}

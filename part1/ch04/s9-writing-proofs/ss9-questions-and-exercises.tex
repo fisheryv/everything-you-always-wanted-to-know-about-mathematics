@@ -1,0 +1,43 @@
+% !TeX root = ../../../book.tex
+\subsection{习题}\label{sec:section4.9.9}
+
+\subsubsection*{温故知新}
+
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $\exists$ 声明的直接证法是什么？证明对象存在的重要步骤是什么？
+    \item $\implies$ 声明的直接证法是什么？如何通过反证法证明 $\implies$ 声明？这些方法有何不同？
+    \item 如何证明 $\iff$ 声明？
+    \item 什么是算数几何平均不等式？该缩写从何而来？
+    \item 逆否策略适用于哪种类型的声明？为什么它有效？
+    \item 什么是反例
+    \item ``$\exists a \in A \centerdot P(a)$'' 和 ``$\exists a \in A \centerdot P(a)$, 给定这样一个 $a$'' 有什么区别？
+\end{enumerate}
+
+\subsubsection*{小试牛刀}
+
+尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 证明 $\forall x \in \mathbb{R} \centerdot x^2 \ne 1 \implies x \ne 1$。
+    \item 证明 $\forall n \in \mathbb{N} \centerdot n \ge 5 \implies 2n^2 > (n+1)^2$ \label{exc:exercises4.9.2}
+    \item 用逻辑符号表达下列命题，然后证明。
+        \begin{quote}
+            存在一个偶自然数，可以用两种不同的方式写成两个质数之和。
+        \end{quote}
+    \item 证明每个自然数要么小于 $\sqrt{10}$ 要么大于 $3$。即，证明
+        \[\forall n \in \mathbb{N} \centerdot n<\sqrt{10} \lor x>3\]
+    \item 设 $A,B,C,D$ 为集合。证明，如果 $A \cup B \subset C \cup D$ 且 $C \subset A$ 且 $A \cap B = \varnothing$，则 $B \subset D$。
+    \item 定义 $P = \{y \in \mathbb{R} \mid y > 0\}$。证明
+        \[\forall \varepsilon \in P \centerdot \forall x, y \in \mathbb{R} \centerdot \exists \delta \in P \centerdot |x - y| < \delta \implies |(3x - 4) - (3y - 4)| < \varepsilon\]
+        你还能证明以下声明吗？和上面的声明有什么不同呢？
+        \[\forall \varepsilon \in P \centerdot \exists \delta \in P \centerdot \forall x, y \in \mathbb{R} \centerdot  |x - y| < \delta \implies |(3x - 4) - (3y - 4)| < \varepsilon\]
+    \item 设 $E(x)$ 为命题 ``$x$ 为偶数''。证明
+        \[\forall a, b \in \mathbb{Z} \centerdot E(a) \land E(b) \iff E(a + b) \land E(a \cdot b)\]
+    \item 回顾一下 $\sqrt{2}$ 是无理数的证明。修改它以证明 $\sqrt{3}$ 也是无理数。\\
+        尝试用相同的思路证明 $\sqrt{6}$ 是无理数。\\
+        \textbf{挑战}：你能证明 $\sqrt{p}$ 对于每个质数 $p$ 都是无理数吗？
+    \item 证明有无限多个有理数。\\
+        \textbf{提示}：用反证法来证明。（假设有有限多个有理数……）
+\end{enumerate}

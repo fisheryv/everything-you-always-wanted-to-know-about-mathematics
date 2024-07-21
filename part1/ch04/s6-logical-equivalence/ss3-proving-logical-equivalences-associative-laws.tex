@@ -1,0 +1,116 @@
+% !TeX root = ../../../book.tex
+\subsection{证明逻辑等价：结合律}
+
+现在，让我们实际\textbf{证明}一些逻辑等价！在此过程中，我们将努力提高使用量词和连词来阅读、理解和编写逻辑陈述的能力。我们还将推导出一些基本的逻辑结论，让我们可以在不久的将来应用这些结论来发展证明技术。这些技术将成为我们其他工作的基础，我们所做的其他一切都将涉及这些证明策略和逻辑概念的某种组合。
+
+让我们从一些较简单的符号逻辑定律开始。某些事物满足\emph{结合律}本质上意味着我们可以随意地``绕过括号''并最终得到相同的结果。你经常使用加法满足结合律这一事实！要将 $x$ 与 $y + z$ 相加，只需将 $z$ 与 $x+y$ 相加即可，我们知道会得到相同的答案。也就是说，我们可以放心地说
+\[x + (y + z) = (x + y) + z\]
+我们可以将括号移动到任何我们想要的地方，所以最终我们可以省略它们，然后写做
+\[x+y+z\]
+因为加法的顺序是无关紧要的。同样的结论也适用于逻辑陈述的合取和析取，这就是我们现在要证明的。
+
+\begin{theorem}
+    设 $P, Q, R$ 为逻辑陈述。则
+    \[P \land (Q \land R) \iff (P \land Q) \land R\]
+    且
+    \[P \lor (Q \lor R) \iff (P \lor Q) \lor R\]
+\end{theorem}
+
+实际上，我们将通过两种不同的方式证明此命题：
+\begin{enumerate}[label=(\arabic*)]
+    \item 通过真值表
+    \item 通过语义（即单词）
+\end{enumerate}
+它们都是有效的证明，但我们想向你展示它们，以便你决定更喜欢哪种风格。
+
+\begin{proofs}{证明 1. }
+    首先，我们通过真值表证明该命题。观察合取的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c}
+              $P$    & $Q$   & $R$ & $P \land Q$ &  $Q \land R$  & $P \land (Q \land R)$ & $(P \land Q) \land R$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|T| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|T| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|T| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|F|  &    \verb|T|    &\verb|F| &    \verb|F|    \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+              \verb|F| & \verb|F| & \verb|F| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+        \end{tabular}
+    \end{center}
+
+    因为 $P \land (Q \land R)$ 和 $(P \land Q) \land R$ 在每种情况下都具有相同的真值，因此 $P \land (Q \land R) \iff (P \land Q) \land R$。\\
+
+    接着观察析取的真值表：
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|c}
+              $P$    & $Q$   & $R$ & $P \lor Q$ &  $Q \lor R$  & $P \lor (Q \lor R)$ & $(P \lor Q) \lor R$ \\
+              \hline
+              \verb|T| & \verb|T| & \verb|T| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|T| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|T| & \verb|F| & \verb|T| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|T| & \verb|F| & \verb|F| &  \verb|T|  &    \verb|F|    &\verb|T| &    \verb|T|    \\
+              \verb|F| & \verb|T| & \verb|T| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|F| & \verb|T| & \verb|F| &  \verb|T|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|F| & \verb|F| & \verb|T| &  \verb|F|  &    \verb|T|    &\verb|T| &    \verb|T|    \\
+              \verb|F| & \verb|F| & \verb|F| &  \verb|F|  &    \verb|F|    &\verb|F| &    \verb|F|    \\
+        \end{tabular}
+    \end{center}
+
+    因为 $P \lor (Q \lor R)$ 和 $(P \lor Q) \lor R$ 在每种情况下都具有相同的真值，因此 $P \lor (Q \lor R) \iff (P \lor Q) \lor R$。
+\end{proofs}
+
+\begin{proofs}{证明 2. }
+    接着，让我们通过语义分析来证明该命题。考虑第一个命题，
+    \[P \land (Q \land R) \iff (P \land Q) \land R\]
+    为了证明符号两侧是\emph{逻辑等价}的，我们需要证明以下两个条件陈述都为\verb|真|：
+    \[P \land (Q \land R) \implies (P \land Q) \land R\]
+    \[(P \land Q) \land R \implies P \land (Q \land R)\]
+    \begin{itemize}
+        \item[($\implies$)] 首先，我们来证明第一个条件陈述。假设 $P \land (Q \land R)$ 为\verb|真|。这意味着 $P$ 为\verb|真|且 $Q \land R$ 为\verb|真|。根据定义，这意味着 $P$ 为\verb|真|，$Q$ 为\verb|真|，$R$ 为\verb|真|。当然，根据定义，$P \land Q$ 为\verb|真|，$R$ 为\verb|真|。因此，$(P \land Q) \land R$ 也为\verb|真|。 
+        \item[($\impliedby$)] 接着，我们来证明第二个条件陈述。假设 $(P \land Q) \land R$ 为\verb|真|。这意味着 $P \land Q$ 为\verb|真|且 $R$ 为\verb|真|。根据定义，这意味着 $P$ 为\verb|真|，$Q$ 为\verb|真|，$R$ 为\verb|真|。当然，根据定义，$P$ 为\verb|真|，$Q \land R$ 为\verb|真|。因此，$P \land (Q \land R)$ 也为\verb|真|。
+    \end{itemize}
+    由于我们已经证明了上述两个条件陈述成立，因此我们可以得出结论，二者确实是逻辑等价的。\\
+
+    接下来，考虑该定理的第二个命题，
+    \[P \lor (Q \lor R) \iff (P \lor Q) \lor R\]
+    为了证明符号两侧是\emph{逻辑等价}的，我们需要证明以下两个条件陈述都为\verb|真|：
+    \[P \lor (Q \lor R) \implies (P \lor Q) \lor R\]
+    \[(P \lor Q) \lor R \implies P \lor (Q \lor R)\]
+    \begin{itemize}
+        \item[($\implies$)] 我们先来证明第一个条件陈述。假设 $P \lor (Q \lor R)$ 为\verb|真|。这意味着 $P$ 为\verb|真|或 $Q \lor R$ 为\verb|真|。这里有两种情况。
+        \begin{enumerate}
+            \item 假设 $P$ 为\verb|真|。根据定义，这意味着 $P \lor Q$ 为\verb|真|。因此，根据定义 $(P \lor Q) \lor R$ 也为\verb|真|。
+            \item 假设 $Q \lor R$ 为\verb|真|。 这意味着 $Q$ 为\verb|真|或 $R$ 为\verb|真|。同样地，这里又有两种情况。
+            \begin{enumerate}[label=(\alph*)]
+                \item 假设 $Q$ 为\verb|真|。根据定义，这意味着 $P \lor Q$ 为\verb|真|。因此，根据定义 $(P \lor Q) \lor R$ 也为\verb|真|。
+                \item 假设 $R$ 为\verb|真|。根据定义，这意味着 $(P \lor Q) \lor R$ 为\verb|真|。
+            \end{enumerate}
+        \end{enumerate} 
+        无论何种情况，我们都得到 $(P \lor Q) \lor R$ 为\verb|真|。因此，该条件陈述为\verb|真|。
+        \item[($\impliedby$)] 我们再来证明第二个条件陈述。假设 $(P \lor Q) \lor R$ 为\verb|真|。这意味着 $P \lor Q$ 为\verb|真|或 $R$ 为\verb|真|。这里有两种情况。
+        \begin{enumerate}
+            \item 假设 $P \lor Q$ 为\verb|真|。这意味着 $P$ 为\verb|真|或 $Q$ 为\verb|真|。这里又有两种情况。
+            \begin{enumerate}[label=(\alph*)]
+                \item 假设 $P$ 为\verb|真|。根据定义，这意味着 $P \lor (Q \lor R)$ 为\verb|真|。
+                \item 假设 $Q$ 为\verb|真|。根据定义，这意味着 $Q \lor R$ 为\verb|真|。因此，根据定义，$P \lor (Q \lor R)$ 为\verb|真|。
+            \end{enumerate}
+            \item 假设 $R$ 为\verb|真|。根据定义，这意味着 $Q \lor R$ 为\verb|真|。因此，根据定义，$P \lor (Q \lor R)$ 为\verb|真|。
+        \end{enumerate}   
+        无论何种情况，我们都得到 $P \lor (Q \lor R)$ 为\verb|真|。因此，该条件陈述为\verb|真|。 
+    \end{itemize}
+    由于我们已经证明了上述两个条件陈述成立，因此我们可以得出结论，二者确实是逻辑等价的。
+\end{proofs}
+
+仔细理解上述证明，我们通过这些证明完成了什么？我们已经证明了什么，如何证明？为什么它有效？
+
+在继续讨论和比较这两种证明方法之前，让我们先提一下这些证明的结论。我们证明了逻辑连词 ``$\land$'' 和 ``$\lor$'' 满足结合律，因此我们在处理仅涉及一个此类连词的陈述时，括号的顺序并不重要。例如，我们知道 ``$P \land (Q \land R)$'' 与 ``$(P \land Q) \land R$'' 具有相同的含义。因此，以后我们会省略括号，只写做：`$P \land Q \land R$''。
+
+\subsubsection*{反思：真值表与语义证明}
+
+我们先来谈谈真值表。由于 $P,Q,R$ 为逻辑陈述，因此它们各自的真值要么为\verb|真|要么为\verb|假|。真值表的八行考虑了这三个成分陈述所有可能的真值组合。前三列告诉我们 $P,Q,R$ 为真还是为假。接下来的两列对应于命题中逻辑陈述的更复杂的组成部分，最后两列对应于定理中的两个实际命题。通过比较最后两列，我们可以确定这两个陈述在逻辑上是否等价。（请记住，``逻辑等价''的意思是``无论给 $P, Q, R$ 分配什么真值，都具有相同的真值''。因此，观察到最后两列逐行具有相同的真值，就足以表明这两个陈述是逻辑等价的。）
+
+接下来，我们来谈谈语义证明。你对这种证明方式感觉如何？你一定会觉得这种证明方法很冗长，对吧？不过，抛开这一点，这种证明方法是良好的证明吗？整个证明过程清楚吗？逻辑是正确的吗？重读上面的证明并思考这些问题。需要强调的是这里的证明是完全正确的。当试图证明析取（``或''陈述）成立时，分情况讨论至关重要。当我们假设某件事为\verb|真|并推断其他事为\verb|真|时，这就是我们证明条件陈述为\verb|真|的方式。我们很快就会进一步分析这些技术，但我们希望为你提供这个示例对你以后有所帮助。
+
+在本节的其余部分，我们将使用真值表来验证此类简单的命题。这种证明方式要短得多！我们认为，如果你需要更加令人信服的证明或额外练习将符号逻辑命题解释为自然语言句子，你可以详细了解语义证明，就像我们上面给出的那样。

@@ -1,0 +1,81 @@
+% !TeX root = ../../../book.tex
+\subsection{用法和符号}
+
+可以用 ``$\forall$'' 替换的其他常见短语还有``对于每个''、``对于任意''、``每当''、``给定任何''甚至``如果''。
+
+可以用 ``$\exists$'' 替换的其他常见短语还有``对于某个''、``至少有一个''、``有''甚至``某个''。\\
+
+\begin{example}
+    让我们先来看几个简单的例子，以开始我们的实践。以下每种情况，我们都希望使用这些符号来表达数学思想，或者尝试以更``罗嗦''的方式解释量化陈述。
+    \begin{itemize}
+        \item ``每个实数的平方都是非负数。''
+            这是一个简单直白的陈述，事实上，这个陈述为\verb|真|。我们可以将其写为：
+            \[\forall x \in \mathbb{R} \centerdot x^2 \ge 0\]
+            ``大点'' 将陈述的量化部分与关于变量 $x$ 的声明（在量化中引入）分开。\\
+            另一种写法是：
+            \begin{center}
+                定义 $S(x)$ 为 ``$x^2 \ge 0$''。那么命题就是：$\forall x \in \mathbb{R} \centerdot S(x)$。
+            \end{center}
+        \item ``存在 $\mathbb{N}$ 的一个子集以 $7$ 作为元素。''
+            这是一个\emph{存在}声明。它断言我们可以找到具有特定属性的对象。我们将其写为：
+            \[\exists S \in \mathcal{P}(\mathbb{N}) \centerdot 7 \in S\]
+            请记住，$\mathcal{P}(\mathbb{N})$ 是 $\mathbb{N}$ 的\emph{幂集}，即 $\mathbb{N}$ 的所有子集的集合；因此，根据要求，$S \in \mathcal{P}(\mathbb{N})$ 意味着 $S \subseteq \mathbb{N}$。
+        \item ``每个整数都有一个\emph{加法逆元}（即，当与原始数字相加时，结果为 $0$）。''
+            ``加法逆元''的概念是一个通用概念，适用于一些称为\emph{环}和\emph{域}的数学对象。我们不会在本书中讨论这些对象，但你会在抽象代数课程中接触它们。\\
+            我们可以将此声明写为:
+            \[\forall a \in \mathbb{Z} \centerdot \exists b \in \mathbb{Z} \centerdot a + b = 0\]
+            读作：
+            \begin{center}
+                对于任意整数 $a$，都存在一个整数 $b$，使得 $a + b = 0$。
+            \end{center}
+            或
+            \begin{center}
+                无论给定什么整数 $a$，我们都可以找到一个具有 $a + b = 0$ 性质的整数 $b$。
+            \end{center}
+            同样，我们可以通过将 $I(a, b)$ 定义为 ``$a + b = 0$'' 来稍微缩短符号，然后将声明写为：
+            \[\forall \in \mathbb{Z} \centerdot \exists b \in \mathbb{Z} \centerdot I(a, b)\]
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    以下是正确使用 ``$\forall$'' 的一些示例，以及如何使用该符号的一些等效表述。
+    \begin{itemize}
+        \item $\forall x \in \mathbb{R} \centerdot x^2 \ge 0$
+        \item 对于所有实数 $x$，我们有 $x^2 \ge 0$。
+        \item 每个实数 $x$ 都满足 $x^2 \ge 0$。
+        \item 当 $x$ 为实数时，我们知道 $x^2 \ge 0$。
+    \end{itemize}
+    同样，下面是符号 ``$\exists$'' 的正确用法和等效表述的示例。
+    \begin{itemize}
+        \item $\exists x \in \mathbb{R} \centerdot x^2 - 4x + 4 = 0$
+        \item 存在实数 $x$ 使得 $x^2 - 4x + 4 = 0$。
+        \item 存在实数 $x$ 满足 $x^2 - 4x + 4 = 0$。
+        \item 某个实数 $x$ 具有 $x^2 - 4x + 4 = 0$ 的性质。
+    \end{itemize}
+\end{example}
+
+\subsubsection*{朗读量化陈述}
+
+\begin{example}
+    现在来看一些更难的例子。让我们回顾一下我们在上一节末尾写的短语，并使用这个新的符号来表达它们。考虑一下这个陈述：
+    \begin{center}
+        对于每个实数 $x$，存在一个实数 $y$，使得 $y = x^3$。
+    \end{center}
+    为了以符号形式表达这一点，我们将 $P(x, y)$ 定义为命题 ``$y = x^3$''，然后将该陈述写为：
+    \[\exists y \in \mathbb{R} \centerdot \forall x \in \mathbb{R} \centerdot P(x, y)\]
+    从逻辑上讲，这是正确的，并且相当简洁。目前，我们有时会使用一些``辅助短语''来重写该陈述，以帮助我们更好地阅读出来。特别是，我们在朗读时会使用这些``辅助短语''，因此我们将它们写下来，为你提供一些口头解释逻辑符号的额外练习。我们将上面的陈述朗读为
+    \begin{center}
+        存在一个实数 $y$，使得对于每个实数 $x$，陈述 $P(x, y)$ 成立。
+    \end{center}
+    短语``使得''就是一个``辅助短语''，它将存在量化与短语的其余部分联系起来。下一小节包含有关何时以及如何使用此辅助短语的一些重要信息！
+\end{example}
+
+上述陈述的量化部分之间的``大点''只是用于分隔陈述的各个部分，使其更易于阅读。它对应于说话中的停顿或休止，就像逗号一样，但有时它具有语音含义（例如 ``$\exists y \in \mathbb{R}$'' 部分后面的``使得''）。
+
+不过，我们不想使用逗号，因为我们已经将它们用于其他含义。例如，
+\[x, y \in S\]
+表示 ``$x$ 和 $y$ 都是集合 $S$ 的元素''。``大点''是不同的符号。
+
+相对而言，由于我们的数学生涯还很年轻，因此我们鼓励你尽量写下``使得''和``为\verb|真|''等辅助短语来指导你的理解。这会提醒你句子的含义，并帮助你练习以简洁的形式阅读和书写此类陈述。请记住，你在学习一门语言，你需要练习将句子从你知道的一种语言（汉语）\emph{翻译}成另一种语言（数学）。例如，你可能想将上面例子写为（或者，至少在你的脑海里读作）：
+\[\exists y \in \mathbb{R} \;\text{使得}\; \forall x \in \mathbb{R} \centerdot P(x, y) \;\text{为}\verb|真|\]
+（顺带一提，当在白板/黑板或纸上书写时，通常会用 ``s.t.'' 代替 ``such that'' 或``使得''，以节省书写时间。这只是表明 ``such that'' 或``使得''这个短语在数学写作中是多么普遍；我们已经有了一个约定的缩写了！）

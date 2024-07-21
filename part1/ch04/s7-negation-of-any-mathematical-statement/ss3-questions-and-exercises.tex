@@ -1,0 +1,50 @@
+% !TeX root = ../../../book.tex
+\subsection{习题}
+
+\subsubsection*{温故知新}
+
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 数学陈述与其逻辑否定有何关系？
+    \item 条件陈述的逻辑否定是什么？
+    \item 考虑命题 $P \implies Q$。它的逆否形式是什么？该逆否形式的逻辑否定是什么？你能看出它一定与原始陈述的逻辑否定具有\emph{相同的}真值吗？
+    \item \emph{当且仅当}形式的陈述 $P \iff Q$ 的逻辑否定是什么？为什么这是合理的？
+\end{enumerate}
+
+\subsubsection*{小试牛刀}
+
+尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 写出以下每个数学陈述的逻辑否定。然后，确定每个陈述的真值。（如果你觉得自己牛逼，请正式证明/证伪每个陈述！）
+    \begin{enumerate}[label=(\alph*)]
+        \item $\exists x \in \mathbb{N} \centerdot \forall y \in \mathbb{N} \centerdot y - x^2 \ge 0$
+        \item $\exists x \in \mathbb{Z} \centerdot \forall y \in \mathbb{R} \centerdot xy = 0$
+        \item $\exists x \in \mathbb{Z} \centerdot \forall y \in \mathbb{Z} \centerdot (y \ne 0 \implies xy > 0)$
+        \item $\forall a, b \in \mathbb{Q} \centerdot ab \in \mathbb{Z} \implies (a \in \mathbb{Z} \lor b \in \mathbb{Z})$
+        \item $\forall x \in \mathbb{R} \centerdot x > 0 \implies (\exists y \in \mathbb{R} \centerdot y < 0 \land xy > 0)$
+        \item $\forall x \in \mathbb{R} \centerdot |x + \frac{1}{x}| = 2 \iff x = 1$
+    \end{enumerate}
+    \item 设 $A = \{1, 2, 3, 4\}, B = \{2, 3\}$。下面两个陈述
+        \begin{enumerate}[label=(\alph*)]
+            \item $\forall x \in A \centerdot \forall y \in B \centerdot (x \ge y \implies x^2 \ge 4)$
+            \item $\forall x \in A \centerdot (\forall y \in B \centerdot x \ge y) \implies x^2 \ge 4$
+        \end{enumerate}
+        有什么区别？确定每个陈述的真值。然后，给出上面两个陈述的逻辑否定，并解释这些否定陈述有何不同。他们的真值是什么？
+    \item 设 $P = \{x \in \mathbb{R} \mid x > 0\}$。写出下列各陈述的逻辑否定，并确定其真值。
+        \begin{enumerate}[label=(\alph*)]
+            \item $\forall \varepsilon \in P \centerdot \forall x \in P \centerdot \exists \delta \in P \centerdot \forall y \in \mathbb{R} \centerdot \Big(|x-y|<\delta \implies |\frac{1}{x} - \frac{1}{y}| < \varepsilon \Big)$
+            \item $\forall \varepsilon \in P \centerdot \exists \delta \in P \centerdot \forall x \in P \centerdot \forall y \in \mathbb{R} \centerdot \Big(|x-y|<\delta \implies |\frac{1}{x} - \frac{1}{y}| < \varepsilon \Big)$
+        \end{enumerate}
+        \textbf{提示/建议}：像 $|a| < b$ 这样的陈述可以写成 $-b < a < b$。此外，像 $a < b < c$ 这样的陈述可以写成 $(a < b) \land (b < c)$。这有助于在确定陈述真值时重写陈述。
+    \item 令 $P(n)$ 为命题 ``$n$ 为奇数''，令 $Q(n)$ 为命题 ``$n^2 - 1$ 能被 $8$ 整除''。写出下面陈述的逻辑否定
+        \[\forall n \in \mathbb{N} \centerdot P(n) \iff Q(n)\]
+        并且确定其真值。
+    \item 令 $P = \{x \in \mathbb{R} \mid x > 0\}$。写出下列各陈述的逻辑否定，并确定其真值。
+        \begin{enumerate}[label=(\alph*)]
+            \item $\forall \varepsilon \in P \centerdot \exists \delta \in P \centerdot \forall x \in \mathbb{R} \centerdot 0 < x < \delta \implies \frac{1}{x} > \frac{10}{\varepsilon}$
+            \item $\forall \varepsilon \in P \centerdot \exists x \in \mathbb{R} \centerdot \forall n \in \mathbb{N} \centerdot (n > x \implies \frac{(-1)^n}{n} < \varepsilon)$
+            \item $\forall \varepsilon \in P \centerdot \exists x \in \mathbb{R} \centerdot \forall n \in \mathbb{N} \centerdot (n > x \iff\frac{(-1)^n}{n} < \varepsilon)$
+        \end{enumerate}
+\end{enumerate}

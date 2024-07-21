@@ -1,0 +1,338 @@
+% !TeX root = ../../../book.tex
+
+\subsection{模 $n$ 等价类}
+
+你已经证明了（参见引理 \ref{lemma6.5.9}）模 $n$ 同余确实是集合 $\mathbb{Z}$ 上的等价关系。你还证明了（参见定理 \ref{theorem6.4.10}）等价关系的等价类能够\emph{划分}底层集合。结合这两个结果，我们知道模 $n$ 同余可以将 $\mathbb{Z}$ 划分成若干个等价类。那么，我们如何表示这些等价类呢？每个类的代表元素应该如何选择呢？
+
+让我们先从两个更简单的问题开始：
+\begin{enumerate}[label=(\arabic*)]
+    \item $\mathbb{Z}$ 模 $n$ 有多少个等价类？
+    \item 这些等价类有多``大''？
+\end{enumerate}
+
+\subsubsection*{有多少等价类？}
+
+要回答问题 (1)，我们只需要回忆一下如何定义除以 $n$ 的余数。根据除法算法（参见引理 \ref{lemma6.5.2}），当我们将一个数除以 $n$ 时，余数 $r$ 必须满足 $0 \le r \le n-1$。这意味着余数最多有 $n$ 种可能：$0,1,2 \dots$ 一直到 $n-1$。（即，$r \in [n-1] \cup \{0\}$。）那么，是否确实存在余数为这些数的数呢？当然存在，因为我们可以直接使用这些数本身。例如，当我们将 $n-1$ 除以 $n$ 时，余数就是 $n-1$（因为 $n-1 < n$）。由此可见，$\mathbb{Z}$ 模 $n$ 的等价类恰好有 $n$ 个。
+
+通过相同的观察，我们可以确定这些等价类的\emph{代表元素}。由于 $a \equiv b \mod n$ 表示 $a$ 和 $b$ 除以 $n$ 具有相同的余数，那么我们可以声明这两个数属于由这个\emph{余数}所代表的等价类。这个余数 $r$ 必须满足 $0 \le r \le n-1$，我们写做 $a, b \in [r]_{\mod n}$ 来表示 $a$ 和 $b$ 属于由余数 $r$ 代表的等价类（下标 ``$\mod n$'' 表示余数是 $n$ 除得的结果）。
+
+\subsubsection*{这些类有多大？}
+
+让我们通过一个具体的例子来思考这个问题，例如 $n = 4$。对于一个整数 $z \in \mathbb{Z}$ 属于余数为 $0$ 的等价类，这意味着什么？也就是说，如果我们知道 $z \in [0]_{\mod 4}$，我们可以得出哪些关于 $z$ 的结论？
+
+根据模运算的定义，我们知道这意味着 $z$ 被 $4$ 除后余数为 $0$。也就是说，$z$ 是 $4$ 的\emph{倍数}。在整数集 $\mathbb{Z}$ 中，$4$ 的倍数有多少个呢？答案是无穷多个！例如，$4, 8, 12, 16, \dots ,$ 以及 $0,-4,-8,-12,\dots$。因此，集合 $[0]_{\mod 4}$ 是一个\emph{无限}集合。
+
+那么，$z \in [1]_{\mod 4}$ 又意味着什么呢？余数为 $1$ 意味着 $z$ 可以表示为 $4k + 1$；也就是说，\emph{存在}一个整数 $k$，使得 $z$ 可以这样表示。那 $k$ 可以取什么值呢？实际上，任意 $k \in \mathbb{Z}$ 都会生成一个这样的 $z$，因此我们可以考虑 $k = 0, k = 1, k = 2, \dots$ 以及 $k = -1, k = -2, \dots$ 看看结果如何。我们发现这会生成一个集合
+\begin{align*}
+    [1]_{\mod 4} &= \{\dots , -7, -3, 1, 5, 9, \dots \} \\
+    &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 4k + 1\} \\
+    &= \{4k + 1 \mid k \in \mathbb{Z}\}
+\end{align*}
+请注意，我们一开始用了 ``$\dots$'' 符号来展示我们发现的模式，随后又用集合构建符（以两种不同的方式）重写了这个集合。
+
+这也是一个无限集合。你可以尝试使用其他余数（无论是除以 $4$ 还是其他任意整数 $n$），来发现这些集合都是\emph{无限的}。（此外，我们尚未\emph{正式}定义什么是无限集合，但我们依赖的是共同的直觉。如果你想更好地理解，可以这样想：这个集合是无限的，因为我们可以列出它的所有元素，并找到一个生成所有元素的模式，但这个过程在有限时间内无法结束。）
+
+\subsubsection*{$\mathbb{Z}$ 模 $n$ 的划分}
+
+我们可以根据对等价类的观察，来总结 $\mathbb{Z}$ 模 $n$ 的等价类的标准表示。已知有 $n$ 个等价类，每个等价类包含无穷多个元素。每个等价类对应于整数除以 $n$ 的余数。由于余数必须满足 $0 \le r \le n-1$，我们将集合 $\{0, 1, 2, \dots , n-1\} = [n-1] \cup \{0\}$ 作为标准代表集合。
+
+余数为 $r$ 的等价类包含所有除以 $n$ 余 $r$ 的整数。换句话说，所有 $z \in [r]_{\mod n}$ 的元素都是 $n$ 的某个倍数加上 $r$。也就是说，我们可以通过从 $r$ 开始不断加上或减去 $n$ 来生成等价类的所有元素。这样，同一等价类中的任何两个元素相差 $n$ 的倍数。
+
+\setlength{\fboxrule}{2pt}
+\setlength\fboxsep{5mm}
+\begin{center}
+\noindent \fcolorbox{blue}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{blue}{\textbf{$\mathbb{Z}$ 模 $n$ 等价类：}}\\
+        给定 $n \in \mathbb{N}$，恰好存在 $n$ 个等价类
+        \[[0]_{\mod n}, [1]_{\mod n}, [2]_{\mod n}, \dots ,[n-1]_{\mod n}\]
+        它们的特点是：
+        \begin{align*}
+            [0]_{\mod n} &=  \{\dots, -2n, -n, 0, n, 2n, \dots \} \\
+            &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = kn\}\\
+            [1]_{\mod n} &=  \{\dots, -2n+1, -n+1, 1, n+1, 2n+1, \dots \} \\
+            &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = kn+1\}\\
+            [2]_{\mod n} &=  \{\dots, -2n+2, -n+2, 2, n+2, 2n+2, \dots \} \\
+            &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = kn+2\}\\
+            &\vdots \\
+            [n-1]_{\mod n} &=  \{\dots, -n-1, -1, n-1, 2n-1, 3n-1, \dots \} \\
+            &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = kn+(n-1)\}\\
+            &= \{z \in \mathbb{Z} \mid \exists \ell \in \mathbb{Z} \centerdot z = \ell n-1\}
+        \end{align*}
+    }
+}
+\end{center}
+
+以上是我们所有观察结果的全面总结。下面是一些具体 $n$ 值的例子。
+
+\begin{itemize}
+    \item 考虑 $n=2$。等价类为
+        \begin{align*}
+            [0]_{\mod 2} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 2k\} =  \{\text{偶数}\}\\
+            &= \{\dots, -6, -4, -2, 0, 2, 4, 6 \dots \}\\
+            [1]_{\mod 2} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 2k+1\} =  \{\text{奇数}\}\\
+            &= \{\dots, -5, -3, -1, 1, 3, 5, 7 \dots \}
+        \end{align*}
+    \item 考虑 $n=3$。等价类为
+        \begin{align*}
+            [0]_{\mod 3} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 3k\} =  \{3 \;\text{ 的倍数}\}\\
+            &= \{\dots, -9, -6, -3, 0, 3, 6, 9 \dots \}\\
+            [1]_{\mod 3} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 3k+1\} =  \{3 \;\text{ 的倍数加 }\; 1\}\\
+            &= \{\dots, -8, -5, -2, 1, 4, 7, 10 \dots \}\\
+            [2]_{\mod 3} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 3k+2\} =  \{3 \;\text{ 的倍数加 }\; 2\}\\
+            &= \{\dots, -7, -4, -1, 2, 5, 8, 11 \dots \}
+        \end{align*}
+    \item 考虑 $n=4$。等价类为
+        \begin{align*}
+            [0]_{\mod 4} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 4k\} =  \{4 \;\text{ 的倍数}\}\\
+            &= \{\dots, -12, -8, -4, 0, 4, 8, 12 \dots \}\\
+            [1]_{\mod 4} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 4k+1\} =  \{4 \;\text{ 的倍数加 }\; 1\}\\
+            &= \{\dots, -11, -7, -3, 1, 5, 9, 13 \dots \}\\
+            [2]_{\mod 4} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 4k+2\} =  \{4 \;\text{ 的倍数加 }\; 2\}\\
+            &= \{\dots, -10, -6, -2, 2, 6, 10, 14 \dots \}\\
+            [3]_{\mod 4} &= \{z \in \mathbb{Z} \mid \exists k \in \mathbb{Z} \centerdot z = 4k+3\} =  \{4 \;\text{ 的倍数加 }\; 3\}\\
+            &= \{\dots, -9, -5, -1, 3, 7, 11, 15 \dots \}
+        \end{align*}
+\end{itemize}
+
+\subsubsection*{使用等价类}
+
+为什么这很有用？为什么我们要带你了解整数模特定等价关系集合的构建？
+
+$\mathbb{Z}$ 被这些等价类\textbf{划分}这一点非常重要。因此，每当我们在 $\mathbb{Z}$ 模 $n$ 的背景下进行算术运算时，只需要考虑这些等价类，即余数。我们可以将所有整数简化为 ${0, 1, 2, \dots , n-1}$ 这些数字，因为它们代表了所有整数。这样，我们不需要进行大量大数算术运算再找余数；只需处理这些余数即可。让我们通过几个例子来看看这种划分的实际用处。\\
+
+\begin{example}
+    考虑下面的声明：
+    \[\forall n \in \mathbb{N} \centerdot 6 \mid n^3 + 5n\]
+    我们之前让你通过对 $n$ 进行归纳来证明这个问题！(参见 \ref{sec:section5.7} 节的练习 \ref{exc:exercises5.7.15}) 现在，我们将利用等价类来证明这一点！
+
+    考虑 $\mathbb{Z}$ 模 $6$。因为 $\mathbb{N} \subseteq \mathbb{Z}$，根据除以 $6$ 的余数，我们知道每个 $n \in \mathbb{N}$ 必然落在等价类 $[0]_{\mod 6}, [1]_{\mod 6}, [2]_{\mod 6}, [3]_{\mod 6}, [4]_{\mod 6}, [5]_{\mod 6}$ 中的\textbf{一个}。
+
+    我们可以分别检查每种情况。假设 $n$ 属于某个特定的等价类，这样我们就可以计算出 $n^3+5n$ 属于哪个等价类。在每种情况下，我们通过乘法（以及幂运算，即重复乘法）和加法，应用模算术引理 \ref{lemma6.5.10}。
+    \begin{align*}
+        n \equiv 0 \mod 6 &\implies n^3 + 5n \equiv 0^3 + 5 \cdot 0 \equiv 0 \mod 6 \\
+        n \equiv 1 \mod 6 &\implies n^3 + 5n \equiv 1^3 + 5 \cdot 1 \equiv 6 \equiv 0 \mod 6 \\
+        n \equiv 2 \mod 6 &\implies n^3 + 5n \equiv 2^3 + 5 \cdot 2 \equiv 18 \equiv 0 \mod 6 \\
+        n \equiv 3 \mod 6 &\implies n^3 + 5n \equiv 3^3 + 5 \cdot 3 \equiv 42 \equiv 0 \mod 6 \\
+        n \equiv 4 \mod 6 &\implies n^3 + 5n \equiv 4^3 + 5 \cdot 4 \equiv 84 \equiv 0 \mod 6 \\
+        n \equiv 5 \mod 6 &\implies n^3 + 5n \equiv 5^3 + 5 \cdot 5 \equiv 150 \equiv 0 \mod 6 
+    \end{align*}
+    以上每种情况，我们都得到 $n^3 + 5n$ 是 $6$ 的倍数（因为它除以 $6$ 的余数是 $0$）。这说明无论 $n$ 取什么值，$n^3 + 5n$ 都是 $6$ 的倍数。这证明了对于所有 $n \in \mathbb{N}$，该命题成立，从而无需使用归纳论证！
+\end{example}
+
+\begin{example}[二次残差]\label{ex:example6.5.15}
+
+    在这个例子中，我们将研究完全平方数。具体来说，我们将探讨完全平方数在被不同的数字除时会产生哪些余数。这个例子非常有趣，因为你会发现，根据除数的不同，余数会呈现出一些独特的模式，你可能会因此想要进一步探索这些模式（如果是这样，那就太好了！）。此外，这个例子还很有用，因为我们的研究会引导我们得出一些其他结果，这些结果在本文和练习中都有证明。特别是，研究完全平方数在探索\textbf{毕达哥拉斯三元组}时非常有帮助；毕达哥拉斯三元组是指满足 $a^2 + b^2 = c^2$ 的整数三元组 $(a, b, c) \in \mathbb{N}^3$。了解完全平方数的性质可以帮助我们证明这些三元组的一些有趣的事实！
+
+    对于以下情况，我们将固定一个特定的 $n \in \mathbb{N}$，然后研究对于每个 $x \in \mathbb{Z}, x^2$ 模 $n$ 的结果。在了解 $\mathbb{Z}$ 模 $n$ 的划分后，我们可以简化为查看所有 $n$ 个可能的模 $n$ 余数，然后平方取模。这些可能的余数称为\textbf{二次残差}（称之为\emph{二次}是因为我们使用完全平方数，称之为\emph{残差}是因为我们寻找余数）。在每种情况下，我们将总结这些可能的二次残差列表。
+
+    $\mathbf{n=2}$:
+
+    我们知道，只有当底数为偶数时，完全平方数才是偶数；只有当底数为奇数时，完全平方数才是奇数。在第 \ref{ch:chapter04} 章中，我们曾通过讨论双条件陈述、量词和证明技巧来验证这些说法。现在无需重新正式证明这些结论；我们可以通过模运算轻松验证这些结果。\\
+    设 $x \in \mathbb{Z}$ 为任意固定整数。
+    \begin{itemize}
+        \item 首先，假设 $x \equiv 0 \mod 2$ （即 $x$ 为偶数）。则应用模算术引理可得 $x^2 \equiv 0 \mod 2$ （即 $x^2$ 为偶数）。
+        \item 其次，假设 $x \equiv 1 \mod 2$ （即 $x$ 为奇数）。则应用模算术引理可得 $x^2 \equiv 1 \mod 2$ （即 $x^2$ 为奇数）。
+    \end{itemize}
+    因此，$\mathbb{Z}$ 模 $2$ 的划分告诉我们，这是唯一需要考虑的情况。
+    \begin{quotation}
+        \begin{center}
+            \large 模 $2$ 二次残差：$\{0, 1\}$
+        \end{center}
+    \end{quotation}
+
+    $\mathbf{n=3}$: 
+
+    设 $x \in \mathbb{Z}$ 为任意固定整数。应用模算术引理可得：
+    \begin{itemize}
+        \item $x \equiv 0 \mod 3 \implies x^2 \equiv 0^2 \equiv 0 \mod 3$
+        \item $x \equiv 1 \mod 3 \implies x^2 \equiv 1^2 \equiv 1 \mod 3$
+        \item $x \equiv 2 \mod 3 \implies x^2 \equiv 2^2 \equiv 4 \equiv 1 \mod 3$
+    \end{itemize}
+    \begin{quotation}
+        \begin{center}
+            \large 模 $3$ 二次残差：$\{0, 1\}$
+        \end{center}
+    \end{quotation}
+
+    $\mathbf{n=4}$: 
+
+    设 $x \in \mathbb{Z}$ 为任意固定整数。应用模算术引理可得：
+    \begin{itemize}
+        \item $x \equiv 0 \mod 4 \implies x^2 \equiv 0^2 \equiv 0 \mod 4$
+        \item $x \equiv 1 \mod 4 \implies x^2 \equiv 1^2 \equiv 1 \mod 4$
+        \item $x \equiv 2 \mod 4 \implies x^2 \equiv 2^2 \equiv 4 \equiv 0 \mod 4$
+        \item $x \equiv 3 \mod 4 \implies x^2 \equiv 3^2 \equiv 9 \equiv 1 \mod 4$
+    \end{itemize}
+    \begin{quotation}
+        \begin{center}
+            \large 模 $4$ 二次残差：$\{0, 1\}$
+        \end{center}
+    \end{quotation}
+
+    $\mathbf{n=5}$: 
+
+    设 $x \in \mathbb{Z}$ 为任意固定整数。应用模算术引理可得：
+    \begin{itemize}
+        \item $x \equiv 0 \mod 5 \implies x^2 \equiv 0^2 \equiv 0 \mod 5$
+        \item $x \equiv 1 \mod 5 \implies x^2 \equiv 1^2 \equiv 1 \mod 5$
+        \item $x \equiv 2 \mod 5 \implies x^2 \equiv 2^2 \equiv 4 \mod 5$
+        \item $x \equiv 3 \mod 5 \implies x^2 \equiv 3^2 \equiv 9 \equiv 4 \mod 5$
+        \item $x \equiv 4 \mod 5 \implies x^2 \equiv 4^2 \equiv 16 \equiv 1 \mod 5$
+    \end{itemize}
+    \begin{quotation}
+        \begin{center}
+            \large 模 $5$ 二次残差：$\{0, 1, 4\}$
+        \end{center}
+    \end{quotation}
+
+    $\mathbf{n=6}$: 
+
+    设 $x \in \mathbb{Z}$ 为任意固定整数。应用模算术引理可得：
+    \begin{itemize}
+        \item $x \equiv 0 \mod 6 \implies x^2 \equiv 0^2 \equiv 0 \mod 6$
+        \item $x \equiv 1 \mod 6 \implies x^2 \equiv 1^2 \equiv 1 \mod 6$
+        \item $x \equiv 2 \mod 6 \implies x^2 \equiv 2^2 \equiv 4 \mod 6$
+        \item $x \equiv 3 \mod 6 \implies x^2 \equiv 3^2 \equiv 9 \equiv 3 \mod 6$
+        \item $x \equiv 4 \mod 6 \implies x^2 \equiv 4^2 \equiv 16 \equiv 4 \mod 6$
+        \item $x \equiv 5 \mod 6 \implies x^2 \equiv 5^2 \equiv 25 \equiv 1 \mod 6$
+    \end{itemize}
+    \begin{quotation}
+        \begin{center}
+            \large 模 $6$ 二次残差：$\{0, 1, 3, 4\}$
+        \end{center}
+    \end{quotation}
+
+    $\mathbf{n=7}$: 
+
+    设 $x \in \mathbb{Z}$ 为任意固定整数。应用模算术引理可得：
+    \begin{itemize}
+        \item $x \equiv 0 \mod 7 \implies x^2 \equiv 0^2 \equiv 0 \mod 7$
+        \item $x \equiv 1 \mod 7 \implies x^2 \equiv 1^2 \equiv 1 \mod 7$
+        \item $x \equiv 2 \mod 7 \implies x^2 \equiv 2^2 \equiv 4 \mod 7$
+        \item $x \equiv 3 \mod 7 \implies x^2 \equiv 3^2 \equiv 9 \equiv 2 \mod 7$
+        \item $x \equiv 4 \mod 7 \implies x^2 \equiv 4^2 \equiv 16 \equiv 2 \mod 7$
+        \item $x \equiv 5 \mod 7 \implies x^2 \equiv 5^2 \equiv 25 \equiv 4 \mod 7$
+        \item $x \equiv 6 \mod 7 \implies x^2 \equiv 6^2 \equiv 36 \equiv 1 \mod 7$
+    \end{itemize}
+    \begin{quotation}
+        \begin{center}
+            \large 模 $7$ 二次残差：$\{0, 1, 2, 4\}$
+        \end{center}
+    \end{quotation}
+
+    $\mathbf{n=8}$: 
+
+    设 $x \in \mathbb{Z}$ 为任意固定整数。应用模算术引理可得：
+    \begin{itemize}
+        \item $x \equiv 0 \mod 8 \implies x^2 \equiv 0^2 \equiv 0 \mod 8$
+        \item $x \equiv 1 \mod 8 \implies x^2 \equiv 1^2 \equiv 1 \mod 8$
+        \item $x \equiv 2 \mod 8 \implies x^2 \equiv 2^2 \equiv 4 \mod 8$
+        \item $x \equiv 3 \mod 8 \implies x^2 \equiv 3^2 \equiv 9 \equiv 1 \mod 8$
+        \item $x \equiv 4 \mod 8 \implies x^2 \equiv 4^2 \equiv 16 \equiv 0 \mod 8$
+        \item $x \equiv 5 \mod 8 \implies x^2 \equiv 5^2 \equiv 25 \equiv 1 \mod 8$
+        \item $x \equiv 6 \mod 8 \implies x^2 \equiv 6^2 \equiv 36 \equiv 4 \mod 8$
+        \item $x \equiv 7 \mod 8 \implies x^2 \equiv 7^2 \equiv 49 \equiv 1 \mod 8$
+    \end{itemize}
+    \begin{quotation}
+        \begin{center}
+            \large 模 $8$ 二次残差：$\{0, 1, 4\}$
+        \end{center}
+    \end{quotation}
+
+    我们鼓励你继续研究其他二次残差。你甚至可以尝试编写一个计算机程序来生成这些列表。你发现什么规律了吗？对于给定的 $n \in \mathbb{N}$，模 $n$ 的二次残差有多少个？它们分别是什么？你能否确定某些数字在任何给定的列表中一定会出现或一定不会出现？请尝试探索一下吧！
+\end{example}
+
+\begin{example}
+    让我们将前一个例子中的思想进行推广，看看在特定情况下\emph{三次残差}的情况如何。
+    \begin{quote}
+        假设 $x, y, z \in \mathbb{Z}$ 满足 $x^3+y^3=z^3$。\\
+        证明值 $\{x, y, z\}$中至少有一个是 $7$ 的倍数。
+    \end{quote}
+    重申一下我们的目标，我们要证明
+    \[x \equiv 0 \mod 7 \lor y \equiv 0 \mod 7 \lor z \equiv 0 \mod 7\]
+    为此，让我们来看看模 $7$ 的三次残差有哪些。\\
+    设 $x \in \mathbb{Z}$ 为任意固定整数。应用模算术引理可得：
+    \begin{itemize}
+        \item $x \equiv 0 \mod 7 \implies x^3 \equiv 0^3 \equiv 0 \mod 7$
+        \item $x \equiv 1 \mod 7 \implies x^3 \equiv 1^3 \equiv 1 \mod 7$
+        \item $x \equiv 2 \mod 7 \implies x^3 \equiv 2^3 \equiv 8 \equiv 1 \mod 7$
+        \item $x \equiv 3 \mod 7 \implies x^3 \equiv 3^3 \equiv 9 \cdot 3 \equiv 2 \cdot 3 \equiv 6 \mod 7$
+        \item $x \equiv 4 \mod 7 \implies x^3 \equiv 4^3 \equiv 16 \cdot 4 \equiv 2 \cdot 4 \equiv 8 \equiv 1 \mod 7$
+        \item $x \equiv 5 \mod 7 \implies x^3 \equiv 5^3 \equiv 25 \cdot 5 \equiv 4 \cdot 5 \equiv 20 \equiv 6 \mod 7$
+        \item $x \equiv 6 \mod 7 \implies x^3 \equiv 6^3 \equiv (-1)^3 \equiv -1 \equiv 6 \mod 7$
+    \end{itemize}
+    （注意，为了简化计算，我们将 $6$ 写成 $-1$ 再模 $7$。）
+
+    我们发现唯一的可能值是 $\{0, 1, 6\}$。
+
+    现在，假设我们有一个方程的解，即我们有 $x, y, z \in \mathbb{Z}$ 使得 $x^3 + y^3 = z^3$。每一项 --- $x^3,y^3,z^3$ 模 $7$ 同余于 $0$ 或 $1$ 或 $6$。让我们来看些例子。
+    \begin{itemize}
+        \item 假设 $x^3 \equiv 0 \mod 7$。则 $y^3$ 可以与 $0$ 或 $1$ 或 $6$ 模 $7$ 同余，我们只需要让 $x^3$ 落在相同的等价类即可。不管怎样，在这种情况下，我们有 $x^3 \equiv 0 \mod 7$。
+        \item 假设 $y^3 \equiv 0 \mod 7$。将上面的论证应用于 $x^3$ 和 $z^3$。不管怎样，在这种情况下，我们有 $y^3 \equiv 0 \mod 7$。
+        \item 假设 $x^3 \equiv 1 \mod 7$。\\
+            为了引出矛盾而假设 $y^3 \equiv 1 \mod 7$。则 $x^3+y^3 \equiv 1+1 \equiv 2 \mod 7$，但 $2$ 不在模 $7$ 的立方残差中，因此这是不可能的。\\
+            然而我们发现 $y^3 \equiv 0 \mod 7$ 是可能的，因为 $x^3+y^3 \equiv 1+0 \equiv 1 \mod 7$。\\
+            同时我们发现 $y^3 \equiv 6 \mod 7$ 是可能的，因为 $x^3+y^3 \equiv 1+6 \equiv 7 \equiv 0 \mod 7$。\\
+            不管怎样，在这种情况下，我们\emph{至少}有一个立方数 --- 要么是 $y^3$ 要么是 $z^3$ --- 与 $0$ 模 $7$ 同余。
+        \item 假设 $y^3 \equiv 1 \mod 7$。将上面的论证应用于 $x^3$ 和 $z^3$。我们发现，不管怎样，至少有一个立方数 与 $0$ 模 $7$ 同余。
+        \item 假设 $x^3 \equiv 6 \mod 7$。\\
+            为了引出矛盾而假设 $y^3 \equiv 6 \mod 7$。则 $x^3+y^3 \equiv 6+6 \equiv 12 \equiv 5 \mod 7$，但 $5$ 不在模 $7$ 的立方残差中，因此这是不可能的。\\
+            然而我们发现 $y^3 \equiv 0 \mod 7$ 是可能的，因为 $x^3+y^3 \equiv 6+0 \equiv 6 \mod 7$。\\
+            同时我们发现 $y^3 \equiv 1 \mod 7$ 是可能的，因为 $x^3+y^3 \equiv 6+1 \equiv 7 \equiv 0 \mod 7$。\\
+            不管怎样，在这种情况下，我们\emph{至少}有一个立方数 --- 要么是 $y^3$ 要么是 $z^3$ --- 与 $0$ 模 $7$ 同余。
+        \item 假设 $y^3 \equiv 6 \mod 7$。将上面的论证应用于 $x^3$ 和 $z^3$。我们发现，不管怎样，至少有一个立方数 与 $0$ 模 $7$ 同余。
+    \end{itemize}
+
+    我们现在已经知道，无论是哪种情况，总有\textbf{至少}一个立方数与 $0$ 模 $7$ 同余。具体哪个立方数具有这种性质取决于具体情况（有时可能有多个立方数符合），但总有至少一个。
+
+    这对我们很有帮助，因为我们可以回顾一下立方残差列表，会发现一个有趣的现象：\emph{唯一}一个立方数与 $0$ 模 $7$ 同余的底数本身也与 $0$ 模 $7$ 同余！换句话说，
+    \[\forall z \in \mathbb{Z} \centerdot z^3 \equiv 0 \mod 7 \implies z \equiv 0 \mod 7\]
+    这意味着，在上述每种情况下，我们至少有一个立方数与 $0$ 模 $7$ 同余，这进一步说明我们至少有一个底数与 $0$ 模 $7$ 同余。通过列出所有可能性并分析一些情况，我们已经证明了这个方程\emph{所有可能解}的一个性质，而无需找到具体的解！
+\end{example}
+
+现在，尽管所有工作都已经完成，但我们有个不幸的消息：原方程\emph{唯一}的解是\emph{平凡}解，即 $x = y = z = 0$。就是这样！你可以尝试寻找其他解，但都是徒劳的。这个结果是\textbf{费马大定理}的一个特例，该定理指出，对于方程 $x^k + y^k = z^k$（其中 $k \in \mathbb{N}$），只有当 $k = 1$ 或 $k = 2$ 时，才存在非平凡的整数解（即 $x, y, z \in \mathbb{Z}$）；也就是说，当 $k \in \mathbb{N} - \{1, 2\}$ 时，唯一的解是 $x = y = z = 0$。
+
+费马在世时曾提到过这个事实，但他从未发表过证明。他在一个笔记本空白处声称自己有一个简短的证明，但空间不足以写下它，不过我们现在知道这可能并不是真的。费马生活在 1600 年代，但这个定理直到 1990 年代才被证明\footnote{安德鲁·怀尔斯 (Andrew Wiles) 于 1994 年证明了费马大定理。--- 译者注}！而且，这个证明涉及了大量在费马之后逐步发展起来的强大数学工具。
+
+如果我们了解这个定理，就能很轻松地证明这个例子中的陈述了！既然唯一的解是 $x = y = z = 0$，那么显然这些值都是 $7$ 的倍数。然而，这样做既没有趣味，也不能让我们练习模算术和等价类。\\
+
+\begin{example}
+    这是另一个涉及立方残差的问题：
+    \begin{quote}
+        假设 $x, y, z \in \mathbb{Z}$ 满足 $x^3+y^3+z^3=3$。\\
+        证明值 $x^3 \equiv y^3 \equiv z^3 \mod 9$。
+    \end{quote}
+
+    我们这里讨论的是一个特定的\emph{丢番图方程}。丢番图方程是指那些带有多个变量和整数系数的多项式方程。要解这样的丢番图方程，需要找到一组整数，使得这些整数代入方程后能够成立。在这个问题中，我们要证明方程的任意解都必须使得所有项 --- $x^3, y^3, z^3$ --- 在模 $9$ 同余。
+
+    首先，试着找出该方程的几个解，看看具体的例子。我们提供几个简单的例子帮助你入门：例如 $(x, y, z)$ 可以等于 $(1, 1, 1)$ 或 $(4, 4, -5)$。你发现这些解符合我们要求的性质了吗？你还能找到其他解吗？（这个问题比较难，不用太过在上面投入精力。）
+
+    有趣的是，我们甚至不需要识别所有解的具体形式或找到它们，就可以证明这一结论。我们只需要找出模 $9$ 的立方残差：\\
+    设 $x \in \mathbb{Z}$ 为任意固定整数。应用模算术引理可得：
+    \begin{itemize}
+        \item $x \equiv 0 \mod 9 \implies x^3 \equiv 0^3 \equiv 0 \mod 9$
+        \item $x \equiv 1 \mod 9 \implies x^3 \equiv 1^3 \equiv 1 \mod 9$
+        \item $x \equiv 2 \mod 9 \implies x^3 \equiv 2^3 \equiv 8 \mod 9$
+        \item $x \equiv 3 \mod 9 \implies x^3 \equiv 3^3 \equiv 9 \cdot 3 0 \mod 9$
+        \item $x \equiv 4 \mod 9 \implies x^3 \equiv 4^3 \equiv 16 \cdot 4 \equiv (-2) \cdot 4 \equiv -8 \equiv 1 \mod 9$
+        \item $x \equiv 5 \mod 9 \implies x^3 \equiv 5^3 \equiv 25 \cdot 5 \equiv (-2) \cdot 5 \equiv -10 \equiv 8 \mod 9$
+        \item $x \equiv 6 \mod 9 \implies x^3 \equiv 6^3 \equiv 36 \cdot 6 \equiv 0 \cdot 6 \equiv 0 \mod 9$
+        \item $x \equiv 7 \mod 9 \implies x^3 \equiv 7^3 \equiv 49 \cdot 7 \equiv 4 \cdot (-2) \equiv -8 \equiv 1 \mod 9$
+        \item $x \equiv 8 \mod 9 \implies x^3 \equiv 8^3 \equiv (-1)^3 \equiv -1 \equiv 8 \mod 9$
+    \end{itemize}
+    注意，在某些情况下，我们会使用负数来简化计算。这是完全可以的，并且对你大有帮助！例如，与其计算 $4^3 = 64$ 然后模 $9$，我们可以用 $-2$ 来代替 $16$ 以保持数字较小。我们可以随时从任何数中加减 $9$ 的倍数，因此在计算过程中可以这样做，而不是先得到一个大数然后再模 $9$。（当然，$64$ 并不是一个很大的数字，所以这一点似乎不太显著；然而，当你处理更大的数字时，这就非常有用。此外，尽可能将数字简化到个位数，可以减少心算错误的发生！）注意，我们在最右边只看到了三种可能性；模 $9$ 的立方残差为 $\{0, 1, 8\}$。就是这样！
+
+    当然，要使 $x^3 + y^3 + z^3 = 3$ 成立，我们需要 $x^3 + y^3 + z^3 \equiv 3 \mod 9$，因为 $3 \equiv 3 \mod 9$。查看可能的立方残差 --- $0, 1, 8$ --- 我们发现\emph{只有} $1 + 1 + 1$ 等于 $3$。试试其他组合：$0 + 1 + 8 \equiv 9 \equiv 0 \mod 9$ 和 $8 + 8 + 8 \equiv 24 \equiv 6 \mod 9$ 等等。这意味着我们需要 $x^3 \equiv y^3 \equiv z^3 \equiv 1 \mod 9$，才能使 $(x, y, z)$ 成为解。
+
+    在解决这个问题时，我们证明了一个略强的结论。我们不仅知道 $x^3,y^3,z^3$ 必须模 $9$ 同余，它们还必须模 $9$ 同余于 $1$。这比我们原本需要的信息更多了一些。
+
+    现在，事实证明，这个问题还有一个\emph{更强的}结论。实际上，$x \equiv y \equiv z \mod 9$。也就是说，不仅它们的\emph{立方}模 $9$ 同余，它们的\emph{底数}也是模 $9$ 同余的。（注意，这并不意味着底数模 $9$ 同余于 $1$；例如，我们的另一个例子 $(4, 4, -5)$ 就表明情况并非如此。）不幸的是，证明这一点需要涉及很多高等数学，超出了本书的范围。不过，这应该能让你理解，这些``简单''的问题（易描述，小数值，纯整数）实际上需要非常复杂和深奥的数学才能解决。不过，不要把这看作是打击，而是启发：只需一点数学知识，我们就能触及这个问题的表面，这暗示了更为深刻和复杂的基础。
+
+    （如果你感兴趣，这里有一篇论文给出了完整的结论，证明了 $x \equiv y \equiv z \mod 9$ 是必然的：
+    \begin{quote}
+        \href{http://www.ams.org/journals/mcom/1985-44-169/S0025-5718-1985-0771049-4/S0025-5718-1985-0771049-4.pdf}{http://www.ams.org/journals/mcom/1985-44-169/\\S0025-5718-1985-0771049-4/S0025-5718-1985-0771049-4.pdf}
+    \end{quote}
+    即便是前两段，你也需要查阅一些定义才能阅读下来。完整阅读下来也需要你学习一些相关的数学知识，可能需要几个月也可能需要几年，具体时间取决于你的兴趣。记住这一点，并在你往后的数学生涯中再回头看看！）
+\end{example}

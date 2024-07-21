@@ -1,0 +1,268 @@
+% !TeX root = ../../../book.tex
+\section{本章习题}
+
+这些问题涵盖了本章的所有内容，甚至包括之前学习的材料和一些假设的数学知识。我们并不要求你解决\textbf{所有}问题，但你做得越多，学到的也越多！记住，要想真正\emph{学会}数学，就必须亲自去\emph{做}。试着亲自动手解决问题，阅读并思考其中的陈述。尝试写出证明并展示给朋友，看看他们是否能被说服。不断练习将你的想法清晰、准确、合乎逻辑地\emph{写}。写完证明后再进行修改，使其更加完善。最重要的是，坚持不断\emph{做}数学！
+
+标有 $\blacktriangleright$ 号的简答题只需解释或陈述答案，无需严格证明。
+
+特别具有挑战性的问题带有 $\bigstar$。
+
+\begin{exercise}
+    $\blacktriangleright$ 考虑全集 $U=\mathbb{Z}$。
+
+    令 $P(x)$ 表示命题 ``$1 \le x \le 3$''。
+
+    令 $Q(x)$ 表示命题 ``$\exists k \in \mathbb{Z} \centerdot x=2k$''。
+
+    令 $R(x)$ 表示命题 ``$x^2=4$''。
+
+    令 $S(x)$ 表示命题 ``$x=1$''。
+
+    对于以下每个陈述，用自然语言描述该陈述的含义，然后写出其逻辑否定，并判断其为\verb|真|还是为\verb|假|，以及为什么。
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $\forall x \in \mathbb{Z} \centerdot P(x) \implies Q(x)$
+        \item $\exists x \in \mathbb{Z} \centerdot R(x) \land P(x)$
+        \item $\forall x \in \mathbb{Z} \centerdot R(x) \implies P(x)$
+        \item $\forall x \in \mathbb{Z} \centerdot \exists y \in \mathbb{Z} \centerdot x \ne y \land P(x) \land R(y)$
+        \item $\forall x \in \mathbb{Z} \centerdot \exists y \in \mathbb{Z} \centerdot (S(x) \lor Q(x)) \land P(y) \land \neg Q(y)$
+        \item $\exists x \in \mathbb{Z} \centerdot S(x) \iff P(x) \land \neg Q(x)$
+        \item $\exists x \in \mathbb{Z} \centerdot S(x) \iff \neg P(x) \land Q(x)$
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    对于以下每个声明，定义一些集合和变量命题，用简洁的符号、逻辑符号表达该声明。然后，写出其逻辑否定。请注意哪个为\verb|真|哪个为\verb|假|。
+
+    \begin{enumerate}[label=(\alph*)]
+        \item 每个奇数自然数都是质数。
+        \item 存在一个严格大于任意整数平方的实数。
+        \item $-1$ 到 $1$ 之间的某个实数具有等于 $-1$ 到 $1$ 之间的某个不同实数的立方的性质。
+        \item 质数倍数集合的并集就是自然数集本身。
+    \end{enumerate}  
+\end{exercise}
+
+\begin{exercise}
+    考虑下面定义的集合以及有关这些集合的问题。对于每个问题，如果您的答案是\verb|否|，请提供一个示例来证明这一点。
+
+    \begin{enumerate}[label=(\alph*)]
+        \item 设 $S = \{1, 2, 3, 4\}$ 且 $T = \{3, 4, 5, 6, 7, 8\}$。\\
+            $\forall s \in S \centerdot \exists t \in T \centerdot s + t = 7$ 为\verb|真|吗？
+        \item 设 $S = \{2, 3, 4, 5, 6\}$ 且 $T = \{3, 4, 5, 6\}$。\\
+            $\forall s \in S \centerdot \exists t \in T \centerdot s + t = 7$ 为\verb|真|吗？
+        \item 设 $S = \mathbb{N}$ 且 $T = \mathbb{Z}$。\\
+            $\forall s \in S \centerdot \exists t \in T \centerdot s + t = 7$ 为\verb|真|吗？
+        \item 设 $S = \mathbb{Z}$ 且 $T = \mathbb{N}$。\\
+            $\forall s \in S \centerdot \exists t \in T \centerdot s + t = 7$ 为\verb|真|吗？
+    \end{enumerate}  
+\end{exercise}
+
+\begin{exercise}
+    考虑下面定义的集合以及有关这些集合的问题。对于每个问题，如果您的答案是\verb|否|，请提供一个示例来证明这一点。
+
+    \begin{enumerate}[label=(\alph*)]
+        \item 设 $S = \{1, 2, 3\}, T = \{6, 7, 8, 9\}, V = \{7, 8, 9, 10\}$。\\
+            $\exists s \in S \centerdot \forall t \in T \centerdot \exists v \in V \centerdot s + t = v$ 为\verb|真|吗？
+        \item 设 $S = \{1, 2, 3\}, T = \{4, 5, 6, 7\}, V = \{5, 6, 7, 9, 10, 11\}$。\\
+            $\exists s \in S \centerdot \forall t \in T \centerdot \exists v \in V \centerdot s + t = v$ 为\verb|真|吗？
+        \item 设 $S = T = V = \mathbb{N}$。\\
+            $\exists s \in S \centerdot \forall t \in T \centerdot \exists v \in V \centerdot s + t = v$ 为\verb|真|吗？
+        \item 设 $S = \mathbb{N}, T = \mathbb{Z}$, $V = \mathbb{N}$。\\
+            $\exists s \in S \centerdot \forall t \in T \centerdot \exists v \in V \centerdot s + t = v$ 为\verb|真|吗？
+    \end{enumerate}  
+\end{exercise}
+
+\begin{exercise}
+    严格证明或反驳下列声明：
+    \[\exists x \in \mathbb{R} \centerdot \forall y \in \mathbb{R} \centerdot x^2 - y^2 \ge 0\]
+\end{exercise}
+
+\begin{exercise}
+    严格证明或反驳下列声明：
+    \[\forall x, y \in \mathbb{Z} \centerdot \exists z \in \mathbb{N} \cup \{0\} \centerdot ((x - y) = z) \lor ((y - x) = z)\]
+\end{exercise}
+
+\begin{exercise}
+    证明方程 $x^2-y^2=14$ 无整数解（即 $x, y \in \mathbb{Z}$）。
+\end{exercise}
+
+\begin{exercise}
+    使用\emph{逻辑等价}证明：
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $(A \cup B) \cap \bar{A} = B - A$
+        \item $A \cap (B - C) = (A \cap B) - (A \cap C)$
+    \end{enumerate}  
+\end{exercise}
+
+\begin{exercise}
+    定义集合
+    \[A = \Big\{(x, y) \in \mathbb{R} \times \mathbb{R} \mid \frac{x}{y}+\frac{y}{x} \ge 2\Big\}\]
+    \[B = \{(x, y) \in \mathbb{R} \times \mathbb{R} \mid (x>0 \land y>0) \lor (x<0 \lor y<0)\}\]
+    是不是 $A \subseteq B$ 呢？如果是，请证明它。如果不是，请举出反例。\\
+    是不是 $B \subseteq A$ 呢？如果是，请证明它。如果不是，请举出反例。
+\end{exercise}
+
+\begin{exercise}
+    设 $P = \{y \in \mathbb{R} \mid y > 0\}$ 为正实数集合，证明如下声明：
+    \[\forall \varepsilon \in P \centerdot \exists \delta \in P \centerdot \forall x \in \mathbb{R} \centerdot |x| < \delta \implies|x^2| < \varepsilon\]
+\end{exercise}
+
+\begin{exercise}
+    下面对 $\mathcal{P}(C \cup D) = \mathcal{P}(C) \cup \mathcal{P}(D)$ 声明的``证明''有什么问题？
+    \begin{quote}
+        令 $X \in \mathcal{P}(C \cup D)$ 是任意固定的。
+
+        这意味着 $X \subseteq C \cup D$。
+
+        于是，$X \subseteq C \lor X \subseteq D$。
+
+        那么，$X \in \mathcal{P}(C) \lor X \in \mathcal{P}(D)$。
+        
+        那么，$X \in \mathcal{P}(C) \cup \mathcal{P}(D)$。
+
+        所以，$\mathcal{P}(C \cup D) = \mathcal{P}(C) \cup \mathcal{P}(D)$。
+    \end{quote}
+\end{exercise}
+
+\begin{exercise}
+    假设 $x \in \mathbb{Z}$ 且 $x^2$ 是 $8$ 的倍数。证明 $x$ 是偶数。该命题的逆命题为\verb|真|吗？如果是，请证明；如果不是，请举出反例。
+\end{exercise}
+
+\begin{exercise} \label{exc:exercises4.11.13}
+    定义命题 $E(z)$ 为``$z$ 为偶数。证明
+    \[\forall z \in \mathbb{Z} \centerdot E(z) \iff E(z^3)\]
+\end{exercise}
+
+\begin{exercise}
+    利用习题 \ref{exc:exercises4.11.13} 的结论证明 $\sqrt[3]{2}$ 为无理数。
+\end{exercise}
+
+\begin{exercise}
+    设 $P = \{y \in \mathbb{R} \mid y > 0\}$。证明
+    \[\bigcap_{x \in P} \Big\{y \in \mathbb{R} \mid 1-\frac{1}{x} < y < 2\Big\} = \{z \in \mathbb{R} \mid 1 < z <2\}\]
+\end{exercise}
+
+\begin{exercise}
+    定义集合 $A, B, C \subseteq U$。定义
+    \[S = \big((A \cap \bar{B}) \cup C \big)-A\]
+    \[T = C-(A \cup B)\]
+    是不是 $S \subseteq T$ 呢？如果是，请证明它。如果不是，请举出反例。\\
+    是不是 $T \subseteq S$ 呢？如果是，请证明它。如果不是，请举出反例。
+\end{exercise}
+
+\begin{exercise}
+    对于任意 $x \in \mathbb{R}$，定义集合
+    \[S_x = \{y \in \mathbb{R} \mid -x \le y \le x\}\]
+    \[P = \{y \in \mathbb{R} \mid y > 0\}\]
+    证明下列声明：
+    \begin{align*}
+        &\bigcap_{x \in P} S_x = \{0\} \\
+        &\bigcap_{x \in \mathbb{N}} S_x = \{y \in \mathbb{R} \mid -1 \le y \le 1\}
+    \end{align*}
+\end{exercise}
+
+\begin{exercise} \label{exc:exercises4.11.22}
+    设 $P$ 为变量命题
+    \[\frac{x^2+4}{x^2+1} < 1+\frac{1}{x}\]
+    设 $Q$ 为变量命题
+    \[\frac{x^2-4}{x^2+1} > 1-\frac{1}{x}\]
+    设 $S = \{x \in \mathbb{R} \mid x > 0\}$ 为正实数集合。
+
+    对于以下每个陈述，确定其为\verb|真|（在这种情况下，提供证明）还是为\verb|假|（在这种情况下，提供反例并证明其有效的原因）。
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $\forall x \in S \centerdot P(x) \implies Q(x)$
+        \item $\forall x \in S \centerdot Q(x) \implies P(x)$
+    \end{enumerate}  
+\end{exercise}
+
+\begin{exercise}
+    设 $A, B$ 为两个任意集合。证明
+    \[A \times B = B \times A \iff (A = B \lor A = \varnothing \lor B = \varnothing)\]
+    （不要忘记这里需要证明的是\emph{当且仅当}声明！）
+\end{exercise}
+
+\begin{exercise}
+    设 $A, B, C, D$ 为任意集合。证明
+    \[(A \times B) \cap (C \times D) = \varnothing \iff (A \times B = \varnothing \lor C \times D = \varnothing) \]
+\end{exercise}
+
+\begin{exercise}
+    设 $B$ 为任意集合。设 $I$ 为索引集，设 $A_i$ 为对于每个 $i \in I$ 的集合。证明以下集合等式：
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $\displaystyle \Bigg(\bigcap_{i \in I} A_i \Bigg) - B = \bigcap_{i \in I} (A_i - B)$
+        \item $\displaystyle \Bigg(\bigcup_{i \in I} A_i \Bigg) - B = \bigcup_{i \in I} (A_i - B)$
+        \item $\displaystyle \Bigg(\bigcap_{i \in I} A_i \Bigg) \times B = \bigcap_{i \in I} (A_i \times B)$
+        \item $\displaystyle \Bigg(\bigcup_{i \in I} A_i \Bigg) \times B = \bigcup_{i \in I} (A_i \times B)$
+        \item $\displaystyle B - \Bigg(\bigcap_{i \in I} A_i \Bigg) = \bigcup_{i \in I} (B - A_i)$
+        \item $\displaystyle B - \Bigg(\bigcup_{i \in I} A_i \Bigg) = \bigcap_{i \in I} (B - A_i)$
+    \end{enumerate}  
+\end{exercise}
+
+\begin{exercise}\label{exc:exercises4.11.26}
+    在本题中，你将证明有理数 $\mathbb{Q}$ 是\textbf{稠密的}。也就是说，我们希望你考虑如下命题：
+
+    \begin{quote}
+        \emph{命题：在任意两个不同的有理数之间严格存在另一个有理数。}
+    \end{quote}
+    用逻辑符号重述这个声明，然后\textbf{证明}它。
+\end{exercise}
+
+\begin{exercise}
+    这个问题的目的是引入\textbf{唯一性}的概念。如果一个对象具有某种其他对象都不具有的特定属性，则我们说该对象是\textbf{唯一的}。
+
+    也就是说，我们可以说 $x$ 是 $S$ 中具有属性 $P(x)$ 的唯一元素当且仅当
+    \[\exists x \in S \centerdot P(x) \land (\forall y \in S \centerdot y \ne x \implies \neg P(y))\]
+    请注意，这在逻辑上等价于
+    \[\exists x \in S \centerdot P(x) \land (\forall y \in S - \{x\} \centerdot \neg P(y))\]
+    此外，我们也可以写出其逆否命题：
+    \[\exists x \in S \centerdot P(x) \land (\forall y \in S \centerdot P(y) \implies x = y)\]
+    根据以上信息用逻辑符号重述以下声明。然后给出证明。
+
+    \textbf{声明}：方程 $n^3 - n - 6 = 0$ 具有唯一的自然数根。
+\end{exercise}
+
+\begin{exercise}
+    这个问题提供了新的集合运算的定义（基于其他运算定义），并要求你使用此运算证明若干集合包含和相等性。
+
+    \textbf{定义}：设 $A,B$ 为集合。$A$ 和 $B$ 的\textbf{对称差}用 $A \Delta B$ 表示，定义为
+    \[A \Delta B = (A - B) \cup (B - A)\]
+    现在，设 $A,B,C$ 为任意集合。证明如下命题：
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $A \Delta A = \varnothing$
+        \item $A \Delta B = B \Delta A$
+        \item $A \Delta \varnothing = \varnothing$
+        \item $A \subseteq B \implies A \Delta B = B - A$
+        \item $A \Delta (B \Delta C) = (A \Delta B) \Delta C$
+        \item $\bar{A} \Delta \bar{B} = A \Delta B$（假设 $A, B \subseteq U$）
+        \item $ (A \Delta B) \cap C = (A \cap C) \Delta (B \cap C) = (A \Delta B) - C$
+    \end{enumerate} 
+\end{exercise}
+
+\begin{exercise}
+    在这个问题中，你将证明有关\textbf{素性测试}的有用结论。许多现代密码学都基于将大合数分解为其质因数。下面的命题表明对于 $p$ 的因数，我们只需要检查到 $\sqrt{p}$ 即可判断 $p$ 是否是质数。
+
+    \begin{quote}
+        \emph{命题：设 $p$ 为大于等于 $2$ 的自然数。如果 $2$ 和 $\sqrt{p}$（含）之间的自然数都不能整除 $p$，则 $p$ 为质数。}
+    \end{quote}
+    回想一下：``$\mid$'' 的正式定义为
+    \begin{center}
+        给定 $a, b \in \mathbb{Z}$，我们写 $a \mid b$ 当且仅当 $\exists k \in \mathbb{Z} \centerdot b = ak$。
+    \end{center}
+    用逻辑符号重述上述命题。然后证明它。\\
+    （提示：思考该命题的逆否形式……）
+\end{exercise}
+
+\begin{exercise}
+    设 $S, T$ 为集合，其元素也是集合。对于以下陈述，\textbf{证明}其成立，或给出反例：
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $\displaystyle \bigcup_{X \in S \cup T} X \subseteq \Bigg(\bigcup_{Y \in S} Y\Bigg) \cup \Bigg(\bigcup_{Z \in T} Z\Bigg)$
+        \item $\displaystyle \bigcup_{X \in S \cup T} X \supseteq \Bigg(\bigcup_{Y \in S} Y\Bigg) \cup \Bigg(\bigcup_{Z \in T} Z\Bigg)$
+        \item $\displaystyle \bigcap_{X \in S \cup T} X \subseteq \Bigg(\bigcap_{Y \in S} Y\Bigg) \cap \Bigg(\bigcap_{Z \in T} Z\Bigg)$
+        \item $\displaystyle \bigcap_{X \in S \cup T} X \supseteq \Bigg(\bigcap_{Y \in S} Y\Bigg) \cap \Bigg(\bigcap_{Z \in T} Z\Bigg)$
+    \end{enumerate} 
+\end{exercise}

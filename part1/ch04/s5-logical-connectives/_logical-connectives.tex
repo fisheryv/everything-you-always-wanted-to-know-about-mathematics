@@ -1,0 +1,24 @@
+% !TeX root = ../../../book.tex
+\section{逻辑连词}
+
+为了从简单陈述（即仅由量词和命题组成的数学数学）构建复杂数学陈述，我们可以将多个陈述用某些单词和短语（例如``与''、``或''和``蕴涵''）连接起来，以创建更复杂的陈述并断言进一步的主张和真理。我们将这些单词和短语称为\textbf{逻辑连词}，每个词和短语都有自己相应的数学符号和含义。基于我们对语言和理性思维的直觉掌握，这些含义对你来说是直观合理的，但我们强调，引入数理逻辑及其相应符号的主要目标之一是将这些直觉构建为严格且明确的概念。
+
+在本节中，我们假设 $P$ 和 $Q$ 是任意数学陈述。这些陈述本身可以由量词和其他连词以及各种数学概念组合组成。关键是我们将 $P$ 和 $Q$ 组成更大陈述的方式独立于它们各自的组成。之前，我们看到 ``$\neg(\forall x \in X \centerdot R(x))$'' 等价于 ``$\exists x \in X \centerdot \neg R(x)$''，无论陈述 $R(x)$ 是什么以及它有多复杂。这里延续了这一思想。我们可以讨论如何组合两个陈述，而无需单独了解它们是什么。
+
+我们还应该指出，这些成分陈述 $P$ 和 $Q$ 实际上可能是变量命题。例如，我们将研究如何连接两个变量命题 $P(x)$ 和 $Q(x)$，每个命题都依赖于某个变量 $x$。我们在本节中发展的定义和方法适用于这些变量命题，即使这些命题本身在不知道变量 $x$ 的值是什么的情况下没有真值。
+
+当我们想要有意义地、数学地讨论这些命题时，我们必须\textbf{量化}变量 $x$。因此，如果我们有变量命题 $P(x)$ 和 $Q(x)$，我们仍然可以有意义地定义 $P(x) \land Q(x)$（其中 $\land$ 表示``逻辑与''，正如你将在下一节中看到的）。然后，我们可以在一个例子或一个问题中讨论以下形式的声明
+\[\exists x \in X \centerdot P(x) \land Q(x)\]
+这是一个数学\textbf{陈述}。
+
+本质上，我们想要表达的观点是，这些连词仍然适用于变量命题，但必须在整体陈述中的\emph{某处}对相关变量进行量化，以使变量命题成为正确的\textbf{数学陈述}。
+
+\input{part1/ch04/s5-logical-connectives/ss1-and.tex}
+
+\input{part1/ch04/s5-logical-connectives/ss2-or.tex}
+
+\input{part1/ch04/s5-logical-connectives/ss3-conditional-statements.tex}
+
+\input{part1/ch04/s5-logical-connectives/ss4-looking-back-set-operations-and-logical-connectives.tex}
+
+\input{part1/ch04/s5-logical-connectives/ss5-questions-and-exercises.tex}

@@ -1,0 +1,80 @@
+% !TeX root = ../../../book.tex
+\subsection{示例}
+
+\begin{example}[奇数之和是平方数]
+
+    \textbf{声明}：前 $n$ 个奇数之和为 $n^2$。
+
+    （注意：我们之前在 \ref{sec:section1.4.3} 节中见过这个谜题，并在 \ref{sec:section2.3.4} 节中引导你使用归纳法详细分析它。现在，我们将在这里给出该命题的良好证明。）
+\end{example}
+
+\begin{proof}
+    设 $P(n)$ 为命题
+    \[1+3+5+ \dots +2n-1 = \sum_{i=1}^n (2i-1) = n^2\]
+    我们通过对 $n$ 用归纳法证明 $\forall n \in \mathbb{N} \centerdot P(n)$。
+
+    \textbf{基本情况}：考虑 $n=1$，不难发现
+    \[\sum_{i=1}^1 (2i-1) = 1 \quad \text{且} \quad 1=1^2\]
+    故
+    \[\sum_{i=1}^1 (2i-1) = 1^2\]
+    因此 $P(1)$ 成立。
+
+    \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的。假设 $P(k)$ 成立，这意味着
+    \[\sum_{i=1}^k (2i-1) = k^2\]
+
+    \textbf{归纳步骤}：考虑 $k+1$，通过分离出第 $k+1$ 项可得
+    \[\sum_{i=1}^{k+1} (2i-1) = 2(k + 1) - 1 + \sum_{i=1}^k (2i-1) = 2k + 1 + \sum_{i=1}^k (2i-1)\]
+    利用归纳假设，替换上面等式右边的求和，将其化简为
+    \[\sum_{i=1}^{k+1} (2i-1) = 2k+1+k^2\]
+    因式分解后得
+    \[\sum_{i=1}^{k+1} (2i-1) = (k+1)^2\]
+    因此 $P(k+1)$ 成立。
+
+    根据数学归纳原理，我们可以得出结论 $\forall n \in \mathbb{N} \centerdot P(n)$。
+\end{proof}
+
+下面是几何级数求和公式的良好归纳法证明。\\
+
+\begin{example}[几何级数求和公式]
+    
+    \textbf{声明}：对于所有 $q \in \mathbb{R}-\{0,1\}$ 且 $n \in \mathbb{N}$，下列公式成立：
+    \[\sum_{i=0}^{n-1}q^i = 1+q+q^2+\dots+q^{n-1} = \frac{q^n-1}{q-1}\]
+\end{example}
+
+\begin{proof}
+    设 $q \in \mathbb{R}-\{0,1\}$ 是任意固定的。定义 $P(n)$ 为命题
+    \[\sum_{i=0}^{n-1}q^i = \frac{q^n-1}{q-1}\]
+    我们通过对 $n$ 用归纳法证明 $\forall n \in \mathbb{N} \centerdot P(n)$。
+
+    \textbf{基本情况}：考虑 $n=1$，不难发现
+    \[\sum_{i=0}^{n-1}q^i = \sum_{i=0}^{0}q^i = q^0\]
+    因为 $q \neq 0$，所以 $q^0=1$，因此
+    \[\sum_{i=0}^{n-1}q^i = \sum_{i=0}^{0}q^i = q^0 = 1\]
+    同时
+    \[\frac{q^n-1}{q-1} = \frac{q-1}{q-1}\]
+    因为 $q \neq 1$，所以
+    \[\frac{q^n-1}{q-1} = \frac{q-1}{q-1} = 1\]
+    因此 $P(1)$ 成立。
+
+    \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的。假设 $P(k)$ 成立，这意味着
+    \[\sum_{i=0}^{k-1}q^i = \frac{q^k-1}{q-1}\]
+
+    \textbf{归纳步骤}：我们要证明 $P(k+1)$ 成立，即
+    \[\sum_{i=0}^{k}q^i = \frac{q^{k+1}-1}{q-1}\]
+    \begin{align*}
+        \sum_{i=0}^{k}q^i &= \Bigg(\sum_{i=0}^{k-1}q^i\Bigg)+q^k &\qquad \text{求和运算符的定义}\\
+        &= \frac{q^k-1}{q-1} + q^k &\qquad \text{代入归纳假设}\\
+        &= \frac{q^k-1+q^k(q-1)}{q-1} &\qquad \text{通分}\\
+        &= \frac{q^k-1+q^{k+1}-q^k}{q-1} &\qquad \text{展开}\\ 
+        &= \frac{q^{k+1}-1}{q-1} &\qquad \text{合并同类项}
+    \end{align*}
+    这表明 $P(k+1)$ 成立。
+
+    根据数学归纳原理，我们可以得出结论 $\forall n \in \mathbb{N} \centerdot P(n)$。
+\end{proof}
+
+\emph{扩展问题}：为什么上例中我们需要声明 $q \notin \{0, 1\}$?
+
+$q=0$ 会发生什么？我们的证明会在哪一步出问题？该求和公式还成立吗？如果成立，请证明它；如果不成立，尝试修正它。
+
+同理，请尝试回答 $q=1$ 的情况。

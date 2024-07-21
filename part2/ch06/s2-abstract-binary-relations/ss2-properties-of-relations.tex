@@ -1,0 +1,32 @@
+% !TeX root = ../../../book.tex
+
+\subsection{关系的性质}
+
+我们先来定义几个性质。对于这些性质，每个关系要么满足，要么不满足。我们建议你逐一阅读每个性质，并尝试构建一个满足该性质的关系，然后再构建一个不满足该性质的关系。这样可以帮助你更好地理解这些性质的基本原理以及关系的运作方式。（你还可以尝试定义一些同时具有多种性质的关系！）在定义完这些性质后，我们会提供一些典型的例子，或许你自己也能想到类似的例子！不过，真心地，试着自己想几个例子，并分享你想到的有趣例子吧！
+
+\subsubsection*{定义：集合上关系的性质}
+
+这些性质依赖于能够\emph{颠倒}一对元素的顺序。也就是说，给定 $(x, y) \in R$，我们可能会考虑 $(y, x)$；然而，定义域和值域之间的关系要求 $(y, x) \in A \times B$。因此，我们需要 $A \times B = B \times A$，这只有在 $A = \varnothing$ 或 $B = \varnothing$ 或 $A = B$ 时才会发生。（记住我们在第 \ref{ch:chapter03} 章谈论集合时已经证明了这一点！）由于 $A = \varnothing$ 和 $B = \varnothing$ 是不考虑的情况，我们在讨论这些性质时，假设 $A = B$（且 $A \ne \varnothing$），所以我们定义一个非空集合上的关系并比较其元素。
+
+\begin{definition}
+    设 $A$ 为集合，设 $R$ 为 $A$ 上的关系，即 $R \subseteq A \times A$。
+    \begin{itemize}
+        \item 我们称 $R$ 具有\dotuline{自反性}，如果
+            \[\forall x \in A \centerdot (x, x) \in R\]
+            也就是说，每个元素都与其自身相关。
+        \item 我们称 $R$ 具有\dotuline{对称性}，如果
+            \[\forall x,y \in A \centerdot (x, y) \in R \implies (y,x) \in R\]
+            也就是说，比较的顺序无关紧要。
+        \item 我们称 $R$ 具有\dotuline{传递性}，如果
+            \[\forall x, y, z \in A \centerdot [(x, y) \in R \land (y, z) \in R] \implies (x, z) \in R\]
+            也就是说，关系可以通过一个中间人传递。
+        \item 我们称 $R$ 具有\dotuline{反对称性}，如果
+            \[\forall x, y \in A \centerdot [(x, y) \in R \land (y, x) \in R] \implies x = y\]
+            也就是说，两个不同的元素最多只能有一种关系，或者根本没有关系。为了理解为什么这是等价的陈述，让我们看看上述条件陈述的逆否命题：
+            \[\forall x, y \in A \centerdot x \ne y \implies [(x, y) \notin R \lor (y, x) \notin R]\]
+    \end{itemize}
+\end{definition}
+
+需要注意的是，\emph{反对称 (anti-symmetric)} 与\emph{非对称 (not symmetric)} 并不相同。要理解这一点，请仔细观察这些性质的逻辑顺序和量词。例如，$\mathbb{R}$ 上的 $\le$ 关系具有反对称性，但不具有对称性。想一想为什么会这样。
+
+实际上，试着找出一个既具有\emph{反对称性}又具有\emph{对称性}的关系。这并不难！我们之前已经提到过一个具有这种性质的基本关系。

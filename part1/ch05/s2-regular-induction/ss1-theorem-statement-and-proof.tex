@@ -1,0 +1,73 @@
+% !TeX root = ../../../book.tex
+\subsection{定理的陈述与证明}
+
+在这里，我们回顾一下第 \ref{ch:chapter03} 章中提到的\textbf{数学归纳原理}。思考一下这个原理是如何类比于\textbf{多米诺骨牌}的，或者任何其他能帮助你理解归纳过程的比喻。如果你没有阅读 \ref{sec:section3.8 } 节关于如何定义 $\mathbb{N}$ 的可选内容，你可能错过了这个定理的陈述。不过不用担心，相信你仍然能够理解并以符合归纳过程的方式来阐述它。
+
+\begin{theorem}[数学归纳原理]
+    设 $P(n)$ 为某个依赖于自然数 $n$ 的``事实''或``观察''。假设
+    \begin{enumerate}
+        \item $P(1)$ 为\verb|真|。
+        \item 给定任意 $k \in \mathbb{N}$，如果 $P(k)$ 为\verb|真|，必然可以得出 $P(k+1)$ 为\verb|真|。
+    \end{enumerate}
+    那么，陈述 $P(n)$ 对于每个自然数 $n \in \mathbb{N}$ 都必然成立。
+\end{theorem}
+
+看看这些冗长的句子、短语和模糊的术语。一个依赖于自然数的``事实''？这听起来像是一个\textbf{变量命题}，对吧？``如果……那么必然可得……''这听起来像是一个\textbf{条件陈述}，不是吗？这些表达都是为了阐明一些逻辑基础，我们现在可以利用上一章学到的概念和符号重新表述整个定理。在查看我们的版本之前，你可以先尝试自己给出新的表述。同时，回忆一下我们是如何\emph{证明}该定理的。（如果你跳过了这部分可选阅读也没关系。）回头看看 \ref{sec:section3.8.2} 节并唤醒记忆，因为我们将遵循相同的证明方法，但这次我们将使用已有的逻辑符号和工具。准备好了吗？那我们开始吧！
+
+\begin{theorem}[数学归纳原理]\label{theorem5.2.2}
+    设 $P(n)$ 为变量命题。假设
+    \begin{enumerate}[label=(\arabic*)]
+        \item $P(1)$ 为\verb|真|。
+        \item $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$ 为\verb|真|。
+    \end{enumerate}
+    那么，$\forall n \in \mathbb{N} \centerdot P(n)$ 为\verb|真|。
+\end{theorem}
+
+这就是全部内容了！这段话包含了所有相同的理念---某个初始事实成立，并且每一个事实都能推导出下一个事实，从而让所有事实都成立---但它是通过逻辑符号和语言来表述的。你能看出它们传达的是同一个意思吗？确保你理解了再继续阅读！
+
+现在，我们的目标是要\emph{证明}这个定理。没错，我们要证明数学归纳法是一个有效的证明方法！我们已经通过真值表证明了条件陈述与其逆否命题逻辑等价，这为我们提供了一种证明策略。
+
+不过，展开证明之前，我们希望你阅读关于如何定义自然数的章节，即 \ref{sec:section3.8} 节。这一节包含了一些关键定义，我们将在接下来的证明中使用这些定义。在那里，我们定义了什么是\textbf{归纳集}，并证明了 $\mathbb{N}$ 是``最小''的归纳集，这意味着 $\mathbb{N}$ 是宇宙中所有归纳集的子集。这正是我们希望 $\mathbb{N}$ 具备的特性，而这些定义正是为了实现这一点。我们将在这里提供这些重要的定义---稍微用逻辑符号改写一下，并略去一些集合论的概念---但我们还是建议你阅读一下 \ref{sec:section3.8} 节，以充分理解讨论的全部内容。
+
+\begin{definition}
+    设 $I$ 为集合。如果 $I$ 满足如下条件：
+    \begin{enumerate}
+        \item $1 \in I$
+        \item 对于任意元素 $k$，蕴涵 $k \in I \implies k + 1 \in I$ 成立
+    \end{enumerate}
+    则 $I$ 称为\dotuline{归纳集}。
+\end{definition}
+
+\begin{definition}
+    所有\dotuline{自然数}的集合是集合
+    \[\mathbb{N}:=\{x \mid \text{对于每个归纳集 }I, x \in I\}\]
+    换句话说，$\mathbb{N}$ 是最小的归纳集：
+    \[\mathbb{N} = \bigcap_{I \in \{S \mid S \text{ 为归纳集}\}} I\] 
+\end{definition}
+
+我们来证明一下！
+
+\begin{proof}
+    设 $P(n)$ 为定义在每个自然数上的变量命题。假设定理中给出的两个条件成立，即
+    \begin{enumerate}[label=(\arabic*)]
+        \item $P(1)$ 为\verb|真|
+        \item $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$ 为\verb|真|。
+    \end{enumerate}
+
+    设 $S$ 为 $P(n)$ 为\verb|真|的实例的集合。也就是说，定义
+    \[S = \{n \in \mathbb{N} \mid P(n) \text{ 为真}\}\]
+
+    根据定义（使用集合构建符），$S \subseteq \mathbb{N}$。
+
+    条件 (1) 确保 $1 \in S$。
+
+    条件 (2) 确保 $\forall k \in \mathbb{N} \centerdot k \in S \implies k+1 \in S$。
+
+    这两个条件共同保证 $S$ 是\emph{归纳集}。根据上面 $\mathbb{N}$ 的定义，我们知道 $\mathbb{N} \subseteq S$。
+
+    因此，通过双包含论证可得 $S = \mathbb{N}$。这意味着陈述 $P(n)$ 对于\emph{每个}自然数 $n$ 都成立，即 $\forall n \in \mathbb{N} \centerdot P(n)$ 为\verb|真|！
+\end{proof}
+
+虽然理解该证明背后的集合论原理不是使用归纳法或编写归纳证明的必要条件，但我们认为，深入探讨这些逻辑基础会增进你的理解，或者至少能激发你对数学逻辑和集合论的兴趣。
+
+通过重新表述数学归纳原理（PMI），我们实现了一个重要目标：现在我们可以清楚地判断一个归纳论证是否成功。在进行``归纳证明''时，核心任务就是根据定理的表述来验证条件 (1) 和 (2)（即验证命题 $P(n)$ 的``真值集合''是一个归纳集）。

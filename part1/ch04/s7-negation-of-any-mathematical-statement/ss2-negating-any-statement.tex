@@ -1,0 +1,90 @@
+% !TeX root = ../../../book.tex
+\subsection{否定任意陈述}
+
+目前，我们已经讨论了如何否定基本数学声明：$\exists, \forall, \land , \lor$ 和 $\implies$。我们编写的其他所有内容都将是这些基本声明的组合，因此我们应该能够反复应用这些技术，从而否定任意陈述。从本质上讲，我们只需从左到右阅读陈述，然后依次否定每一部分。遇到 ``$\exists$''，只需将其转换为 ``$\forall$''，然后否定后面的属性！遇到 ``$\lor$''，只需否定连词前后的两部分并将逻辑连词变为 ``$\land$''！遇到条件陈述，只需应用我们上面展示的技术！
+
+让我们通过几个示例来具体看一下上述方法的用法。\\
+
+\begin{example}
+    给出下面陈述的逻辑否定
+    \[\forall x \in \mathbb{R} \centerdot x < 0 \lor x > 0\]
+    该陈述说的是：``每个实数 $x$ 都满足 $x < 0$ 或 $x > 0$。''
+
+    它的逻辑否定为
+    \[\neg (\forall x \in \mathbb{R} \centerdot x < 0 \lor x > 0) \iff \exists x \in \mathbb{R} \centerdot x \ge 0 \land x \le 0\]
+    请注意，我们应用了德摩根逻辑定律来否定右侧的 $\lor$ 声明，并且我们使用了 $X \ngtr 0$ 在逻辑上等价于 $x \le 0$ 这一事实。
+
+    我们发现这里的否定陈述为\verb|真|，因为 $0 \in \mathbb{R}$ 并且 $0$ 满足 $0≤ \le 0$ 且 $0 \ge 0$。因此，原始陈述为\verb|假|。
+\end{example}
+
+\begin{example}
+    给出下面陈述的逻辑否定
+    \[\exists n \in \mathbb{N} \centerdot n \ge 10 \land \sqrt{n} \le 3\]
+    该陈述说的是：``存在某个自然数 $n$，同时满足 $n \ge 10$ 且 $\sqrt{n} \le 3$。''
+
+    它的逻辑否定为
+    \[\forall n \in \mathbb{N} \centerdot n < 10 \lor sqrt{n} > 3\]
+    原始陈述的逻辑否定说的是：``每个自然数 $n$ 都满足 $n < 10$ 或 $sqrt{n} > 3$''。
+\end{example}
+
+\begin{example}
+    给出下面陈述的逻辑否定
+    \[\exists x \in \mathbb{R} \centerdot \forall y \in \mathbb{R} \centerdot x \ge y \implies x^2 \ge y^2\]
+    该陈述说的是：``存在某个实数 $x$，对于所有实数 $y$，每当满足 $x \ge y$ 时，我们都有 $x^2 \ge y^2$。''
+
+    它的逻辑否定为
+    \[\forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot x \ge y \land x^2 < y^2\]
+    你能否证明原始陈述的逻辑否定实际上为\verb|真|的陈述？尝试一下！
+\end{example}
+
+\begin{example}
+    给出下面陈述的逻辑否定
+    \[\forall X \in \mathcal{P}(\mathbb{Z}) \centerdot (\forall x \in X \centerdot x \ge 1) \implies X \subseteq \mathbb{N}\]
+    该陈述说的是：``对于整数集 $\mathbb{Z}$ 的每个子集 $X$，如果集合 $X$ 的每个元素 $x$ 都满足 $x \ge 1$，则 $X$ 是自然数集 $\mathbb{N}$ 的子集。''
+
+    它的逻辑否定为
+    \[\exists X \in \mathcal{P}(\mathbb{Z}) \centerdot (\forall x \in X \centerdot x \ge 1) \land X \nsubseteq \mathbb{N}\]
+    原始陈述的逻辑否定说的是：``存在子集 $X \subseteq \mathbb{Z}$ 满足每个元素 $x \in X$ 都 $x \ge 1$ 且 $X \nsubseteq \mathbb{N}$。''我们甚至可以通过
+    \[X \nsubseteq \mathbb{N} \iff \exists y \in X \centerdot y \notin \mathbb{N} \]
+    进一步重写最后一部分，尽管这样做并不是必须的。
+
+    哪个陈述（原始陈述还是否定陈述）为\verb|真|？你能给出证明吗？
+\end{example}
+\setlength{\fboxrule}{0.8pt}
+\setlength\fboxsep{5mm}
+\begin{center}
+\fcolorbox{black}{white}{%
+    \parbox{0.85\textwidth}{%
+        将上面示例中的陈述与以下陈述进行对比：
+        \[\forall X \in \mathcal{P}(\mathbb{Z}) \centerdot \forall x \in X \centerdot (x \ge 1 \implies X \subseteq \mathbb{N})\]
+        二者唯一的区别是括号的位置不同，但这完全改变了陈述的含义！
+
+        示例中陈述断言的是整数集的\emph{每个}子集。也就是说，无论引入哪个子集 $X \subset Z$，该陈述说的都是，如果集合 $X$ 的所有元素都大于等于 $1$，那么该集合 $X$ 实际上也是 $\mathbb{N}$ 的子集。
+
+        而框中给出的新陈述却有不同含义：无论引入哪个子集 $X \subseteq Z$，而且，无论引入该集合 $X$ 中的哪个元素  $x$。该陈述说，如果该元素 $x$ 大于等于 $1$，则集合 $X$ 也是 $\mathbb{N}$ 的子集。
+
+        你看出区别了吗？区别在于``如果''发生在哪里：量化在哪里结束，条件陈述从哪里开始？上面示例中的陈述将 $X$ 元素的量化放在条件陈述的``如果''部分之内。而此框中的陈述将量化完全放在条件陈述之前。
+
+        此框中的陈述为假，我们鼓励你自己找出原因。
+    }
+}
+\end{center}
+
+\begin{example}
+    设 $O(x)$ 为命题 ``$x$ 为奇数''，设 $E(x)$ 为命题 ``$x$ 为偶数''。给出下面陈述的逻辑否定
+    \[\forall x, y \in \mathbb{Z} \centerdot O(x \cdot y) \iff \big(O(x) \land O(y)\big)\]
+    该陈述说的是：``对于两个整数 $x$ 和 $y$，它们的乘积为奇数当且仅当它们本身都是奇数。''
+
+    在进行逻辑否定之前，请记住 $\iff$ 意味着 ``$\implies$'' 和 ``$\impliedby$''。让我们首先以这种方式重写该声明，以便我们可以正确地否定它：
+    \[\forall x, y \in \mathbb{Z} \centerdot \Big[O(x \cdot y) \implies \big(O(x) \land O(y)\big)\Big] \land \Big[\big(O(x) \land O(y)\big) \implies O(x \cdot y)\Big]\]
+    上面陈述的逻辑否定为
+    \[\neg \bigg(\forall x, y \in \mathbb{Z} \centerdot \Big[O(x \cdot y) \implies \big(O(x) \land O(y)\big)\Big] \land \Big[\big(O(x) \land O(y)\big) \implies O(x \cdot y)\Big]\bigg) \]
+    \begin{align*}
+        \iff \exists x, y \in \mathbb{Z} \centerdot & \neg \Big[O(x \cdot y) \implies \big(O(x) \land O(y)\big)\Big] \lor \neg \Big[\big(O(x) \land O(y)\big) \implies O(x \cdot y)\Big] \\
+        \iff \exists x, y \in \mathbb{Z} \centerdot & \Big[O(x \cdot y) \land \neg \big(O(x) \land O(y)\big)\Big] \lor \Big[\big(O(x) \land O(y)\big) \land \neg O(x \cdot y)\Big] \\
+        \iff \exists x, y \in \mathbb{Z} \centerdot & \Big[O(x \cdot y) \land \big(E(x) \lor E(y)\big)\Big] \lor \Big[\big(O(x) \land O(y)\big) \land E(x \cdot y)\Big] 
+    \end{align*}
+    也就是说，逻辑否定表示``存在整数 $x$ 和 $y$，使得它们的乘积要么是奇数，但 $x$ 和 $y$ 其中（至少）一个是偶数；要么 它们的乘积为偶数，但 $x$ 和 $y$ 都是奇数。''
+
+    你能证明哪个说法是正确的吗？
+\end{example}

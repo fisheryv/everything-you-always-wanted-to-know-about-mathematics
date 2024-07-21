@@ -1,0 +1,60 @@
+% !TeX root = ../../../book.tex
+\subsection{习题}
+
+\subsubsection*{温故知新}
+
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item $\forall$ 和 $\exists$ 和有什么不一样？
+    \item 如何朗读下面的陈述？
+        \[\forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot x = y^3\]
+    \item 下面的语句为什么不是正确的数学陈述？
+        \[\exists y \centerdot y + 3 > 10\]
+        以下两个陈述之间有何区别（如果有的话）？
+        \[\exists x \in \mathbb{N} \centerdot \exists y \in \mathbb{N} \centerdot x + y = 5\]
+        \[\exists x, y \in \mathbb{N} \centerdot x + y = 5\]
+        它们为\verb|真|还是为\verb|假|？
+    \item 以下两个陈述之间有何区别（如果有的话）？
+        \[\exists a, b \in \mathbb{Z} \centerdot a \cdot b = -3\]
+        \[\exists \heartsuit, \diamondsuit \in \mathbb{Z} \centerdot \heartsuit \cdot \diamondsuit = -3\]
+        它们为\verb|真|还是为\verb|假|？
+    \item 为什么下列语句不是正确的量化陈述？
+        \textcolor{red}{\begin{itemize}
+            \item $\exists x \centerdot x > 7$
+            \item $\forall y \in \mathbb{Z}$
+            \item $\forall z > 2 \centerdot z^2 > 4$
+            \item $\forall w \in \mathbb{Z} \centerdot w^2 = t \centerdot \exists t \in \mathbb{N}$
+        \end{itemize}}
+\end{enumerate}
+
+\subsubsection*{小试牛刀}
+
+尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 回顾 \ref{sec:section4.3.3} 节，我们用符号表示法表达了哥德巴赫猜想。我们将 $X$ 定义为除 $2$ 之外的所有偶数的集合。用符号、量词和集合构建符（也许还有集合运算，具体取决于你的操作方式）编写 $X$ 的定义。
+    \item 写一个以量词开头的数学陈述的示例，如果该量词是 ``$\exists$''，则该陈述为\verb|真|，但如果该量词为  ``$\forall$''，则该陈述为\verb|假|。
+    \item 写一个变量命题 $P(x)$ 的例子，使得
+        \[\forall x \in \mathbb{N} \centerdot P(x)\]
+        为\verb|真|，但
+        \[\forall x \in \mathbb{Z} \centerdot P(x)\]
+        为\verb|假|。
+    \item 对于以下每个数学陈述，使用量词将其写成符号形式。（首先确保正确定义可能需要的任何变量命题！）然后，确定该陈述为\verb|真|还是为\verb|假|。
+        \begin{enumerate}[label=(\alph*)]
+            \item 存在一个严格大于每个整数的实数。
+            \item 每个整数都具有其平方小于或等于其立方的性质。
+            \item 每个自然数的平方根都是实数。
+            \item $\mathbb{N}$ 的每个子集都以数字 $3$ 作为元素。
+        \end{enumerate} 
+    \item 阅读以下每个量化陈述的符号表示并朗读出来。然后，确定该陈述为\verb|真|还是为\verb|假|。
+        \begin{enumerate}[label=(\alph*)]
+            \item $\forall x \in \mathbb{N} \centerdot \exists y \in \mathbb{Z} \centerdot x + y < 0$
+            \item $\exists x \in \mathbb{N} \centerdot \forall y \in \mathbb{Z} \centerdot x + y < 0$
+            \item $\exists A \in \mathcal{P}(\mathbb{Z}) \centerdot \mathbb{N} \subset A \subset \mathbb{Z}$\\（回想一下，$⊂$ 的意思是``是……的真子集''。）
+            \item 设 $P$ 为质数集。\\
+                    $\forall x \in P \centerdot \exists t \in \mathbb{Z} \centerdot x = 2t + 1$
+            \item $\forall a \in \mathbb{N} \centerdot \exists b \in \mathbb{Z} \centerdot \forall c \in \mathbb{N} \centerdot a + b < c$
+            \item $\exists b \in \mathbb{Z} \centerdot \forall a, c \in \mathbb{N} \centerdot a + b < c$
+        \end{enumerate} 
+\end{enumerate}   

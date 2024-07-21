@@ -1,0 +1,20 @@
+% !TeX root = ../../../book.tex
+\subsection{补集}
+
+此运算识别位于集合``外部''的所有元素。此操作取决于全集 $U$ 的上下文。你会注意到这在定义中很明显，我们也将通过示例来说明这一点。
+
+\begin{definition}
+    $A$ 的\dotuline{补集}是所有不是 $A$ 中元素的元素的集合，记为 $\overline{A}$。用数学符号表达如下：
+    \[\overline{A} = \{x \in U \mid x \notin A\}\]
+\end{definition}
+
+请记住，我们假设 $A,B,U$ 是满足 $A \subseteq U$ 且 $B \subseteq U$ 的给定集合。在这种情况下，集合 $\overline{A}$ 是明确定义的，该集合必定取决于 $A$ 和 $U$！\\
+
+\begin{example}
+    例如，让我们回到上面例 \ref{ex:example3.5.1} 中定义的集合 $S_1, S_2, S_3$。在那里，我们使用了上下文 $U = \mathbb{Z}$。在这种情况下，
+    \[\overline{S_1} = \{6, 7, 8, 9, \dots \}\]
+    然而，如果我们另 $U = \{1, 2, 3, 4, 5, 6, 7\}$，在这种情况下，
+    \[\overline{S_1} = \{6, 7\}\]
+\end{example}
+
+由于符号 $\overline{A}$ 没有指示它所依赖的全集 $U$，因此无论上下文如何，明确该全集都很重要。尝试给出集合 $A, U_1, U_2$，使得 $U_1$ 下的 $\overline{A}$ 与 $U_2$ 下的 $\overline{A}$ 不同，并尝试给出一些集合，使得两种情况下 $\overline{A}$ 相同。

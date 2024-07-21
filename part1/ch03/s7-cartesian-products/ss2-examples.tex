@@ -1,0 +1,34 @@
+% !TeX root = ../../../book.tex
+\subsection{示例}
+
+笛卡尔平面是 $\mathbb{R} \times \mathbb{R}$，这就是为什么我们有时将其写为 $\mathbb{R}^2$。如果 $A = B$，那么如果不会混淆 $A$ 是一个集合（而不是一个数字）这一事实，我们有时会将笛卡尔积写为 $A \times A = A^2$。\\
+
+\begin{example}
+    定义集合 $A = \{a, b, c\}$ 和 $B = \{6, 7\}$ 以及 $C = \{b, c, d\}$。那么我们可以列出以下笛卡尔积的元素：
+
+    \begin{align*}
+        A \times B &= \{(a, 6),(a, 7),(b, 6),(b, 7),(c, 6),(c, 7)\} \\
+        B \times C &= \{(6, b),(6, c),(6, d),(7, b),(7, c),(7, d)\} \\
+        A \times C &= \{(a, b),(a, c),(a, d),(b, b),(b, c),(b, d),(c, b),(c, c),(c, d)\} \\
+        C \times B &= \{(b, 6),(b, 7),(c, 6),(c, 7),(d, 6),(d, 7)\}\\
+    \end{align*}
+    请注意，一般来说，$B \times C \ne C \times B$，如本例所示。（你能找到 $A \times B = B \times A$ 的情况吗？我们必须对集合 $A$ 和 $B$ 施加什么条件才能使这个等式成立？）
+\end{example}
+
+\subsubsection*{有序三元组及有序多元组}
+
+该思想也适用于三组或多元组的笛卡尔积。我们只需为三个集合的笛卡尔积编写有序\emph{三元组}，并且一般来说，对于 $n$ 个集合的笛卡尔积，我们编写有序 $n$ 元组。（我们再次指出，存在定义这些有序 $n$ 元组的集合论方法，但我们这里不会研究这些细节。）\\
+
+\begin{example}
+    笛卡尔积 $\mathbb{N} \times \mathbb{N} \times \mathbb{N}$（有时也写做 $\mathbb{N}^3$）是所有有序自然数三元组的集合。例如，$(1, 2, 3) \in \mathbb{N}^3$, $(7, 7, 100) \in \mathbb{N}^3$，但是 $(0, 1, 2) \notin \mathbb{N}^3$, $(1, 2, 3, 4) \notin \mathbb{N}^3$。
+\end{example}
+
+请注意 $\mathbb{N}^3$ 和 $(\mathbb{N} \times \mathbb{N}) \times \mathbb{N}$ 之间的微妙区别。$\mathbb{N}^3$ 的典型元素是一个有序\emph{三元组}，其坐标均为自然数。$(\mathbb{N} \times \mathbb{N}) \times \mathbb{N}$ 的典型元素是有序对，其第一个坐标也是（自然数）有序对，第二个坐标是自然数。即，$((1, 2), 3) \in (\mathbb{N} \times \mathbb{N}) \times \mathbb{N}$ 而 $((1, 2), 3) \notin \mathbb{N}^3$。这表明两者是\emph{不同的集合}。
+
+然而，有一种自然的方式来关联这两个集合，它本质上是在第一个坐标（有序对）周围``去掉括号''。我们稍后在研究函数和\emph{双射}时会讨论这个问题。但现在，我们只是希望你注意到两个集合之间的细微差别，并记住两个集合的笛卡尔积是一组\emph{有序对}，其中每个坐标都是从相应的组成集合中提取的。\\
+
+\begin{example}
+    如果 $B = \varnothing$ 会发生什么？回顾一下 $A \times B$ 的定义。实际上没有 $B$ 的元素可以写为有序对的第二个``坐标''，因此我们实际上没有 $A \times B$ 的元素可以包含！所以，对于任意集合 $A$
+    \[A \times \varnothing = \varnothing\]
+    同理，对于任意集合 $B$，$\varnothing \times B = \varnothing$。
+\end{example}

@@ -1,0 +1,46 @@
+% !TeX root = ../../../book.tex
+\subsection{习题}\label{sec:section5.3.4}
+
+\subsubsection*{温故知新}
+
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 多米诺骨牌类比如何描述一个基本情况不是 $1$ 的归纳法证明？
+    \item 提供一个证明模板，用于证明一个命题 $P(n)$，该命题对所有大于或等于 $7$ 的奇数都成立。
+    \item 为什么我们不能``对质数进行归纳''？
+\end{enumerate}
+
+\subsubsection*{小试牛刀}
+
+尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+
+\begin{enumerate}[label=(\arabic*)]
+    \item 证明定理 \ref{theorem5.3.3}。 \label{exc:exercises5.3.1}
+    \item 证明定理 \ref{theorem5.3.5} 和定理 \ref{theorem5.3.6}。 \label{exc:exercises5.3.2}
+    \item 提出一个定理，该定理描述了如何对所有 $5$ 的倍数进行归纳推理的方法。并证明这个定理。
+    \item 考虑不等式 $n^3 < 3^{n-1}$。
+        \begin{enumerate}[label=(\alph*)]
+            \item 证明对于所有 $n \ge 6$ 该不等式都成立。
+            \item 证明对于所有 $\{1,2,3,4,5\}$ 该不等式都不成立。（这一问很简单）
+            \item 证明对于所有 $n \le 0$ 该不等式都成立。
+        \end{enumerate}
+    \item 定义数列
+        \[x_1 = 2, x_2 = 2, \forall n \in \mathbb{N} - \{1, 2\} \centerdot x_n = x_{n-2} + 1\]
+        设 $P(n)$ 为命题
+        \[x_n = \frac{1}{2}(n+1)+\frac{1}{4}(1+(-1)^n)\]
+        \begin{enumerate}[label=(\alph*)]
+            \item 设 $O$ 为奇数集。用归纳法证明 $\forall n \in O \centerdot P(n)$。
+            \item 设 $E$ 为偶数集。用归纳法证明 $\forall n \in E \centerdot P(n)$。
+        \end{enumerate}
+    \item 考虑下列声明
+        \[\sum_{k=1}^{n} (-1)^{k-1}k^2 = (-1)^{k-1}\sum_{k=1}^{n} k\]
+        也就是说，我们声明
+        \[1^2 - 2^2 + 3^2 - 4^2 + \dots + (1)^{n-1}n^2 = (-1)^{n-1}(1 + 2 + 3 + \dots + n)\]
+        对于所有 $n \in \mathbb{N}$ 成立。
+        \begin{enumerate}[label=(\alph*)]
+            \item 证明上面公式对于 $n=1$ 和 $n=2$ 成立。
+            \item 证明上面公式只要对于 $k$ 成立，则 $k+2$ 也成立。
+            \item 直观地解释为什么（a）和（b）证明了该声明。
+        \end{enumerate}
+\end{enumerate}

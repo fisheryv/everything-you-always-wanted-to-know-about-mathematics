@@ -1,0 +1,61 @@
+% !TeX root = ../../../book.tex
+
+\subsection{示例}
+
+请再次尝试找出一些符合和不符合我们刚刚定义的四个性质的关系。我们将在下面展示一些定义在 $\mathbb{N}$ 上的典型例子，以便给你一些具体的参考。你也可以随意添加一些简单的例子，比如定义在 $\mathbb{Z}$ 和 $\mathbb{R}$ 上的关系。\\
+
+\begin{example}
+    在这个例子中，所有关系都定义在集合 $\mathbb{N}$ 上。
+    \begin{itemize}
+        \item 定义 $\mathbb{N}$ 上的关系 $R_1$
+        \[(x, y) \in R_1 \iff x \;\text{整除}\; y\]
+        （即 $y$ 能被 $x$ 整除，或 $\exists k \in \mathbb{N}$ 使得 $y=kx$。该定义的严格陈述见定义\ref{def:definition6.2.15}。）
+
+        则 $R_1$ 具有自反性，因为 $x \mid x$，即 $x=1 \cdot x$。
+
+        \textbf{整除关系具有自反性。}
+        \item 定义 $\mathbb{N}$ 上的关系 $R_2$
+        \[(x, y) \in R_2 \iff x \text{ 和 } y \text{ 具有相同的奇偶性}\]
+        则 $R_2$ 具有对称性，因为如果 $x$ 和 $y$ 具有相同的奇偶性，那么 $y$ 和 $x$ 当然也具有相同的奇偶性。
+
+        \textbf{``相同奇偶性''关系具有对称性。}
+        \item 定义 $\mathbb{N}$ 上的关系 $R_3$
+        \[(x, y) \in R_3 \iff x < y\]
+        则 $R_3$ 具有传递性，因为如果 $x<y$ 且 $y<z$ 则 $x<y<z$，所以 $x<z$。
+
+        \textbf{``$<$''关系具有传递性。}
+        \item 定义 $\mathbb{N}$ 上的关系 $R_4$
+        \[(x, y) \in R_4 \iff x \le y\]
+        则 $R_4$ 具有反对称性，因为如果 $x \le y$ 且 $y \le x$ 则 $x \le y \le x$，所以 $x=y$。
+
+        \textbf{``$\le$''关系具有反对称性。}
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    记住，关系其实就是一组有序对。我们不需要用性质来定义它。下面我们来看这样一个例子，并探讨它的性质：
+
+    定义集合 $S=\{a,b,c\}$ 上的关系 $R$
+    \[R = \{(a, a),(a, c),(b, c),(c, b)\}\]
+    这个关系
+    \begin{itemize}
+        \item 不具有自反性：因为 $(c,c) \notin R$
+        \item 不具有对称性：因为 $(a, c) \in R$ 但 $(c, a) \notin R$
+        \item 不具有传递性：因为 $(a, c) \in R$ 且 $(c, b) \in R$ 但 $(a, b) \notin R$
+        \item 不具有反对称性：因为 $(b, c) \in R$ 且 $(c, b) \in R$ 但 $b \ne c$
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    让我们练习一下使用略为不同的关系符号。请记住，我们也可以用 $x \;R\; y$ 表示 $(x, y) \in R$。
+
+    在班级同学集合 $S$ 上定义关系 $\bigstar$，对于任意 $x,y \in S$
+    \[x \;\bigstar\; y \iff x \;\text{和}\; y \;\text{同一个月出生}\]
+    我们声称这个关系具有自反性、对称性、传递性。你知道为什么吗？
+    \begin{itemize}
+        \item 该关系具有\emph{自反性}，因为每个人当然与其自己同一个出生（即 $x \;\bigstar\; x$）。
+        \item 该关系具有\emph{对称性}，因为如果 $x$ 同学和 $y$ 同学同一个月出生（即 $x \;\bigstar\; y$），那么 $y$ 同学和 $x$ 同学（只是顺序不同！）当然也是同一个月出生（即 $y \;\bigstar\; x$）。
+        \item 该关系具有\emph{传递性}，因为……你应该明白了吧？我们只是在不断地强调``相同''这个词的概念！
+    \end{itemize}
+    关于\emph{反对称性}，这要看具体情况！班上是否有两个人同一个月出生？如果有，这种关系就不具有反对称性。然而，如果班上每个人都在不同月份出生，那么这种关系就具有反对称性，因为没有人会与别人有关系，除了自己！好好琢磨一下……
+\end{example}

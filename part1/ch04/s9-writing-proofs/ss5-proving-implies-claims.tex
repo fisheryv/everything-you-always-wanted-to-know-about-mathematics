@@ -1,0 +1,263 @@
+% !TeX root = ../../../book.tex
+
+
+\subsection{证明 $\implies$}\label{sec:section4.9.5}
+
+回顾一下 \ref{sec:section4.5.3} 节可能会对你有所帮助，我们该节引入了连词``$\implies$''。具体来说，我们希望你记住 $P \implies Q$ 意味着\emph{只要} $P$ 成立，$Q$ 也\emph{必然}成立。当 $P$ 本身（\textbf{假设}）为\verb|假|时，该条件陈述为\verb|真|。因此，我们的证明策略不需要考虑这种情况。我们需要做的就是\emph{假设} $P$ 成立，并推断 $Q$ 也成立。我们只需要考虑``只要 $P$ 成立，$Q$ 也成立''这种情况。
+
+\subsubsection*{直接证法}
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \implies Q$ \\
+            \emph{直接证明策略：} \\
+            \hspace*{1cm} 假设 $P$ 成立，证明 $Q$ 成立。
+        }
+    }
+\end{center}
+
+\begin{example}[平方的单调性]
+
+    陈述：$\forall y \in \mathbb{R} \centerdot y>1 \implies y^2-1>0$
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                设 $y \in \mathbb{R}$ 是任意固定的，且 $y > 1$。
+                
+                不等式两边同时乘以 $y$（因为 $y>0$），可得 $y^2>y$。
+
+                因为 $y>1$，我们可以得到 $y^2>y>1$，所以 $y^2>1$。
+
+                两边同时减 $1$ 得 $y^2-1>0$。
+            \end{proof}
+        }
+    }
+\end{center}
+
+我们将其称为``平方的单调性''，因为它说明了实数的某种特定属性是单调的。这是一个用来表示某种不等式在运算下保持不变的术语。在这个案例中，某个数大于 $1$ 的事实通过``平方运算''得以保持。也就是说，我们证明了如果 $y > 1$，那么 $y^2 > 1^2$ 也成立。
+
+上面的例子相当简单，但我们之所以把他包括进来是为了强调条件陈述的证明策略。现在，让我们来看一个更难的例子。
+
+（你可能会注意到，习题 \ref{exc:exercises4.11.22} 有一个看起来类似的问题陈述。也许看了本例之后，你会想要如何解决另一个。）\\
+
+\begin{example}[解决不等式问题]\label{ex:example4.9.8}
+
+    声明：我们定义以下变量命题：
+
+    \begin{align*}
+        P(x) \;\text{为}\; \frac{x-3}{x+2}>1-\frac{1}{x} \\
+        Q(x) \;\text{为}\; \frac{x+3}{x+2}<1+\frac{1}{x}
+    \end{align*}
+
+    定义 $S = \{x \in \mathbb{R} \mid x > 0\}$。
+
+    我们声明
+    \[\forall x \in S \centerdot P(x) \implies Q(x)\]
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{red}{white}{%
+    \parbox{0.85\textwidth}{%
+        \linespread{1.5}\selectfont
+        \textcolor{red}{\textbf{草稿：}}\\
+        我们猜测直接证法能够证明出来，所以我们尝试整理 $P(x)$ 内的不等式，使其``看起来像'' $Q(x)$ 内的不等式。
+
+        所以我们从这个不等式开始
+        \[\frac{x-3}{x+2}>1-\frac{1}{x}\]
+        不等式两边同时乘以 $x+2$。我们能这么做吗？当然可以，因为 $x>0$ 所以 $x+2>0$。由此可得
+        \[x-3>(x+2)-\frac{x+2}{x} = x+2-1-\frac{2}{x} = x+1-\frac{2}{x}\]
+        我们需要在某处构造出 $x+3$，所以两边同时加上 $2+\frac{2}{x}$ 可得
+        \[x-1+\frac{2}{x} > x+3\]
+        我们可不可以两边同时除以 $x+2$ 让右边变成分数形式呢？等一下！我们已经化简了分数 $\frac{x+2}{x}$ 并将其移到了一边。也许我们不该一上来就化简它，所以我们试着还原回来：
+        \[x+3<x-1+\frac{2}{x} = (x+2)+\frac{x+2}{x}-4=(x+2)\Big(1+\frac{1}{x}\Big)-4\]
+        这样看起来好多了！我们甚至还有一些负 $4$ 形式的``回旋余地''。我们知道右侧小于我们想要的值，所以结果成立。
+    }
+    }
+\end{center}
+
+让我们将上面的代数步骤重新整理并解释一下，使其成为一个正式的证明。
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                设 $x \in S$ 是任意固定的。
+                
+                假设 $P(x)$ 成立；这意味着
+                \[\frac{x-3}{x+2}>1-\frac{1}{x}\]
+                我们将证明不等式
+                \[\frac{x+3}{x+2}<1+\frac{1}{x}\]
+                也必然成立。
+                
+                因为 $x \in S$，我们可知 $x>0$ 并且 $x+2>0$ 也必然成立。因此我们可以在不等式两边同时乘以 $x+2$，得
+                \[x-3 > (x+2)\Big(1-\frac{1}{x}\Big)=x+2-\frac{x+2}{x}\]
+                两边同时加上 $3+\frac{x+2}{x}$ 再同时减去 $2$，交换不等号方向（为了更易读）可得
+                \[x+3<x-2+\frac{x+2}{x}\]
+                因为 $x-2<x+2$，可得
+                \[x+3<x+2+\frac{x+2}{x}\]
+                提取公因式得
+                \[x+3<(x+2)\Big(1+\frac{1}{x}\Big)\]
+                又因为 $x+2>0$，不等式两边同时除以 $x+2$ 得
+                \[\frac{x+3}{x+2}<1+\frac{1}{x}\]
+                而这正是我们要证明的不等式。以上证明了 $P(x) \implies Q(x)$，又因为 $x$ 是任意的，因此我们证明了声明的结论。
+            \end{proof}
+        }
+    }
+\end{center}
+
+这里的关键教训在于我们如何进行临时性工作并在证明中以不同的方式呈现它。我们删除了不必要的化简和重构步骤，但我们也注意到为什么每个步骤在我们执行时都是有效的。经验丰富的数学家可能会跳过其中几个步骤，并将其留给读者来验证，但由于我们还处于数学职业生涯的早期，因此我们认为展示尽可能丰富的细节是谨慎的做法。
+
+\subsubsection*{逆否证法}
+
+回顾 \ref{sec:section4.6.1} 节。在那里，我们证明了条件陈述与它的逆否命题逻辑等价。也就是说，条件陈述
+\[P \implies Q\]
+必然与
+\[\neg Q \implies \neg P\]
+具有相同的真值。
+
+因此，当我们试图证明 $P \implies Q$ 成立时，我们可以直接证明 $\neg Q \implies \neg P$ 成立！根据 $P$ 和 $Q$ 的含义，有时候其逆否形式更容易理解，或者我们可以更快地找到证明。事实上，当 $P$（或 $Q$，或二者兼而有之）在某个地方存在``不''时，逆否策略特别有用；通过考虑它的否定，我们可以用``肯定''的断言来代替否定。
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \implies Q$ \\
+            \emph{逆否策略：} \\
+            \hspace*{1cm} 假设 $\neg Q$ 成立，证明 $\neg P$ 成立。
+
+            （注意，这是 $\neg Q \implies \neg P$ 的直接证明策略。）
+        }
+    }
+\end{center}
+
+\begin{example}[偶数的乘积]
+
+    陈述：令 $E(x)$ 为命题``$x$ 为偶数''。
+
+    我们声明
+    \[\forall m,n \in \mathbb{Z} \centerdot E(m \cdot n) \implies \big(E(m) \lor E(n)\big)\]
+
+    换句话说，只要两个整数的乘积是偶数，就必然意味着至少有一个整数是偶数。
+\end{example}
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                我们用逆否证法证明这一点
+                
+                令 $m,n \in \mathbb{Z}$ 为任意固定的。
+                
+                假设 $\neg E(m) \land \neg E(n)$。
+                
+                也就是说 $m$ 为奇数且 $n$ 也为奇数。
+
+                这意味着 $\exists k,l \in \mathbb{Z} \centerdot m=2k+1 \land n=2l+1$。
+
+                给定这样的 $k,l$，那么
+                \[m \cdot n = (2k+1)(2l+1) = 4kl+2k+2l+1 = 2(2kl+k+l)+1\]
+                因为 $2kl+k+l \in \mathbb{Z}$，这表明 $m \cdot n$ 为奇数。
+
+                因此 $\neg E(m \cdot n)$ 成立，所以我们证明了
+                \[\big(\neg E(m) \land \neg E(n)\big) \implies \neg E(m \cdot n)\]
+                其逆否形式就是我们要证明的声明。
+            \end{proof}
+        }
+    }
+\end{center}
+
+请注意，我们在证明的开头向读者指出，我们将使用逆否证法。如果我们不这样做，读者可能会感到困惑！我们的读者可能会想：``为什么我们假设 $\neg E(m)$ 成立？这有什么好处？！''。通过事先透露我们的策略，确保读者能够跟上思路，避免不必要的困惑。
+
+\subsubsection*{间接证法（反证法）}
+
+该方法依赖于条件陈述的逻辑否定。重读 ref{sec:section4.7} 节，看看我们在哪里证明了
+\[\neg (P \implies Q) \iff (P \land \neg Q)\]
+这里的证明技术利用了这种等价性。
+
+\begin{center}
+    \noindent \fcolorbox{blue}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{blue}{\textbf{策略：}}\\
+            声明：$P \implies Q$ \\
+            \emph{间接证明策略：} \\
+            \hspace*{1cm} 为了引出矛盾而假设 $P$ 成立而 $Q$ 不成立。得出矛盾。
+        }
+    }
+\end{center}
+
+\begin{example}[令人惊讶的算术几何平均不等式]
+
+    陈述：$\forall x \in \mathbb{R} \centerdot x > 0 \implies x + \frac{1}{x} \ge 2$
+\end{example}
+
+让我们直接进入证明，不做任何临时性工作，因为我们认为这个证明读起来相当简单。后面，我们将讨论其他替代策略。
+
+\begin{center}
+    \noindent \fcolorbox{olivegreen}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{olivegreen}{\textbf{实现：}}
+            \begin{proof}
+                令 $x \in \mathbb{R}$ 为任意固定的。
+
+                假设 $x>0$。
+
+                为了引出矛盾而假设 $x+\frac{1}{x} < 2$。
+
+                因为 $x>0$，我们可以在不等式两边同时乘以 $x$ 得
+                \[x^2 + 1 < 2x\]
+                整理并配方后，我们可以
+                \[(x-1)^2 < 0\]
+                这与 $(x-1)^2 \ge 0$ 矛盾。$\hashx$
+                
+                因此我们得原假设不成立，由此可得声明成立。
+            \end{proof}
+        }
+    }
+\end{center}
+
+现在，你可能对这个例子的标题感到好奇。这与算术几何平均不等式有什么关系呢？（回想一下，我们在 \ref{sec:section4.9.2} 节证明了这一事实。）精明的读者可能会意识到，这一事实不仅是一个不等式（就像算术几何平均不等式一样），而且这个证明中的几个步骤与我们证明算术几何平均不等式时所做的相似。具体来说，为了证明算术几何平均不等式，我们首先使用了特定平方表达式非负的这一事实。同样，在这个证明中，我们也利用了平方表达式\emph{应该}非负这一事实。这两个证明之间的相似性表明了一些潜在的内在关系。实际上，我们可以直接\emph{应用}算术几何平均不等式（请注意，以一种巧妙的方式！）以不同的方式证明上述事实。
+
+花几分钟时间思考一下，在查看我们给出的证明之前，看看你是否能想出接下来如何证明。应用算术几何平均等式意味着什么？那个结果适用于任何 $x$ 和 $y$，但在这里我们只有一个 $x$。我们能否巧妙地选择 $y$ 应该是什么，以便这里的结果立刻``呼之欲出''吗？试试看！然后，继续阅读……
+
+\begin{proof}
+    令 $x \in \mathbb{R}$ 是任意固定的。假设 $x>0$。
+
+    定义 $y = \frac{1}{x}$，所以 $y \in \mathbb{R}$。
+
+    接着对 $x$ 和 $y$ 应用算术几何平均不等式（因为其对\emph{任意} $x,y \in \mathbb{R}$ 一定成立）。可得
+    \[x \cdot \frac{1}{x} \le \Big(\frac{x+\frac{1}{x}}{2}\Big)^2\]
+
+    两边稍微化简一下得
+    \[1 \le \frac{1}{4}\Big(x+\frac{1}{x}\Big)^2\]
+
+    然后左右两边同时乘以 $4$ 得
+    \[4 \le \Big(x+\frac{1}{x}\Big)^2\]
+
+    不等式两边都非负，我们可以两边同时开平方得
+    \[2 \le x+\frac{1}{x}\]
+
+    这就是要证明的声明。
+\end{proof}
+
+这里有一个宝贵的经验：
+
+\begin{center}
+    始终关注论证与证明之间的相似之处，而不仅仅是已证明的结果。
+\end{center}
+
+通过应用另一个已被证明的结果，往往可以节省一些工作！（在这种情况下，我们并没有节省太多的写作时间；但是，如果我们没有注意到反证法有效的话，我们可能会节省一些时间。特别是，我们可能没有想到第一个证明中出现的因式分解技巧。）
