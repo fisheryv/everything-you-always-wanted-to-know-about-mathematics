@@ -19,14 +19,14 @@
 
 \begin{enumerate}[label=(\arabic*)]
     \item 设 $\ell,k,n \in \mathbb{N}$，用双法计数证明
-        \[\begin{pmatrix}n\\k\end{pmatrix}\begin{pmatrix}k\\\ell\end{pmatrix}=\begin{pmatrix}n\\\ell\end{pmatrix}\begin{pmatrix}n-\ell\\k-\ell\end{pmatrix}\]
+        \[{n \choose k}{k \choose \ell}={n \choose \ell}{n-\ell \choose k-\ell}\]
     \item 用双法计数证明
-        \[n \cdot 2^{n-1} = \sum_{k=1}^{n}\begin{pmatrix}n\\k\end{pmatrix} \cdot k\]
+        \[n \cdot 2^{n-1} = \sum_{k=1}^{n}{n \choose k} \cdot k\]
     \item 用双法计数证明
-        \[3^n=\sum_{k=1}^{n}\begin{pmatrix}n\\k\end{pmatrix}2^{n-k} = \sum_{k=0}^{n}\begin{pmatrix}n\\k\end{pmatrix}2^k\]
+        \[3^n=\sum_{k=1}^{n}{n \choose k}2^{n-k} = \sum_{k=0}^{n}{n \choose k}2^k\]
         （\textbf{提示}：考虑使用三进制字符串集。）\\
         然后，解释它是如何从二项式定理推导出来的。
-    \item 用双法计数证明 $k^2=\big({k \atop 1}\big)+2\big({k \atop 2}\big)$。\\
+    \item 用双法计数证明 $k^2={k \choose 1}+2{k \choose 2}$。\\
         应用\textbf{求和恒等式}推导出
         \[\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}\]
     \item 用双法计数证明以下\textbf{几何级数公式}：

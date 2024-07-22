@@ -12,85 +12,37 @@
 
     首先，如果手中恰好有 $3$ 张 $A$，那么我们需要确定另外两张牌的特性。这两张牌要么是 (a) 不同点数的，要么是 (b) 相同点数的。因此，这种特殊情况可以分为两种子情况。由此我们可以得到以下步骤：
     \begin{enumerate}
-        \item 从 $4$ 张 $A$ 中选择 $3$：有 $\big({4 \atop 3}\big)$ 种方法
+        \item 从 $4$ 张 $A$ 中选择 $3$：有 ${4 \choose 3}$ 种方法
               \begin{enumerate}[label=(\alph*)]
                   \item 剩下的两张牌点数不同：
                         \begin{enumerate}[label=(\roman*)]
-                            \item 从剩下的 $12$ 个点数中，为剩下的两张牌选择两个点数：有 $\big({12 \atop 2}\big)$ 种方法
-                            \item 为点数较小的牌选择一种花色：有 $\big({4 \atop 1}\big)$ 种方法
-                            \item 为点数较大的牌选择一种花色：有 $\big({4 \atop 1}\big)$ 种方法
+                            \item 从剩下的 $12$ 个点数中，为剩下的两张牌选择两个点数：有 ${12 \choose 2}$ 种方法
+                            \item 为点数较小的牌选择一种花色：有 ${4 \choose 1}$ 种方法
+                            \item 为点数较大的牌选择一种花色：有 ${4 \choose 1}$ 种方法
                         \end{enumerate}
                   \item 剩下的两张牌点数相同：
                         \begin{enumerate}[label=(\roman*)]
-                            \item 从剩下的 $12$ 个点数中选择一个点数：有 $\big({12 \atop 1}\big)$ 种方法
-                            \item 为选出的点数选择两种花色：有 $\big({4 \atop 2}\big)$ 种方法
+                            \item 从剩下的 $12$ 个点数中选择一个点数：有 ${12 \choose 1}$ 种方法
+                            \item 为选出的点数选择两种花色：有 ${4 \choose 2}$ 种方法
                         \end{enumerate}
               \end{enumerate}
     \end{enumerate}
     所以，根据乘法原理和加法原理（因为过程中与独立的两种情况），我们得到
-    \[\begin{pmatrix}
-            4 \\
-            3
-        \end{pmatrix}\Bigg[\begin{pmatrix}
-                12 \\
-                2
-            \end{pmatrix} \begin{pmatrix}
-                4 \\
-                1
-            \end{pmatrix}^2 + \begin{pmatrix}
-                12 \\
-                1
-            \end{pmatrix} \begin{pmatrix}
-                4 \\
-                2
-            \end{pmatrix}\Bigg]\]
+    \[{4 \choose 3}\Bigg[{12 \choose 2} {4 \choose 1}^2 + {12 \choose 1} {4 \choose 2}\Bigg]\]
     种\emph{恰好有三张} $A$ 的牌型。\\
 
     其次，如果手中正好有 $4$ 张 $A$，我们需要确定第五张牌的特性。具体步骤如下
     \begin{enumerate}
-        \item 从 $4$ 张 $A$ 中选择 $4$ 张：有 $\big({4 \atop 4}\big)$ 种方法
-        \item 从剩下的 $12$ 个点数中，为剩下的一张牌选择一个点数：有 $\big({12 \atop 1}\big)$ 种方法
-        \item 为剩下的一张牌选择一种花色：$\big({4 \atop 1}\big)$ 种方法
+        \item 从 $4$ 张 $A$ 中选择 $4$ 张：有 ${4 \choose 4}$ 种方法
+        \item 从剩下的 $12$ 个点数中，为剩下的一张牌选择一个点数：有 ${12 \choose 1}$ 种方法
+        \item 为剩下的一张牌选择一种花色：${4 \choose 1}$ 种方法
     \end{enumerate}
     利用乘法原理，我们得到
-    \[\begin{pmatrix}
-            4 \\
-            4
-        \end{pmatrix}\begin{pmatrix}
-            12 \\
-            1
-        \end{pmatrix}\begin{pmatrix}
-            4 \\
-            1
-        \end{pmatrix}\]
+    \[{4 \choose 4}{12 \choose 1}{4 \choose 1}\]
     种\emph{恰好有四张} $A$ 的牌型。
 
     现在，我们必须应用加法原理！我们将所需的牌型 --- 至少有三张 $A$ 的牌型 --- 划分成两个子集：一个是恰好有三张 $A$ 的牌型，另一个是恰好有四张 $A$ 的牌型。由于这些子集划分了较大的集合（即每一种至少有三张 $A$ 的牌型要么有三张 $A$，要么有四张 $A$，不会同时有三张和四张 $A$，也不会都没有），我们可以应用加法原理并得出结论，有
-    \[\begin{pmatrix}
-            4 \\
-            3
-        \end{pmatrix}\Bigg[\begin{pmatrix}
-                12 \\
-                2
-            \end{pmatrix} \begin{pmatrix}
-                4 \\
-                1
-            \end{pmatrix}^2 + \begin{pmatrix}
-                12 \\
-                1
-            \end{pmatrix} \begin{pmatrix}
-                4 \\
-                2
-            \end{pmatrix}\Bigg] + \begin{pmatrix}
-            4 \\
-            4
-        \end{pmatrix}\begin{pmatrix}
-            12 \\
-            1
-        \end{pmatrix}\begin{pmatrix}
-            4 \\
-            1
-        \end{pmatrix}\]
+    \[{4 \choose 3}\Bigg[{12 \choose 2} {4 \choose 1}^2 + {12 \choose 1} {4 \choose 2}\Bigg] + {4 \choose 4}{12 \choose 1}{4 \choose 1}\]
     种至少有三张 $A$ 的牌型。
 
     回顾一下，之前提到的加法原理的严格陈述，其中涉及有限集的基数，但在之前的例子中我们没有深入其中的细节。这类组合数学的论证需要一定的判断力和技巧。你能轻松地理解\emph{至少有三张 $A$ 的牌型，要么正好有三张 $A$，要么正好有四张 $A$，而不会同时有三张和四张 $A$，也不会两者都没有吗}？我们并不是说这应该是完全显而易见的，如果你没有立即看到这一点也没关系！我们想表达的是，这类陈述在证明中应该能作为合理的解释。是的，我们可以深入细节，用集合的术语重新表述扑克牌牌型，并将扑克牌游戏完全用集合符号表示。但这样做有什么意义呢？上面楷体字的解释似乎更容易理解。如果有困惑的读者需要更详细的解释，我们当然可以提供，但对于一般读者来说，这样的论证已经足够了。希望这个经验法则 --- 说服一般读者，但在受到进一步质疑时能够进一步解释 --- 能指导你决策在计数论证中需要包含多少细节。这里重要的是，我们解释了为什么我们的选择与牌型集合的划分有关。虽然我们没有严格证明这两个集合是不相交的，但我们提供了理由。
@@ -99,69 +51,21 @@
     \begin{enumerate}
         \item 如果恰有 $3$ 张 $A$：
               \begin{enumerate}[label=(\alph*)]
-                  \item 为 $3$ 张 $A$ 选择三种花色：有 $\big({4 \atop 3}\big)$ 种方法
-                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $2$ 张凑齐 $5$ 张牌：有 $\big({48 \atop 2}\big)$ 种方法
+                  \item 为 $3$ 张 $A$ 选择三种花色：有 ${4 \choose 3}$ 种方法
+                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $2$ 张凑齐 $5$ 张牌：有 ${48 \choose 2}$ 种方法
               \end{enumerate}
         \item 如果恰有 $4$ 张 $A$：
               \begin{enumerate}[label=(\alph*)]
-                  \item 为 $4$ 张 $A$ 选择四种花色：有 $\big({4 \atop 4}\big) = 1$ 种方法
-                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $1$ 张凑齐 $5$ 张牌：有 $\big({48 \atop 1}\big)$ 种方法
+                  \item 为 $4$ 张 $A$ 选择四种花色：有 ${4 \choose 4} = 1$ 种方法
+                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $1$ 张凑齐 $5$ 张牌：有 ${48 \choose 1}$ 种方法
               \end{enumerate}
     \end{enumerate}
     因此，根据加法原理（我们根据牌型中有多少张 $A$ 划分成两种情况）以及每种情况下的乘法原理，可得
-    \[\begin{pmatrix}
-            4 \\
-            3
-        \end{pmatrix}\begin{pmatrix}
-            48 \\
-            2
-        \end{pmatrix}+\begin{pmatrix}
-            4 \\
-            4
-        \end{pmatrix}\begin{pmatrix}
-            48 \\
-            1
-        \end{pmatrix}\]
+    \[{4 \choose 3}{48 \choose 2}+{4 \choose 4}{48 \choose 1}\]
     种至少有三张 $A$ 的牌型。
 
     你会更频繁地看到（并使用）这种方法。前面的论证更类似于之前同花的例子，所以我们先介绍了同花。这种论证稍微简短一些，也更``巧妙''，因此更常用。但等一下，这些答案形式上看起来不一样！我们计算的是同一牌型数量，难道不应该得到相同的最终结果吗？其实结果是相同的，我们建议你做一下必要的代数运算来验证这一点
-    \[\begin{pmatrix}
-            4 \\
-            3
-        \end{pmatrix}\begin{pmatrix}
-            48 \\
-            2
-        \end{pmatrix}+\begin{pmatrix}
-            4 \\
-            4
-        \end{pmatrix}\begin{pmatrix}
-            48 \\
-            1
-        \end{pmatrix} = \begin{pmatrix}
-            4 \\
-            3
-        \end{pmatrix}\Bigg[\begin{pmatrix}
-                12 \\
-                2
-            \end{pmatrix} \begin{pmatrix}
-                4 \\
-                1
-            \end{pmatrix}^2 + \begin{pmatrix}
-                12 \\
-                1
-            \end{pmatrix} \begin{pmatrix}
-                4 \\
-                2
-            \end{pmatrix}\Bigg] + \begin{pmatrix}
-            4 \\
-            4
-        \end{pmatrix}\begin{pmatrix}
-            12 \\
-            1
-        \end{pmatrix}\begin{pmatrix}
-            4 \\
-            1
-        \end{pmatrix}\]
+    \[{4 \choose 3}{48 \choose 2}+{4 \choose 4}{48 \choose 1} = {4 \choose 3}\Bigg[{12 \choose 2} {4 \choose 1}^2 + {12 \choose 1} {4 \choose 2}\Bigg] + {4 \choose 4}{12 \choose 1}{4 \choose 1}\]
     这只需要一分钟，而且很值得一试。
 \end{example}
 
@@ -176,29 +80,17 @@
         \begin{enumerate}[label=(\arabic*)]
             \item 如果恰有 $3$ 张 $A$：
                   \begin{enumerate}[label=(\alph*)]
-                      \item 为 $4$ 张 $A$ 中选择 $3$ 张：有 $\big({4 \atop 3}\big)$ 种方法
-                      \item 从剩余的 $49$ 张牌中选择 $2$ 张凑齐 $5$ 张牌：有 $\big({49 \atop 2}\big)$ 种方法
+                      \item 为 $4$ 张 $A$ 中选择 $3$ 张：有 ${4 \choose 3}$ 种方法
+                      \item 从剩余的 $49$ 张牌中选择 $2$ 张凑齐 $5$ 张牌：有 ${49 \choose 2}$ 种方法
                   \end{enumerate}
             \item 如果恰有 $4$ 张 $A$：
                   \begin{enumerate}[label=(\alph*)]
-                      \item 为 $4$ 张 $A$ 选择 $4$ 张：有 $\big({4 \atop 4}\big) = 1$ 种方法
-                      \item 从剩余的 $48$ 张牌中选择 $1$ 张凑齐 $5$ 张牌：有 $\big({48 \atop 1}\big)$ 种方法
+                      \item 为 $4$ 张 $A$ 选择 $4$ 张：有 ${4 \choose 4} = 1$ 种方法
+                      \item 从剩余的 $48$ 张牌中选择 $1$ 张凑齐 $5$ 张牌：有 ${48 \choose 1}$ 种方法
                   \end{enumerate}
         \end{enumerate}
         因此，有
-        \[\begin{pmatrix}
-                4 \\
-                3
-            \end{pmatrix}\begin{pmatrix}
-                49 \\
-                2
-            \end{pmatrix}+\begin{pmatrix}
-                4 \\
-                4
-            \end{pmatrix}\begin{pmatrix}
-                48 \\
-                1
-            \end{pmatrix}\]
+        \[{4 \choose 3}{49 \choose 2}+{4 \choose 4}{48 \choose 1}\]
         种至少有三张 $A$ 的牌型。
     }
 
@@ -244,17 +136,11 @@
     以下是一个\textcolor{red}{错误的}论证：
 
     \begin{quote}\color{red}
-        有 $\begin{pmatrix}
-                13 \\
-                1
-            \end{pmatrix}^4 \cdot \begin{pmatrix}
-                48 \\
-                1
-            \end{pmatrix}$ 种这样的牌型。
+        有 ${13 \choose 1}^4 \cdot {48 \choose 1}$ 种这样的牌型。
 
-        我们可以用一个五步过程来构建此牌型。第一步，从 $13$ 个红桃中选择一张；第二步，从 $13$ 个方片中选择一张；第三步，从 $13$ 个黑桃中选择一张；第四步，从 $13$ 个梅花中选择一张。以上每一步都有 $\big({13 \atop 1}\big)$ 种选择方式。
+        我们可以用一个五步过程来构建此牌型。第一步，从 $13$ 个红桃中选择一张；第二步，从 $13$ 个方片中选择一张；第三步，从 $13$ 个黑桃中选择一张；第四步，从 $13$ 个梅花中选择一张。以上每一步都有 ${13 \choose 1}$ 种选择方式。
 
-        然后，从剩余的 $48$ 张牌种选择一张凑成 $5$ 张手牌，有 $\big({48 \atop 1}\big)$ 种选择方式。根据乘法原理，即可得到上面的结论。
+        然后，从剩余的 $48$ 张牌种选择一张凑成 $5$ 张手牌，有 ${48 \choose 1}$ 种选择方式。根据乘法原理，即可得到上面的结论。
     \end{quote}
 
 
@@ -274,23 +160,14 @@
     为了计数牌型的数量，我们定义如下过程：
     \begin{itemize}
         \item 从四种花色种选择哪种花色出现两次（其余三种花色固定只出现一次。）\\
-              有 $\big({4 \atop 1}\big)$ 种方式。
+              有 ${4 \choose 1}$ 种方式。
         \item 为选出的花色选择两张牌。\\
-              有 $\big({13 \atop 2}\big)$ 种方式。
+              有 ${13 \choose 2}$ 种方式。
         \item 剩下的三个花色，每个花色选择一张牌。\\
-              有 $\big({13 \atop 1}\big)^3$ 种方式。
+              有 ${13 \choose 1}^3$ 种方式。
     \end{itemize}
     根据乘法原理，我们有
-    \[\begin{pmatrix}
-            4 \\
-            1
-        \end{pmatrix}\begin{pmatrix}
-            13 \\
-            2
-        \end{pmatrix}\begin{pmatrix}
-            13 \\
-            1
-        \end{pmatrix}^3 = 685464\]
+    \[{4 \choose 1}{13 \choose 2}{13 \choose 1}^3 = 685464\]
     种每种花色各一张的牌型。
 \end{example}
 
@@ -302,40 +179,22 @@
     \begin{enumerate}
         \item 恰有两张 $A$：
               \begin{enumerate}[label=(\alph*)]
-                  \item 从 $4$ 张 $A$ 中选择 $2$ 张：有 $\big({4 \atop 2}\big)$ 种方式。
-                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $3$ 张：有 $\big({48 \atop 3}\big)$ 种方式。
+                  \item 从 $4$ 张 $A$ 中选择 $2$ 张：有 ${4 \choose 2}$ 种方式。
+                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $3$ 张：有 ${48 \choose 3}$ 种方式。
               \end{enumerate}
         \item 恰有一张 $A$：
               \begin{enumerate}[label=(\alph*)]
-                  \item 从 $4$ 张 $A$ 中选择 $1$ 张：有 $\big({4 \atop 1}\big)$ 种方式。
-                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $4$ 张：有 $\big({48 \atop 4}\big)$ 种方式。
+                  \item 从 $4$ 张 $A$ 中选择 $1$ 张：有 ${4 \choose 1}$ 种方式。
+                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $4$ 张：有 ${48 \choose 4}$ 种方式。
               \end{enumerate}
         \item 没有 $A$：
               \begin{enumerate}[label=(\alph*)]
-                  \item 选择 $0$ 张 $A$：有 $\big({4 \atop 0}\big)=1$ 种方式。
-                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $5$ 张：有 $\big({48 \atop 5}\big)$ 种方式。
+                  \item 选择 $0$ 张 $A$：有 ${4 \choose 0}=1$ 种方式。
+                  \item 从剩余的 $48$ 张非 $A$ 牌中选择 $5$ 张：有 ${48 \choose 5}$ 种方式。
               \end{enumerate}
     \end{enumerate}
     由于情况 1、2、3 不重合（即一手牌中有特定数量的 $A$），我们可以使用加法原理；此外，我们可以在这三种情况内使用乘法原理，因为我们在每种情况下顺序执行这两个步骤。因此，有
-    \[\begin{pmatrix}
-            4 \\
-            2
-        \end{pmatrix}\begin{pmatrix}
-            48 \\
-            3
-        \end{pmatrix}+\begin{pmatrix}
-            4 \\
-            1
-        \end{pmatrix}\begin{pmatrix}
-            48 \\
-            4
-        \end{pmatrix}+\begin{pmatrix}
-            4 \\
-            0
-        \end{pmatrix}\begin{pmatrix}
-            48 \\
-            5
-        \end{pmatrix}\]
+    \[{4 \choose 2}{48 \choose 3}+{4 \choose 1}{48 \choose 4}+{4 \choose 0}{48 \choose 5}\]
     （注意：在表示二项式系数时，通常省略乘法符号 $\cdot$；乘法是隐含的。）
 
     你有没有考虑没有 $A$ 的情况？这是一个常见的疏漏！你避免了我们在上一个问题中提到的多算问题了吗？我们需要根据手牌中 $A$ 的数量，将手牌集划分为三个不重叠的情况。
@@ -343,43 +202,13 @@
     另一种解决该问题的方法是利用我们在前一示例中的成果。也许你已经想到了这种方法。如果是这样，那恭喜你！这种方法的主要思路是将所有手牌分为两种情况：一是至多有 $2$ 个 $A$ 的情况，二是至少有 $3$ 个 $A$ 的情况。设 $S$ 为至多有 $2$ 个 $A$ 的牌型集，$T$ 为至少有 $3$ 个 $A$ 的牌型集，$H$ 为所有牌型的集合。根据我们的解释，$H = S \cup T$ 且 $S \cap T = \varnothing$。因此，可以应用加法原理推导出 $|H| = |S| + |T|$。此外，由于我们需要确定 $|S|$，我们可以写做
     \[|S| = |H| - |T|\]
     因此
-    \[|S| = \begin{pmatrix}
-            52 \\
-            5
-        \end{pmatrix}-\Bigg(\begin{pmatrix}
-                4 \\
-                3
-            \end{pmatrix}\begin{pmatrix}
-                49 \\
-                2
-            \end{pmatrix}+\begin{pmatrix}
-                4 \\
-                4
-            \end{pmatrix}\begin{pmatrix}
-                48 \\
-                1
-            \end{pmatrix}\Bigg)\]
+    \[|S| = {52 \choose 5}-\Bigg({4 \choose 3}{49 \choose 2}+{4 \choose 4}{48 \choose 1}\Bigg)\]
     我们可以直接写出这个解，而不需要额外的计算！我们只需要将问题划分为两个集合，并且这两个集合的基数已经是已知的。
 
     这种策略揭示了一个更深层次的原理。实际上，我们应用了``减法原理''来得到我们想要的答案。这相当于先应用之前提到的加法原理，然后再对表达式进行调整。确实，这是理解这个问题的``正确''方式，因为这符合基本数学原理的应用。然而，在数学证明中，通常会更直接地应用``减法原理''。证明撰写者可能会假设读者已经熟悉加法原理的复杂运作，并直接得出结论，而不会明确指出划分或详细解释如何应用加法原理。例如，一个资深数学家可能会通过写下以下内容来为当前示例提供证明：
     \begin{quotation}
         从所有牌型的集合中，移除那些包含三张或四张 $A$ 的牌型，可得
-        \[\begin{pmatrix}
-                52 \\
-                5
-            \end{pmatrix}-\begin{pmatrix}
-                4 \\
-                3
-            \end{pmatrix}\begin{pmatrix}
-                49 \\
-                2
-            \end{pmatrix}-\begin{pmatrix}
-                4 \\
-                4
-            \end{pmatrix}\begin{pmatrix}
-                48 \\
-                1
-            \end{pmatrix}\]
+        \[{52 \choose 5}-{4 \choose 3}{49 \choose 2}-{4 \choose 4}{48 \choose 1}\]
     \end{quotation}
     一位数学家同仁稍加思考后，会接受这个证明。不过，我们猜你可能会想：这是不是\emph{太简短}了？会不会让读者思考得太辛苦？目前，在你学习数学的这个阶段，我们强烈建议（并要求）你在此类证明中提供更详细的细节。我们希望你能应用加法原理，并解释为什么在应用该原理时存在一个划分，然后进行代数操作以得出结论。将来，在这门课程之外，你可以随意使用``减法原理''。但现在，我们希望你能正确掌握基本原理，这就是为什么需要使用加法原理。
 
@@ -397,29 +226,17 @@
         \item 包含 $Q\spadesuit$
               \begin{enumerate}[label=(\alph*)]
                   \item 选择 $Q\spadesuit$：有 $1$ 种方式
-                  \item 从剩余 $51$ 张牌中，选择 $4$ 张既不是 $Q$（还剩 $3$ 张）也不是黑桃（还剩 $11$ 张）的牌：有 $\big({51-3-12 \atop 4}\big)=\big({36 \atop 4}\big)$ 种方式
+                  \item 从剩余 $51$ 张牌中，选择 $4$ 张既不是 $Q$（还剩 $3$ 张）也不是黑桃（还剩 $11$ 张）的牌：有 ${51-3-12 \choose 4}={36 \choose 4}$ 种方式
               \end{enumerate}
         \item 不包含 $Q\spadesuit$
               \begin{enumerate}[label=(\alph*)]
-                  \item 选择非黑桃 $Q$：有 $\big({3 \atop 1}\big)$ 种方式
-                  \item 选择非 $Q$ 黑桃牌：有 $\big({12 \atop 1}\big)$ 种方式
-                  \item 从剩余 $50$ 张牌中，选择 $3$ 张既不是 $Q$（还剩 $3$ 张） 也不是黑桃（非 $Q$ 黑桃牌还剩 $11$ 张）的牌：有 $\big({50-3-11 \atop 3}\big)=\big({36 \atop 3}\big)$ 种方式
+                  \item 选择非黑桃 $Q$：有 ${3 \choose 1}$ 种方式
+                  \item 选择非 $Q$ 黑桃牌：有 ${12 \choose 1}$ 种方式
+                  \item 从剩余 $50$ 张牌中，选择 $3$ 张既不是 $Q$（还剩 $3$ 张） 也不是黑桃（非 $Q$ 黑桃牌还剩 $11$ 张）的牌：有 ${50-3-11 \choose 3}={36 \choose 3}$ 种方式
               \end{enumerate}
     \end{enumerate}
     由于每一步的选择都会产生唯一的结果，因此我们可以应用乘法原理。同时，因为每种牌型要么有 $Q\spadesuit$ 要么没有，所以加法原理也适用。因此，恰好包含一张 $Q$ 和一张 $\spadesuit$ 的牌型数量为
-    \[\begin{pmatrix}
-            36 \\
-            4
-        \end{pmatrix}+\begin{pmatrix}
-            3 \\
-            1
-        \end{pmatrix}\begin{pmatrix}
-            12 \\
-            1
-        \end{pmatrix}\begin{pmatrix}
-            36 \\
-            3
-        \end{pmatrix} = 58,905 + 257,040 = 315,945\]
+    \[{36 \choose 4}+{3 \choose 1}{12 \choose 1}{36 \choose 3} = 58,905 + 257,040 = 315,945\]
 
     这个问题比前面的例子更棘手，所以我们鼓励你多读几遍这个证明，直到完全理解为止。实际上，你可以问问你的朋友是否能解决这个问题，然后按照上面证明的步骤试着说服他们接受你的答案。你是否理解得足够透彻，能够向他人解释这些步骤？如果是这样，你就是组合论证的大师了！
 

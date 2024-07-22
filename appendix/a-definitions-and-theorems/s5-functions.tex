@@ -1,2 +1,223 @@
 % !TeX root = ../../book.tex
 \section{函数}
+
+\begin{itemize}
+    \item 设 $A,B$ 为集合。设 $f$ 是 $A, B$ 之间的\emph{关系}，因此 $f \subseteq A \times B$。此外，假设 $f$ 具有以下性质
+          \[\forall a \in A \centerdot \exists! b \in B \centerdot (a, b) \in f\]
+          也就是说，假设定义域 $A$（``输入''集）的每个元素\emph{有且只有一个}对应的值域 $B$（``输出''集）的元素，使得这两个元素在 $f$ 下是相关的。
+
+          换句话说，``每个输入都只有唯一一个对应的输出。''
+
+          这种关系称为从 $A$ 到 $B$ 的函数。
+
+          我们称 $A$ 为函数的定义域，$B$ 为函数的值域。写做
+          \[f:A \to B\]
+          表示 $f$ 是从 $A$ 到 $B$ 的函数。
+
+          如果 $a$ 与 $b$ 相关，即 $(a, b) \in f$，那么写做
+          \[f(a) = b\]
+          可知对于每一个 $a$ 都有\emph{唯一一个} $b$ 与之相关。
+    \item 给定定义域 $A$，值域 $B$，以及一个说明输出内容的``规则'' $f$，给定 $A$ 的一个元素，如果规则定义在 $A$ 的所有元素上，并且对于每个 $a \in A$，规则输出\emph{唯一一个}集合 $B$ 中的元素，我们说 $f$ 是一个\textbf{明确定义}的函数。
+
+          （注意：每个函数都是一个明确定义的函数；当我们试图确定一个给定的``规则''是否真的是一个函数时，这条规则很有用。）
+    \item 令 $f : A \to B, g : A \to B$ 为函数。当 $\forall a \in A \centerdot f(a) = g(a)$ 时，我们说 $f$ 和 $g$ \textbf{相等}（在函数意义上），写做 $f = g$。也就是说，当两个函数对每个输入都产生相同的输出时，$f = g$。
+\end{itemize}
+
+\subsection{像与原像}
+
+\begin{itemize}
+    \item 设 $f : A \to B$ 为函数。设 $X \subseteq A$。$X$ 在函数 $f$ 下的\textbf{像}为
+          \[Im_f (X) = \{b \in B \mid \exists a \in X \centerdot f(a) = b\}\]
+          这个集合的等效写法为
+          \[Im_f (X) = \{f(a) \mid a \in X\}\]
+          （直观地讲，这是被 $X$ 中的元素``击中''的所有值域元素的集合。）
+    \item 设 $f : A \to B$ 为函数。设 $Z \subseteq B$。$Z$ 在函数 $f$ 下的\textbf{原像}为
+          \[PreIm_f (Z) = \{a \in A \mid f(a) \in Z\}\]
+          （直观地讲，这是所有输出``落在'' $Z$ 上的``输入''的集合。）
+    \item 注：$\Im_f (\varnothing) = \varnothing$ 且 $PreIm_f (\varnothing) = \varnothing$。
+\end{itemize}
+
+\subsection{映射}
+
+\begin{itemize}
+    \item 设 $f : A \to B$ 为函数。如果 $\Im_f (A) = B$，那么我们说 $f$ 是\textbf{满射的}，或者说它是一个\textbf{满射}。
+
+          像的定义为我们提供了满射性的等效公式：
+          \[f \text{是满射的} \iff \forall b \in B. \exists a \in A. f(a) = b\]
+          （直观地讲，当\emph{所有}值域中的元素都被函数``命中''时，$f$ 是满射的。）
+    \item 设 $f : A \to B$ 为函数。如果 $f$ 具有如下性质：
+          \[\forall a_1, a_2 \in A \centerdot a_1 \ne a_2 \implies f(a_1) \ne f(a_2)\]
+          那么我们说 $f$ 是\textbf{单射的}，或者说它是一个\textbf{单射}。
+
+          该条件陈述的逆否命题给出了单射性的等效公式：
+          \[\forall a_1, a_2 \in A \centerdot f(a_1) = f(a_2) \implies a_1 = a_2\]
+          （直观地讲，当两个不同的输入总是产生不同的输出时，或者当具有相同的输出意味着它们来自相同的输入时，$f$ 是单射的。）
+    \item 如果函数 $f$ 既是单射又是满射，那么我们说 $f$ 是\textbf{双射的}，或者说它是一个\textbf{双射}。
+\end{itemize}
+
+\subsection{函数复合}
+
+\begin{itemize}
+    \item 设 $f: A \to B , g: B \to C$ 为函数。
+
+          函数 $g \circ f : A \to C$ 定义为
+          \[\forall a \in A \centerdot (g \circ f)(a) = g(f(a))\]
+          是 $g$ 与 $f$ 的\textbf{复合}，或 ``$g$ 复合 $f$''。
+
+          注意：将 ``$\circ$'' 读作``之后''有助于提醒你操作顺序：$g \circ f$ 表示 $g$ 在 $f$ 之后应用。我们先求出 $f(a)$ 然后再求出 $g(f(a))$。
+    \item 符号：我们写做 $(g \circ f)(x) = g(f(x))$。不要写成 $g \circ f(x)$。括号很重要！
+    \item 设 $f : A \to B , g : B \to C , h : C \to D$ 为函数。 那么 $(h \circ g) \circ f = h \circ (g \circ f)$。
+
+          此为\textbf{复合的结合律}。
+    \item 假设 $f : A \to B$ 和 $g : B \to C$ 都是单射/满射/双射。 那么 $g \circ f$ 也是单射/满射/双射。
+
+\end{itemize}
+
+\subsection{反函数}
+
+\begin{itemize}
+    \item 设 $X$ 为任意集合。单位函数 $Id_X : X \to X$ 定义为 $\forall z \in X \centerdot Id_X(z) = z$。
+    \item 设 $f : A \to B$ 为函数。如果存在函数 $F : B \to A$ 使得 $f \circ F : B \to B$ 满足 $f \circ F = \text{Id}_B$ 且 $F \circ f : A \to A$ 满足 $F \circ f = \text{Id}_A$ ，那么我们说 $F$ 是 $f$ 的\textbf{反函数}，并写做 $F = f^{-1}$。
+
+          请注意，正式定义清楚地写明需要检查两个函数的\emph{两种}复合方式是否产生单位函数。存在一种复合方法有效而另一种复合方法无效的示例！
+
+          （注意：当证明一个函数是另一个函数的反函数时，我们还不能写成 $f^{-1}$，因为事实上，我们还在证明 $f$ 有一个反函数。）
+
+          如果 $f$ 有反函数，我们说 $f$ \textbf{可逆}。
+    \item \textbf{定理}：$f : A \to B$ 是双射 $\iff f$ 存在反函数 $f^{-1}: B \to A$。
+    \item \textbf{定理}：设 $f : A \to B$ 和 $g : B \to C$ 都是双射。那么 $g \circ f : A \to C$ 也是双射，因此它有反函数；反函数为 $(g \circ f)^{-1} = f^{-1} \circ g^{-1}$。
+\end{itemize}
+
+\subsection{函数证明技巧}
+
+\begin{itemize}
+    \item 证明 $f$ 是\textbf{满射}：
+          \begin{quote}
+              设 $b \in B$ 为任意固定元素。
+
+              定义 $a=\underline{\qquad}$ 。
+
+              证明 $a \in A$。
+
+              证明 $f(a) = b$ 。
+
+              这表明 $b \in Im_f (A)$，所以 $B \subseteq Im_f (A)$。
+
+              根据定义 $Im_f (A) \subseteq B$，这表明 $Im_f (A) = B$，所以 $f$ 是满射。
+          \end{quote}
+    \item 证明 $f$ \textbf{不是满射}：
+          \begin{quote}
+              定义 $b=\underline{\qquad}$。
+
+              证明 $b \in B$。
+
+              设 $a \in A$ 为任意固定元素。
+
+              证明 $f(a) \ne b$。（或者，假设 $f(a) = b$ 并找到矛盾。）
+
+              这表明 $\exists b \in B \centerdot b \notin Im_f (A)$，所以 $f$ 不是满射。
+          \end{quote}
+    \item 证明 $f$ 是\textbf{单射}：
+          \begin{quote}
+              设 $x,y \in A$ 为任意固定元素。
+
+              假设 $f(x) = f(y)$。
+
+              推导出 $x = y$。
+          \end{quote}
+          或者
+          \begin{quote}
+              设 $x,y \in A$ 为任意固定元素。
+
+              假设 $x \ne y$。
+
+              推导出 $f(x) \ne f(y)$。
+          \end{quote}
+    \item 证明 $f$ \textbf{不是单射}：
+          \begin{quote}
+              定义 $x=\underline{\qquad}$，定义 $y=\underline{\qquad}$。
+
+              证明 $x \in A$ 且 $y \in A$。
+
+              证明 $x \ne y$。
+
+              证明 $f(x) = f(y)$。
+
+              这表明 $\exists x, y \in A \centerdot x \ne y \land f(x) = f(y)$，所以 $f$ 不是单射。
+          \end{quote}
+    \item 证明 $f$ 是\textbf{双射}：
+          \begin{quote}
+              证明 $f$ 是满射。
+
+              证明 $f$ 是单射。
+          \end{quote}
+          或者
+          \begin{quote}
+              定义函数 $F:B \to A$。
+
+              证明 $F \circ f = Id_A$ 。
+
+              证明 $f \circ F = Id_B$ 。
+
+              这表明 $F = f^{-1}$，所以 $f$ 可逆，因此它是双射。
+          \end{quote}
+    \item 证明 $f$ \textbf{不是双射}：
+          \begin{quote}
+              证明 $f$ 不是单射，或证明 $f$ 不是满射。
+          \end{quote}
+          或者
+          \begin{quote}
+              为了得到矛盾而假设 $f$ 是双射，所以必然存在反函数 $f^{-1}$。找到矛盾。
+          \end{quote}
+    \item 对于 $X \subseteq A$，求像 $Im_f (X)$：
+          \begin{itemize}
+              \item 定义集合 $S$，声明 $S = Im_f(X)$。
+
+                    （注意：提出这个定义并非易事，并且会涉及大量演算工作。没有必要将其作为证明的一部分。只需从定义开始。）
+              \item 证明 $Im_f (X) \subseteq S$。
+                    \begin{itemize}
+                        \item 设 $y \in Im_f(x)$ 为任意固定元素。
+                        \item 这意味着 $\exists a \in X \centerdot f(a) = y$。
+                        \item 利用 $f$ 的性质证明 $f(a) \in S$。
+                        \item 这表明 $y \in S$。
+                    \end{itemize}
+              \item 证明 $S \subseteq Im_f (X)$。
+                    \begin{itemize}
+                        \item 设 $z \in S$ 为任意固定元素。
+                        \item 定义 $x = \underline{\qquad}$。
+                        \item 证明 $x \in X$。
+                        \item 证明 $f(x) = z$。
+                        \item 这表明 $z \in Im_f (X)$。
+                    \end{itemize}
+              \item 通过双重包含得到结论 $Im_f (X) = S$ 。
+          \end{itemize}
+    \item 对于 $Z \subseteq B$，求原像 $PreIm_f (Z)$：
+          \begin{itemize}
+              \item 定义集合 $T$，声明 $T = PreIm_f(Z)$。
+
+                    （注意：提出这个定义并非易事，并且会涉及大量演算工作。没有必要将其作为证明的一部分。只需从定义开始。）
+              \item 证明 $PreIm_f(Z) \subseteq T$。
+                    \begin{itemize}
+                        \item 设 $a \in PreIm_f(Z)$ 为任意固定元素。
+                        \item 这意味着 $f(a) \in Z$。
+                        \item 利用 $f$ 的性质证明 $a \in T$。
+                    \end{itemize}
+              \item 证明 $T \subseteq PreIm_f(Z)$。
+                    \begin{itemize}
+                        \item 设 $x \in T$ 为任意固定元素。
+                        \item 利用 $f$ 的性质证明 $f(x) \in Z$。
+                        \item 这表明 $x \in PreIm_f(Z)$。
+                    \end{itemize}
+              \item 通过双重包含得到结论 $PreIm_f (Z) = T$。
+          \end{itemize}
+    \item 求 $f$ 的\textbf{反函数}：
+          \begin{itemize}
+              \item 定义函数 $F: B \to A$。
+
+                    （注意：提出这个定义并非易事，并且会涉及大量演算工作。没有必要将其作为证明的一部分。只需从定义开始。）
+              \item 证明 $F$ 是一个明确定义的函数：证明每个来自 $B$ 的输入都只有一个 $A$ 上的输出。
+              \item 证明 $F \circ f = Id_A$。
+              \item 证明 $f \circ F = Id_B$。
+              \item 推导出 $F = f^{-1}$。（由于 $f$ 存在反函数，因此它也是双射。）
+          \end{itemize}
+\end{itemize}

@@ -1,2 +1,97 @@
 % !TeX root = ../../book.tex
 \section{关系}
+
+设 $A,B$ 为集合。$A$ 和 $B$ 之间的关系是有序对集合 $R \subseteq A \times B$。
+
+给定元素 $a \in A$ 和 $b \in B$，我们说 $a$ 和 $b$ \textbf{相关}，当且仅当 $ (a, b) \in R$。
+
+集合 $A$ 称为\textbf{定义域}，集合 $B$ 称为\textbf{值域}。
+
+集合 $R$ 称为\textbf{关系集}。
+
+我们称 $R$ 是 \textbf{$A$ 和 $B$ 之间}的关系。
+
+当 $A = B$ 时，我们称 $R$ 是\textbf{集合 $A$ 上}的关系。
+
+\subsection{关系的性质}
+
+设 $A$ 为集合，$R$ 为 $A$ 上的关系，即 $R \subseteq A \times A$。
+
+（注意：下面属性*仅*适用于这种情况，不适用于两个*不同*集合 $A$ 和 $B$ 之间的关系。）
+
+\begin{itemize}
+    \item 我们说 $R$ 具有\textbf{自反性}，如果
+          \[\forall x \in A \centerdot (x, x) \in R\]
+          （即每个元素都与其自身相关）。
+    \item 我们说 $R$ 具有\textbf{对称性}，如果
+          \[\forall x, y \in A \centerdot (x, y) \in R \implies (y, x) \in R\]
+          （即比较的顺序无关紧要）。
+    \item 我们说 $R$ 具有\textbf{传递性}，如果
+          \[\forall x, y, z \in A \centerdot [(x, y) \in R \land (y, z) \in R] \implies (x, z) \in R\]
+          （即关系总是可以``通过中间人传递''）
+    \item 我们说 $R$ 具有\textbf{反对称性}，如果
+          \[\forall x, y \in A \centerdot [(x, y) \in R \land (y, x) \in R] \implies x = y\]
+          （即双向相关的两个元素必然相同）。
+\end{itemize}
+
+\subsection{等价关系}
+
+设 $A$ 为集合，$R$ 为 $A$ 上的关系。
+
+\begin{itemize}
+    \item 我们说 $R$ 是\textbf{等价关系}当且仅当 $R$ 具有自反性、对称性和传递性。
+    \item 若 $R$ 为等价关系且 $x \in A$，则 $x$ \textbf{对应的等价类}（\textbf{在关系 $R$ 下}）为
+          \[[x]_R = \{y \in A \mid (x, y) \in R\}\]
+          此为与 $x$ 相关的所有元素的集合。
+    \item 若 $R$ 为等价关系，则 $A/R$ 表示 $A$ \textbf{模} $R$；它是所有等价类的集合：
+          \[A/R = \{[x]_R \mid x \in A\}\]
+    \item \textbf{定理}：如果 $R$ 是 $A$ 上的等价关系，则等价类（即 $A/R$ 的元素）构成 $A$ 的\emph{划分}。
+    \item \textbf{定理}：如果 $I$ 为索引集，且 $\{S_i \mid i \in I\}$ 是 $A$ 的\emph{划分}，那么这对应于 $A$ 上的唯一\textbf{等价关系}，该关系通过关联 $A$ 的两个元素当且仅当它们属于划分的同一部分时定义。
+\end{itemize}
+
+\subsection{模运算}
+
+\subsubsection{模 $n$ 同余}
+
+\begin{itemize}
+    \item 给定 $n \in \mathbb{N}$ 。对于任意 $x, y \in \mathbb{Z}$，我们说 $x$ 和 $y$ \textbf{模 $n$ 同余}，当且仅当 $n \mid x-y$。
+
+          等价地，这意味着 $x$ 和 $y$ 除以 $n$ 后的余数相同。（这个等价不是定义的一部分；相反，它来自下面的除法引理。）
+
+          我们将其写做 $x \equiv y \mod n$。
+
+          （注意：$\mod n$ 不是运算符或函数；它是我们放在算术/代数式末尾的修饰符，表示所有运算都已对 $n$ 取模。）
+    \item 对于每个 $n \in \mathbb{N}$，关系 $\equiv$ 是一个等价关系。
+    \item \textbf{除法引理}：给定 $n \in \mathbb{N}$ ，给定 $x \in \mathbb{Z}$ 。则
+          \[\exists! k, r \in \mathbb{Z} \centerdot (x = kn + r) \land (0 \le r \le n - 1)\]
+          注意``$\exists !$'' 表示\emph{唯一存在}一种将 $x$ 表示为 $n$ 的倍数加余数的方法。
+    \item \textbf{模算术引理}：给定 $n \in \mathbb{N}$ ，给定 $a, b \in \mathbb{Z}$ ，假设 $a \equiv r \mod n$ 且 $b \equiv s \mod n$。则
+          \[a + b \equiv r + s \mod n \quad \text{且} \quad a \cdot b \equiv r \cdot s \mod n\]
+\end{itemize}
+
+\subsubsection{$\mathbb{Z}$ mod $n$ 中的乘法逆元}
+
+\begin{itemize}
+    \item 给定 $x,y \in \mathbb{Z}$，我们说 $x$ 和 $y$ 互质，当且仅当它们没有除 $1$ 以外的公因数（除数）。
+    \item \textbf{MIRP 引理}：（互质乘法逆）假设 $n \in \mathbb{N}, a \in \mathbb{Z}$，且 $a$ 和 $n$ 互质。考虑同余式 $ax \equiv 1 \mod n$，则该同余式的解 $x$ 存在。
+
+          （事实上，这个同余式有无穷多个解，而且它们都是模 $n$ 同余的。）
+    \item 当 $ax \equiv  1 \mod n$ 时，我们说 $x$ 是 $a$ 在 $\mathbb{Z}$ 模 $n$ 上的\textbf{乘法逆元}。我们将其写做 $x \equiv a^{-1} \mod n$。
+
+          实际上，任何与 $x$ 模 $n$ 同余的整数 $y$ 都满足 $ay \equiv 1 \mod n$，所以严格来说等价类 $[x]_{\mod n}$ 是等价类 $[a]_{\mod n}$ 的乘法逆元。
+    \item 假设 $a^{-1}$ 存在，则 $(a^{-1})^{-1} \equiv a \mod n$。
+    \item 设 $p$ 为质数，那么所有数字 $1, 2, 3, \dots, p-1$ 保证与 $p$ 互质，因此在 $\mathbb{Z}$ 模 $p$ 的情况下它们都具有乘法逆元。
+\end{itemize}
+
+\subsubsection{结论}
+
+\begin{itemize}
+    \item \textbf{中国剩余定理}：假设 $r \in \mathbb{N}$ 且有 $r$ 个自然数 $n_1, n_2, \dots , n_r$ 两两互质。（也就是说，除了 $1$ 以外，没有任何两个数有公因数。）
+
+          假设我们还有 $r$ 个整数 $a_1, a_2, \dots , a_r$。
+
+          那么对于由 $n_i$ 和 $a_i$ 定义的同余方程组，存在一个解 $X$
+          \[\exists X \in \mathbb{Z}. \forall i \in [r] \centerdot X \equiv a_i \mod n_i\]
+          此外，如果我们定义 $N = \prod_{i \in [r]}n_i$，则同余方程组的所有无穷多解 $Y$ 都满足 $X \equiv Y \mod N$ 。
+\end{itemize}
+

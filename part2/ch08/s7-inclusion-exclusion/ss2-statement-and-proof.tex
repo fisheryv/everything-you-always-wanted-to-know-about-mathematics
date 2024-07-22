@@ -30,11 +30,11 @@
 
 \begin{corollary}
     假设 $U$ 为全集，$A_1, A_2, \dots , A_n$ 为 $U$ 的子集。并进一步假设任意 $k$ 个 $A_i$ 集合的交集的大小都是固定值，我们称之为 $S(k)$，与具体交集的集合无关。则
-    \[|U - (A_1 \cup A_2 \cup \dots \cup A_n)| = \sum_{k=0}^{n}(-1)^k \begin{pmatrix}n\\k\end{pmatrix}S(k)\]
+    \[|U - (A_1 \cup A_2 \cup \dots \cup A_n)| = \sum_{k=0}^{n}(-1)^k {n \choose k}S(k)\]
 \end{corollary}
 
 \begin{proof}
-    此推论可以通过合并相同项，并结合定理 \ref{theorem8.7.1} 得出。具体来说，我们知道存在 $\big({n \atop k}\big)$ 个集合 $S \subseteq [n]$ 满足 $|S| = k$。在此推论的假设下，所有满足 $|S| = k$ 的集合将得到
+    此推论可以通过合并相同项，并结合定理 \ref{theorem8.7.1} 得出。具体来说，我们知道存在 ${n \choose k}$ 个集合 $S \subseteq [n]$ 满足 $|S| = k$。在此推论的假设下，所有满足 $|S| = k$ 的集合将得到
     \[\bigg|\bigcap_{i \in S} A_i\bigg|=S(k)\]
     将这些项合并，并对 $S$ 的所有可能大小求和，我们就得到了上述结论。
 \end{proof}

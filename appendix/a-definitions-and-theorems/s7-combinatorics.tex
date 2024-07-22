@@ -1,2 +1,94 @@
 % !TeX root = ../../book.tex
 \section{组合数学}
+
+\subsection{定义}
+
+\begin{itemize}
+    \item 集合 $[n]$ 的\textbf{全排列}为双射 $f : [n] \to [n]$。
+    \item 集合 $[n]$ 的 $k$-\textbf{选择}为子集 $S \subseteq [n]$，其中 $|S| = k$。
+    \item 集合 $[n]$ 的\textbf{可重复 $k$-选择}为 $[n]$ 中 $k$ 个元素的无序列表，其中元素可以重复。
+    \item 集合 $[n]$ 的\textbf{可重复 $k$-排列}为 $[n]$ 中 $k$ 个元素的有序列表，其中元素可以重复。
+\end{itemize}
+
+\subsection{计数原理}
+
+\begin{itemize}
+    \item \textbf{加法原理}：设 $A$ 为有限集。设 $n \in \mathbb{N}$。假设 $\{S_i \mid i \in [n]\}$ 是 $A$ 的一个划分。那么
+          \[|A| = \sum_{i=1}^n |S_i| = |S_1| + |S_2| + \dots + |S_n|\]
+    \item \textbf{乘法原理}：假设我们有一个过程，分 $n$ 步完成。假设第 $i$ 步（其中 $1 \le i \le n$）可以通过 $w_i$ 种方式完成，与上一步中的选择无关。那么这个过程的结果数为
+          \[\prod_{i=1}^n w_i = w_1 \cdot w_2 \cdot\dots\cdot w_n\]
+\end{itemize}
+
+
+\subsection{公式}
+
+\begin{itemize}
+    \item $[n]$ 有 $n!$ 种全排列。
+    \item $[n]$ 上有 ${n \choose k} = \frac{n!}{k!(n-k)!}$ 种 $k$-选择。
+    \item $[n]$ 上有 ${n \choose k}k! = \frac{n!}{(n-k)!}$ 种 $k$-排列。
+    \item $[n]$ 上有 ${k+n-1 \choose k}$ 种重复 $k$-选择。
+    \item $[n]$ 上有 $n^k$ 种重复 $k$-排列。
+\end{itemize}
+
+\subsection{标准计数对象}
+
+\begin{itemize}
+    \item \textbf{扑克牌}：一副标准的扑克牌有 $52$ 张牌。每张牌都有花色（$\heartsuit$ 或 $\diamondsuit$ 或 $\clubsuit$ 或 $\spadesuit$）和点数（\verb|2| 或 \verb|3| 或 \verb|4| 或 …… 或 \verb|10| 或 \verb|J| 或 \verb|Q| 或 \verb|K| 或 \verb|A|）。
+    \item \textbf{元组}：设 $k, n \in \mathbb{N}$。集合 $T_{n,k}$ 是来自 $[k]$ 的所有 $n$ 元组的集合。也就是说，它是所有长度为 $n$ 的有序序列的集合，其坐标是 $[k]$ 的元素。
+    \item \textbf{单词}：这相当于元组，其中 $[k]$ 代表字母表，$n$ 代表单词的长度。
+    \item \textbf{格路径}：设 $x, y \in \mathbb{N}$。到 $(x, y)$ 的格路径是平面上自然数格点的序列，从 $(0, 0)$ 开始，到 $(x, y)$ 结束，其中每次移动要么向右要么向上。
+
+          到 $(x, y)$ 的格路径有 ${x+y \choose x} = {x+y \choose y}$ 条。
+\end{itemize}
+
+
+\subsection{双法计数}
+
+这是使用组合学论证证明恒等式的标准方法。
+
+\textbf{方法大纲：}
+
+\begin{enumerate}
+    \item 陈述要证明的结果。注意：记得量化出现在表达式中的任何变量！
+    \item 定义要计数的对象集合（我们称之为 $S$）。
+    \item 遵循适当的组合论证，以一种方式计数 $S$ 的元素。推导出的表达式等于 $|S|$。
+    \item 遵循适当的组合论据，以另一种方式计数 $S$ 的元素。推导出的表达式等于 $|S|$。
+    \item 得出结论，因为两个表达式都等于 $|S|$，所以它们必然相等。
+\end{enumerate}
+
+
+\subsection{结论}
+
+以下是本书中通过两法计数证明的结论。（你可以在没有证明的情况下引用这些结论，但记住计数论证的主要思想也很有帮助，这样你就可以重构公式而不必死记硬背。）
+
+\begin{itemize}
+    \item \textbf{帕斯卡恒等式}：${n \choose k}+{n \choose k+1}={n+1 \choose k+1}$
+    \item \textbf{Chairperson 恒等式}：${n \choose k}\cdot k = n \cdot {n-1 \choose k-1}$
+    \item \textbf{二项式定理}：$(x+y)^n = \sum_{k=0}^n {n \choose k}x^ky^{n-k}$
+    \item \textbf{求和恒等式}：$\sum_{i=k}^n {i \choose k}={n+1 \choose k+1}$
+\end{itemize}
+
+\subsection{容斥原理}
+
+假设我们有全集 $U$ 和其子集 $A_1,A_2,\dots, A_n \subseteq U$。我们想要计算 $U$ 中所有 $A_i$ 集合\emph{之外}的元素。
+\begin{align*}
+    |U-A_1|=                     & |U|-|A_1|                                     \\
+    |U-(A_1 \cup A_2) |=         & |U| - |A_1| - |A_2| + |A_1 \cap A_2|          \\
+    |U-(A_1 \cup A_2 \cup A_3)|= & |U| - |A_1| - |A_2| - |A_3|                   \\
+                                 & +|A_1 \cap A_2|+|A_1 \cap A_3|+|A_2 \cap A_3| \\
+                                 & -|A_1 \cap A_2 \cap A_3|
+\end{align*}
+以此类推。
+
+一般来说，对于 $n$ 个集合，我们有
+\[|U-(A_1 \cup A_2 \cup \dots \cup A_n) |= \sum_{S \subseteq [n]}(-1)^{|S|} |\bigcap_{i \in S} A_i|\]
+其中 $\bigcap_{i \in \varnothing} A_i = U$
+
+$k$ 个集合的交集\emph{大小}仅取决于值 $k$（而不是相交的集合），那么我们可以写成
+\[|U-(A_1 \cup A_2 \cup \dots \cup A_n)|= \sum_{k=0}^n (-1)^k {n \choose k} |S_1 \cap S_2 \cap \dots \cap S_k|\]
+
+\subsection{抽屉原理}
+
+如果集合 $S$ 的基数 $|S|= n$，被划分为 $k$ 个不相交的子集，且并集为 $S$，如果 $k < n$，则划分中至少有一个子集存在一个以上元素。此外，该部分实际上至少具有 $\lceil \frac{n}{k} \rceil$ 个元素。
+
+（也就是说，如果我们将 $n$ 个对象分成 $k$ 堆，则必然有一堆中至少有 $\frac{n}{k}$ 个对象。）

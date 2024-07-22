@@ -14,9 +14,7 @@
     arc=2mm, auto outer arc,
     breakable,enhanced jigsaw,
     before upper={\parindent15pt\noindent},	]
-    将 $n$ 枚相同的金币分配给 $k$ 个不同的海盗有 $\begin{pmatrix}
-        n+k-1\\k-1
-    \end{pmatrix}$ 种方法。
+    将 $n$ 枚相同的金币分配给 $k$ 个不同的海盗有 ${n+k-1 \choose k-1}$ 种方法。
 \end{tcolorbox}
 
 在我们的推导中，有一个隐含的假设，那就是海盗可能会得到 $0$ 枚金币，请注意这一点。有些问题可能会要求你考虑其他分配\emph{条件}。例如，如果每个海盗必须\emph{至少}获得 $1$ 枚金币，又会怎样呢？
@@ -38,9 +36,7 @@
     arc=2mm, auto outer arc,
     breakable,enhanced jigsaw,
     before upper={\parindent15pt\noindent},	]
-    方程 $x_1 + x_2 + x_3 + \dots + x_k = n$ 的解中，满足条件 $\forall i \in [k] \centerdot x_i \in \mathbb{N} \cup \{0\}$ 的解的数量为 $\begin{pmatrix}
-        n+k-1\\k-1
-    \end{pmatrix}$。
+    方程 $x_1 + x_2 + x_3 + \dots + x_k = n$ 的解中，满足条件 $\forall i \in [k] \centerdot x_i \in \mathbb{N} \cup \{0\}$ 的解的数量为 ${n+k-1 \choose k-1}$。
 \end{tcolorbox}
 
 \subsubsection*{球与桶}
@@ -53,9 +49,7 @@
     arc=2mm, auto outer arc,
     breakable,enhanced jigsaw,
     before upper={\parindent15pt\noindent},	]
-    将 $n$ 个相同的球分配到 $k$ 个不同的桶的方法数量为 $\begin{pmatrix}
-        n+k-1\\k-1
-    \end{pmatrix}$。
+    将 $n$ 个相同的球分配到 $k$ 个不同的桶的方法数量为 ${n+k-1 \choose k-1}$。
 \end{tcolorbox}
 
 \subsubsection*{不可区分骰子}
@@ -72,7 +66,5 @@
     arc=2mm, auto outer arc,
     breakable,enhanced jigsaw,
     before upper={\parindent15pt\noindent},	]
-    掷 $n$ 个不可区分的 $k$ 面骰子的结果数量为 $\begin{pmatrix}
-        n+k-1\\k-1
-    \end{pmatrix}$。
+    掷 $n$ 个不可区分的 $k$ 面骰子的结果数量为 ${n+k-1 \choose k-1}$。
 \end{tcolorbox}

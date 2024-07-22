@@ -15,16 +15,16 @@
 \begin{exercise}
     设 $n \in \mathbb{N}$（且 $n \ge 3$），$S$ 表示所有长度为 $n$ 的二进制字符串的集合。\\
     以下每个表达式都表示 $S$ 的某个子集的大小。对于每个表达式，找出对应的子集并解释其合理性。例如，如果给出
-    \[\begin{pmatrix}n\\3\end{pmatrix}+\begin{pmatrix}n\\4\end{pmatrix}+\begin{pmatrix}n\\5\end{pmatrix}\]
+    \[{n \choose 3}+{n \choose 4}+{n \choose 5}\]
     我会这样解释:
     \begin{quote}
         设 $S_1 \subseteq S$ 为所有在 $3$、$4$ 或 $5$ 个位置上为 \verb|0| 的字符串的集合。我们可以将这个集合划分为恰好在 $k = 3,4,5$ 位置上为 $0$ 的字符串集合。在每种情况下，我们可以通过在 $n$ 个位置中选择 $k$ 个位置设为 \verb|0|，并将其余位置设为 \verb|1| 来确定该部分的大小。根据加法原理，我们发现 $|S_1|$ 就是上面的求和。
     \end{quote}
     \begin{enumerate}[label=(\alph*)]
         \item $2^{n-2}$
-        \item $2^n-\begin{pmatrix}n\\n\end{pmatrix}-\begin{pmatrix}n\\n-1\end{pmatrix}-\begin{pmatrix}n\\n-2\end{pmatrix}-\begin{pmatrix}n\\n-3\end{pmatrix}$
-        \item $\begin{pmatrix}n\\2\end{pmatrix}-\begin{pmatrix}n-1\\1\end{pmatrix}$
-        \item $\displaystyle \sum_{k=0}^{\lceil n/2 \rceil} \begin{pmatrix}n\\k\end{pmatrix}$
+        \item $2^n-{n \choose n}-{n \choose n-1}-{n \choose n-2}-{n \choose n-3}$
+        \item ${n \choose 2}-{n-1 \choose 1}$
+        \item $\displaystyle \sum_{k=0}^{\lceil n/2 \rceil} {n \choose k}$
     \end{enumerate}
 \end{exercise}
 
@@ -96,18 +96,18 @@
     有多少种 $15$ 张牌的牌型每个点数至少有一个牌？
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exc:exercises8.9.14}
     请通过对 $n$ 进行\textbf{数学归纳法}来证明二项式定理（参见定理 \ref{theorem8.4.8}）。
 \end{exercise}
 
 \begin{exercise}
     证明
-    \[\begin{pmatrix}n\\k\end{pmatrix}2^k = \sum_{i=0}^{k}\begin{pmatrix}n\\i\end{pmatrix}\begin{pmatrix}n-1\\k-i\end{pmatrix}\]
+    \[{n \choose k}2^k = \sum_{i=0}^{k}{n \choose i}{n-1 \choose k-i}\]
 \end{exercise}
 
 \begin{exercise}
     设 $a,b,k \in \mathbb{N}$ 且 $a+b \ge k$。证明
-    \[\begin{pmatrix}a+b\\k\end{pmatrix} = \sum_{i=0}^{k}\begin{pmatrix}a\\i\end{pmatrix}\begin{pmatrix}b\\k-i\end{pmatrix}\]
+    \[{a+b \choose k} = \sum_{i=0}^{k}{a \choose i}{b \choose k-i}\]
 \end{exercise}
 
 \begin{exercise}
@@ -118,42 +118,42 @@
     设 $n \in \mathbb{N}$，用\emph{双法计数}证明下列恒等式：\\
     （\textbf{提示}：你可以对每个恒等式使用相同的``故事''或表述；也就是说，可以尝试稍微修改你在 (a) 中的论证来证明 (b) 和 (c)。）
     \begin{enumerate}[label=(\alph*)]
-        \item $\displaystyle \sum_{i=1}^{n}(i-1) = \begin{pmatrix}n\\2\end{pmatrix}$
-        \item $\displaystyle \sum_{i=1}^{n}(i-1)(n-1) = \begin{pmatrix}n\\3\end{pmatrix}$
-        \item $\displaystyle \sum_{i=1}^{n}\begin{pmatrix}n-1\\2\end{pmatrix}\begin{pmatrix}n-1\\2\end{pmatrix} = \begin{pmatrix}n\\5\end{pmatrix}$
+        \item $\displaystyle \sum_{i=1}^{n}(i-1) = {n \choose 2}$
+        \item $\displaystyle \sum_{i=1}^{n}(i-1)(n-1) = {n \choose 3}$
+        \item $\displaystyle \sum_{i=1}^{n}{n-1 \choose 2}{n-1 \choose 2} = {n \choose 5}$
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
     用双法计数证明
-    \[\sum_{i=0}^{n}\begin{pmatrix}r+i\\i\end{pmatrix}=\begin{pmatrix}r+n+i\\n\end{pmatrix}\]
+    \[\sum_{i=0}^{n}{r+i \choose i}={r+n+i \choose n}\]
 \end{exercise}
 
 \begin{exercise}
     用双法计数证明
-    \[\begin{pmatrix}n\\k\end{pmatrix}-\begin{pmatrix}n-2\\k\end{pmatrix} = 2\begin{pmatrix}n-2\\k-1\end{pmatrix}+\begin{pmatrix}n-2\\k-2\end{pmatrix}\]
+    \[{n \choose k}-{n-2 \choose k} = 2{n-2 \choose k-1}+{n-2 \choose k-2}\]
     请保留问题原始形式，不要进行代数化简。
 \end{exercise}
 
 \begin{exercise}
     用双法计数证明
-    \[\begin{pmatrix}n\\k\end{pmatrix}-\begin{pmatrix}n-2\\k\end{pmatrix} = \begin{pmatrix}n-1\\k-1\end{pmatrix}+\begin{pmatrix}n-2\\k-1\end{pmatrix}\]
+    \[{n \choose k}-{n-2 \choose k} = {n-1 \choose k-1}+{n-2 \choose k-1}\]
     请保留问题原始形式，不要进行代数化简。
 \end{exercise}
 
 \begin{exercise}
     用双法计数证明
-    \[\begin{pmatrix}n\\k\end{pmatrix}-\begin{pmatrix}n-3\\k\end{pmatrix} = \begin{pmatrix}n-1\\k-1\end{pmatrix}+\begin{pmatrix}n-2\\k-1\end{pmatrix}+\begin{pmatrix}n-3\\k-1\end{pmatrix}\]
+    \[{n \choose k}-{n-3 \choose k} = {n-1 \choose k-1}+{n-2 \choose k-1}+{n-3 \choose k-1}\]
     请保留问题原始形式，不要进行代数化简。
 \end{exercise}
 
 \begin{exercise}
     用双法计数证明
-    \[4^n = \sum_{k=0}^{n}\begin{pmatrix}n\\k\end{pmatrix}3^k\]
+    \[4^n = \sum_{k=0}^{n}{n \choose k}3^k\]
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises8.9.24}
-    设 $p \in \mathbb{N}$ 为质数。给定 $k \in \mathbb{N}$ 且 $1 \le k < p$。证明 $\big({p \atop k}\big)$ 可以被 $p$ 整除。
+    设 $p \in \mathbb{N}$ 为质数。给定 $k \in \mathbb{N}$ 且 $1 \le k < p$。证明 ${p \choose k}$ 可以被 $p$ 整除。
 \end{exercise}
 
 \begin{exercise}
@@ -178,7 +178,7 @@
     该恒等式之前用归纳法证明过。这里请按照如下步骤进行证明：
     \begin{enumerate}[label=(\alph*)]
         \item 设 $k \in \mathbb{N}$。通过双法计数证明下面等式关系：
-              \[\forall k \in \mathbb{N} \centerdot k^3 = 6\begin{pmatrix}k\\3\end{pmatrix}+6\begin{pmatrix}k\\2\end{pmatrix}+\begin{pmatrix}k\\1\end{pmatrix}\]
+              \[\forall k \in \mathbb{N} \centerdot k^3 = 6{k \choose 3}+6{k \choose 2}+{k \choose 1}\]
               （\textbf{提示}：考虑计数 $k$ 个字母构成的 $3$ 字单词。）
         \item 利用\textbf{求和恒等式}和上一步证明的结论来证明本题声明的求和公式。
     \end{enumerate}
@@ -217,12 +217,12 @@
 
 \begin{exercise}
     设 $n \in \mathbb{N}$，用\emph{双法计数}证明
-    \[\begin{pmatrix}2n\\n\end{pmatrix} = \sum_{k=0}^{n}\begin{pmatrix}n\\k\end{pmatrix}^2\]
+    \[{2n \choose n} = \sum_{k=0}^{n}{n \choose k}^2\]
 \end{exercise}
 
 \begin{exercise}
     设 $n \in \mathbb{N}$，考虑下面恒等式
-    \[4^n = \sum_{k=0}^{n}\begin{pmatrix}n\\k\end{pmatrix}2^n\]
+    \[4^n = \sum_{k=0}^{n}{n \choose k}2^n\]
     利用二项式定理推导出上面的恒等式，并用\emph{双法计数}给与证明。
 \end{exercise}
 

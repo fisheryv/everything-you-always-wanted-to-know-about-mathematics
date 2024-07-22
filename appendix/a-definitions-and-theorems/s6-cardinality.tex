@@ -1,2 +1,90 @@
 % !TeX root = ../../book.tex
-\section{缩略语}
+\section{基数}
+
+\subsection{定义}
+
+设 $S$ 为任意集合。
+
+\begin{itemize}
+    \item 如果 $\exists n \in \mathbb{N} \cup \{0\}$ 使得存在双射 $f : S \to [n]$ ，则 $S$ 是\textbf{有限集}。
+
+          注意：空集 $S = \varnothing$ 是有限的，因为 $[0] = \varnothing$。
+    \item 如果 $S$ \emph{不是有限集}就是\textbf{无限集}；也就是说，如果 $\forall n \in \mathbb{N} \cup \{0\}$，则每个函数 $f : S \to [n]$ 都不是双射。
+    \item 如果存在双射 $f : S \to \mathbb{N}$，我们说 $S$ 是\textbf{可数无限集}（或\textbf{可数集}）。
+    \item 如果每个函数 $f : S \to \mathbb{N}$ 都不是双射，我们说 $S$ 是\textbf{不可数无限集}（或\textbf{不可数集}）。
+    \item 我们用 $|S|$ 来表示 $S$ 的\textbf{基数}。
+
+          当 $S$ 是有限集时，存在 $n \in \mathbb{N} \cup \{0\}$ 和双射 $f : S \to [n]$，我们写做 $|S| = n$ 表示 $S$ 有 $n$ 个元素。我们说 $n$ 是 $S$ 的大小。
+
+          当 $S$ 是无限集时，我们只使用 $S$ 的基数 $|S|$ 与其他集合的基数进行\textbf{比较}。也就是说，我们不会这样写 $|S| = \infty$；相反，我们会这样写 $|S| = |T|$ 表示 $S$ 和 $T$ 具有\textbf{相同的}基数，无论这个基数是什么，或者 $|S| < |T|$ 表示 $T$ 的基数严格大于 $S$。
+    \item  我们写 $|S| = |T|$ 并说 $S$ 与 $T$ 具有相同的基数，当且仅当存在双射 $f : S \to T$。
+\end{itemize}
+
+\subsection{结论}
+
+一般而言，以下结论成立。其他结论来自这些一般性陈述。
+
+\begin{itemize}
+    \item 假设 $|A|= |C|$ 且 $|B|= |D|$。那么 $|A \times B|= |C \times D|$。
+    \item 假设 $|A|= |C|$ 且 $|B|= |D|$；并且假设 $A \cap B = \varnothing$ 且 $C \cap D = \varnothing$，那么 $|A \cup B | = |C \cup D|$。
+    \item 假设存在单射 $f : A \to B$。那么 $|A| \le |B|$。
+    \item 假设存在满射 $f : A \to B$。那么 $|A| \ge |B|$。
+\end{itemize}
+
+\subsubsection*{有限集}
+
+\begin{itemize}
+    \item 如果 $A$ 和 $B$ 是有限集，则 $A \cup B$ 也是有限集。
+    \item 如果 $A$ 和 $B$ 是有限集，且 $A \cap B = \varnothing$，则 $|A + B|= |A| + |B|$。
+    \item 如果 $A$ 和 $B$ 是有限集，则 $|A \times B|= |A| \cdot |B|$。
+\end{itemize}
+
+
+\subsubsection*{无限集}
+
+\begin{itemize}
+    \item 如果 $A$ 是可数无限集，$B$ 是有限集或可数无限集，则 $A \cup B$ 是可数无限集。
+    \item 如果 $A$ 是可数无限集，$B$ 是有限集或可数无限集，则 $A \times B$ 是可数无限集。
+    \item 如果 $A$ 是不可数无限集，$B$ 是任意集合，则 $A \cup B$ 是不可数无限集。
+    \item 如果 $A$ 是不可数无限集，$B$ 是任意集合，则 $A \times B$ 是不可数无限集。
+    \item 如果 $A \subseteq B$，则 $|A| \le |B|$。（注意：这即适用于有限集也适用于无限集。）
+    \item 对于任意集合 $A$ 都有 $|A| < |\mathcal{P}(A)|$。（注意：这即适用于有限集也适用于无限集。）
+    \item 如果 $A$ 是无限集，则存在可数无限集 $C \subseteq A$。
+    \item $A$ 是无限集 $\iff \exists C \subset A$ 使得存在双射 $f : A \to C$。（注意\emph{真子集}关系。）
+    \item 可数无限集的可数无限并集仍是可数无限集。
+    \item 有限集的可数无限乘积是不可数无限集。\\
+          （请注意，这表明任何非空集的可数无限乘积是不可数无限集。）
+    \item \textbf{康托尔-施罗德-伯恩斯坦定理}：假设 $A$ 和 $B$ 为集合，且存在函数 $f : A \to B$ 和 $g : B \to A$ 都是单射。那么实际上存在双射 $h : A \to B$ ，且 $|A| = |B|$。
+\end{itemize}
+
+\subsection{标准基数类型}
+
+\textbf{有限集}
+
+\begin{itemize}
+    \item $\varnothing$
+    \item 对于任意 $n \in \mathbb{N}, [n]$
+\end{itemize}
+
+
+\textbf{可数无限集}
+
+\begin{itemize}
+    \item $\mathbb{N}$
+    \item $\mathbb{Z}$
+    \item 奇数自然数/整数，偶数自然数/整数
+    \item $\mathbb{Q}$
+    \item $\mathbb{N} \times \mathbb{N}$
+    \item 所有有限长二进制字符串的集合
+\end{itemize}
+
+
+\textbf{不可数无限集}
+
+\begin{itemize}
+    \item $\mathbb{R}$
+    \item $\mathbb{R}$ 的区间；也就是说，对于任意 $a, b \in \mathbb{R}, \{y \in \mathbb{R} \mid a \le y \le b\}$。（注意：区间中的 ``$\le$'' 也可以分别替换为 ``$<$''。）
+    \item $\mathcal{P}(\mathbb{N})$
+    \item $\mathcal{P}(\mathbb{Z})$
+    \item 所有无限长二进制字符串的集合
+\end{itemize}
