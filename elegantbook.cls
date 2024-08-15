@@ -78,7 +78,7 @@
 \DeclareVoidOption{onecol}{\ekv{toc=onecol}}
 \DeclareVoidOption{twocol}{\ekv{toc=twocol}}
 
-\DeclareStringOption[chapter]{thmcnt}
+\DeclareStringOption[section]{thmcnt}
 \DeclareVoidOption{chapter}{\ekv{thmcnt=chapter}}
 \DeclareVoidOption{section}{\ekv{thmcnt=section}}
 
@@ -1053,7 +1053,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
 % third（blue-prop):  assumptions property conclusion custom
 
 %% Example with counter
-\newcounter{exam}[chapter]
+\newcounter{exam}[section]
 \setcounter{exam}{0}
 \renewcommand{\theexam}{\thesection.\arabic{exam}}
 \newenvironment{example}[1][]{
@@ -1062,7 +1062,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
   \par\indent\ignorespacesafterend}
 
 %% Exercise with counter
-\newcounter{exer}[chapter]
+\newcounter{exer}[section]
 \setcounter{exer}{0}
 \renewcommand{\theexer}{\thesection.\arabic{exer}}
 \newenvironment{exercise}[1][]{
@@ -1073,7 +1073,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
     \par\indent\ignorespacesafterend}
 
 %% Problem with counter
-\newcounter{prob}[chapter]
+\newcounter{prob}[section]
 \setcounter{prob}{0}
 \renewcommand{\theprob}{\thesection.\arabic{prob}}
 \newenvironment{problem}[1][]{
