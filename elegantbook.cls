@@ -418,7 +418,8 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
   bibstyle=\ELEGANT@bibstyle]{biblatex}
 
 \ifdefstring{\ELEGANT@lang}{cn}{
-  \renewcommand{\baselinestretch}{1.3}
+  \setlength{\parskip}{0.6em}
+  \renewcommand{\baselinestretch}{1.4}
   \renewcommand{\contentsname}{目录}
   \renewcommand{\figurename}{图}
   \renewcommand{\tablename}{表}
@@ -1059,7 +1060,9 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
 \newenvironment{example}[1][]{
   \refstepcounter{exam}
   \par\noindent\textbf{\color{main}{\examplename} \theexam \enspace #1}\rmfamily}{
-  \par\indent\ignorespacesafterend}
+  \par\indent\ignorespacesafterend
+  \setlength{\parskip}{0em}
+}
 
 %% Exercise with counter
 \newcounter{exer}[section]
@@ -1070,7 +1073,8 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
   \par\noindent\makebox[-3pt][r]{
     \scriptsize\color{red!90}\HandPencilLeft\quad}
     \textbf{\color{main}{\exercisename} \theexer #1 \\}\rmfamily}{
-    \par\indent\ignorespacesafterend}
+    \par\indent\ignorespacesafterend
+}
 
 %% Problem with counter
 \newcounter{prob}[section]
@@ -1079,7 +1083,8 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
 \newenvironment{problem}[1][]{
   \refstepcounter{prob}
   \par\noindent\textbf{\color{main}{\problemname} \theprob #1 }\rmfamily}{
-  \par\indent\ignorespacesafterend}
+  \par\indent\ignorespacesafterend
+}
 
 \newenvironment{note}{
   \par\noindent\makebox[-3pt][r]{
