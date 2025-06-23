@@ -1,9 +1,9 @@
 % !TeX root = ../../../book.tex
 \subsection{划分}
 
-现在我们有了一种写出许多集合的并集的方法，由此我们可以定义一个有用的概念：\textbf{划分}。从语言上来说，划分是一种``将物体分解成部分''的方式，从数学上来说，这正是这个词的意思。
+通过引入表示并集的方法，我们可以定义一个重要的概念：\textbf{划分}。直观上，划分是一种``将整体分解为若干部分''的方式，其数学定义精确地体现了这一思想。
 
-也就是说，划分只是一个集合中不重叠的子集的集合，其并集是整个集合。让我们在这里写下该定义，然后查看一些示例和伪例。将来我们会多次使用这个定义，所以现在让我们在讨论集合和索引并集时先定义好它。
+具体而言，集合的划分是其子集构成的集合，这些子集互不相交且覆盖整个集合。下面给出正式定义，并辅以示例与反例说明。该定义在后续讨论集合及索引并集时将被频繁使用。
 
 \begin{definition}\label{def:definition3.6.9}
     设 $A$ 为集合。$A$ 的\dotuline{划分}为互不相交且并集为 $A$ 的集合所组成的集合。
@@ -11,47 +11,45 @@
     也就是说，划分由满足以下条件的索引集 $I$ 和非空集 $S_i$（定义在每个 $i \in I$ 上）构成：
     \begin{enumerate}[label=(\arabic*)]
         \item 对于所有 $i \in I, S_i \subseteq A$。
-        \item 对于所有 $i, j \in I \;\text{且}\; i \ne j$，我们有 $S_i \cap S_j = \varnothing$。
+        \item 对于所有 $i, j \in I \text{\ 且\ } i \ne j, S_i \cap S_j = \varnothing$。
         \item $\displaystyle \bigcup_{i \in I} S_i = A$
     \end{enumerate}
-    这里的集合 $S_i$ 称为划分的\dotuline{部分}。
+    集合 $S_i$ 称为划分的\dotuline{部分}。
 \end{definition}
 
-这里的思想是集合 $S_i$ 将集合 $A$ ``分割''成不重不漏的部分。\\
+此定义的核心在于：子集族 $\{S_i\}$ 将 $A$ 不重不漏地``分割''为若干部分。
 
 \begin{example}
-    让我们看几个例子
+    考察以下示例：
     \begin{enumerate}[label=(\arabic*)]
-        \item 考虑集合 $\mathbb{N}$。设 $O$ 为奇数集合，设 $E$ 为偶数集合。 那么 $\{O, E\}$ 就是 $\mathbb{N}$ 的划分。这是因为
+        \item 考虑自然数集 $\mathbb{N}$。设 $O$ 为奇数集，$E$ 为偶数集。则 $\{O, E\}$ 构成 $\mathbb{N}$ 的划分。因为：
         \begin{itemize}
             \item $E, O \ne \varnothing$,
             \item $E, O \subseteq N$,
             \item $E \cap O = \varnothing$,
             \item $E \cup O = \mathbb{N}$ 
         \end{itemize}
-        \item 考虑集合 $\mathbb{R}$。对于每个 $z \in \mathbb{Z}$，将集合 $S_z$ 定义为
+        \item 考虑实数集 $\mathbb{R}$。对每个整数 $z \in \mathbb{Z}$，定义集合
         \[S_z = \{r \in \mathbb{R} \mid z \le r \le z + 1\}\]
-        我们说 $\{\dots, S_{-2}, S_{-1}, S_0, S_1, S_2, \dots \}$ 是 $\mathbb{R}$ 的划分。你知道为什么吗？尝试写出这些集合成为划分所需的条件，看看你是否能理解为什么它们成立。
-        具体来说，请记住，我们需要这些集合是成对不相交的。这意味着任意两个集合都必须是不相交的。特别注意，这与要求所有集合的交集为空完全不同。
-        例如，考虑下面一组集合
+        则 $\{\dots, S_{-2}, S_{-1}, S_0, S_1, S_2, \dots \}$ 构成 $\mathbb{R}$ 的划分。请思考其成立的条件：首先需满足集合两两不相交（即任意两个集合交集为空），这与整体交集为空不同。例如集合族
         \[\big\{\{1, 2\}, \{2, 3\}, \{3, 4\}\big\}\]
-        该集合就不是成对不相交的，因为
+        该集合虽满足 $\{1, 2\} \cap \{2, 3\} \cap \{3, 4\} = \varnothing$，但因为
         \[\{1, 2\} \cap \{2, 3\} = \{2\} \ne \varnothing\]
-        然而，所有三个集合的交集却是空集，因为这三个集合没有共同元素。
+        所以不满足两两不相交。
     \end{enumerate}
 \end{example}
 
 \begin{example}
-    接着让我们看几个伪例。
+    接着让我们看几个反例：
     \begin{enumerate}[label=(\arabic*)]
-        \item 考虑集合 $\mathbb{R}$。令 $P$ 为正实数集合，令 $N$ 为负实数集合。那么 $\{N, P\}$ 不是一个划分，因为 $0 \notin N \cup P$。
-        你能否换一种方式，将 $\mathbb{R}$ 划分为两部分？
-        \item 考虑集合 $Z$。设 $A_2$ 为 $2$ 的倍数的整数集合，设 $A_3$ 为 $3$ 的倍数的整数集合，设 $A_5$ 为 $5$ 的倍数的整数集合。集合 $\{A_2, A_3, A_5\}$ 不是划分有两个原因。
+        \item 考虑实数集 $\mathbb{R}$。设 $P$ 为正实数集，$N$ 为负实数集。则 $\{N, P\}$ 不构成划分，因为 $0 \notin N \cup P$。
+        你能否换一种方式，将 $\mathbb{R}$ 划分成两个部分？
+        \item 考虑整数集 $\mathbb{Z}$。设 $A_2$ 为 $2$ 的倍数集，$A_3$ 为 $3$ 的倍数集，$A_5$ 为 $5$ 的倍数集。集合 $\{A_2, A_3, A_5\}$ 不构成划分，原因有二：
         \begin{itemize}
-            \item 首先，这些集合不是成对不相交的。比如 $6=2 \cdot 3$，所以 $6 \in A_2$ 且 $6 \in A_3$。
+            \item 首先，集合非两两不相交：比如 $6=2 \cdot 3$，所以 $6 \in A_2$ 且 $6 \in A_3$。
             \item 其次，这些集合并未``覆盖''所有 $\mathbb{Z}$。比如 $7 \in \mathbb{Z}$ 但 $7 \notin A_2 \cup A_3 \cup A_5$。
         \end{itemize}
     \end{enumerate}
 \end{example}
 
-正如我们前面提到的，我们将来会经常使用这个定义，所以请牢记它。
+划分的定义后续将频繁使用，请务必掌握。

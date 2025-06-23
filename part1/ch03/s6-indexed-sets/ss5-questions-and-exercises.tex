@@ -3,36 +3,41 @@
 
 \subsubsection*{温故知新}
 
-以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，如果忘记了具体定义、概念或示例，可以回顾相关内容。确保在继续学习之前能够自信地作答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
     \item 什么是索引集？
-    \item 令 $I = \mathbb{N}$，对于每个 $i \in I$，令 $A_i = \{i, -i\}$。为什么下面的集合都是同一个集合？
-    \[\bigcup_{i \in I} A_i \qquad \bigcup_{x \in \mathbb{N}} A_x \qquad \bigcup_{j \in I} A_j\]
-    顺便问一下，这个集合的元素是什么？
+    \item 令 $I = \mathbb{N}$，对于每个 $i \in I$，令 $A_i = \{i, -i\}$。为什么下列集合是同一个集合？
+    \[\bigcup_{i \in I} A_i \qquad\qquad \bigcup_{x \in \mathbb{N}} A_x \qquad\qquad \bigcup_{j \in I} A_j\]
+    请问这个集合的元素是什么？
     \item 列出下列集合的元素：
-    \begin{enumerate}[label=(\alph*)]
-        \item $\displaystyle{\bigcup_{x \in \mathbb{N}}\{x\}}$
-        \item $\displaystyle{\bigcap_{x \in \mathbb{N}}\{x\}}$
-        \item $\displaystyle{\bigcup_{x \in \mathbb{N}}\{x,0,-x\}}$
-    \end{enumerate}
-    \item 你认为为什么我们不谈论``索引差集''或``索引补集''，而只谈论并集和交集？
-    \item 什么是划分？集合的集合必须满足什么条件才能成为集合的划分？
+    \begin{multicols*}{3}
+        \begin{enumerate}[label=(\alph*)]
+            \item $\displaystyle{\bigcup_{x \in \mathbb{N}}\{x\}}$
+            \item $\displaystyle{\bigcap_{x \in \mathbb{N}}\{x\}}$
+            \item $\displaystyle{\bigcup_{x \in \mathbb{N}}\{x,0,-x\}}$
+        \end{enumerate}
+    \end{multicols*}
+    \item 为什么我们通常只讨论索引并集和索引交集，而不讨论``索引差集''或``索引补集''？
+    \item 什么是划分？一个集合族需满足哪些条件才能构成某个集合的划分？
 \end{enumerate}
 
 \subsubsection*{小试牛刀}
 
-尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+尝试解答以下问题。这些题目需动笔书写或口头阐述答案，旨在帮助你熟练运用新概念、定义及符号。题目难度适中，确保掌握它们将大有裨益！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 设集合 $A = \{-2, -1, 0, 1, 2\}$。集合$ B = \{1, 3, 5\}$。对于所有 $i \in \mathbb{Z}$，令 $S_i = \{i - 2, i, i + 2, i + 4\}$。$\displaystyle{\bigcup_{i \in A}S_i}$ 和 $\displaystyle{\bigcap_{x \in B}S_x}$ 分别是什么？
-    \item 对于所有 $n \in \mathbb{N}$，令 $A_n = [n]$。$\displaystyle{\bigcap_{x \in \mathbb{N}}A_n}$ 和 $\displaystyle{\bigcup_{x \in \mathbb{N}}A_n}$ 分别是什么？
-    \item 找到一种方法，使用集合生成符来编写 $-10$ 到 $10$（含）之间的所有整数的集合。然后，使用索引并集定义相同的集合。你能以某种方式做到这一点，使你并集中的集合是成对不相交的（意味着它们中没有两个有共同元素）吗？（提示：可以。）
-    \item 对于每个 $n \in \mathbb{N}$，令 $M_n$ 为 $n$ 的所有倍数的集合。（例如，$M_3 = \{3, 6, 9,\dots\}$。）使用集合构建符编写 $M_n$ 的定义。 然后，使用这些集合将 $\mathbb{N}$ 表示为并集。
-    （\textbf{挑战：}你能用这些集合来定义 $\mathbb{N}$ 的划分吗？）
-    \item 设 $X$ 为任意集合。$\displaystyle{\bigcup_{S \in \mathcal{P}(X)}S}$ 和 $\displaystyle{\bigcap_{S \in \mathcal{P}(X)}S}$ 分别是什么？
-    （首先尝试使用特定的集合（例如 $X = \{1, 2\}$）来看看会发生什么可能会有所帮助。）
-    \item 将 $\mathbb{Q}$ 表示为索引并集。
-    让索引集中有无限多个元素能实现这一点吗？
-    （\textbf{挑战：}你能把这个集合做成 $\mathbb{Q}$ 的一个划分吗？）
+    \item 设集合 $A = \{-2, -1, 0, 1, 2\}$，集合 $B = \{1, 3, 5\}$。对于所有 $i \in \mathbb{Z}$，令 $S_i = \{i - 2, i, i + 2, i + 4\}$。求：
+    \[\bigcup_{i \in A}S_i \quad \text{和} \quad \bigcap_{x \in B}S_x\]
+    \item 对于所有 $n \in \mathbb{N}$，令 $A_n = [n]$。求：
+    \[\bigcap_{x \in \mathbb{N}}A_n \quad \text{和} \quad \bigcup_{x \in \mathbb{N}}A_n\]
+    \item 用集合构建符写出闭区间 $[-10, 10]$ 内所有整数构成的集合。然后，使用索引并集定义相同的集合。能否使并集中的集合两两不相交（即任意两个集合无共同元素）？\\（提示：可以。）
+    \item 对于每个 $n \in \mathbb{N}$，令 $M_n$ 表示 $n$ 的所有倍数集（例如，$M_3 = \{3, 6, 9,\dots\}$）。使用集合构建符表示 $M_n$，并用这些集合的并集表示 $\mathbb{N}$。\\
+    （\textbf{挑战：}能否用这些集合构造 $\mathbb{N}$ 的一个划分？）
+    \item 设 $X$ 为任意集合。求：
+    \[\bigcup_{S \in \mathcal{P}(X)}S \quad \text{和} \quad \bigcap_{S \in \mathcal{P}(X)}S\] 
+    （建议先取具体集合，例如 $X = \{1, 2\}$，尝试计算以辅助理解。）
+    \item 将 $\mathbb{Q}$ 表示为索引并集。\\
+    能否使用无限索引集实现？\\
+    （\textbf{挑战：}能否使该并集构成 $\mathbb{Q}$ 的一个划分？）
 \end{enumerate}

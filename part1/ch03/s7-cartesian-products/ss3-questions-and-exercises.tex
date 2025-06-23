@@ -3,31 +3,31 @@
 
 \subsubsection*{温故知新}
 
-以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，如果忘记了具体定义、概念或示例，可以回顾相关内容。确保在继续学习之前能够自信地作答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item $\mathbb{R} \times \mathbb{N}$ 和 $\mathbb{N} \times \mathbb{R}$ 有什么区别？给出一个有序对的示例，该有序对是其中一个集合的元素，但不是另一个集合的元素。然后，再给出一个有序对的示例，该有序对\emph{同时}是两个集合的元素。
+    \item $\mathbb{R} \times \mathbb{N}$ 和 $\mathbb{N} \times \mathbb{R}$ 有何区别？请举出一个属于前者但不属于后者的有序对，再举一个\emph{同时}属于二者的有序对。
     \item $\varnothing \times \mathbb{Z}$ 是什么？
     \item 写出集合 $\{\heartsuit, \diamondsuit\} \times \{\smiley{}, \square, \heartsuit\}$ 的所有元素。
-    \item $(\mathbb{N} \times \mathbb{N}) \times \mathbb{N}$ 和 $\mathbb{N} \times (\mathbb{N} \times \mathbb{N})$ 有什么区别？ 为什么它们在技术上不是同一集合？你能解释一下为什么它们``本质上''是同一集合吗？
-    \item 设 $A,B,C$ 为集合。假设 $A \subseteq B$。你认为 $A \times C \subseteq B \times C$ 成立吗？为什么成立或为什么不成立？
-    \item 给出集合 $S$ 的一个例子，使得 $(\frac{1}{2}, -1) \in S$。
+    \item $(\mathbb{N} \times \mathbb{N}) \times \mathbb{N}$ 和 $\mathbb{N} \times (\mathbb{N} \times \mathbb{N})$ 有何区别？为何严格来说二者不同？如何理解它们``本质上''是同一集合？
+    \item 设 $A,B,C$ 为集合且 $A \subseteq B$。你认为 $A \times C \subseteq B \times C$ 是否成立？请说明理由。
+    \item 构造集合 $S$ 使其满足 $(\frac{1}{2}, -1) \in S$。
 \end{enumerate}
 
 \subsubsection*{小试牛刀}
 
-尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+尝试解答以下问题。这些题目需动笔书写或口头阐述答案，旨在帮助你熟练运用新概念、定义及符号。题目难度适中，确保掌握它们将大有裨益！
 
 \begin{enumerate}[label=(\arabic*)]
     \item 写出 $[3] \times [3]$ 的元素  \\
-    你能猜想一下，对于任意 $m, n \in \mathbb{N}, [m] \times [n]$ 有多少个元素吗？（你会如何证明你的猜想？）
-    \item 给出集合 $\mathbb{N} \times \mathcal{P}(\mathbb{Z})$ 中的一个元素的示例。
-    \item 给出集合 $\big((\mathbb{R} \times \mathbb{N}) \times \mathbb{Q}\big) \cup \big((\mathbb{Q} \times \mathbb{Z}) \times \mathbb{N}\big)$ 中的一个元素的示例。
-    \item 给出集合 $C, D$ 的示例，使得 $C \times D = D \times C$。\\
-    后续挑战：你能描述出像这样的所有可能情况吗？关于 $C$ 和 $D$ 的哪些事实一定是正确的？你能给出证明吗？
-    \item 写出 $\mathcal{P}([1] \times [2])$ 的元素。
+    试猜想：对于任意 $m, n \in \mathbb{N}, [m] \times [n]$ 的元素数量是多少？（如何证明？）
+    \item 给出集合 $\mathbb{N} \times \mathcal{P}(\mathbb{Z})$ 的一个元素示例。
+    \item 给出集合 $\big((\mathbb{R} \times \mathbb{N}) \times \mathbb{Q}\big) \cup \big((\mathbb{Q} \times \mathbb{Z}) \times \mathbb{N}\big)$ 的一个元素示例。
+    \item 构造集合 $C, D$，使得 $C \times D = D \times C$。\\
+    进阶思考：何时等式成立？$C$ 和 $D$ 需满足什么条件？请证明。
+    \item 写出 $\mathcal{P}([1] \times [2])$ 的所有元素。
     \item 对于每个 $n \in \mathbb{N}$，令 $A_n = [n] \times [n]$。考虑集合
     \[B = \bigcup_{n \in \mathbb{N}} A_n\]
-    $B = \mathbb{N} \times \mathbb{N}$ 吗？解释原因并举例说明。
-    \item 如果你了解一些简单的计算机编程，请尝试编写代码（用你喜欢的语言）来输入 $m, n \in N$ 并打印出 $[m] \times [n]$ 的所有元素。（如果你不太熟悉编程，可以使用伪代码。）根据 $m$ 和 $n$，你认为程序需要运行多长时间？
+    $B = \mathbb{N} \times \mathbb{N}$ 是否成立？请解释并举例说明。
+    \item 试用编程语言（或伪代码）实现：输入 $m, n \in N$，输出 $[m] \times [n]$ 的所有元素。分析其时间复杂度与 $m,n$ 的关系。
 \end{enumerate}
