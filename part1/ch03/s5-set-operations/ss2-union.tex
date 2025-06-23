@@ -1,17 +1,17 @@
 % !TeX root = ../../../book.tex
 \subsection{并集}
 
-此运算提取两个集合中的元素并将它们包含在一个新集合中，称为\textbf{并集}。
+并集运算将两个集合的元素组合到一个新集合中，称为\textbf{并集}。
 
 \begin{definition}
-    设 $A, B$ 为任意集合。$A$ 和 $B$ 的\dotuline{并集}是属于 $A$ 或 $B$ 的元素的集合，用 $A \cup B$ 表示。用数学符号表达如下：
-    \[A \cup B = \{x \in U \mid x \in A \;\text{或}\; x \in B\}\]
+    设 $A, B$ 为任意集合。$A$ 和 $B$ 的\dotuline{并集}是由所有属于 $A$ 或 $B$ 的元素组成的集合，记作 $A \cup B$。用数学符号表示为：
+    \[A \cup B = \{x \in U \mid x \in A \text{\ 或\ } x \in B\}\]
 \end{definition}
 
-请注意，定义中的``或''是\emph{包含}``或''，这意味着 $A \cup B$ 包括任何属于 $A$ 或 $B$ 或可能同时属于这两个集合的元素。\\
+请注意，定义中的``或''是\emph{兼}``或''，即 $A \cup B$ 包含所有属于 $A$ 或 $B$ 或可能同时属于这两个集合的元素。
 
 \begin{example}
-    回到我们在例 \ref{ex:example3.5.1} 中定义的集合 $S_1, S_2, S_3$，我们可以说
+    考虑例 \ref{ex:example3.5.1} 中定义的集合 $S_1, S_2, S_3$，我们有：
     \begin{align*}
         S_1 \cup S_2 &= \{1, 2, 3, 4, 5, 7\} \\
         S_1 \cup S_3 &= \{1, 2, 3, 4, 5, 7\} \\
@@ -23,20 +23,20 @@
 
 \subsubsection*{并集与子集}
 
-请注意，无论 $A$ 和 $B$ 是什么，都有 $A \subseteq (A \cup B)$ 和 $B \subseteq (A \cup B)$。让我们证明一下！
+请注意，对任意集合 $A$ 和 $B$，恒有 $A \subseteq (A \cup B)$ 和 $B \subseteq (A \cup B)$。我们来证明它！
 
 \begin{proposition}
-    设 $A, B$ 为任意集合。则 $A \subseteq (A \cup B)$ 且 $B \subseteq (A \cup B)$。
+    设 $A, B$ 为任意集合，则 $A \subseteq (A \cup B)$ 且 $B \subseteq (A \cup B)$。
 \end{proposition}
 
 \begin{proof}
-    假设我们有两个集合 $A$ 和 $B$。为了证明 $A \subseteq (A \cup B)$，我们需要证明 $A$ 的每个元素也是 $A \cup B$ 的元素。
+    设 $A$ 和 $B$ 为任意集合。为证 $A \subseteq(A \cup B)$，需证 $A$ 的每个元素也是 $A \cup B$ 的元素。
 
-    设任意固定元素 $x \in A$。则必有 $x \in A$ 或 $x \in B$（因为已知 $x \in A$）。这表明 $x \in A \cup B$。由于 $x$ 是任意的，因此我们证明了 $A \subseteq A \cup B$。
+    任取 $x \in A$。由 $x \in A$ 可知 $x \in A$ 或 $x \in B$，故 $x \in A \cup B$。由于 $x$ 是任意的，故 $A \subseteq A \cup B$。
 
-    设任意固定元素 $y \in B$。则必有 $y \in A$ 或 $y \in B$（因为已知 $y \in B$）。这表明 $y \in A \cup B$。由于 $y$ 是任意的，因此我们证明了 $B \subseteq A \cup B$。
+    同理，任取 $y \in B$，由 $y \in B$ 可知 $y \in A$ 或 $y \in B$，故 $y \in A \cup B$。由于 $y$ 是任意的，故 $B \subseteq A \cup B$。
 \end{proof}
 
-你能说一下 $A \cap B$ 和 $A \cup B$ 之间的关系吗？如果 $A \subseteq B$，那么 $B$ 与 $A \cup B$ 之间有什么关系？尝试证明你的观察！
+请思考：$A \cap B$ 与 $A \cup B$ 有何关系？若 $A \subseteq B$，则 $B$ 与 $A \cup B$ 有何关联？尝试证明你的结论！
 
-这里需要强调一点，像这样的主张 --- 对于任意集合 $A$ 和 $B$, $A \subseteq A \cup B$ --- 是需要证明的；\textbf{根据定义}它们不是显然成立的。上面给出了两个集合的并集的定义。请注意，它没有说明 $A$ 和 $A \cup B$ 之间的关系；定义只是告诉我们对象 $A \cup B$ 实际上是什么。当你调用或引用定义并使用它时，请务必这样做；而且，一定要解释任何不完全来自定义的主张。既然我们已经证明了这两个小引理，我们就可以在将来通过引用来使用它们；如果我们不这样做，我们每次尝试引用这些小事实时都必须重新解释它们！
+需特别强调：诸如``对任意集合 $A, B$ 有 $A \subseteq A \cup B$''这样的命题——尽管直观——\textbf{仍需严格证明}，因其并非\textbf{根据定义}直接可得。并集定义仅说明 $A \cup B$ 的构成，未直接揭示 $A$ 与 $A \cup B$ 的包含关系。引用定义时务必严谨推演，并对非显然结论给出解释。如今我们已证明此结论，后续可直接引用；否则每次使用均需重新论证！

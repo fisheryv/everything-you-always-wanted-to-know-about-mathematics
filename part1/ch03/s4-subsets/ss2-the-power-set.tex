@@ -1,31 +1,31 @@
 % !TeX root = ../../../book.tex
 \subsection{幂集}
 
-这种找出给定集合的所有子集的过程是常见且有用的，因此我们赋予这个结果集一个特殊名字。
+寻找给定集合所有子集的过程既常见又实用，因此我们赋予结果集一个特定名称。
 
 \begin{definition}
-    给定一个集合 $A, A$ 的\dotuline{幂集}定义为元素为 $A$ 的所有子集的集合，记为 $\mathcal{P}(A)$。
+    给定集合 $A, A$ 的\dotuline{幂集}定义为 $A$ 的所有子集构成的集合，记作 $\mathcal{P}(A)$。
 \end{definition}
 
-我们在上一小节最后观察到，对于任何集合 $S, S \in \mathcal{P}(S)$ 且 $\varnothing \in \mathcal{P}(S)$。
+根据上一小节末尾的观察，对任意集合 $S$，均有 $S \in \mathcal{P}(S)$ 且 $\varnothing \in \mathcal{P}(S)$。
 
-回顾一下上面的示例集合 $A = \{1, 2, 3\}$。关于 $\mathcal{P}(A)$ 中的元质数量，你注意到什么了？它与 $A$ 中元质数量有何关系？对于任意集合 $S$，你认为 $S$ 和 $\mathcal{P}(A)$ 中的元质数量之间存在一般关系吗？\\
+回顾示例集合 $A = \{1, 2, 3\}$。$\mathcal{P}(A)$ 的元素个数有何特点？它与 $A$ 的元素数量存在何种关联？对任意集合 $S$，你认为 $S$ 与 $\mathcal{P}(S)$ 的元素个数之间是否存在普遍关系？
 
 \begin{example}
-    我们来求 $\mathcal{P}(\varnothing)$。空集的子集是什么？只有一个，就是空集本身！（即，$\varnothing \subseteq \varnothing$，但没有其他集合满足这一点。）因此，幂集 $\mathcal{P}(\varnothing)$ 只有一个元素，即空集本身：
+    试求 $\mathcal{P}(\varnothing)$。空集的唯一子集是其自身（即 $\varnothing \subseteq \varnothing$ 成立，且无其他子集）。因此其幂集为仅含空集的集合：
     \[\mathcal{P}(\varnothing) = \{ \varnothing \}\]
-    请注意，这与空集本身不同：
+    注意该幂集与空集不同：
     \[\varnothing \ne \{ \varnothing \}\]
-    为什么这是真的？比较元素就能知道！空集没有元素，但右边的集合有一个元素。（一般来说，这可能是比较两个集合的有效方法。）为了给你一些练习，请大声读出上面一行：
+    原因在于元素差异：空集无元素，而右侧集合含一个元素。（此法常用于集合比较。）请朗读下列表述以加深理解：
     \begin{center}
         ``空集与包含空集的集合是两个不同的集合。''
     \end{center}
 \end{example}
 
 \begin{example}
-    让我们用另一个集合尝试这个过程，比如 $A = \{\varnothing, \{1, \varnothing\}\}$。我们可以将 $\mathcal{P}(A)$ 的元素列出为
-    \[\mathcal{P}(A) = \{\{\varnothing\}, \{\{1, \varnothing\}\}, \{\varnothing, \{1, \varnothing\}\}, \varnothing \}\]
-    这可能看起来很奇怪，因为所有的都是空集和花括号，但保持子集关系的正确性很重要。确实，在这个例子中，
+    再以集合 $A = \{\varnothing, \{1, \varnothing\}\}$ 为例。其幂集 $\mathcal{P}(A)$ 的元素可列举如下：
+    \[\mathcal{P}(A) = \Big\{\{\varnothing\}, \big\{\{1, \varnothing\}\big\}, \big\{\varnothing, \{1, \varnothing\}\big\}, \varnothing \Big\}\]
+    此形式虽因嵌套结构显得复杂，但必须严格保持子集关系。在此例中，
     \[\varnothing \in A, \quad \{\varnothing\} \subseteq A, \quad \{\varnothing\} \in \mathcal{P}(A), \quad \{\varnothing\} \subseteq \mathcal{P}(A)\]
-    为什么这些关系是正确的？仔细思考一下，然后尝试自己多写一些。``$\in$'' 和 ``$\subseteq$'' 的区别非常重要！
+    请思考这些关系的合理性，并尝试自行推导更多结论。请务必厘清``$\in$''与``$\subseteq$''的本质区别！
 \end{example}
