@@ -1,151 +1,162 @@
 % !TeX root = ../../../book.tex
-\subsection{证明 ``$=$''}
+\subsection{证明``$=$''}
 
 \subsubsection*{双重包含证明}
 
-我们需要再一次回顾 ``$=$'' （在集合上下文中）的定义，因为我们将在这里频繁地使用它。
+我们需要再次回顾在集合上下文中``$=$''的定义，因为后续会频繁使用它。
 
 \begin{definition}
-    我们说两个集合 $A$ 和 $B$ 相等，并写为 $A = B$，当且仅当 $A \subseteq B$ 且 $B \subseteq A$。
+    集合 $A$ 和 $B$ 相等，记作 $A = B$，当且仅当 $A \subseteq B$ 且 $B \subseteq A$。
 \end{definition}
 
-就是这样！它完全是根据之前的定义 ``$\subseteq$'' 构建的（因为 ``$\supseteq$'' 的定义是完全等价的）。因此，这本身并不是一项新技术，因为它实际上是先前技术的重复应用。也就是说，要证明 $A = B$，我们只需使用上一小节中使用的技术，证明 $A \subseteq B$，然后证明 $B \subseteq A$。
+这一定义完全基于先前定义的``$\subseteq$''（因为``$\supseteq$''的定义等价）。因此，它并非新技术，而是先前技术的重复应用。具体而言，要证明 $A = B$，只需使用上一小节的技术证明 $A \subseteq B$，再证明 $B \subseteq A$。
 
-事实上，这项技术非常常见，以至于被赋予了一个名字：\textbf{双重包含}。当我们以两种方式证明两个集合是彼此的子集并得出它们相等的结论时，我们将其称为\textbf{双重包含证明}。
+事实上，这项技术非常常见，因此有专门的名称：\textbf{双重包含}。当证明两个集合彼此是子集并由此得出它们相等时，称为\textbf{双重包含证明}。
 
 \subsubsection*{示例}
 
 让我们看一下双重包含技术的实际应用案例。
 
 \begin{lemma}
-    设 $A$ 和 $B$ 为任意集合。则 $A - (A \cap B) = A - B$。
+    设 $A$ 和 $B$ 为任意集合，则 $A - (A \cap B) = A - B$。
 \end{lemma}
 
-\emph{直觉}：像往常一样，我们可以画一个维恩图来说服自己相信这一事实，但这并不能证明任何事情。相反，我们将采用双重包含证明。如果我们取一个元素 $x \in A - (A \cap B)$，我们可以先应用 ``$-$'' 的定义，然后应用 ``$\cap$'' 的定义，来推导出有关 $x$ 的信息。希望能够得到 $x \in A - B$。然后，如果我们取一个元素 $y \in A - B$，希望我们可以应用一些定义来推断出 $y \in A - (A \cap B)$。 也许我们还不确定具体如何做到这一点，但通过查看维恩图并使用定义，我们肯定可以弄清楚。你为什么不先尝试一下，然后再阅读我们的证明！
+\emph{直观理解}：虽然维恩图可以帮助理解这一事实，但它不能替代证明。我们将采用双重包含证明。取元素 $x \in A - (A \cap B)$ 时，可依次应用``$-$''和``$\cap$''的定义，推导出 $x \in A - B$。类似地，取 $y \in A - B$ 时，应用定义可得出 $y \in A - (A \cap B)$。建议读者先尝试自行证明，再参考以下证明过程。
 
 \begin{proof}
-    我们将采用双重包含证明来证明 $A - (A \cap B) = A - B$。
+    通过双重包含证明 $A - (A \cap B) = A - B$。
 
-    （``$\subseteq$''）首先，设 $x \in A - (A \cap B)$ 为任意固定元素。根据 ``$-$'' 的定义，我们知道 $x \in A$ 但 $x \notin A \cap B$。这意味着 $x$ 既是 $A$ 的元素又是 $B$ 的元素\dotuline{不}可能成立。我们已知 $x \in A$, 那么可以推导出 $x \notin B$。因此，$x \in A$ 且 $x \notin B$。根据 ``$-$'' 的定义，可以推导出 $x \in A-B$。这就证明了 $A - (A \cap B) \subseteq A - B$。
+    （``$\subseteq$''）设 $x \in A - (A \cap B)$ 为任意固定元素。根据差集定义，$x \in A$ 且 $x \notin A \cap B$。这意味着 $x$ 不可能同时属于 $A$ 和 $B$。已知 $x \in A$，故 $x \notin B$。因此，$x \in A$ 且 $x \notin B$，由差集定义得 $x \in A-B$。这表明 $A - (A \cap B) \subseteq A - B$。
 
+    （``$\supseteq$''）设 $y \in A - B$ 为任意固定元素。根据差集定义，$y \in A$ 且 $y \notin B$。由于 $y \notin B$，$y$ 不可能同时属于 $A$ 和 $B$。由交集定义，$y \notin A \cap B$。结合 $y \in A$ 和 $y \notin A \cap B$，得 $y \in A - (A \cap B)$。这表明 $A - B \subseteq A - (A \cap B)$。
 
-    （``$\supseteq$''）接着，设 $y \in A - B$ 为任意固定元素。根据 ``$-$'' 的定义，这意味着 $y \in A$ 且 $y \notin B$。因为 $y$ 不是 $B$ 的元素，这意味着 $y$ 当然不可能同时是 $A$ 和 $B$ 的元素。根据 ``$\cap$'' 的定义，即 $y \notin A \cap B$。因为我们知道 $y \in A$ 且 $y \notin A \cap B$，我们可以推导出 $y \in A - (A \cap B)$。这就证明了 $A - B \subseteq A - (A \cap B)$。
-
-    综上，利用双重包含证明，我们证明出 $A - (A \cap B) = A - B$。
+    综上，利用双重包含证明，$A - (A \cap B) = A - B$ 得证。
 \end{proof}
 
-纵观上面证明的整体结构。我们看到它分为两部分，因为它是一个双重包含证明，我们\emph{很友善地提前}向勇敢的读者指出了这一点，并将这两个部分适当地分开。从技术上讲，忽略这一点并直接深入证明也是正确的，但这可能会让读者感到困惑。证明的全部意义在于\emph{让别人信服}你已经弄清楚的事实，所以最好让他们尽可能容易地理解你正在做的事情。
+纵观上述证明的整体结构，我们看到它分为两部分，因为它是一个双重包含证明。我们\emph{友好地提前}向读者指出了这一点，并将这两个部分明确分开。从技术上讲，忽略这一提示直接深入证明是可行的，但这可能会令读者感到困惑。证明的全部意义在于\emph{使他人信服}你所理解的事实，因此应尽可能让读者轻松理解你的思路。
 
-让我们再看另一个证明两个集合相等的例子。这个例子会有点不同，因为双重包含的一部分将利用补集操作。作为预览，现在花一点时间思考为什么陈述 $A \subseteq B$ 和 $\overline{B} \subseteq \overline{A}$ 是\emph{等价的}（假设存在某个全集 $U$，满足 $A, B \subseteq U$）。画出维恩图并尝试举一些例子。甚至尝试证明这一点！
+现在看另一个证明集合相等的例子。这个例子有所不同，因为双重包含的一部分利用了补集操作。作为预习，请思考为何命题 $A \subseteq B$ 与 $\overline{B} \subseteq \overline{A}$ 是\emph{等价的}（假设存在全集 $U$ 满足 $A, B \subseteq U$）。尝试绘制维恩图、举例或直接证明。
 
 \begin{proposition}
     \[\Big\{x \in \mathbb{N} \mid x + \frac{8}{x} \le 6\Big\} = \{2, 3, 4\}\]
 \end{proposition}
 
 \begin{proof}
-    设 $A = \Big\{x \in \mathbb{N} \mid x + \frac{8}{x} \le 6\Big\}, B = \{2, 3, 4\}$，要证明 $A = B$，我们需要证明 $A \subseteq B$ 且 $B \subseteq A$。
+    设 $A = \Big\{x \in \mathbb{N} \mid x + \frac{8}{x} \le 6\Big\}$, $B = \{2, 3, 4\}$。要证明 $A = B$，需要证明 $A \subseteq B$ 且 $B \subseteq A$。
 
-    首先证明 $B \subseteq A$。我们可以分别考虑这三个元素，并验证它们是否满足 A 的定义不等式：
+    首先证明 $B \subseteq A$。逐一验证 $B$ 的元素是否满足 $A$ 的不等式：
     \begin{align*}
         2 + \frac{8}{2} &= 6 \le 6 \\
         3 + \frac{8}{3} &= \frac{17}{3} \le 6 \\
         4 + \frac{8}{4} &= 6 \le 6
     \end{align*}
-    因为 $2,3,4 \in \mathbb{N}$，我们推导出 $2 \in A, 3 \in A, 4 \in A$，所以 $B \subseteq A$。
+    因为 $2,3,4 \in \mathbb{N}$，我们推导出 $2,3,4 \in A$，从而 $B \subseteq A$。
 
-    接着证明 $A \subset B$。我们将证明 $\overline{B} \subseteq \overline{A}$，其中补集是在 $\mathbb{N}$ 作为全集的情况中获取的。也就是说，我们将证明所有自然数 $1,5,6,7,\dots$ \dotuline{不是} $A$ 的元素。
+    接着证明 $A \subseteq B$。我们将证明 $\overline{B} \subseteq \overline{A}$，其中补集以 $\mathbb{N}$ 为全集。也就是说，我们要证明自然数 $1,5,6,7,\dots$ \dotuline{不}属于 $A$。
 
-    为了证明这一点，我们将验证这些元素中的任何一个都\dotuline{不}满足 $A$ 的不等式定义。
+    为此，验证这些元素均\dotuline{不}满足 $A$ 的不等式定义：
 
-    前两个情况很容易验证：$1 + \frac{8}{1} = 9 \nleq 6$ 且 $5 + \frac{8}{5} = \frac{33}{5} \nleq 6$。
+    前两种情况很容易验证：
+    \begin{align*}
+        1 + \frac{8}{1} &= 9 \nleq 6 \\
+        5 + \frac{8}{5} &= \frac{33}{5} \nleq 6
+    \end{align*}
 
-    对于其他情况，我们可以取任意固定元素 $x \in \mathbb{N}$ 且 $x \ge 6$，此时不等式可以写为 $x + \frac{8}{x} \ge 6 + \frac{8}{x}$，因为 $\frac{8}{x} > 0$，所以 $x + \frac{8}{x} \ge 6 + \frac{8}{x} > 6$。
+    对于其他情况，取任意固定元素 $x \in \mathbb{N}$ 且 $x \ge 6$，有 $x + \frac{8}{x} \ge 6 + \frac{8}{x}$。由于 $\frac{8}{x} > 0$，故 $x + \frac{8}{x} > 6$。
 
     这表明只有 $2,3,4$ 满足 $A$ 的不等式定义。
 
-    综上，利用双重包含证明，我们证明出 $A = B$。
+    综上，利用双重包含证明，$A = B$ 得证。
 \end{proof}
 
-仔细思考一下为什么证明后半部分采用的方法是有效的。（这实际上是条件陈述的\textbf{逆否}形式的一个实例，但我们还没有定义这些术语；我们将在下一章讨论逻辑时详细讲述。）
+思考为何证明后半部分的方法有效。（这是条件命题的\textbf{逆否}形式，后续章节讨论逻辑时将详细说明。）
 
-让我们看另一个证明集合相等的例子。这个略有不同，因为我们要证明某个集合实际上是空集，为此，我们将证明它没有元素。
+让我们来看另一个证明集合相等的例子。这个例子略有不同，因为我们要证明某个集合是空集，为此需要证明它不包含任何元素。
 
 \begin{proposition}
-    对于每个 $n \in \mathbb{N}$，定义 $S_n = \mathbb{N}-[n]$。那么
+    对于每个 $n \in \mathbb{N}$，定义 $S_n = \mathbb{N}-[n]$。则
     \[\bigcap_{n \in \mathbb{N}}S_n = \varnothing\]
 \end{proposition}
 
-如果你不理解上面式子的含义，建议你尝试几个例子。比如，看一下集合 $S_1, S_1 \cap S_2, S_1 \cap S_2 \cap S_3$ 的元素，依此类推。先尝试找出左侧大交集的候选元素，然后找出为什么它实际上不是该集合的元素。之后，尝试找出一种正式的证明并写出来； 看看下面我们是怎么做的吧！
+如果不理解上面等式的含义，建议尝试几个例子。例如，查看集合 $S_1$、$S_1 \cap S_2$、$S_1 \cap S_2 \cap S_3$ 的元素等等。可以先找出 $\bigcap_{n \in \mathbb{N}}S_n$ 的候选元素，再解释为什么它不属于该集合。之后尝试写出一个正式的证明；可以参考下面的证明过程！
 
 \begin{proof}
-    设 $T = \bigcap_{n \in \mathbb{N}}S_n$，便于我们后面引用它。
+    设 $T = \bigcap_{n \in \mathbb{N}}S_n$ 以便后续引用。
 
-    要证明 $T = \varnothing$，我们需要证明 $T$ 中没有任何元素。请注意，$T$ 由许多自然数集合的交集形成，因此很明显，$T$ 中元素只可能是自然数。
+    要证明 $T = \varnothing$，需要证明 $T$ 不包含任何元素。注意 $T$ 是多个自然数集合的交集，因此其元素只能是自然数。
 
     考虑任意固定元素 $x \in \mathbb{N}$，我们需要证明 $x \notin T$。
 
-    我们知道 $x \in [x] = \{1,2,\dots, X\}$，因此根据 ``$-$'' 的定义，$x \notin \mathbb{N}-[x]$。
+    已知 $x \in [x] = \{1,2,\dots, X\}$，因此根据``$-$''的定义，$x \notin \mathbb{N}-[x]$。
 
-    根据定义，$T$ 包含属于 $\mathbb{N} - [n]$ 形式的所有集合的元素。我们已经（至少）确定了交集中的一个集合 $\mathbb{N} - [x]$，使得 $x$ 不属于该集合。因此，$x$ 不可能是 $T$ 的元素，因为它不属于所有此类集合，所以 $x \notin T$。
+    根据定义，$T$ 的元素必须属于每个 $\mathbb{N} - [n]$ 形式的集合。我们已经（至少）确定了交集中的一个集合 $\mathbb{N} - [x]$，使得 $x$ 不属于该集合。因此，$x$ 不可能是 $T$ 的元素，因为它不属于所有此类集合，所以 $x \notin T$。
 
-    因为 $x \in \mathbb{N}$ 是任意的，我们证明了 $T$ 的元素中不包含自然数，因此它根本没有元素。
+    因为 $x \in \mathbb{N}$ 是任意的，我们证明了 $T$ 的元素中不包含自然数，故 $T$ 为空集。
 \end{proof}
 
-\emph{总结}：让我们再说明一下这项技术为何有效。我们证明 $T$ 中没有元素，即 $T \subseteq \varnothing$。这就完成了整个过程，因为 $\varnothing \subseteq T$ 无需证明，它对于任何集合都成立。因此，双重包含论证的一部分已经实现，我们可以得出 $T = \varnothing$ 的结论。
+\emph{总结}：让我们再解释一下这个证明方法为何有效。我们证明了 $T$ 中没有元素，即 $T \subseteq \varnothing$。这就完成了论证，因为 $\varnothing \subseteq T$ 对任何集合恒成立。因此双重包含论证的条件已满足，可以得出 $T = \varnothing$ 的结论。
 
-让我们再举一个例子。我们希望引入这个例子，是因为它为我们提供了使用索引集操作的进一步练习。在本节的练习中你会发现许多类似的问题。我们鼓励你尽可能多地参与其中！
+让我们再举一个例子。这个例子为我们提供了练习索引集操作的机会，本节习题中还有许多类似问题，我们鼓励你尽可能多尝试解答！
 
 \begin{proposition}
-    对于每个 $n \in \mathbb{N}$，定义 $A_n = \{x \in \mathbb{R} \mid 0 \le x < \frac{1}{n}\}$。那么
+    对于每个 $n \in \mathbb{N}$，定义 $A_n = \{x \in \mathbb{R} \mid 0 \le x < \frac{1}{n}\}$。则
     \[\bigcap_{n \in \mathbb{N}}A_n = \{0\}\]
 \end{proposition}
 
-想想这上面命题意味着什么。在数轴上画出 $A_n$ 集合的图。``$\cap$'' 有什么作用？为什么会得出 $0$ 是该交集的元素？为什么它是\emph{唯一的}元素？
+思考上述命题的含义：在数轴上画出 $A_n$ 的图示，交集符号``$\cap$''表示什么？为什么 $0$ 属于该交集？为什么它是\emph{唯一}的元素？
 
-``$\cap$'' 的定义在这个证明中至关重要，所以让我们回顾一下这里的定义。这里的关键词是\emph{对于每个}：
+证明的关键在于``$\cap$''的定义，请特别注意\emph{对于每个}这一条件：
 
 \begin{definition}
     由集合 $I$ 索引的一系列集合 $A_i$ 的交集为
-    \[\bigcap_{i \in I} A_i = \{x \in U \mid x \in A_i \;\text{对于每个}\; i \in I\}\]
+    \[\bigcap_{i \in I} A_i = \{x \in U \mid x \in A_i \text{\ 对于每个\ } i \in I\}\]
     其中我们假设存在集合 $U$ 满足对于每个 $i \in I, A_i \subseteq U$。
 \end{definition}
 
-也就是说，请记住，多个集合的索引交集将属于所有组成集合的元素聚合在一起。因此，在下面的证明中，你将看到我们需要证明
+请牢记：索引交集由属于所有成分集合的元素构成。因此在证明中，我们需要说明：
 \begin{enumerate}[label=(\arabic*)]
     \item $0$ 确实是所有 $A_n$ 集合的元素。
-    \item 没有其他数字是所有集合的元素，即对于每个非零实数，我们可以找到至少一个 $A_n$ 集合，使得该数字不是该集合的元素。
+    \item 不存在其他实数满足此性质，即对于任意非零实数，总存在某个 $A_n$ 不包含该数。
 \end{enumerate} 
 
 \begin{proof}
     首先，我们来证明
     \[\{0\} \subseteq \bigcap_{n \in \mathbb{N}}A_n\]
-    这需要我们证明对于每个 $n \in \mathbb{N}, 0 \in A_n$。
+
+    这需要证明对于每个 $n \in \mathbb{N}, 0 \in A_n$。
 
     设 $n \in \mathbb{N}$ 为任意固定元素。注意，不等式 $0 \le 0 \le \frac{1}{n}$ 必然成立。
 
-    （注：你可能会担心，因为``在极限内'' $0$ 不会``同时''小于每个分数 $\frac{1}{n}$，但这不是重点！正确的思路是：$0 \in A_1$ 吗？是的，因为 $0 \le 0 < 1$。$0 \in A_2$ 吗？是的，因为 $0 \le 0 < \frac{1}{2}$。$0 \in A_3$ 吗？是的，因为 $0 \le 0 < \frac{1}{3}$。依此类推。该不等式对于每个 $n \in N$ 分别成立，所以 $0$ 是每个此类集合的元素。如果你不担心这一点，没关系！继续前进！）
+    （注：可能有人会担忧，因为``在极限内'' $0$ 是否``同时''小于每个分数 $\frac{1}{n}$，但这不是重点！正确的思路是：$0 \in A_1$ 吗？是的，因为 $0 \le 0 < 1$。$0 \in A_2$ 吗？是的，因为 $0 \le 0 < \frac{1}{2}$。$0 \in A_3$ 吗？是的，因为 $0 \le 0 < \frac{1}{3}$。依此类推。该不等式对于每个 $n \in N$ 均成立，所以 $0$ 是每个此类集合的元素。如果你不担心这一点，可跳过此备注，继续前进！）
 
-    因此，对于每个 $n \in \mathbb{N}, 0 \in A_n$，所以根据 ``$\cap$'' 的定义 $\displaystyle{0 \in \bigcap_{n \in \mathbb{N}} A_n}$。这就证明了 $\displaystyle{\{0\} \subseteq \bigcap_{n \in \mathbb{N}} A_n}$。
+    因此，对于每个 $n \in \mathbb{N}, 0 \in A_n$，所以根据 ``$\cap$'' 的定义，$\displaystyle{0 \in \bigcap_{n \in \mathbb{N}} A_n}$。这就证明了 $\displaystyle{\{0\} \subseteq \bigcap_{n \in \mathbb{N}} A_n}$。
 
     接着，我们来证明
     \[\bigcap_{n \in \mathbb{N}}A_n \subseteq \{0\}\]
-    我们将通过设 $\mathbb{R}$ 为全集的情况下考虑这些集合的\dotuline{补集}来做到这一点。具体来说，我们将证明
+
+    考虑在全集 $\mathbb{R}$ 下这些集合的\dotuline{补集}。具体来说，我们将证明
     \[\overline{\{0\}} \subseteq \overline{\bigcap_{n \in \mathbb{N}}A_n}\]
-    这意味着我们要证明每个非零实数\dotuline{不是每个} $A_n$ 的元素。
 
-    设 $x \in \mathbb{R}$ 为任意固定元素，且 $x \ne 0$。也就是说，要么 $x > 0$ 要么 $x < 0$。我们加下来将分这两种情况讨论。
+    这意味着我们要证明每个非零实数\dotuline{不属于}某个 $A_n$。
 
-    $\bullet$ 情况 1：假设 $x > 0$。考虑实数 $\frac{1}{x} \in \mathbb{R}$。由于 $\mathbb{R}$ 中的自然数是无限且无界的，因此我们可以选择一个\dotuline{大于}该实数的自然数 $M$。也就是说，我们可以选择 $M \in \mathbb{N}$ 使得 $M > \frac{1}{x}$。
+    设 $x \in \mathbb{R}$ 为任意固定元素，且 $x \ne 0$。也就是说，要么 $x > 0$ 要么 $x < 0$。接下来分两种情况讨论：
 
-    （注意：想想为什么会这样。我们还没有\dotuline{证明} $\mathbb{N}$ 是无限的，或者数字沿着 $\mathbb{R}$ 的数轴``永远延续下去''，但我们希望这些想法对你来说直观且合理。）
+    \begin{itemize}
+        \item 情况 1：假设 $x > 0$。考虑实数 $\frac{1}{x} \in \mathbb{R}$。由于 $\mathbb{R}$ 中的自然数集无上界，因此存在 $M \in \mathbb{N}$ 满足 $M > \frac{1}{x}$。
+        
+        （注意：思考为什么会这样。我们尚未\dotuline{证明} $\mathbb{N}$ 是无限的，即数字沿着实数轴``永远延续下去''，但我们希望这些想法对你来说直观且合理。）
 
-    取 $M \in \mathbb{N}$ 且 $M > \frac{1}{x}$。由于 $x > 0$，我们可以将不等式两边同时乘以 $x$；由于 $M > 0$（因此 $\frac{1}{M} > 0$），我们可以再次乘以 $\frac{1}{M}$。由此得到 $x > \frac{1}{M}$。相应地，$x \ne A_M$，因为 $-\frac{1}{M} < x < \frac{1}{M}$ 为假。
+        取 $M \in \mathbb{N}$ 且 $M > \frac{1}{x}$。由于 $x > 0$，不等式两边同时乘以 $x$；由于 $M > 0$（因此 $\frac{1}{M} > 0$），不等式两边再次乘以 $\frac{1}{M}$。由此可得 $x > \frac{1}{M}$。由于 $A_M$ 要求 $-\frac{1}{M} < x < \frac{1}{M}$，因此 $x \ne A_M$。
 
-    由于 $x \notin A_M$，所以 $x$ 肯定不是所有此类集合的元素。因此 $\displaystyle{x \notin \bigcap_{n \in \mathbb{N}} A_n}$
+        由于 $x \notin A_M$，所以 $x$ 肯定不是所有此类集合的元素。因此
+        \[x \notin \bigcap_{n \in \mathbb{N}} A_n\]
 
-    $\bullet$ 情况 2：假设 $x < 0$。我们采用跟前面类似的论证；这次，我们只考虑 $-x$，因为 $-x > 0$。使用与上面相同的逻辑，我们肯定可以找到满足 $M > \frac{1}{-x} = -\frac{1}{x}$ 的自然数 $M \in \mathbb{N}$。整理不等式可得 $x < -\frac{1}{M}$。因此 $x \notin A_M$，所以 $\displaystyle{x \notin \bigcap_{n \in \mathbb{N}} A_n}$。
+        \item 情况 2：假设 $x < 0$。考虑 $-x > 0$。采用与上面相同的逻辑，必然存在 $M \in \mathbb{N}$ 满足 $M > \frac{1}{-x} = -\frac{1}{x}$。整理不等式可得 $x < -\frac{1}{M}$。所以 $x \notin A_M$，因此 
+        \[x \notin \bigcap_{n \in \mathbb{N}} A_n\]
+    \end{itemize}
 
-    综上，我们已经证明，任意 $x \in \mathbb{R}$ 且 $x \ne 0$ 都不是至少一个 $A_n$ 集合的元素，因此任何这样的 $x$ 都不是它们交集的元素。因此，$\displaystyle{{0} \subseteq \bigcap_{n \in \mathbb{N}} A_n}$，并且我们已经通过双重包含论证证明了该主张。
+    综上，我们已经证明，任意 $x \in \mathbb{R}$ 且 $x \ne 0$ 不属于至少一个 $A_n$，因此任何这样的 $x$ 都不是它们交集的元素。因此，由双重包含论证可得：
+    \[\{0\} = \bigcap_{n \in \mathbb{N}} A_n\]
 \end{proof}
 
-这个证明比其他证明更难一些，所以请务必多阅读几次，确保你理解每个步骤的思路和内容。特别是，考虑一下我们是如何选择 $M \in \mathbb{N}$ 满足 $M > \frac{1}{x}$ 这一步的步骤。你认为我们神奇地凭直觉做出了这个选择吗？或者我们是否认识到我们希望 $x < \frac{1}{M}$ 对于某些 $M$ 成立，进一步整理不等式以找出如何实现这一点？
+该证明具有一定难度，建议反复阅读确保理解每个步骤。特别留意选择 $M \in \mathbb{N}$ 且满足 $M > \frac{1}{x}$ 的动机：这并凭借直觉神奇偶得，而是从目标 $x > \frac{1}{M}$ 反推不等式得到的。
