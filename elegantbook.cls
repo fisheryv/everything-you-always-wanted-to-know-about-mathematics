@@ -1498,6 +1498,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
 
 \newcommand\nl{\tabularnewline\hline}
 
+\usepackage{cancel}
 \usepackage{wasysym}
 \usepackage[normalem]{ulem}
 \usepackage{pgfplots}
@@ -1556,3 +1557,14 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
     }%
   }
   \newcommand{\xxhash}[2]{\rotatebox[origin=c]{#2}{$#1\mid\mid$}}
+
+\usepackage{tasks}
+\settasks{
+	label = (\alph*),
+	label-width = 1em,
+	label-offset = 0.5em,
+	item-indent = 3.5em, % item-indent = label-width + label-offset
+}
+
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}

@@ -1,53 +1,53 @@
 % !TeX root = ../../../book.tex
 \section{本章习题}
 
-这些问题涵盖了本章的所有内容，甚至包括之前学习的材料和一些假设的数学知识。我们并不要求你解决\textbf{所有}问题，但你做得越多，学到的也越多！记住，要想真正\emph{学会}数学，就必须亲自去\emph{做}。试着亲自动手解决问题，阅读并思考其中的陈述。尝试写出证明并展示给朋友，看看他们是否能被说服。不断练习将你的想法清晰、准确、合乎逻辑地\emph{写}。写完证明后再进行修改，使其更加完善。最重要的是，坚持不断\emph{做}数学！
+本节习题涵盖本章全部内容，并涉及先前知识点及部分数学假设。我们不要求你解答\textbf{所有}题目，但解决得越多，收获越大！请牢记：真正\emph{掌握}数学必须亲自\emph{实践}。尝试动手解题，仔细阅读并思考题意。撰写证明并与朋友讨论，检验其说服力。持续练习如何清晰、准确、有条理地\emph{书写}思路。完成证明后要反复修改以臻完善。最重要的是，坚持\emph{钻研}数学！
 
-标有 $\blacktriangleright$ 号的简答题只需解释或陈述答案，无需严格证明。
+标有 $\blacktriangleright$ 的简答题只需解释或陈述答案，无需严格证明。
 
-特别具有挑战性的问题带有 $\bigstar$。
+特别具有挑战性的问题标记为 $\bigstar$。
 
 \begin{exercise}
-    $\blacktriangleright$ 以下关于元素和子集的陈述，请说明它们为真还是为假。准备好向持怀疑态度的朋友捍卫你的选择！
-    在整个问题中，我们将使用以下定义：
+    $\blacktriangleright$ 请判断以下关于元素和子集的陈述是是否成立，并准备好向持怀疑态度的朋友解释你的结论！
+    本题中统一使用如下定义：
     \begin{align*}
         A &= \{x \in \mathbb{Z} \mid -3 \le x \le 3\} \\
         B &= \{y \in \mathbb{Z} \mid -5 < y < 6\} \\
         C &= \{x \in \mathbb{R} \mid x^2 \ge 9\} \\
 	    D &= \{x \in \mathbb{R} \mid x < -3\} \\
-        E &= \{n \in \mathbb{N} \mid n \text{为偶数} \}
+        E &= \{n \in \mathbb{N} \mid n \text{\ 为偶数} \}
     \end{align*}
-    \begin{enumerate}[label=(\alph*)]
-        \item $A \subseteq B$
-        \item $C \cap D = \varnothing$
-        \item $4 \in E \cap B$
-        \item $\{4\} \subseteq A \cap E$
-        \item $10 \in C - D$
-        \item $A \cup B \supseteq C$
-        \item $3 \in A \cap C$
-        \item $0 \in (A - B) \cup D$
-        \item $E \cap C \subseteq \mathbb{Z}$
-        \item $0 \notin B - C$
-    \end{enumerate}
+    \begin{tasks}(2)
+        \task $A \subseteq B$
+        \task $C \cap D = \varnothing$
+        \task $4 \in E \cap B$
+        \task $\{4\} \subseteq A \cap E$
+        \task $10 \in C - D$
+        \task $A \cup B \supseteq C$
+        \task $3 \in A \cap C$
+        \task $0 \in (A - B) \cup D$
+        \task $E \cap C \subseteq \mathbb{Z}$
+        \task $0 \notin B - C$
+    \end{tasks}
 \end{exercise}
 
 \begin{exercise}
-    $\blacktriangleright$ 设 $m, n \in \mathbb{N}$。假设 $m \le n$。解释为什么 $\mathcal{P}([m]) \subseteq \mathcal{P}([n])$。
+    $\blacktriangleright$ 设 $m, n \in \mathbb{N}$，且 $m \le n$。请解释为什么 $\mathcal{P}([m]) \subseteq \mathcal{P}([n])$。
 \end{exercise}
 
 \begin{exercise}
-    回顾 \ref{sec:section3.9} 节中的问题 \ref{exc:exercises3.9.7}。我们证明，每当两个集合满足 $A \subseteq B$ 时，它们也必然满足 $\mathcal{P}(A) \subseteq \mathcal{P}(B)$。仔细阅读该证明，提醒自己注意细节。
+    回顾 \ref{sec:section3.9} 节的问题 \ref{exc:exercises3.9.7}。我们已证明，若 $A \subseteq B$，则必有 $\mathcal{P}(A) \subseteq \mathcal{P}(B)$。请仔细阅读该证明并理解其细节。
 
-    这种说法``反过来''是否成立？也就是说，假设 $\mathcal{P}(A) \subseteq \mathcal{P}(B)$。你能证明 $A \subseteq B$ 也成立吗？或者你能找到一个反例吗？
+    这种说法``反过来''是否成立？即假设 $\mathcal{P}(A) \subseteq \mathcal{P}(B)$，能否证明 $A \subseteq B$ 也成立？若不能，请构造反例。
 \end{exercise}
 
 \begin{exercise}
-    使用``集合构建符''重写以下陈述来定义集合。然后，如果可能的话，使用大括号写出集合的所有元素；如果不能，请解释原因并写出该集合的三个示例元素。
+    用``集合构建符''重写以下定义。如果可能的话，直接列举集合元素；否则说明原因并给出三个示例元素。
     \begin{enumerate}[label=(\alph*)]
         \item 设 $A$ 为平方小于 $39$ 的所有自然数的集合。
         \item 设 $B$ 为方程 $x^2 - 3x - 10 = 0$ 所有实根的集合。
         \item 设 $C$ 为和为非负数的整数对的集合。
-        \item 设 $D$ 为实数对的集合，其第一个坐标为正，第二个坐标为负，且两个坐标和为正。
+        \item 设 $D$ 为实数对的集合，其中第一个坐标为正，第二个坐标为负，且两个坐标和为正。
     \end{enumerate}
 \end{exercise}
 
@@ -61,36 +61,37 @@
 \end{exercise}
 
 \begin{exercise}
-    设 $X$ 为你学校学生的集合。
-
-    定义属性 $P(x)$ 使得 $A := \{x \in X \mid P(x)\}$ 是 $X$ 的真子集且 $A \ne \varnothing$。
-
-    接着，定义属性 $Q(x)$ 使得 $B := \{x \in X \mid Q(x)\}$ 是 $A$ 的真子集（即 $B \subset A$）且 $B \ne \varnothing$。
+    设 $X$ 为某学校全体学生的集合。
+    \begin{itemize}
+        \item 定义属性 $P(x)$，使得 $A := \{x \in X \mid P(x)\}$ 是 $X$ 的非空真子集。
+        \item 定义属性 $Q(x)$，使得 $B := \{x \in X \mid Q(x)\}$ 是 $A$ 的非空真子集。
+    \end{itemize}
 \end{exercise}
 
 \begin{exercise}
-    设 $A, B, C$ 为集合且 $A \subseteq C, B \subseteq C$。
+    设 $A, B, C$ 为集合，且 $A \subseteq C$, $B \subseteq C$。
     \begin{enumerate}[label=(\alph*)]
         \item 绘制集合 $\overline{A} \cap \overline{B}$ 和 $\overline{(A \cap B)}$ 的维恩图。
         \item 证明 $\overline{A} \cap \overline{B} \subseteq \overline{(A \cap B)}$。
-        \item 定义特定集合 $A,B,C$，使其严格包含，即 $\overline{A} \cap \overline{B} \subset \overline{(A \cap B)}$
-        \item 定义特定集合 $A,B,C$，使得 $\overline{A} \cap \overline{B} = \overline{(A \cap B)}$。
+        \item 构造集合 $A,B,C$，使得 $\overline{A} \cap \overline{B} \subset \overline{(A \cap B)}$。
+        \item 构造集合 $A,B,C$，使得 $\overline{A} \cap \overline{B} = \overline{(A \cap B)}$。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    令 $S = \{(m, n) \in \mathbb{Z} \times \mathbb{Z} \mid m = n^2\}$。$S$ 与集合 $T = \{(m, n) \in \mathbb{Z} \times \mathbb{Z} \mid n = m^2\}$ 的关系如何？如果一个是另一个的子集，请证明它。如果不是，请提供示例来证明这一点。
+    令 $S = \{(m, n) \in \mathbb{Z} \times \mathbb{Z} \mid m = n^2\}$。$S$ 与集合 $T = \{(m, n) \in \mathbb{Z} \times \mathbb{Z} \mid n = m^2\}$ 的关系如何？如果一个是另一个的子集，请给出证明。如果不是，请给出反例。
 \end{exercise}
 
 \begin{exercise}
-    令 $(a,b)$ 为笛卡尔平面上的一点，即 $(a,b) \in \mathbb{R} \times \mathbb{R}$。设 $\varepsilon$（希腊字母 \emph{epsilon}）为非负实数，即 $\varepsilon \in \mathbb{R}$ 且 $\varepsilon \ge 0$。
-
-    设 $C_{(a,b),\varepsilon}$ 为``接近'' $(a, b)$ 的实数集合，定义如下：
+    令 $(a,b)$ 为笛卡尔平面上的一点，即 $(a,b) \in \mathbb{R} \times \mathbb{R}$。设 $\varepsilon$（希腊字母 \emph{epsilon}）为非负实数，即 $\varepsilon \in \mathbb{R}$ 且 $\varepsilon \ge 0$。\\
+    设 $C_{(a,b),\varepsilon}$ 为``接近'' $(a, b)$ 的点集，定义如下：
     \[C_{(a,b),\varepsilon} = \Big\{(x, y) \in \mathbb{R} \times \mathbb{R} \mid \sqrt{(x - a)^2 + (y - b)^2} < \varepsilon\Big\}\]
     \begin{enumerate}
-        \item 给出集合 $C_{(a,b),\varepsilon}$ 的几何描述。\\
-        当我们改变 $a$ 和 $b$ 时，集合会发生什么？\\
-        当我们改变 $\varepsilon$ 时会发生什么？
+        \item 给出集合 $C_{(a,b),\varepsilon}$ 的几何描述。
+        \begin{itemize}
+            \item 当我们改变 $a$ 和 $b$ 时，集合会如何变化？
+            \item 当我们改变 $\varepsilon$ 时，集合会如何变化？
+        \end{itemize}
         \item $C_{(0,0),1} \cap C_{(0,0),2}$ 是什么？
         \item $C_{(0,0),1} \cup C_{(0,0),2}$ 是什么？
         \item $C_{(0,0),1} \cap C_{(2,2),1}$ 是什么？
@@ -98,65 +99,63 @@
 \end{exercise}
 
 \begin{exercise}
-    考虑如下（错误）声明：
+    考虑如下（错误）命题：
     \[\bigcup_{n \in \mathbb{N}}\mathcal{P}([n]) = \mathcal{P}(\mathbb{N})\]
     \begin{enumerate}[label=(\alph*)]
-        \item 下面``证明''有什么问题？指出错误并解释为什么它/它们破坏了``证明''。
+        \item 下面的``证明''有什么问题？指出错误并解释其如何破坏了``证明''。
             \begin{spoof}
-                首先证明 $\displaystyle{\bigcup_{n \in \mathbb{N}}\mathcal{P}([n]) \subseteq \mathcal{P}(\mathbb{N})}$
+                首先证明 $\displaystyle{\bigcup_{n \in \mathbb{N}}\mathcal{P}([n]) \subseteq \mathcal{P}(\mathbb{N})}$。
 
                 考虑左侧并集的任意元素 $X$。
 
                 根据索引并集的定义，我们知道存在 $k \in \mathbb{N}$ 使得 $X \subseteq [k]$。
 
-                由于 $[k] \subseteq \mathbb{N}$，并且 $X \subseteq [k]$，我们推断出 $X \subseteq \mathbb{N}$。
+                由于 $[k] \subseteq \mathbb{N}$ 且 $X \subseteq [k]$，我们可以推断出 $X \subseteq \mathbb{N}$。
 
                 因此 $X \in \mathcal{P}(\mathbb{N})$。
 
-                接着我们证明 ``$\subseteq$'' 关系在另一个方向上也成立。
+                接着证明 $\displaystyle{\bigcup_{n \in \mathbb{N}}\mathcal{P}([n]) \supseteq \mathcal{P}(\mathbb{N})}$。
 
-                考虑任意元素 $Y \subseteq \mathbb{N}$。
+                考虑任意元素 $Y \subseteq \mathcal{P}(\mathbb{N})$。
 
-                根据子集的定义，以及 $Y$ 是自然数的集合，我们知道存在 $\mathscr{l} \in \mathbb{N}$ 使得 $Y \subseteq [\mathscr{l}]$。
+                由于 $Y$ 是自然数的子集，我们知道存在 $\ell \in \mathbb{N}$ 使得 $Y \subseteq [\ell]$。
 
-                根据索引并集的定义，我们知道 $\displaystyle{Y \in \bigcup_{n \in \mathbb{N}}\mathcal{P}([n])}$。
+                根据索引并集的定义，可得 $\displaystyle{Y \in \bigcup_{n \in \mathbb{N}}\mathcal{P}([n])}$。
 
-                由于我们已经证明了 $\subseteq$ 和 $\supseteq$，所以我们知道这两个集合是相等的。
+                由于我们已经证明了 $\subseteq$ 和 $\supseteq$，因此两个集合相等。
             \end{spoof}
             $\quad$
-        \item 通过定义集合 $S$ 的\textbf{明确}示例来反驳该主张，使得
+        \item 通过构造集合 $S$ 的\textbf{具体}示例反驳该结论，使得
             \[S \in \mathcal{P}(\mathbb{N}) \qquad \text{且} \qquad S \notin \bigcup_{n \in \mathbb{N}}\mathcal{P}([n])\]
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    设 $A = [3] \times [4]$。（记住 $[n] = \{1, 2, 3, \dots , n\}$。）
+    设 $A = [3] \times [4]$。（注意 $[n] = \{1, 2, 3, \dots , n\}$。）\\
     设 $B = \{(x, y) \in \mathbb{Z} \times \mathbb{Z} \mid 0 \le 3x - y + 1 \le 9\}$。
     \begin{enumerate}[label=(\alph*)]
         \item \textbf{证明} $A \subseteq B$。
-        \item $A = B$ 吗？为什么相等或者为什么不等？请\textbf{证明}你的主张。
+        \item $A = B$ 吗？\textbf{证明}你的结论并说明原因。
     \end{enumerate}
 \end{exercise}
 
-\clearpage
-
 \begin{exercise}
-    令 $n \in \mathbb{N}$ 为固定自然数。设 $S = [n] \times [n]$。 设 $T$ 为集合
+    令 $n \in \mathbb{N}$ 为固定自然数。设 $S = [n] \times [n]$。设 $T$ 为集合
     \[T =\Big\{(x, y) \in \mathbb{Z} \times \mathbb{Z} \mid 0 \le nx + y - (n + 1) \le n^2 - 1\Big\}\]
     证明 $S \subseteq T$ 但 $S \ne T$。
 \end{exercise}
 
 \begin{exercise}
-    假设 $A$ 和 $B$ 为集合。
+    设 $A$ 和 $B$ 为集合。
     \begin{enumerate}[label=(\alph*)]
         \item \textbf{证明} 
         \[\mathcal{P}(A) \cup \mathcal{P}(B) \subseteq \mathcal{P}(A \cup B)\]
-        \item 给出 $A$ 和 $B$ 的\textbf{明确}示例，其中 (a) 中的包含是\textbf{严格包含}。
+        \item 给出 $A$ 和 $B$ 的\textbf{明确}示例，使得 (a) 中的包含是\textbf{严格包含}。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    设 $S$ 和 $T$ 为集合，其元素本身也是集合。假设 $S \subseteq T$，\textbf{证明} 
+    设 $S$ 和 $T$ 为集合，且它们的本身也是集合。假设 $S \subseteq T$，\textbf{证明} 
     \[\bigcup_{X \in S} X \subseteq \bigcup_{Y \in T} Y\]
 \end{exercise}
 
@@ -165,19 +164,20 @@
     \begin{enumerate}[label=(\alph*)]
         \item \textbf{证明} 
         \[(A \times B) \cup (C \times D) \subseteq (A \cup C) \times (B \cup D)\]
-        \item 给出 $A,B,C,D$ 的\textbf{明确}示例，其中 (a) 中的包含是\textbf{严格包含}。
+        \item 给出 $A,B,C,D$ 的\textbf{明确}示例，使得 (a) 中的包含是\textbf{严格包含}。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
     设 $A, B, C$ 为集合。证明
-        \[A \times (B \cap C) = (A \times B) \cap (A \times C)\]
-    和
-        \[A \times (B - C) = (A \times B) - (A \times C)\]
+    \begin{align*}
+        A \times (B \cap C) &= (A \times B) \cap (A \times C) \\
+        A \times (B - C) &= (A \times B) - (A \times C)
+    \end{align*}
 \end{exercise}
 
-\begin{exercise}\label{exc:exercises3.11.17}
-    设 $X,Y,Z$ 为集合。证明 $(X \cup Y ) - Z \subseteq X \cup (Y - Z)$ 但\emph{不一定}相等。
+\begin{exercise}\label{exc:exercises3.11.17} 
+    设 $X,Y,Z$ 为集合。证明 $(X \cup Y ) - Z \subseteq X \cup (Y - Z)$，但两者\emph{不一定}相等。
 \end{exercise}
 
 \begin{exercise}
@@ -186,11 +186,11 @@
 \end{exercise}
 
 \begin{exercise}
-    找出集合 $R,S,T$ 的示例，使得 $R \in S$ 且 $S \in T$ 且 $R \subseteq T$ 但 $R \notin T$。
+    给出集合 $R,S,T$ 的示例，使得 $R \in S$，$S \in T$，$R \subseteq T$，$R \notin T$。
 \end{exercise}
 
 \begin{exercise}
-    确定以下每集合是什么，并证明你的主张。
+    确定下列集合是什么，并证明你的结论。
     \[\bigcap_{n \in \mathbb{N}}[n] \qquad \text{和} \qquad \bigcup_{n \in \mathbb{N}}[n]\]
 \end{exercise}
 
@@ -201,30 +201,26 @@
         \item 写出 $\displaystyle{\bigcap_{i \in I}A_i}$ 的元素。
         \item 写出 $\displaystyle{\bigcup_{i \in I}B_i}$ 的元素。
         \item 写出 $\displaystyle{\bigcap_{i \in I}B_i}$ 的元素。
-        \item 利用上面的答案，写出 $\displaystyle{\Big(\bigcup_{i \in I}A_i\Big) - \Big(\bigcup_{i \in I}B_i\Big)}$ 的元素。
-        \item 利用上面的答案，写出 $\displaystyle{\Big(\bigcap_{i \in I}A_i\Big) - \Big(\bigcap_{i \in I}B_i\Big)}$ 的元素。
-        \item 写出 $\displaystyle{\bigcup_{i \in I}(A_i - B_i)}$ 的元素。与 (e) 的答案有何区别？
-        \item 写出 $\displaystyle{\bigcap_{i \in I}(A_i - B_i)}$ 的元素。与 (f) 的答案有何区别？
+        \item 利用上述答案，写出 $\displaystyle{\Big(\bigcup_{i \in I}A_i\Big) - \Big(\bigcup_{i \in I}B_i\Big)}$ 的元素。
+        \item 利用上述答案，写出 $\displaystyle{\Big(\bigcap_{i \in I}A_i\Big) - \Big(\bigcap_{i \in I}B_i\Big)}$ 的元素。
+        \item 写出 $\displaystyle{\bigcup_{i \in I}(A_i - B_i)}$ 的元素。与 (e) 的答案有何不同？
+        \item 写出 $\displaystyle{\bigcap_{i \in I}(A_i - B_i)}$ 的元素。与 (f) 的答案有何不同？
     \end{enumerate}
 \end{exercise}
 
-\begin{exercise}\label{exc:exercises3.11.22}
-    在这道题中，我们要``证明''负整数的存在性！我们说``证明''是因为直到后来我们才会真正理解我们所做的事情，但是，相信我们，这就是我们正在做的事情。
-
-    由于这个目标，你不能\textbf{假设}存在任何严格小于 $0$ 的整数，因此你的代数步骤，尤其是 (d) 部分，不应涉及任何可能为负的项。
-
-    也就是说，如果考虑这样的方程
+\begin{exercise}\label{exc:exercises3.11.22} 
+    在这道题中，我们要``证明''负整数的存在性！我们说``证明''是因为需要完成后续学习才会完全理解这一点，但请相信，这就是我们正在做的事。因此，不能\textbf{假设}存在任何严格小于 $0$ 的整数，故代数步骤（尤其是 (d) 部分）不应涉及可能为负的项。也就是说，若考虑方程
     \[x + y = x + z\]
-    我们\textbf{可以}通过两边同时减 $x$ 推导出 $y = z$，因为 $x - x = 0$。但是，如果我们考虑的是这样的方程
+    我们\textbf{可以}通过两边同时减去 $x$ 推导出 $y = z$，因为 $x - x = 0$。但若考虑方程
     \[x + y = z + w\]
-    我们\textbf{不能}推导出 $x - z = w - y$。也许 $y > w$，所以 $w - y$ 在我们的上下文中不存在……
-
-    设 $P = \mathbb{N} \times \mathbb{N}$。将集合 $R$ 定义为
-    \[R = \{((a, b),(c, d)) \in P \times P \mid a + d = b + c\}\]
+    我们\textbf{不能}推导出 $x - z = w - y$。因为若 $y > w$，则 $w - y$ 在上下文中可能不存在……\\
+    \\
+    设 $P = \mathbb{N} \times \mathbb{N}$。定义集合 $R$ 为
+    \[R = \big\{\big((a, b),(c, d)\big) \in P \times P \mid a + d = b + c \big\}\]
     \begin{enumerate}[label=(\alph*)]
-        \item 找出三个不同的 $(c, d)$ 对，使得 $((1, 4),(c, d)) \in R$。
-        \item 设 $(a, b) \in P$。证明 $((a, b),(a, b)) \in R$。
-        \item 设 $((a, b),(c, d)) \in R$。证明 $((c, d),(a, b)) \in R$。
-        \item 假设 $((a, b),(c, d)) \in R$ 且 $((c, d),(e, f)) \in R$。证明 $((a, b),(e, f)) \in R$。
+        \item 找出三个不同的 $(c, d)$ 对，使得 $\big((1, 4),(c, d)\big) \in R$。
+        \item 设 $(a, b) \in P$。证明 $\big((a, b),(a, b)\big) \in R$。
+        \item 设 $\big((a, b),(c, d)\big) \in R$。证明 $\big((c, d),(a, b)\big) \in R$。
+        \item 假设 $\big((a, b),(c, d)\big) \in R$ 且 $\big((c, d),(e, f)\big) \in R$。证明 $\big((a, b),(e, f)\big) \in R$。
     \end{enumerate}
 \end{exercise}
