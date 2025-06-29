@@ -1,41 +1,41 @@
 % !TeX root = ../../../book.tex
 \subsection{定义}
 
-现在，让我们讨论一下\textbf{数学陈述}的含义。我们希望这个术语能够概括我们可以证明或证伪的``事物''类型。
+现在，让我们探讨\textbf{数学陈述}的含义。这个术语需要能够涵盖所有可被证明或证伪的`事物''类型。
 
-数学在科学中是独一无二的，因为该领域的结果经过严格\textbf{证明}，而不是先做出假设然后通过实验室实验或现实世界观察来``证实''。在数学中，我们假设一组常见的\textbf{公理}，然后遵循严格的逻辑推理，从这些公理（以及迄今为止我们已经证明的其他真理）中推导出真理。如果我们遇到虚假信息，我们就必须证明或揭示它确实为假。
+数学在科学中具有独特性，因为其结论需经严格\textbf{证明}，而非通过实验室实验或现实观察来``证实''。我们基于一组共同的\textbf{公理}，通过严谨的逻辑推理，从这些公理（及已证结论）中推导真理。如果某个命题被证明为假，我们则需揭示其谬误。
 
-基于上述想法，我们来看几个\textbf{数学陈述}或\textbf{命题}可能是什么的例子。（我们甚至已经证明了其中一些！）例如，这句话：
+以下是几个\textbf{数学陈述}或\textbf{命题}的示例（部分已被证明）：
 \begin{center}
     \textcolor{olivegreen}{对于任意实数 $x, y \in \mathbb{R}$，不等式 $2xy \le x^2 + y^2$ 成立。}
 \end{center}
-是一个有效的数学陈述。事实上，它是真的，我们将在稍后的 \ref{sec:section4.9.2} 节中证明这一点。（它有时被称为 AGM 不等式，是\emph{算术几何平均不等式(Arithmetic-Geometric Mean Inequality)}的缩写。）这里需要指出，``成立''一词在数学中经常用于表示``为真''或``是一个真实的陈述''。
+这是一个真实有效的数学陈述（将在 \ref{sec:section4.9.2} 节证明），亦称\emph{算术几何平均不等式 (Arithmetic-Geometric Mean Inequality)}不等式或 \emph{AGM} 不等式。这里需要指出，``成立''在数学中通常表示``为真''或``是一个真实的陈述''。
 
 下面是另一个数学陈述的例子：
 \begin{center}
-    \textcolor{olivegreen}{对于任意集合 $S, T, U$，如果 $S \cap T \subseteq U$ 则 $S \subseteq U$ 或 $T \subseteq U$。}
+    \textcolor{olivegreen}{对于任意集合 $S, T, U$，若 $S \cap T \subseteq U$，则 $S \subseteq U$ 或 $T \subseteq U$。}
 \end{center}
 
-然而，上面这种说法是错误的，如以下反例所示：
+然而，该命题不成立，反例如下：
 \begin{center}
-    \textcolor{blue}{设 $S = \{1, 2, 3\}$, $T = \{2, 3, 4\}$, $U = \{2, 3, 5\}$。\\ 很明显 $S \cap T = \{2, 3\} \subseteq U$ 但 $S \nsubseteq U$ 且 $T \nsubseteq U$。}
+    \textcolor{blue}{令 $S = \{1, 2, 3\}$, $T = \{2, 3, 4\}$, $U = \{2, 3, 5\}$。\\ 显然 $S \cap T = \{2, 3\} \subseteq U$，但 $S \nsubseteq U$ 且 $T \nsubseteq U$。}
 \end{center}
-为什么这个例子证伪了上面的说法？你弄明白了吗？你能解释一下吗？我们将在本章后面更详细地讨论这一点，但我们希望现在我们都认识到这个例子确实实现了这一点。
+此反例证伪了原命题。具体分析将在后续章节展开。
 
-我们也都认同像这样的句子
+以下句子：
 \begin{center}
     \textcolor{red}{为什么我们早上 9:00 还要上课？！}
 \end{center}
-绝对\textcolor{red}{\emph{不是}}数学陈述。这是一个完全有效的句子，但从数学上来讲它没有意义：我们无法\emph{证明}或\emph{证伪}它。
+\textcolor{red}{\emph{不构成}}数学陈述。虽然这是一个有效的句子，但无法被数学\emph{证明}或\emph{证伪}。
 
-同理，这句话
+类似地：
 \begin{center}
     \textcolor{red}{$x^2 - 1 = 0$}
 \end{center}
-尽管完全由数学符号组成，但它也\textcolor{red}{\emph{不是}}数学陈述。问题是我们无法纯粹从公理和逻辑推论来验证它为真还是为假。该陈述\emph{取决于} $x$，无论该值是什么（即 $x$ 是一个\textbf{变量}），并且在不对其施加额外假设的情况下，我们无法断言该句子为真还是为假。这种类型的句子稍后将被称为\textbf{变量命题}：其真实性取决于句子中的变量。
+虽由数学符号组成，但仍\textcolor{red}{\emph{不构成}}数学陈述。其真值取\emph{取决于}变量 $x$ 的取值，缺乏额外假设时无法判定其真假。此类含未指定\textbf{变量}的陈述称为\textbf{变量命题}。
 
-所有这些观察结果和示例/伪例引出了以下定义：
+综合上述示例/反例，我们可以得到如下定义：
 
 \begin{definition}
-    \dotuline{数学陈述}（或\dotuline{命题}或\dotuline{逻辑陈述}）是语法正确的句子（或句子串），由单词/标点符号和数学符号组成，并具有唯一一个真值（真或假）。
+    \dotuline{数学陈述}（或称\dotuline{命题}、\dotuline{逻辑陈述}）是由词语/标点及数学符号构成的语法正确的语句，具有唯一确定的真值（真或假）。
 \end{definition}

@@ -1,51 +1,53 @@
 % !TeX root = ../../../book.tex
-\subsection{用法和符号}
+\subsection{用法与符号}
+可用``$\forall$''替换的常见短语还包括``对于每个''、``对于任意''、``每当''、``给定任意''等。
 
-可以用 ``$\forall$'' 替换的其他常见短语还有``对于每个''、``对于任意''、``每当''、``给定任何''甚至``如果''。
-
-可以用 ``$\exists$'' 替换的其他常见短语还有``对于某个''、``至少有一个''、``有''甚至``某个''。\\
+可用``$\exists$''替换的常见短语还包括``对于某个''、``至少有一个''、``有''等。
 
 \begin{example}
-    让我们先来看几个简单的例子，以开始我们的实践。以下每种情况，我们都希望使用这些符号来表达数学思想，或者尝试以更``罗嗦''的方式解释量化陈述。
+    我们先看几个简单例子作为实践起点。以下每种情况，我们都尝试用符号表达数学思想，或用更``罗嗦''的文字解释量化陈述。
     \begin{itemize}
         \item ``每个实数的平方都是非负数。''
-            这是一个简单直白的陈述，事实上，这个陈述为\verb|真|。我们可以将其写为：
+        
+            这是一个简单直白的陈述，事实上，该陈述为\verb|真|。我们可以将其写作：
             \[\forall x \in \mathbb{R} \centerdot x^2 \ge 0\]
-            ``大点'' 将陈述的量化部分与关于变量 $x$ 的声明（在量化中引入）分开。\\
+            ``分隔点 $\centerdot$''将陈述的量化部分与变量声明部分分开。\\
             另一种写法是：
             \begin{center}
-                定义 $S(x)$ 为 ``$x^2 \ge 0$''。那么命题就是：$\forall x \in \mathbb{R} \centerdot S(x)$。
+                定义 $S(x)$ 为``$x^2 \ge 0$''。则命题为：$\forall x \in \mathbb{R} \centerdot S(x)$。
             \end{center}
-        \item ``存在 $\mathbb{N}$ 的一个子集以 $7$ 作为元素。''
-            这是一个\emph{存在}声明。它断言我们可以找到具有特定属性的对象。我们将其写为：
+        \item ``存在 $\mathbb{N}$ 的子集以 $7$ 为元素。''
+        
+            这是一个\emph{存在性}命题，断言存在满足特定性质的对象。我们可以将其写作：
             \[\exists S \in \mathcal{P}(\mathbb{N}) \centerdot 7 \in S\]
-            请记住，$\mathcal{P}(\mathbb{N})$ 是 $\mathbb{N}$ 的\emph{幂集}，即 $\mathbb{N}$ 的所有子集的集合；因此，根据要求，$S \in \mathcal{P}(\mathbb{N})$ 意味着 $S \subseteq \mathbb{N}$。
-        \item ``每个整数都有一个\emph{加法逆元}（即，当与原始数字相加时，结果为 $0$）。''
-            ``加法逆元''的概念是一个通用概念，适用于一些称为\emph{环}和\emph{域}的数学对象。我们不会在本书中讨论这些对象，但你会在抽象代数课程中接触它们。\\
-            我们可以将此声明写为:
+            其中 $\mathcal{P}(\mathbb{N})$ 是 $\mathbb{N}$ 的\emph{幂集}，即 $\mathbb{N}$ 的所有子集的集合；因此，根据要求，$S \in \mathcal{P}(\mathbb{N})$ 意味着 $S \subseteq \mathbb{N}$。
+        \item ``每个整数都有\emph{加法逆元}（即与原数字相加时，结果为 $0$）。''
+        
+            ``加法逆元''是\emph{环}和\emph{域}等代数结构的通用概念（本书不涉及，抽象代数课程将深入讨论）。\\
+            我们可以将此命题写作:
             \[\forall a \in \mathbb{Z} \centerdot \exists b \in \mathbb{Z} \centerdot a + b = 0\]
             读作：
             \begin{center}
-                对于任意整数 $a$，都存在一个整数 $b$，使得 $a + b = 0$。
+                对于任意整数 $a$，存在整数 $b$，使得 $a + b = 0$。
             \end{center}
             或
             \begin{center}
-                无论给定什么整数 $a$，我们都可以找到一个具有 $a + b = 0$ 性质的整数 $b$。
+                对于任意整数 $a$，总存在满足 $a + b = 0$ 的整数 $b$。
             \end{center}
-            同样，我们可以通过将 $I(a, b)$ 定义为 ``$a + b = 0$'' 来稍微缩短符号，然后将声明写为：
+            若定义 $I(a, b)$ 为``$a + b = 0$''，可进一步简化为：
             \[\forall \in \mathbb{Z} \centerdot \exists b \in \mathbb{Z} \centerdot I(a, b)\]
     \end{itemize}
 \end{example}
 
 \begin{example}
-    以下是正确使用 ``$\forall$'' 的一些示例，以及如何使用该符号的一些等效表述。
+    以下是``$\forall$''的正确用法及等价表述：
     \begin{itemize}
         \item $\forall x \in \mathbb{R} \centerdot x^2 \ge 0$
-        \item 对于所有实数 $x$，我们有 $x^2 \ge 0$。
-        \item 每个实数 $x$ 都满足 $x^2 \ge 0$。
-        \item 当 $x$ 为实数时，我们知道 $x^2 \ge 0$。
+        \item 对于所有实数 $x$，有 $x^2 \ge 0$。
+        \item 每个实数 $x$ 均满足 $x^2 \ge 0$。
+        \item 当 $x$ 为实数时，$x^2 \ge 0$。
     \end{itemize}
-    同样，下面是符号 ``$\exists$'' 的正确用法和等效表述的示例。
+    类似地，以下是``$\exists$''的正确用法及等价表述：
     \begin{itemize}
         \item $\exists x \in \mathbb{R} \centerdot x^2 - 4x + 4 = 0$
         \item 存在实数 $x$ 使得 $x^2 - 4x + 4 = 0$。
