@@ -3,14 +3,14 @@
 
 \subsubsection*{温故知新}
 
-以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，如果忘记了具体定义、概念或示例，可以回顾相关内容。确保在继续学习之前能够自信地作答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 数学命题的\emph{否定}是什么？陈述及其否定是如何相关的？
+    \item 数学命题的\emph{否定}是什么？陈述与其否定之间有何关系？
     \item 为什么 $\forall$ 命题的否定是 $\exists$ 命题？\\
-        为什么 $\exists$ 命题的否定是 $\forall$ 命题？
-    \item 什么是非构造性证明？该术语适用于什么类型的主张（$\exists$ 或 $\forall$）？
-    \item 考虑声明
+          为什么 $\exists$ 命题的否定是 $\forall$ 命题？
+    \item 什么是非构造性证明？该术语适用于什么类型的命题（$\exists$ 或 $\forall$）？
+    \item 考虑陈述
         \[\forall x \in S \centerdot P(x)\]
         为什么它的否定不是下面这两个？
         \textcolor{red}{
@@ -21,40 +21,39 @@
 
 \subsubsection*{小试牛刀}
 
-尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+尝试解答以下问题。这些题目需动笔书写或口头阐述答案，旨在帮助你熟练运用新概念、定义及符号。题目难度适中，确保掌握它们将大有裨益！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 对于以下每个陈述，写出其否定形式。哪一个 --- 原式形式还是否定形式 --- 为\verb|真|？
-        \begin{enumerate}[label=(\alph*)]
-            \item $\forall x \in \mathbb{R} \centerdot \exists n \in \mathbb{N} \centerdot n > x$
-            \item $\exists n \in \mathbb{N} \centerdot \forall x \in \mathbb{R} \centerdot n > x$
-            \item $\forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot y = x^3$
-            \item $\exists y \in \mathbb{R} \centerdot \forall x \in \mathbb{R} \centerdot y = x^3$
-        \end{enumerate}
-    \item 对于以下每个陈述，写出其否定形式。哪一个 --- 原式形式还是否定形式 --- 为\verb|真|？
-        \begin{enumerate}[label=(\alph*)]
-            \item $\exists S \in \mathcal{P}(\mathbb{N}) \centerdot \forall x \in \mathbb{N} \centerdot x \in S$
-            \item $\forall S \in \mathcal{P}(\mathbb{N}) \centerdot \exists x \in \mathbb{N} \centerdot x \in S$
-            \item $\forall x \in \mathbb{N} \centerdot \exists S \in \mathcal{P}(\mathbb{N}) \centerdot x \in S$
-            \item $\exists x \in \mathbb{N} \centerdot \forall S \in \mathcal{P}(\mathbb{N}) \centerdot x \in S$
-        \end{enumerate}
+    \item 对于以下每个陈述，写出其否定形式。原陈述与其否定形式哪个为\verb|真|？
+        \begin{tasks}[label=(\alph*)](2)
+            \task $\forall x \in \mathbb{R} \centerdot \exists n \in \mathbb{N} \centerdot n > x$
+            \task $\exists n \in \mathbb{N} \centerdot \forall x \in \mathbb{R} \centerdot n > x$
+            \task $\forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot y = x^3$
+            \task $\exists y \in \mathbb{R} \centerdot \forall x \in \mathbb{R} \centerdot y = x^3$
+        \end{tasks}
+    \item 对于以下每个陈述，写出其否定形式。原陈述与其否定形式哪个为\verb|真|？
+        \begin{tasks}[label=(\alph*)](2)
+            \task $\exists S \in \mathcal{P}(\mathbb{N}) \centerdot \forall x \in \mathbb{N} \centerdot x \in S$
+            \task $\forall S \in \mathcal{P}(\mathbb{N}) \centerdot \exists x \in \mathbb{N} \centerdot x \in S$
+            \task $\forall x \in \mathbb{N} \centerdot \exists S \in \mathcal{P}(\mathbb{N}) \centerdot x \in S$
+            \task $\exists x \in \mathbb{N} \centerdot \forall S \in \mathcal{P}(\mathbb{N}) \centerdot x \in S$
+        \end{tasks}
     \item 设 $I = \{x \in \mathbb{R} \mid 0 < x < 1\}$。\\
-        对于以下每个定义的集合，用量词写出确定数字 $y \in \mathbb{R}$ 是否为集合元素的定义条件。\\
-        然后，确定集合是什么，并使用集合构建符写出答案。\\
-        （并尝试使用双重包含论证来证明你的主张！）
+        对于以下每个给定集合，用量词描述 $y \in \mathbb{R}$ 属于该集合的条件。\\
+        然后，确定集合的具体形式，并用集合构建符写出答案。\\
+        （并尝试通过双重包含论证证明你的结论。）
         \begin{enumerate}[label=(\alph*)]
             \item $\displaystyle{S =\bigcup_{x \in I}\{y \in \mathbb{R} \mid x < y < 2\}}$
             \item $\displaystyle{T =\bigcap_{x \in I}\{y \in \mathbb{R} \mid -x < y < x\}}$
             \item $\displaystyle{V =\bigcup_{x \in I}\{y \in \mathbb{R} \mid -3x < y < 4x\}}$
         \end{enumerate}
-    \item 令 $P = \{y \in \mathbb{R} \mid y > 0\}$。考虑下面这个声明：
+    \item 令 $P = \{y \in \mathbb{R} \mid y > 0\}$。考虑以下陈述：
         \[\forall \varepsilon \in P \centerdot \exists \delta \in P \centerdot \forall x \in \{y \in \mathbb{R} \mid -\delta < y < \delta\} \centerdot |x^3| < \varepsilon\]
         写出该命题的逻辑否定形式。\\
-        这个陈述表达了什么？它的否定形式表达了什么？\\
-        哪一个为\verb|真|？你能证明这一点吗？
-    \item 设 $A,B,C,D$ 为任意集合。\\
-        设 $P(x),Q(x, y),R(x, y, z)$ 为任意变量命题。\\
-        写出下列各命题的否定形式。
+        该陈述的含义是什么？其否定形式表示什么？\\
+        哪个为\verb|真|？你能证明吗？
+    \item 设 $A,B,C,D$ 为任意集合。设 $P(x),Q(x, y),R(x, y, z)$ 为任意变量命题。\\
+        写出下列命题的否定形式。
         \begin{enumerate}[label=(\alph*)]
             \item $\forall a \in A \centerdot \exists b \in B \centerdot Q(a, b)$
             \item $\forall a \in A \centerdot \neg P(a)$

@@ -1,31 +1,32 @@
 % !TeX root = ../../../book.tex
 \subsection{``固定''变量和依赖}\label{sec:section4.3.3}
 
+在讨论量词顺序时，以下示例有助于阐明量词的顺序如何决定表达式中的\textbf{固定变量}。
 当我们讨论量词顺序的主题时，我们还要提到以下示例来强调量词的顺序决定何时将变量视为表达式中的\textbf{固定变量}。
 
-考虑一下这句话：``任何大于或等于 $4$ 的偶数都可以写成两个质数之和。''（回想一下，这是我们上一节中讨论过的著名的\textbf{哥德巴赫猜想}。）为了从逻辑上和符号上表达这个陈述，我们可以写成
+考虑命题：``任何大于或等于 $4$ 的偶数均可表示为两个质数之和。''（即著名的\textbf{哥德巴赫猜想}。）其逻辑符号化表达如下：
 \begin{align*}
-    &\text{令} X \text{为除} 2 \text{以外的偶数的集合。}\\
-    &\text{设} P \text{为质数集。}\\
-    &\text{定义} Q(n, a, b) \text{为``}n = a + b\text{''。}\\
-    &\text{那么声明就是：}
+    &\text{令\ } X \text{\ 为除\ } 2 \text{\ 以外的偶数集合。}\\
+    &\text{设\ } P \text{\ 为质数集。}\\
+    &\text{定义\ } Q(n, a, b) \text{\ 为``}n = a + b\text{''。}\\
+    &\text{则命题可表述为：}
 \end{align*}
 \[\forall n \in X \centerdot \exists a, b \in P \centerdot Q(n, a, b)\]
-
-请注意，我们在这里使用了一些简写。像``$\exists a, b \in P$'' 这样的短语完全可以表达上述陈述，而不必写成
+请注意，此处使用了简写形式。``$\exists a, b \in P$''完全等价于
 \[\forall n \in X \centerdot \exists a \in P \centerdot \exists b \in P \centerdot Q(n, a, b)\]
-当两个变量被量化为同一集合中的元素，并且两个紧挨着时，将它们组合成一个量化是很常见的。我们甚至可能会看到这样的数学陈述，
-\[\forall x, y \in \mathbb{Z} \centerdot \exists a, b, c, d \in \mathbb{Z} \centerdot a + b + c + d = x + y \;\text{且}\; a + b \ne x \;\text{且}\; c + d \ne y\]
-（顺便问一下，这个陈述断言了什么？它为\verb|真|还是为\verb|假|？它取决于 $\mathbb{Z}$ 的上下文吗？如果我们将两处都换成 $\mathbb{N}$ 或 $\mathbb{R}$ 会怎样？）
+当多个变量从同一集合量化且量词相邻时，合并书写是常见做法。例如：
+\[\forall x, y \in \mathbb{Z} \centerdot \exists a, b, c, d \in \mathbb{Z} \centerdot a + b + c + d = x + y \text{\ 且\ } a + b \ne x \text{\ 且\ } c + d \ne y\]
+（思考：此命题断言什么？在 $\mathbb{Z}$ 中是否成立？若替换为 $\mathbb{N}$ 或 $\mathbb{R}$ 呢？）
 
 \subsubsection*{量化``固定''变量}
 
-回顾上面的例子，我们定义了 $Q(n, a, b)$。我们提出这个例子的原因是为了指出初始量化 ``$\forall n \in X$'' 用于\emph{固定} $n$ 的特定值，该值将用于陈述的其余部分。之后，断言 ``$\exists a, b \in P$'' 及其后续属性 $Q(n, a, b)$ 取决于 $n$ 的\emph{固定}但\emph{任意}值。
+上例中，量词``$\forall n \in X$''的作用是\emph{固定} $n$ 的特定取值，该值将贯穿后续命题。随后，``$\exists a, b \in P$''及其关联性质 $Q(n, a, b)$ 依赖于 $n$ 的\emph{固定}但\emph{任意}取值。
 
-整个陈述说的是，无论选择什么样的 $n$，我们都可以找到满足属性 $Q$ 的值 $a, b$。（当然，请注意，$a, b$ 的这些值可能\emph{取决于} $n$。）但是，量化顺序告诉我们这些值 $a, b$ 可能\emph{取决于}所选的 $n$。这就是我们要强调的。
+整个命题表明：对任意选择的 $n$，总存在满足 $Q$ 的 $a, b$（注意 $a, b$ 的值可能\emph{依赖于} $n$）。量词顺序揭示了 $a, b$ 对 $n$ 的这种依赖性。
 
-作为示例，考虑语句中变量 $n$ 的特定值。我们知道 $8 \in X$ 因为 $8$ 是偶数且 $8 \ge 4$。当 $n = 8$ 时会发生什么？你能找到 $a, b \in P$ 使得 $a + b = 8$ 吗？当然可以，我们可以让 $a = 3$ 且 $b = 5$。那么当 $n = 14$ 时呢？你能找到满足 $a+b = 14$ 的 $a, b \in P$ 吗？当然可以，你现在的选择必然与以前的\emph{不同}。这就是我们所说的 $a$ 和 $b$ \emph{依赖于} $n$ 的意思。（顺便问一下，在 $n = 14$ 时，你能找到 $a$ 和 $b$ 吗？我们可以想出几个可行的选择！）
+以具体值为例：取 $n = 8 \in X$，存在 $a = 3, b = 5 \in P$ 满足 $3 + 5 = 8$。当 $n = 14$ 时，需选取\emph{不同}的质数对（如 $a = 3, b = 11$ 或 $a = 7, b = 7$）。这就是 $a$ 和 $b$ \emph{依赖于} $n$ 的体现。
 
-为了确保你充分理解这部分讨论的内容，请考虑以下问题并回答：上面的陈述和下面的陈述有何区别？
+为加深理解，请思考下列命题与原命题有何本质区别？
 \[\exists n \in X \centerdot \exists a, b \in P \centerdot Q(n, a, b)\]
-这个陈述为\verb|真|还是为\verb|假|？为什么？
+
+此命题为\verb|真|还是为\verb|假|？依据是什么？
