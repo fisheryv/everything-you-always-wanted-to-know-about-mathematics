@@ -1,64 +1,64 @@
 % !TeX root = ../../../book.tex
 \subsection{通过条件陈述证明集合包含}
 
-只要有可能，就多使用我们在上一节中使用的方法，以及德摩根逻辑和集合定律；也就是说，可以随意通过条件陈述和逻辑等价证明集合关系。一般来说，当你证明相等时，你需要确保你的所有主张确实都是 ``$\iff$'' 主张。在上一节中，我们只应用了关于逻辑等价的定义和定理，因此我们肯定证明中 ``$\iff$'' 箭头的所有方向都是成立的。每当你写出这样的证明时，完成后回过头再读一遍，并在每一行问自己：``这真的正确吗？这里的含义是双向的吗？''
+尽可能使用上一节中采用的方法，以及德摩根逻辑和集合定律；即通过条件陈述和逻辑等价证明集合关系。一般来说，证明集合相等时，需确保所有步骤均基于双向蕴含（``$\iff$''）。在上一节中，我们仅应用逻辑等价的定义和定理，因而保证了证明中所有``$\iff$''箭头的双向性。完成此类证明后，建议重新检查每一行并问自己：``此步骤正确吗？蕴含是双向的吗？''
 
-让我们看看该技术的另一个实际例子。它会稍微复杂一些，因为给出的主张与德摩根逻辑定律本质上并不相同，因此我们必须定义一些变量命题。不过，我们会引用我们刚刚证明的逻辑定律，并用它来建立集合定律。
+下面通过一个实际例子演示这一技术。该例子稍复杂，因为给定命题与德摩根逻辑定律不完全相同，因此需要定义命题变量。不过，我们将引用已证明的逻辑定律，并在此基础上建立集合定律。
 
 \begin{proposition}
-    设 $A, B, C$ 为任意集合，且 $A, B, C \subseteq U$，其中 $U$ 为全集。则，
+    设 $A, B, C$ 为全集 $U$ 的任意子集，则：
     \[A \cap (B - C) = (A \cap B) - C\]
 \end{proposition}
 
-与前面的例子（德摩根集合定律）非常相似，我们将在左侧元素和右侧元素之间建立逻辑等价关系。（同样地，这就像同时证明双重包含证明的两面。）为此，我们只需建立一些变量命题，分别指代 $A, B, C$ 元素的属性。接下来，结果将遵循逻辑法则。
+与德摩根集合定律的证明类似，我们将建立左侧元素与右侧元素间的逻辑等价关系（这等价于同时完成双重包含证明）。为此定义若干命题变量以描述元素在 $A, B, C$ 中的属性，结果将由逻辑法则直接推出。
 
 \begin{proof}
-    设 $A, B, C$ 为任意集合，且 $A, B, C \subseteq U$，其中 $U$ 为全集。我们定义以下变量命题：
+    设 $A, B, C$ 为全集 $U$ 的任意子集。定义以下命题变量：
     \begin{center}
         设 $P(x)$ 为 ``$x \in A$'' \\
         设 $Q(x)$ 为 ``$x \in B$'' \\
-        设 $R(x)$ 为 ``$x \in C$'' \\
+        设 $R(x)$ 为 ``$x \in C$'' 
     \end{center}
-    设 $x \in U$ 是任意固定元素。有了这些定义，我们可以编写以下逻辑等价链：
+    设 $x \in U$ 为任意固定元素。基于上述定义，可建立如下逻辑等价链：
     \begin{align*}
-        x \in A \cap (B - C) &\iff x \in A \land (x \in B - C) &\quad \cap \text{的定义} \\
-        &\iff x \in A \land (x \in B \land x \notin C) &\quad - \text{的定义}\\
-        &\iff P(x) \land (Q(x) \land \neg R(x)) &\quad P(x), Q(x), R(x), \notin \text{的定义} \\
-        &\iff (P(x) \land Q(x)) \land \neg R(x) &\quad \land \text{分配律} \\
-        &\iff (x \in A \land x \in B) \land x \notin C &\quad P(x), Q(x), R(x) \text{的定义}\\
-        &\iff (x \in A \cap B \land x \notin C) &\quad \cap \text{的定义} \\
-        &\iff x \in (A \cap B) - C &\quad - \text{的定义}
+        x \in A \cap (B - C) &\iff x \in A \land (x \in B - C) &\quad \cap \text{\ 的定义} \\
+        &\iff x \in A \land (x \in B \land x \notin C) &\quad - \text{\ 的定义}\\
+        &\iff P(x) \land (Q(x) \land \neg R(x)) &\quad P(x), Q(x), R(x), \notin \text{\ 的定义} \\
+        &\iff (P(x) \land Q(x)) \land \neg R(x) &\quad \land \text{\ 分配律} \\
+        &\iff (x \in A \land x \in B) \land x \notin C &\quad P(x), Q(x), R(x) \text{\ 的定义}\\
+        &\iff (x \in A \cap B \land x \notin C) &\quad \cap \text{\ 的定义} \\
+        &\iff x \in (A \cap B) - C &\quad - \text{\ 的定义}
     \end{align*}
     这表明
     \[x \in A \cap (B - C) \iff x \in (A \cap B) - C\]
-    对于全集 $U$ 中的任何元素 $x$ 都成立。因此，
+    对于全集 $U$ 中的任意元素 $x$ 均成立。因此
     \[A \cap (B - C) = (A \cap B) - C\]
 \end{proof}
 
-想想为什么我们需要确保所有这些声明都是正确的\emph{当且仅当}陈述。我们确保等式一侧集合中元素的任意元素 $x$ 也必然是另一侧集合的元素；但是，此外，我们还确保任何不是集合元素的元素 $x$ 也不是另一个集合的元素。双向条件陈述``两个方向都成立''，因此我们同时证明了主张的``是……的元素''和``不是……的元素''。
+思考为什么我们需要确保所有这些陈述都是正确的\emph{当且仅当}陈述。我们不仅需要证明左侧集合中的任意元素 $x$ 必然属于右侧集合，还需确保不属于右侧集合的元素 $x$ 也必然不属于左侧集合。双向条件陈述意味着``两个方向都成立''，因此我们同时证明了``属于集合''和``不属于集合''这两个主张。
 
-为了说明我们之前的警告，请考虑以下声明的示例证明，其中 $\iff$ 声明在一个``方向''上不成立。
+为了说明前文提到的注意事项，请参考以下命题的证明示例，其中 $\iff$ 声明在一个方向上不成立。
 
 \begin{proposition}\label{prop:proposition4.6.11}
-    设 $X, Y, Z$ 为任意集合，且 $X, Y, Z \subseteq U$，其中 $U$ 为全集。则，以下包含关系成立：
+    设 $X, Y, Z$ 为全集 $U$ 的任意子集，则以下包含关系成立：
     \[(X \cup Y ) - Z \subseteq X \cup (Y - Z)\]
 \end{proposition}
 
-你可能发现了这个命题就是习题 \ref{exc:exercises3.11.17}！在练习中，我们要求你使用包含论证来证明这个主张，取任意 $x \in U$ 并假设它是左侧集合的元素，然后推论它一定也是右侧集合的元素。我们将在这里做（本质上）相同的事情，但论证将用逻辑术语和符号重新表达。我们这样做是为了
+你可能已发现这就是习题 \ref{exc:exercises3.11.17}！该习题要求通过包含论证证明此命题：假设任意 $x \in U$ 属于左侧集合，推导其必然属于右侧集合。下文将用逻辑符号重述（本质上）相同的论证，旨在：
 \begin{enumerate}
-    \item 让我们更多地练习这种类型的论证；
-    \item 准确地识别论证中``反''方向不成立的地方。 
+    \item 帮助我们熟悉此类论证；
+    \item 精确识别论证中``反方向''不成立的关键点。
 \end{enumerate}
-请记住，在习题 \ref{exc:exercises3.11.17} 中，我们还要求你找到一个示例来表明 $\supseteq$ 方向\emph{不一定}为\verb|真|。这意味着朝这个方向进行的逻辑论证会在某个地方失败。我们将准确地看到它在哪里失败，并且我们可以用它来帮助我们提出所需的反例。
+请注意，习题 \ref{exc:exercises3.11.17} 还要求构造反例以说明 $\supseteq$ 方向未必成立。这意味着该方向的逻辑论证存在漏洞，我们将定位其失效点并据此构造所需反例。
 
 \begin{proof}
-    设 $X,Y,Z$ 为任何集合，且 $X,Y,Z \subseteq U$，其中 $U$ 为全集。设 $x \in U$ 是任意固定元素。我们可以写出以下逻辑等价链：
+    设 $X, Y, Z$ 为全集 $U$ 的任意子集。设 $x \in U$ 为任意固定元素，可建立如下逻辑等价链：
     \begin{align*}
-        x \in (X \cup Y ) - Z &\iff x \in X \cup Y \land x \notin Z &\quad - \text{的定义}\\
-        &\iff (x \in X \lor x \in Y ) \land x \notin Z &\quad \cup \text{的定义} \\
+        x \in (X \cup Y ) - Z &\iff x \in X \cup Y \land x \notin Z &\quad - \text{\ 的定义}\\
+        &\iff (x \in X \lor x \in Y ) \land x \notin Z &\quad \cup \text{\ 的定义} \\
         &\iff (x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z) &\quad \text{德摩根逻辑定律} 
     \end{align*}
-    
+
     \setlength{\fboxrule}{2pt}
     \setlength\fboxsep{5mm}
     \begin{center}
@@ -66,76 +66,69 @@
         \parbox{0.85\textwidth}{%
             \textcolor{red}{\textbf{草稿：}}
 
-            从这里开始，我们可以进一步断言哪些逻辑等价？我们可以化简右侧并将其表示为
+            进一步推导逻辑等价关系，可将右侧化简为：
             \[x \in X - Z \lor x \in X - Z\]
-            因此
+            从而
             \[x \in (X - Z) \cup (Y - Z)\]
-            这不是我们要证明的原始命题，但到目前为止，这个过程有效证明了另一个命题，即
+            这证明了另一命题：
             \[(X \cup Y ) - Z = (X - Z) \cup (Y - Z)\]
-            然而，我们要证明命题右边是
+            然而，我们需要证明的原命题右侧为：
             \[X \cup (Y - Z)\]
-            但我们并不是要证明相等，而是证明\emph{包含关系}。因此，我们其余证明的目标是证明下面条件声明：
+            且我们要证明的并不是相等关系，而是证明\emph{包含关系}。因此，后续需要证明：
             \[\big((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\big) \implies x \in X \cup (Y - Z)\]
-            为了帮助我们弄清楚如何得到上面的公式，让我们在这里做一些临时工作，重写右侧的陈述；然后，我们就可以看到为什么上面公式成立：
+            为明确此蕴含关系，这里需要做一些临时工作，重写右侧表达式，即可看到为什么上述公式成立：
             \begin{align*}
-                x \in X \cup (Y - Z) &\iff x \in X \lor x \in Y - Z &\quad \cup \text{的定义} \\
-                &\iff x \in X \lor (x \in Y \land x \notin Z) &\quad - \text{的定义}
+                x \in X \cup (Y - Z) &\iff x \in X \lor x \in Y - Z &\quad \cup \text{\ 的定义} \\
+                &\iff x \in X \lor (x \in Y \land x \notin Z) &\quad - \text{\ 的定义}
             \end{align*}
-            这与我们上面推导的最后一个逻辑等价类似，但这里与左边的项不同。你能看出上面的蕴涵关系吗？想一想，然后继续阅读剩下的证明。
+            此式与先前推导的最后一个逻辑等价类似，但左侧项不同。请思考蕴含关系成立的原因，然后再继续阅读剩下的证明。
         }
     }
     \end{center}
-    现在，我们想证明
+    现在需要证明
     \[\big((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\big) \implies x \in X \cup (Y - Z)\]
-    为此，我们假设左侧表达式为\verb|真|。这意味着
-    \[x \in X \land x \notin Z\]
-    或
-    \[x \in Y \land x \notin Z\]
-    （或者两者都为\verb|真|）。因此，我们有两种情况：
+    为此，假设左侧表达式为\verb|真|，则有两种情形：
     \begin{enumerate}
-        \item 假设第一个表达式\verb|真|，则 $x \in X \land x \notin Z$。这当然意味着 $x \in X$，因此 $x \in X \lor x \in Y - Z$ 成立。
-        \item 假设第二个表达式\verb|真|，则 $x \in Y \land x \notin Z$。这意味着 $x \in Y - Z$，因此 $x \in X \lor x \in Y - Z$ 成立。
+        \item 假设 $x \in X \land x \notin Z$ 为\verb|真|，则 $x \in X$，因此 $x \in X \lor x \in Y - Z$ 成立。
+        \item 假设 $x \in Y \land x \notin Z$ 为\verb|真|，则 $x \in Y - Z$，因此 $x \in X \lor x \in Y - Z$ 成立。
     \end{enumerate}
-    无论哪种情况，我们都会有 $x \in X \lor x \in Y - Z$ 成立，因此，无论哪种情况，根据 $\cup$ 的定义
+    两种情形下均有 $x \in X \lor x \in Y - Z$ 成立，由并集定义可得：
     \[x \in X \cup (Y - Z)\]
     都成立。
 
-    综上，这表明对于每个元素 $x \in U$ 
+    综上，对于每个元素 $x \in U$ 
     \[x \in (X \cup Y ) - Z \implies x \in X \cup (Y - Z)\]
-    都成立。因此，根据 $\subseteq$ 的定义，我们有
+    都成立。因此，根据 $\subseteq$ 的定义，可得：
     \[(X \cup Y ) - Z \subseteq X \cup (Y - Z)\]
 \end{proof}
 
-认清我们在哪里以及我们想去哪里，帮助我们完成了这个证明。我们没有希望仅使用逻辑等价来完成证明，因为事实上，声明中给出的集合并不总是相等！回顾证明，我们能否识别出逻辑等价无效的步骤，并且我们能否使用它来构建反驳这些集合始终相等这一（错误）主张的反例？
+认清我们在哪里以及我们想去哪里，帮助我们完成了这个证明。我们无法仅通过逻辑等价完成证明，因为事实上，给定的集合等式并不总是成立！现在回顾证明，能否识别逻辑等价失效的步骤？能否利用这一点构建反例，反驳这些集合恒等的错误主张？
 
-我们已经得到下面这个有效陈述
+我们已知以下有效陈述：
 \[(x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\]
-并且我们用它推导出下面陈述
+并由此推导出：
 \[x \in X \lor (x \in Y \land x \notin Z)\]
-从我们证明采用的论证来看，很明显，第一个陈述确实蕴涵了第二个陈述；也就是说，如果我们假设第一个陈述成立，我们可以得出第二个陈述也成立。它们之间唯一的区别在于第一项，并且知道 ``$\land$'' 陈述的两个部分都成立肯定可以让我们得出其中特定的一个成立的结论。
+根据证明的论证过程，第一个陈述确实蕴涵第二个陈述：若假设第一个陈述成立，则第二个陈述必然成立。两者差异仅在首项，而当一个``$\land$''陈述整体成立时，其任意部分必然成立。
 
-这种推论在另一个方向上不起作用。假设第二个陈述成立。如果正确的项是有效的 --- $x \in Y \land x \notin Z$ --- 那么这也使得第一个陈述成立。然而，由于我们有一个 ``$\lor$'' 陈述，我们必须考虑左边项成立的情况。在这种情况下，仅知道 $x \in X$ 并不能让我们推出 $x \in X \land x \notin Z$ 成立。假设 ``$\land$'' 成立，我们可以推断出其任一部分都成立，但仅知道其中一部分成立并不能告诉我们两者都成立！
+但此推导不可逆。假设第二个陈述成立：若右项 $x \in Y \land x \notin Z$ 有效，则第一个陈述成立。然而，由于这是``$\lor$''陈述，必须考虑左项 $x \in X$ 成立的情形。此时仅凭 $x \in X$ 无法推出 $x \in X \land x \notin Z$ —— 已知``$\land$''成立可推断其各部分，但仅知部分成立不能保证整体成立！
 
-我们可以用它来构造一个反例。我们看到，只需保证有某个特定元素 $x \in U$ 满足第二个陈述的左项，即 $x \in X$，但不满足第一个陈述的左项，即 $x \in X \land x \notin Z$。换句话说，我们只需保证有一个元素 $x \in X \cap Z$ 即可。下面的示例恰恰实现了这一点。\\
+由此可构造反例：只需保证存在元素 $x \in U$ 满足第二个陈述的左项 $x \in X$，却不满足第一个陈述的左项 $x \in X \land x \notin Z$ 即可。换言之，我们需要构造元素 $x \in X \cap Z$。下面的示例实现了此目标：
 
 \begin{example}
-    我们声称
+    对于任意集合 $X,Y,Z$，存在包含关系
     \[(X \cup Y ) - Z \subseteq X \cup (Y - Z)\]
-    对于任意集合 $X,Y,Z$ 都成立，但不一定相等。请参阅命题 \ref{prop:proposition4.6.11} 的证明，了解为什么上述包含关系确实成立。
+    但相等关系不一定成立。请参阅命题 \ref{prop:proposition4.6.11} 的证明，了解为什么上述包含关系确实成立。
 \end{example}
 
-现在，考虑以下示例。我们定义
-\begin{align*}
-    X &= \{1\} \\
-    Y &= \{2\} \\
-    Z &= \{1, 2\}
-\end{align*}
+现在，考虑以下示例。定义：
+\[X = \{1\}, \quad Y = \{2\}, \quad Z = \{1, 2\}\]
 注意到
-\[(X \cup Y ) - Z = (\{1\} \cup \{2\}) - \{1, 2\} = \{1, 2\} - \{1, 2\} = \varnothing\]
-且
-\[X \cup (Y - Z) = \{1\} \cup (\{2\} - \{1, 2\}) = \{1\} \cup \{\varnothing\} = \{1\}\]
-由于 $\varnothing \subset \{1\}$ （真）子集，在这种情况下，我们得出结论：
+\begin{align*}
+    (X \cup Y) - Z &= (\{1\} \cup \{2\}) - \{1, 2\} = \{1, 2\} - \{1, 2\} = \varnothing \\
+    X \cup (Y - Z) &= \{1\} \cup (\{2\} - \{1, 2\}) = \{1\} \cup \{\varnothing\} = \{1\}
+\end{align*}
+由于 $\varnothing \subset \{1\}$ 是（真）子集关系，此时有：
 \[(X \cup Y ) - Z \ne X \cup (Y - Z)\]
-这表明上述命题中的相等不一定成立。
+这表明原命题中的等式并非恒成立。
 
-这个策略让我们能够以更高效、更严格的方式完成许多涉及集合的证明！我们可以使用我们已经\emph{证明}的逻辑符号和定律，而不是凭直觉使用``与''和``或''的语言学定义。正式出于这个原因，本节中的许多练习都涉及集合。建议你需要回看第 \ref{ch:chapter03} 章以记起相关定义！
+此策略能高效严谨地处理诸多集合证明！我们可以运用已\emph{证明}的逻辑符号与定律，而非依赖``与''和``或''的语言学直觉。正因如此，本节习题聚焦集合理论。建议回顾第 \ref{ch:chapter03} 章重温相关定义。

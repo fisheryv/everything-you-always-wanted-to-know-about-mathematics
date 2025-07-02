@@ -1,52 +1,54 @@
 % !TeX root = ../../../book.tex
 \subsection{使用逻辑等价：德摩根定律（集合）}\label{sec:section4.6.6}
 
-以下陈述 ``看起来很像'' 我们上面看到的德摩根逻辑定律中的陈述。当我们看过证明后，就会明白为什么它们看起来如此相似！
+以下陈述与我们先前讨论的德摩根逻辑定律具有高度相似性。通过后续证明，我们将揭示这种相似性的根源。
 
 \begin{theorem}\label{theorem4.6.9}
-    设 $A, B$ 为任意集合，并假设 $A, B \subseteq U$，因此补集运算是在全集 $U$ 上定义的。那么，
+    设 $A, B$ 为全集 $U$ 的任意子集，则：
     \[\overline{A \cup B} = \overline{A} \cap \overline{B}\]
-    且
     \[\overline{A \cap B} = \overline{A} \cup \overline{B}\]
 \end{theorem}
 
-我们将使用逻辑等价和德摩根逻辑定律来证明这一定理。我们的方法将证明，在任何一种情况下，等式左侧集合元素的属性在逻辑上等价于右侧集合元素的属性。这同时证明了双重包含论证法的两个部分。
+以下证明将运用逻辑等价与德摩根逻辑定律。该方法表明：等式两侧集合的元素性质在逻辑上完全等价，从而同时完成双重包含证明的两个部分。
 
 \begin{proof}
-    我们先来证明第一个集合相等关系。设 $x \in U$ 是任意固定元素。则，
+    首先证明第一个等式。任取 $x \in U$，则有：
     \begin{align*}
         x \in \overline{A \cup B} &\iff x \notin A \cup B &\quad \text{补集的定义}\\
-        &\iff \neg(x \in A \cup B) &\quad \notin \text{的定义}\\
-        &\iff \neg[(x \in A) \lor (x \in B)] &\quad \cup \;\text{和} \lor \text{的定义}\\
+        &\iff \neg(x \in A \cup B) &\quad \notin \text{\ 的定义}\\
+        &\iff \neg[(x \in A) \lor (x \in B)] &\quad \cup \text{\ 和\ } \lor \text{\ 的定义}\\
         &\iff \neg(x \in A) \land \neg(x \in B) &\quad \text{德摩根逻辑定律}\\
-        &\iff (x \notin A) \land (x \notin B) &\quad \notin \text{的定义}\\
+        &\iff (x \notin A) \land (x \notin B) &\quad \notin \text{\ 的定义}\\
         &\iff x \in \overline{A} \land x \in \overline{B} &\quad \text{补集的定义}\\
-        &\iff x \in \overline{A} \cap \overline{B} &\quad \land \;\text{和} \cap \text{的定义}
+        &\iff x \in \overline{A} \cap \overline{B} &\quad \land \text{\ 和\ } \cap \text{\ 的定义}
     \end{align*}
-    请记住，``$\land$'' 是逻辑运算，而 ``$\cap$'' 是集合运算。我们必须小心我们写的每句话中用哪个运算才有意义。另外，请注意，我们在证明中间使用了德摩根逻辑定律，将析取的否定转换为两个否定的合取。
+    请注意：此处``$\land$''为逻辑运算符，而``$\cap$''为集合运算符。证明核心在于应用德摩根定律，将析取的否定转化为否定的合取。
 
-    这个逻辑等价链表明
+    上述等价链表明：
     \[x \in \overline{A \cup B} \iff x \in \overline{A} \cap \overline{B}\]
-    因此，在全集 $U$ 上，$\overline{A \cup B}$ 中元素的属性在逻辑上等价于 $\overline{A} \cap \overline{B}$ 中元素的属性。因此，
+    因此，在全集 $U$ 上，$\overline{A \cup B}$ 与 $\overline{A} \cap \overline{B}$ 的元素性质逻辑等价，因此：
     \[\overline{A \cup B} = \overline{A} \cap \overline{B}\]
 
-    接着我们用类似的方法来证明第二个等式。设 $x \in U$ 是任意固定元素。则，
+    用类似的方法证明第二个等式。任取 $x \in U$，则有：
     \begin{align*}
         x \in \overline{A \cap B} &\iff x \notin A \cap B &\quad \text{补集的定义}\\
-        &\iff \neg(x \in A \cap B) &\quad \notin \text{的定义}\\
-        &\iff \neg[(x \in A) \land (x \in B)] &\quad \cap \;\text{和} \land \text{的定义}\\
+        &\iff \neg(x \in A \cap B) &\quad \notin \text{\ 的定义}\\
+        &\iff \neg[(x \in A) \land (x \in B)] &\quad \cap \text{\ 和\ } \land \text {\ 的定义}\\
         &\iff \neg(x \in A) \lor \neg(x \in B) &\quad \text{德摩根逻辑定律}\\
-        &\iff (x \notin A) \lor (x \notin B) &\quad \notin \text{的定义}\\
+        &\iff (x \notin A) \lor (x \notin B) &\quad \notin \text{\ 的定义}\\
         &\iff x \in \overline{A} \lor x \in \overline{B} &\quad \text{补集的定义}\\
-        &\iff x \in \overline{A} \cup \overline{B} &\quad \lor \;\text{和} \cup \text{的定义}
+        &\iff x \in \overline{A} \cup \overline{B} &\quad \lor \text{\ 和\ } \cup \text{\ 的定义}
     \end{align*}
 
-    这个逻辑等价链表明
+    上述等价链表明：
     \[x \in \overline{A \cap B} \iff x \in \overline{A} \cup \overline{B}\]
-    因此，在全集 $U$ 上，$\overline{A \cap B}$ 中元素的属性在逻辑上等价于 $\overline{A} \cup \overline{B}$ 中元素的属性。因此，
+    因此，在全集 $U$ 上，$\overline{A \cap B}$ 与 $\overline{A} \cup \overline{B}$ 的元素性质逻辑等价，因此：
     \[\overline{A \cap B} = \overline{A} \cup \overline{B}\]
 
     综上，我们证明了定理中所述的两个等式。
 \end{proof}
 
-请注意这两个证明之间惊人的相似之处。他们使用完全相同的方法，唯一的区别是将 ``$\cap$'' 翻转为 ``$\cup$''，反之亦然。因为我们已经证明了如何做到这一点（德摩根逻辑定律），所以我们可以引用该结果并使这个证明简短而有趣。你是否同意这比用双重包含论证法证明两个集合相等要容易得多、简洁得多？（尝试一下！）
+
+请注意，两个证明具有显著的对称性：方法完全一致，唯一的区别是互换``$\cap$''与``$\cup$''的角色。德摩根逻辑定律为此转换提供了理论基础，使证明简洁而优美。相较于双重包含论证法，此方法更为简明高效（读者可自行尝试验证）。
+
+\clearpage

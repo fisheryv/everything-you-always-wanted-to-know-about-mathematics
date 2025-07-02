@@ -1,21 +1,20 @@
 % !TeX root = ../../../book.tex
 \subsection{证明逻辑等价：分配律}
 
-算术中，你一定知道乘法分配率。也就是说，我们知道
+在算术中，你一定知道乘法分配律。也就是说，我们知道：
 \[\forall x, y, z \in \mathbb{R} \centerdot x \cdot (y + z) = x \cdot y + x \cdot z\]
-我们用符号表示法写了出来！你明白为什么它表达了你所知的乘法分配律规则吗？
+这个符号表示法精确表达了乘法分配律！你能看出它与你熟知的规则一致吗？
 
-在这里我们将研究并证明两个类似的定律。他们会告诉我们逻辑连词 ``$\land$'' 和 ``$\lor$'' 也满足分配。
+接下来，我们将研究并证明两个类似的定律。这些定律表明逻辑连接词``$\land$''和``$\lor$''也满足分配律。
 
 \begin{theorem}
     设 $P, Q, R$ 为逻辑陈述。则
     \[P \land (Q \lor R) \iff (P \land Q) \lor (P \land R)\]
-    且
     \[P \lor (Q \land R) \iff (P \lor Q) \land (P \lor R)\]
 \end{theorem}
 
 \begin{proof}
-    我们使用真值表来验证这两个命题。对于第一个命题，请看下面的真值表：
+    我们使用真值表来验证这两个命题。对于第一个命题，考虑以下真值表：
     \begin{center}
         \begin{tabular}{c|c|c|c|c|c|c|c}
               $P$ & $Q$ & $R$ & $Q \lor R$ & $P \land Q$  & $P \land R$ & $P \land (Q \lor R)$ & $(P \land Q) \lor (P \land R)$ \\
@@ -31,9 +30,9 @@
         \end{tabular}
     \end{center}
 
-    请注意，最后两列的真值是相同的，从而证明了要求的逻辑等价。\\
+    注意，最后两列的真值完全相同，这证明了所需的逻辑等价。\\
 
-    对于第二个命题，请看下面的真值表：
+    对于第二个命题，参考以下真值表：
     \begin{center}
         \begin{tabular}{c|c|c|c|c|c|c|c}
               $P$ & $Q$ & $R$ & $Q \land R$ & $P \lor Q$  & $P \lor R$ & $P \lor (Q \land R)$ & $(P \lor Q) \land (P \lor R)$ \\
@@ -49,5 +48,5 @@
         \end{tabular}
     \end{center}
 
-    同理，最后两列的真值是相同的，从而证明了要求的逻辑等价。
+    同理，最后两列的真值完全相同，从而证明了所需的逻辑等价。
 \end{proof}

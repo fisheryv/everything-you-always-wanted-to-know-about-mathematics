@@ -1,18 +1,18 @@
 % !TeX root = ../../../book.tex
 \subsection{回顾：集合运算与逻辑连词}\label{sec:section4.5.4}
 
-回顾一下 \ref{sec:section3.4} 和 \ref{sec:section3.5} 节，我们定义了子集和集合运算。所有这些定义都使用了一些逻辑思想，但当时我们是用自然语言书写的，依靠的是我们的集合直觉和逻辑知识。我们现在可以使用量词和连词重写它们！
+回顾 \ref{sec:section3.4} 和 \ref{sec:section3.5} 节，我们定义了子集与集合运算。这些定义当时借助了逻辑思想，但以自然语言表述，依赖于集合直觉和逻辑知识。现在我们可以用量词和连词重新表述它们！
 
-首先，回顾一下\textbf{子集}的定义。如果以下条件成立，我们就写做 $A \subseteq B$：每当 $x \in A$ 时，我们也可以说 $x \in B$。注意关键词``每当''，它既表示\emph{全称量化}又表示\emph{条件陈述}。想想如何使用这些概念重写 $A \subseteq B$ 的定义，然后继续阅读我们的版本……
+首先回顾\textbf{子集}定义：若满足条件``当 $x \in A$ 时，必有 $x \in B$''，则记作 $A \subseteq B$。注意关键词``当……时''，它同时体现\emph{全称量化}和\emph{条件陈述}。请尝试用量词重写该定义，再对照我们的版本：
 
 \begin{definition}
-    设 $A, B, U$ 为集合，其中 $A, B \subseteq U$（即 $U$ 为全集）。我们说 $A$ 是 $B$ 的\dotuline{子集}，并写作 $A \subseteq B$，当且仅当
+    设 $A, B, U$ 为集合，其中 $A, B \subseteq U$（即 $U$ 为全集）。称 $A$ 是 $B$ 的\dotuline{子集}，记作 $A \subseteq B$，当且仅当
     \[\forall x \in U \centerdot x \in A \implies x \in B \]
 \end{definition}
 
-这是合理的，因为它断言了我们在上一段中写的``每当''陈述：每当 $x \in A$ 时，我们也必然能够得出 $x \in B$ 的结论；``如果 $x \in A$，则 $x \in B$'' 必然成立。
+此定义合理对应了``当 $x \in A$ 时，必有 $x \in B$''的原始陈述：它确保如果 $x \in A$ 成立，则 $x \in B$ 必然成立。
 
-再回顾一下我们给出的集合运算的定义。尝试使用逻辑符号为这些定义编写你自己版本的定义，然后在再阅读我们的版本。想想它们为什么合理，如何表达相同的基本想法。
+接下来回顾集合运算的定义。请尝试用逻辑符号自行重写这些定义，再与我们的版本比较，思考其合理性与等价性。
 
 \begin{definition}
     设 $A, B, U$ 为集合，其中 $A, B \subseteq U$（即 $U$ 为全集）。则
@@ -24,12 +24,12 @@
     \end{align*}
 \end{definition}
 
-我们还可以重新定义集合的划分。这将用到逻辑连词，也会涉及索引集以及如何用量词定义它们。我们所学到的一切都在这里汇集！
+我们还可以重新定义集合的划分。这将用到逻辑连词，并涉及索引集及其量化定义——此前所学知识在此汇聚！
 
 \begin{definition} \label{def:definition4.5.11}
-    设 $A$ 为集合。 $A$ 的\dotuline{划分}是两两不相交且并集为 $A$ 的集合的集合。
+    设 $A$ 为集合。$A$ 的\dotuline{划分}是其非空子集构成的集合，满足两两不相交且并集为 $A$。
 
-    也就是说，分区由满足以下条件的索引集 $I$ 和非空集 $S_i$（定义在每一个 $i \in I$ 上）构成：
+    也就是说，划分由满足以下条件的索引集 $I$ 和非空集 $S_i$（定义在每一个 $i \in I$ 上）构成：
     \begin{enumerate}[label=(\arabic*)]
         \item $\forall i \in I \centerdot S_i \subseteq A$
         \item $\forall i, j \in I \centerdot i \ne j \implies S_i \cap S_j = \varnothing$
@@ -37,6 +37,4 @@
     \end{enumerate}
 \end{definition}
 
-回顾一下定义 \ref{def:definition3.6.9}，看看我们最初是如何定义划分的。你看到我们在这里如何只使用逻辑符号来表达同样的事情了吗？
-
-\clearpage
+参考定义 \ref{def:definition3.6.9} 的原始表述，能否看出我们如何用逻辑符号表达同一概念？
