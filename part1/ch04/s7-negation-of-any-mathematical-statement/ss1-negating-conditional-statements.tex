@@ -1,42 +1,45 @@
 % !TeX root = ../../../book.tex
 \subsection{否定条件陈述}
 
-考虑 $P \implies Q$ 形式的声明。它表示只要 $P$ 为真，$Q$ 也为真。我们如何否定这样的陈述呢？逻辑否定究竟意味着什么？回想一下我们如何将 ``$\implies$'' 定义为逻辑连词。在哪些情况下我们可以认定条件陈述的声明者为骗子。在这些情况下，我们可以说逻辑否定为\verb|真|。唯一的情况是假设 $P$ 为\verb|真|但结论 $Q$ 为\verb|假|。
+考虑形如 $P \implies Q$ 的陈述。该陈述表明当 $P$ 为真时，$Q$ 也为真。如何否定这样的陈述？逻辑否定究竟意味着什么？回顾``$\implies$''的定义。在何种情况下可断定该条件陈述为假？唯一的情形是前提 $P$ 为\verb|真|而结论 $Q$ 为\verb|假|。
 
-为了证明这种等价关系，我们需要用到 $P \implies Q$ 写成 ``$\lor$'' 陈述的方法：
+为了证明这种等价关系，我们需要将 $P \implies Q$ 写成``$\lor$''陈述：
 \[(P \implies Q) \iff (\neg P \lor Q)\]
-这将有助于我们证明以下主张。
+这将有助于证明以下引理。
 
 \begin{lemma}
-    条件陈述的逻辑否定由下式给出
+    条件陈述的逻辑否定由下式给出：
     \[\neg (P \implies Q) \iff P \land \neg Q\]
 \end{lemma}
 
 \begin{proof}
     \begin{align*}
-        \neg (P \implies Q) &\iff \neg (\neg P \lor Q) &\quad \text{已经证明的逻辑等价} \\
+        \neg (P \implies Q) &\iff \neg (\neg P \lor Q) &\quad \text{已知逻辑等价} \\
         &\iff \neg (\neg P) \land \neg Q &\quad \text{德摩根逻辑定律} \\
-        &\iff P \land \neg Q &\quad \text{因为} \neg (\neg P) \iff P
+        &\iff P \land \neg Q &\quad \text{因为\ } \neg (\neg P) \iff P
     \end{align*}
 \end{proof}
 
-这具有直观意义：为了证明条件主张为\verb|假|，我们需要找到假设成立但结论不成立的情况。
+此结论符合直观：要想证明条件命题为\verb|假|，只需找到前提成立而结论不成立的实例。
 
-尽管存在教坏小孩子的风险，但我们还是要指出一些逻辑上\textbf{不}等价于 $\neg (P \implies Q)$ 的陈述。这些是我们看到学生经常犯的错误。让我们检视一下它们，看看为什么它们实际上不正确的。对于它们中的每一个，请记住，我们希望保证逻辑否定 $\neg (P \implies Q)$ 具有与原始陈述 $P \implies Q$ \emph{完全相反的真值}。在每种情况下，我们都可以看到这种关系不成立。
+尽管存在误导风险，但仍需指出几种逻辑上\textbf{不等价}于 $\neg (P \implies Q)$ 的常见错误表述。逻辑否定要求否定式 $\neg (P \implies Q)$ 必须与原陈述 $P \implies Q$ 的真值\emph{完全相反}。让我们逐一分析以下错误，揭示其为何不满足此要求。
 
 \begin{itemize}
     \item \textcolor{red}{$\neg P \implies Q$} \\
-        该条件陈述与原始陈述 $P \implies Q$ 没有逻辑联系。请记住，陈述 $P \implies Q$ \emph{并未声明}在 $P$ 为\verb|假|的情况下 $Q$ 是否为\verb|真|。（不如``如果下雨，那么我就带伞''这个例子。如果不下雨，谁知道我带的是什么！）为什么我们要期望 $Q$ 像陈述中说的那样，在 $P$ 不成立的情况下\emph{一定为}\verb|真|？
+        该条件陈述与原陈述 $P \implies Q$ 无逻辑关联。注意 $P \implies Q$ \emph{不承诺} $P$ 为\verb|假|时 $Q$ 的真值。（例如：``如果下雨，那么我就带伞''——未下雨时，带伞与否未知。）因此 $P$ 不成立时 $Q$ \emph{未必}一定为\verb|真|。
+
     \item \textcolor{red}{$P \implies \neg Q$} \\
-        同理，这个条件陈述与原始陈述没有逻辑联系。还是雨伞的例子。这个陈述说的是``如果下雨，那么我就\textbf{不}带伞。'' 这是否意味着最初的声明是错误的？当然不是！
+        同理，该条件陈述与原陈述亦无逻辑关联。沿用雨伞的例子：``如果下雨，那么我就\textbf{不}带伞''并不能证伪原命题。
+
     \item \textcolor{red}{$P \notimplies Q$} \\
-        这种情况就比较微妙了。数学家会将 ``$P \notimplies Q$'' 解读为 ``$P$ \emph{不一定}意味着 $Q$''。也就是说，存在 $P \implies Q$ 为真的情况，也存在 $P \implies Q$ 为假的情况；具体是哪种情况取决于 $P$ 和 $Q$ 各自的陈述是什么。根据具体情况，这个主张有不同的含义，但严格来说，这并不是对原始声明的\textbf{逻辑否定}。\\
+        此情况比较微妙。数学中``$P \notimplies Q$''表示``$P$ \emph{未必}蕴含 $Q$''，即 $P \implies Q$ 可真可假，其值取决于具体命题。此表述因语境而异义，但严格而言并非\textbf{逻辑否定}。\\
         \newline
-        特别是，当我们尝试对该陈述进行逻辑否定时，我们会遇到问题。``$P$ 并非不一定意味着 $Q$'' 这句话是什么意思？这是否意味着存在 $P$ 不意味着 $Q$ 的情况，但也存在 $P$ 意味着 $Q$ 的情况？这听起来非常像声明 $P \notimplies Q$ 本身…… \\
+        逻辑否定时会产生歧义：``$P$ 并非势必蕴含 $Q$''可能被解读为既存在 $P$ 不蕴含 $Q$ 的情形，也存在蕴含的情形。此表述与 $P \notimplies Q$ 本身非常容易混淆。\\
         \newline
-        出于这些原因，我们希望避免使用 $\notimplies$ 这种表示法。它在数学上确实存在某种意义，但在符号逻辑意义上并没有真正明确的定义。无论如何，它绝对不是 $\implies$ 的逻辑否定。
+        因此建议避免使用 $\notimplies$ 这种表述。该符号在数学上确实具有某种意义，但在符号逻辑中无精确定义，且绝非 $\implies$ 的逻辑否定。
 \end{itemize}
-现在我们已经解决了这些常见错误，让我们强调一下 $P \implies Q$ 的正确否定。我们发现记住条件陈述的 ``$\lor$'' 版本非常有帮助；基于 ``$\lor$'' 版本，可以很容易地应用德摩根定律得到该陈述的否定：
+
+厘清常见错误后，重申 $P \implies Q$ 的正确否定形式。通过对其析取版本 $\neg P \lor Q$ 应用德摩根定律，可以非常容易地推得其否定式：
 
 \setlength{\fboxrule}{2pt}
 \begin{center}
@@ -49,6 +52,6 @@
 
 \subsubsection*{否定 $\iff$}
 
-要否定双向条件陈述，我们只需将其写为两个条件陈述的合取：
+要否定双向条件陈述，可将其转化为两个条件陈述的合取：
 \[\neg (P \iff Q) \iff [\neg (P \implies Q) \lor \neg (Q \implies P)] \iff (P \land \neg Q) \lor (Q \land \neg P)\]
-如果你熟悉计算机编程，你可能会认出右侧的陈述其实是 \verb|XOR| 运算符！它表示只有一个陈述为\verb|真|，$P$ 或 $Q$ 二者之一，但二者不能\emph{同时}为\verb|真|。
+熟悉计算机编程的读者可能注意到，右侧表达式正是逻辑运算中的 \verb|XOR|（异或）！它表示 $P$ 或 $Q$ 中有且仅有一个为\verb|真|，二者不能\emph{同时}为\verb|真|。
