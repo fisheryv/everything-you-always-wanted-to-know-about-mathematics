@@ -1,74 +1,76 @@
 % !TeX root = ../../../book.tex
-\subsection{反驳主张}\label{sec:section4.9.7}
+\subsection{反驳命题}\label{sec:section4.9.7}
 
-我们现在已经讨论（并且在许多例子中看到）了如何\textbf{证明}任意类型的数学陈述。棒极了！但你可能会说，``呃……如果我想\textbf{反驳}某个陈述怎么办？''我们对这个问题的回答简短而贴心：\emph{没有区别}。 
+我们已经讨论过（并在许多例子中验证过）如何\textbf{证明}各类数学命题。这很棒！但你可能会问：``如果我想\textbf{反驳}某个命题呢？''对此的回答简明扼要：\emph{二者并无区别}。
 
-反驳一个陈述意味着你想证明它的真值为\verb|假|。根据逻辑否定的定义，这意味着你想要证明陈述的否定为\verb|真|。因此，你可以使用我们在本节中探讨的任意策略得到并写出该逻辑否定并证明该陈述为\verb|真|。
+反驳一个命题即证明其不成立。根据逻辑否定的定义，这等价于证明该命题的否定形式成立。因此，只需构造出逻辑否定，再运用本节所述的证明策略即可。
 
-为了便于说明，让我们看个实际例子。具体来说，我们想要反驳 ``$\forall$'' 主张，这意味着我们想要证明 ``$\exists$''主张。这就是\textbf{反例}概念发挥作用的地方。
+为了便于说明，我们考察``$\forall$''命题的反驳。反驳``$\forall$''命题意味着证明``$\exists$''命题，此时\textbf{反例}的概念至关重要。
 
 \subsubsection*{反例}
 
-一般来说，\textbf{反例}是反驳全称量化陈述的实例。因为它可以证明 ``$\exists$'' 声明，并且得到\emph{相反}的结论，因此它表明这个特定的例子不具有所声明的属性。\\
+一般而言，\textbf{反例}是反驳全称量化命题的具体实例。它通过证明存在反例（即``$\exists$''声明），表明原命题不成立——该实例不具备所声称的性质。
 
 \begin{example}
     回顾例 \ref{ex:example4.9.8}。其中，我们定义了集合
     \[S = {x \in \mathbb{R} \mid x > 0}\]
 
     然后定义了两个变量命题：
-    \begin{align*}
-        P(x) \;\text{为}\; \frac{x-3}{x+2}>1-\frac{1}{x} \\
-        Q(x) \;\text{为}\; \frac{x+3}{x+2}<1+\frac{1}{x}
-    \end{align*}
+    \[P(x) \text{\ 为\ } \frac{x-3}{x+2}>1-\frac{1}{x} \]
+    \[Q(x) \text{\ 为\ } \frac{x+3}{x+2}<1+\frac{1}{x} \]
 
-    接着我们证明
+    接着我们证明了
     \[\forall x \in S \centerdot P(x) \implies Q(x)\]
 
     本例中，我们考虑如下命题
     \[\forall x \in S \centerdot Q(x) \implies S(x)\]
-\end{example}
 
-具体来说，我们要反驳它。不过，在我们开始之前，请你自行研究一下该声明。试着证明一下它，尽管我们已经告诉你它为\verb|假|！你是否发现你的``证据''在某个地方失效了？为什么会发生这种情况？你能通过你的观察来帮助你找到该主张的反例吗？看看你能找到什么，然后继续阅读。
+    具体来说，我们将反驳此命题。在开始前，建议你先行探究：尝试证明该命题（尽管已知其为\verb|假|）。注意证明过程中何处失效？为何失效？这些观察能否帮助你构造反例？请先自行探索，再继续阅读。
 
-\begin{center}
-    \noindent \fcolorbox{red}{white}{%
-    \parbox{0.85\textwidth}{%
-        \linespread{1.5}\selectfont
-        \textcolor{red}{\textbf{草稿：}}\\
-        首先，我们需要对我们所反驳的主张进行逻辑否定：
+    \begin{center}
+        \noindent \fcolorbox{red}{white}{%
+        \parbox{0.85\textwidth}{%
+            \linespread{1.5}\selectfont
+            \textcolor{red}{\textbf{草稿：}}\\
+            首先，我们需要对要反驳的命题进行逻辑否定：
+            \[\exists x \in S \centerdot Q(x) \land \neg P(x)\]
+
+            这意味着要找到一个满足以下三个条件的实数 $x$：
+            \begin{enumerate}[label=(\arabic*)]
+                \item $x > 0$
+                \item $\frac{x+3}{x+2}<1+\frac{1}{x}$
+                \item $\frac{x-3}{x+2} \le 1-\frac{1}{x}$
+            \end{enumerate}
+
+            有多种策略可供选择：如尝试（错误地）证明第一个不等式蕴含第二个不等式以定位失效点，或采用系统化的试值法。
+
+            无论选择何种方法，已知 $x \in \mathbb{R}$ 且 $x > 0$，意味着可以考虑 $x$ 的临界值：趋近于零的极小值或趋向无穷的极大值。
+
+            先尝试``较小''值似乎更简便。取 $x = 1$，可得：
+            \begin{enumerate}[label=(\arabic*)]
+                \item 成立，因为 $1 > 0$；
+                \item 成立，因为 $\frac{4}{3} < 2$；
+                \item 成立，因为 $-\frac{2}{3} < 0 \le 0$。
+            \end{enumerate}
+            酷，问题得证！
+        }
+        }
+    \end{center}
+
+    \begin{proof}
+        此处反驳命题 $\forall x \in \mathbb{R} \centerdot Q(x) \implies P(x)$。
+
+        考虑 $x = 1$。显然 $x \in \mathbb{R}$ 且 $x > 0$。
+
+        此时 $Q(1)$ 成立，因为
+        \[\frac{1+3}{1+2} = \frac{4}{3} < 2=1+\frac{1}{1}\]
+
+        而 $P(1)$ 不成立，因为
+        \[\frac{1-3}{1+2} = -\frac{2}{3} \not{>} 0=1-\frac{1}{1}\]
+
+        因此证得
         \[\exists x \in S \centerdot Q(x) \land \neg P(x)\]
 
-        这意味着我们需要找到一个满足三个条件的特定实数 $x$：
-        \begin{enumerate}[label=(\arabic*)]
-            \item 不等式 $x > 0$
-            \item 不等式 
-                \[\frac{x+3}{x+2}<1+\frac{1}{x}\]
-            \item 不等式
-                \[\frac{x-3}{x+2} \le 1-\frac{1}{x}\]
-        \end{enumerate}
-
-        我们有几个策略可以选择，就像我们上面提到的那样，我们可以尝试（当然是错误的）证明第一个不等式蕴含第二个不等式，并确定它在哪里失效。或者，我们可以使用``有根据的猜测''法``尝试一些值''。
-
-        无论如何，知道 $x \in \mathbb{R}$ 且 $x > 0$ 表明我们可以尝试 $x$ 的``极端''值。这意味着``极小'' $x$（即 $x$ 接近 $0$）或``极大'' $x$（即不断增加的 $x$ 值，直到我们找到一个有效值为止）。
-
-        首先使用一些``较小''值似乎更容易，所以让我们尝试 $x = 1$。我们看到 (1) 成立，因为 $1 > 0$，(2) 也成立，因为 $\frac{4}{3} < 2$，(3) 也成立，因为 $-\frac{2}{3} < 0 \le 0$。酷，就是这样！
-    }
-    }
-\end{center}
-
-\begin{proof}
-    这里，我们将反驳 $\forall x \in \mathbb{R} \centerdot Q(x) \implies P(x)$ 这一主张。
-
-    考虑 $x = 1$。注意 $x \in \mathbb{R}$ 并且 $x > 0$。
-
-    另外，请注意 $Q(1)$ 成立，因为
-    \[\frac{1+3}{1+2} = \frac{4}{3} < 2=1+\frac{1}{1}\]
-
-    并且，请注意 $P(1)$ 不成立，因为
-    \[\frac{1-3}{1+2} = -\frac{2}{3} \not{>} 0=1-\frac{1}{1}\]
-
-    因此，我们证明
-    \[\exists x \in S \centerdot Q(x) \land \neg P(x)\]
-
-    这反驳了主张。
-\end{proof}
+        这反驳了原命题。
+    \end{proof}
+\end{example}

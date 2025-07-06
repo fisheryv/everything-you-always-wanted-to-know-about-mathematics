@@ -1,10 +1,10 @@
 % !TeX root = ../../../book.tex
 \subsection{证明 $\exists$ 声明}\label{sec:section4.9.1}
 
-``$\exists$'' 声明是一种\emph{存在性声明}。它断言某个特定对象是某个集合的元素，并且具有特定的属性。为了证明这种说法，我们需要找到一个这样的对象，并为读者验证
+``$\exists$''声明是一种\emph{存在性声明}，它断言存在某个对象属于特定集合且满足特定属性。要证明这种声明，我们需要构造一个满足以下条件的对象：
 \begin{enumerate}[label=(\arabic*)]
-    \item 该对象是正确集合的元素；
-    \item 该对象具有正确的属性。
+    \item 该对象属于指定集合；
+    \item 该对象具有指定属性。
 \end{enumerate}
 
 \subsubsection*{直接证法}
@@ -18,37 +18,35 @@
         \textcolor{blue}{\textbf{策略：}}\\
         声明：$\exists x \in S \centerdot P(x)$ \\
         \emph{直接证明策略：} \\
-        \hspace*{1cm} 定义一个具体的例子，$y = \underline{\qquad\qquad}$。\\
+        \hspace*{1cm} 定义具体对象，$y = \underline{\qquad\qquad}$。\\
         \hspace*{1cm} 证明 $y \in S$。\\
         \hspace*{1cm} 证明 $P(y)$ 成立。
     }
 }
 \end{center}
 
-\newpage
-
 \begin{example}[求解线性方程组]
     
     \begin{center}
         陈述：给定 $a, b, c, d, e, f \in \mathbb{R}$，且 $ad - bc \ne 0$。
     \end{center}
-    我们声称，存在某个 $x, y \in \mathbb{R}$，使得以下线性方程组成立
+    我们声称，存在 $x, y \in \mathbb{R}$，使得以下线性方程组成立
     \begin{align}
         ax + by &= e \label{eq:4.1}\\
         cx + dy &= f \label{eq:4.2}
     \end{align}
-    将 $S(x, y)$ 定义为 ``$x$ 和 $y$ 同时满足上述两个方程 (\ref{eq:4.1}) 和 (\ref{eq:4.2})''。则我们声称
+    定义 $S(x, y)$ 为``$x$ 和 $y$ 同时满足上述两个方程 (\ref{eq:4.1}) 和 (\ref{eq:4.2})''。则我们声称
     \[\exists x, y \in \mathbb{R} \centerdot S(x, y)\]
-    首先，我们必须做一些初步工作来构建解决方案。然后，我们才可以撰写证明来定义对象 $x$ 和 $y$ 并说明它们成立的原因。
+    首先，我们需要通过初步工作构建解。然后，在证明中定义 $x$ 和 $y$ 并验证其正确性。
     \begin{center}
     \noindent \fcolorbox{red}{white}{%
     \parbox{0.85\textwidth}{%
         \linespread{1.5}\selectfont
         \textcolor{red}{\textbf{草稿：}}
 
-        我们需要 $ax + by = e$ 和 $cx + dy = f$ 同时成立，并且我们想知道哪个 $x$ 和 $y$ 可以实现这一点。
+        我们需要 $ax + by = e$ 和 $cx + dy = f$ 同时成立，并确定满足条件的 $x$ 和 $y$。
 
-        让我们将第一个和第二个方程乘以正确的系数（分别是 $d$ 和 $-b$），这样我们就可以通过将两个方程相加来消掉 $y$ 项：
+        将第一个方程乘以 $d$，第二个方程乘以 $-b$，相加消去 $y$ 项：
         \begin{center}
             \begin{tabular}{r@{\,}c@{\,}c@{\,}c@{\,}c@{\,}l}
                     & $adx$ & $+$ & $bdy$  & $=$ & $de$ \\
@@ -57,9 +55,9 @@
                     & $(ad$ & $-$ & $bc)x$ & $=$ & $de - bf$ \\
             \end{tabular}
         \end{center}
-        然后除以 $x$ 的系数可得 $x = \frac{de-bf}{ad-bc}$。这是一个有效解，因为 $ad - bc \ne 0$。\\
+        因为 $ad - bc \ne 0$，除以 $x$ 的系数可得 $x = \frac{de-bf}{ad-bc}$。\\
 
-        同理我们可以消掉 $x$ 项，求得 $y$：
+        同理，我们可以消掉 $x$ 项，求得 $y$：
         \begin{center}
             \begin{tabular}{r@{\,}c@{\,}c@{\,}c@{\,}c@{\,}l}
                     & $acx$ & $+$ & $bcy$  & $=$ & $ce$ \\
@@ -72,17 +70,17 @@
     }
     }
     \end{center}
-    这里的主要经验是，我们不需要在下面的证明中展示草稿中的工作！我们不认为读者愿意费力翻阅我们杂乱的笔记，去了解我们是如何得出线性方程组的解的。相反，我们假设读者只关心解是什么以及为什么它是正确的解。这使得证明更加简洁，因此可以更容易、更快速地阅读。
+    关键经验：证明中无需展示草稿过程。读者关心的是解及其正确性，而非求解细节。这使得证明更简洁易读。
 
     \begin{center}
         \noindent \fcolorbox{olivegreen}{white}{%
             \parbox{0.85\textwidth}{%
                 \linespread{1.5}\selectfont
-                \textcolor{olivegreen}{\textbf{实现：}}
+                % \textcolor{olivegreen}{\textbf{实现：}}
                 \begin{proof}
-                    由于 $ad - bc \ne 0$ （根据假设），我们可以定义
+                    由于 $ad - bc \ne 0$（根据假设），我们可以定义
                     \[x = \frac{de - bf}{ad - bc} \qquad \text{和} \qquad y = \frac{af - ce}{ad - bc}\]
-                    并知道 $x, y \in \mathbb{R}$。则，
+                    显然  $x, y \in \mathbb{R}$。代入验证：
                     \begin{align*}
                         ax + by &= \frac{(ade - abf) + (abf - bce)}{ad - bc} = \frac{ade - bce}{ad - bc} = \frac{e(ad - bc)}{ad - bc} = e \\
                         cx + dy &= \frac{(cde - bcf) + (adf - cde)}{ad - bc} = \frac{adf - bcd}{ad - bc} = \frac{f(ad - bc)}{ad - bc} = f
@@ -93,7 +91,7 @@
         }
     \end{center}
 
-    如果你学过线性代数，你会发现 $ad-bc$ 项是矩阵 $\begin{bmatrix}
+    如果你学过线性代数，会发现 $ad-bc$ 项是矩阵 $\begin{bmatrix}
         a & b \\
         c & d 
         \end{bmatrix}$ 的\textbf{行列式}。$ad - bc \ne 0$ 这个前提条件意味着该系数矩阵\emph{存在逆矩阵}，即它是``非奇异''的。在这种情况下，对于任意 $e, f \in \mathbb{R}$ 线性方程组都有解。
@@ -101,10 +99,10 @@
 
 \subsubsection*{间接证法（反证法）}
 
-该策略依赖于 $\exists$ 声明的逻辑否定：
+该策略依赖于 $\exists$ 陈述的逻辑否定：
 \[\neg \big(\exists x \in S \centerdot P(x)\big) \iff \forall x \in S \centerdot \neg P(x)\]
 
-我们先假设否命题成立然后从中推导出一系列矛盾，这意味着否命题为\verb|假|，所以原命题\verb|真|。
+我们首先假设结论的否定成立，并由此推导出矛盾。这表明否定命题为\verb|假|，从而原命题为\verb|真|。
 
 \begin{center}
     \noindent \fcolorbox{blue}{white}{%
@@ -113,8 +111,8 @@
             \textcolor{blue}{\textbf{策略：}}\\
             声明：$\exists x \in S \centerdot P(x)$ \\
             \emph{间接证明策略：} \\
-            \hspace*{1cm} 为了得到矛盾而假设，对于每个 $y \in S, \neg P(y)$ 成立。 \\
-            \hspace*{1cm} 推导得出矛盾。
+            \hspace*{1cm} 为了引出矛盾而假设，对于每个 $y \in S, \neg P(y)$ 成立。 \\
+            \hspace*{1cm} 推导出矛盾。
         }
     }
 \end{center}
@@ -122,8 +120,7 @@
 \begin{example}[抽屉原理的一个实例]\label{ex:example4.9.2}
 
     \begin{center}
-        陈述：假设 $n \in \mathbb{N}$ 且我们有 $n$ 个实数 $a_1, a_2, \dots, a_n \in \mathbb{R}$。\\
-        我们声称其中一个数字至少与数列的平均值一样大。即，
+        陈述：假设 $n \in \mathbb{N}$，给定 $n$ 个实数 $a_1, a_2, \dots, a_n \in \mathbb{R}$。则必存在某个数不小于数列的平均值：
         \[\exists B \in [n] \centerdot a_B \ge \frac{1}{n}\sum_{i=1}^{n}a_i\]
     \end{center}
 
@@ -131,20 +128,19 @@
         \noindent \fcolorbox{olivegreen}{white}{%
             \parbox{0.85\textwidth}{%
                 \linespread{1.5}\selectfont
-                \textcolor{olivegreen}{\textbf{实现：}}
+                % \textcolor{olivegreen}{\textbf{实现：}}
                 \begin{proof}
-                    为了得到矛盾而假设，所有数字都小于数列平均值，即
+                    为了引出矛盾而假设，所有数都小于数列的平均值，即
                     \[\forall i \in [n] \centerdot a_i < \frac{1}{n}\sum_{i=1}^{n}a_i\]
-                    定义常数 $S = \sum_{i=1}^{n}a_i$，则 $a_i < \frac{S}{n}$。\\
-                    然后我们可以对所有 $a_i$ 求和并发现
+                    定义常数 $S = \sum_{i=1}^{n}a_i$，则 $a_i < \frac{S}{n}$。对不等式两边求和得：
                     \[S = \sum_{i=1}^{n}a_i < \sum_{i=1}^{n}\frac{S}{n} = n \cdot \frac{S}{n} = S\]
                     这说明实数 $S$ 严格小于它本身：$S < S$。这里存在矛盾。$\hashx$
 
-                    因此，最初的假设是错误的，原命题成立。
+                    因此，假设不成立，原命题成立。
                 \end{proof}
             }
         }
     \end{center}
 
-    如前所述，这是\textbf{抽屉原理}的一个实例。当我们学习\textbf{组合学}时，将在 \ref{sec:section8.6} 节再次研究和使用这个原理。
+   如前所述，这是\textbf{抽屉原理}的一个实例。当我们学习\textbf{组合学}时，将在 \ref{sec:section8.6} 节深入探究该原理。
 \end{example}

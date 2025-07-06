@@ -1,9 +1,8 @@
 % !TeX root = ../../../book.tex
 
-
 \subsection{证明 $\lor$ 声明}\label{sec:section4.9.3}
 
-``$\lor$'' 声明断言两个陈述中至少有一个为\verb|真|。如果碰巧这两个陈述之一显然为\verb|假|，那么就尝试证明另一个为\verb|真|。这就是这里的直接证法；它很简单，因此我们不会提供实现示例。
+``$\lor$''声明断言两个陈述中至少有一个为\verb|真|。若其中一个陈述明显为\verb|假|，则应尝试证明另一个为\verb|真|。这就是直接证法，因其简单易懂，此处不提供实现示例。
 
 \subsubsection*{直接证法}
 
@@ -14,16 +13,16 @@
         \textcolor{blue}{\textbf{策略：}}\\
         声明：$P \lor Q$ \\
         \emph{直接证明策略：} \\
-        \hspace*{1cm} 证明 $P$ 成立，否则证明 $Q$ 成立。
+        \hspace*{1cm} 证明 $P$ 成立，或证明 $Q$ 成立。
     }
 }
 \end{center}
 
-当然，直接证法依赖于你能够提前获知哪一个陈述（$P$ 还是 $Q$）为\verb|真|。如果你能做到这一点，那么这甚至不是一个真正的``策略''。只需实施适用于 $P$（或 $Q$，视情况而定）的任何策略。
+此方法依赖预先判断 $P$ 或 $Q$ 的真假。若能确定其中之一为\verb|真|，则直接采用相应的证明方法即可。
 
 \subsubsection*{间接证法（证明``另一种情况''）}
 
-这种方法比直接证法有趣得多。一般来说，当陈述 $P$ 和 $Q$ 实际上是变量命题，并且对于某些实例 $P$ 为\verb|真|，而对于其他实例 $Q$ 为\verb|真|时，这种证法非常有用。在这种情况下，我们可以直接说：``如果 $P$ 为\verb|真|，那么我们的证明就已经完成了，而不是准确地描述哪些实例满足 $P$，哪些实例满足 $Q$。因此，我们需要担心的是 $P$ 为\verb|假|的情况；对于这些情况，我们需要证明 $Q$ 仍然为\verb|真|。''
+这种方法比直接证法更为有趣。通常，当陈述 $P$ 和 $Q$ 是变量命题，且对于某些情况 $P$ 为\verb|真|，而对于其他情况 $Q$ 为\verb|真|时，这种证法尤为适用。此时，我们可以直接声明：``如果 $P$ 为\verb|真|，则证明即告完成；因此，我们无需精确描述满足 $P$ 或 $Q$ 的具体实例。我们只需关注 $P$ 为\verb|假|的情况，并证明此时 $Q$ 仍为\verb|真|。''
 
 \begin{center}
     \noindent \fcolorbox{blue}{white}{%
@@ -38,36 +37,33 @@
 \end{center}
 
 \begin{example}
-    当一个实数小于它的平方时，
-  
-    陈述：假设 $ x \in \mathbb{R}$ 且 $x^2 \ge x$。
+    \begin{center}
+        陈述：设 $ x \in \mathbb{R}$ 且 $x^2 \ge x$，则 $x \ge 1 \lor x \le 0$。
+    \end{center}
 
-    我们声明 $x \ge 1$ 或 $x \le 0$。
-\end{example}
+    \begin{center}
+        \noindent \fcolorbox{olivegreen}{white}{%
+            \parbox{0.85\textwidth}{%
+                \linespread{1.5}\selectfont
+                % \textcolor{olivegreen}{\textbf{实现：}}
+                \begin{proof}
+                    设 $x \in \mathbb{R}$ 为任意固定实数，并假设 $x^2 > x$。
+                    
+                    如果 $x \le 0, x^2 \ge x$ 显然成立。于是考虑 $x>0$ 的情况。
 
-\begin{center}
-    \noindent \fcolorbox{olivegreen}{white}{%
-        \parbox{0.85\textwidth}{%
-            \linespread{1.5}\selectfont
-            \textcolor{olivegreen}{\textbf{实现：}}
-            \begin{proof}
-                设 $x \in \mathbb{R}$ 是任意固定的，并假设 $x^2 > x$。
-                
-                如果 $x \le 0, x^2 \ge x$ 显然成立。于是我们假设另一种情况，即 $x>0$。
-
-                根据条件，$x^ \ge x$，因为 $x > 0$，我们可以不等式两边同时除以 $x$，得 $x \ge 1$。
-            \end{proof}
+                    根据条件 $x^2 \ge x$ 且 $x > 0$，不等式两边同时除以 $x$，得 $x \ge 1$。
+                \end{proof}
+            }
         }
-    }
-\end{center}
+    \end{center}
 
-这证明了实数小于（或等于）其平方的必要条件。这个条件（即 $x \ge 1 \lor x \le 0$）也是充分条件吗？请你证明一下！其实很简单，一旦你证出来了，将二者合在一起就可以证明这个双条件陈述：
-\[\forall x \in \mathbb{R} \centerdot x^2 \ge x \iff (x \ge 1 \lor x \le 0)\]
-
+    这证明了实数小于（或等于）其平方的必要条件。该条件（即 $x \ge 1 \lor x \le 0$）是否也是充分条件？请你证明一下！一旦完成，二者结合即可证明双向条件陈述：
+    \[\forall x \in \mathbb{R} \centerdot x^2 \ge x \iff (x \ge 1 \lor x \le 0)\]
+\end{example}
 
 \subsubsection*{间接证法（反证法）}
 
-这种证法与上面的间接证法很像，我们都会假设逻辑否定成立，然后推断出一些荒谬的东西。我们通过将其应用于前一个示例的相同声明来说明该策略。
+这种证法与前述间接证法类似：我们首先假设命题的逻辑否定成立，然后推导出矛盾结果。以下通过前述命题的证明示例说明该策略。
 
 \begin{center}
     \noindent \fcolorbox{blue}{white}{%
@@ -76,7 +72,8 @@
             \textcolor{blue}{\textbf{策略：}}\\
             声明：$\forall x \in S \centerdot P(x)$ \\
             \emph{间接证明策略 2：} \\
-            \hspace*{1cm} 为了得到矛盾而假设，$\neg P \land \neg Q$ 成立。推导得出矛盾。
+            \hspace*{1cm} 为了引出矛盾而假设，$\neg P \land \neg Q$ 成立。\\
+            \hspace*{1cm} 推导得出矛盾。
         }
     }
 \end{center}
@@ -85,22 +82,22 @@
     \noindent \fcolorbox{olivegreen}{white}{%
         \parbox{0.85\textwidth}{%
             \linespread{1.5}\selectfont
-            \textcolor{olivegreen}{\textbf{实现：}}
+            % \textcolor{olivegreen}{\textbf{实现：}}
             \begin{proof}
-                设 $x \in \mathbb{R}$ 是任意固定的，并假设 $x^2 > x$。
+                设 $x \in \mathbb{R}$ 为任意固定实数，并假设 $x^2 > x$。
                 
-                为了得到矛盾而假设，$0 < x$ 且 $x < 1$。
+                为了引出矛盾而假设，$0 < x$ 且 $x < 1$。
 
-                因为 $x>0$，我们可以在不等式两边同时乘以 $x$ 并保持符号不变。
+                因为 $x>0$，可在不等式两边同时乘以 $x$ 并保持符号不变。
 
-                $x<1$ 两边同时乘以 $x$，那么我们得到 $x^2<x$。
+                对 $x<1$ 两边同时乘以 $x$ 可得 $x^2<x$。
 
-                这与我们假设 $x^2 > x$ 矛盾。$\hashx$
+                这与假设 $x^2 > x$ 矛盾。$\hashx$
 
-                因此我们的假设不成立。该声明为真。
+                因此，假设不成立，原命题成立。
             \end{proof}
         }
     }
 \end{center}
 
-这种证法与之前的证法相比如何？我们证明的是完全相同的主张，但证法略有不同。你认为哪个更好？哪个更容易书写？此外，你能回过头用量词和``$\implies$''重写原来的声明吗？完成之后，你明白这两个证明完成了什么吗？尝试一下！
+此证法与前述证法有何异同？二者证明同一命题，但路径略有差异。你认为哪种更优？哪种更易书写？此外，能否用量词与``$\implies$''重述原命题？完成后，能否理解两个证明的实质？请尝试一下！

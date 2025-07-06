@@ -1,11 +1,11 @@
 % !TeX root = ../../../book.tex
 \subsection{证明 $\iff$}\label{sec:section4.9.6}
 
-回想一下，``$\iff$'' 连词完全是根据 ``$\implies$'' 连词定义的。也就是说，
+回想一下，连词``$\iff$''完全基于连词``$\implies$''定义。具体而言，
 \[P \iff Q\]
 逻辑等价于两个条件陈述：
 \[(p \implies Q) \land (Q \implies P)\]
-这就产生了一个明显的策略：证明一个条件陈述，然后证明另一个！这里最常见的错误是仅仅证明了其中一个陈述，而不是同时证明两者。永远记住这一点！
+这自然导出了一个明显的策略：先证明一个条件陈述，再证明另一个条件陈述！最常见的错误是只证明其中一个而忽略另一个，请务必牢记这一点！
 
 \subsubsection*{直接证法}
 
@@ -23,54 +23,52 @@
     }
 \end{center}
 
-\newpage
-
 \begin{example}[偶数的平方为偶数]
 
-    陈述：一个整数是偶数当且仅当它的平方是偶数。
+    陈述：一个整数为偶数当且仅当它的平方为偶数。
 
-    让我们用逻辑符号符号重写这个声明。
+    用逻辑符号重写如下：
     
-    设 $E(z)$ 为命题``$z$ 为偶数''。 那么我们声称
+    设 $E(z)$ 为命题``$z$ 为偶数''。我们声称
     \[\forall z \in \mathbb{Z} \centerdot \Big(E(z) \iff E(z^2)\Big)\]
-\end{example}
 
-\begin{center}
-    \noindent \fcolorbox{olivegreen}{white}{%
-        \parbox{0.85\textwidth}{%
-            \linespread{1.5}\selectfont
-            \textcolor{olivegreen}{\textbf{实现：}}
-            \begin{proof}
-                （$\implies$）首先，假设 $z$ 为偶数，因此 $\exists k \in \mathbb{Z} \centerdot z = 2k$。给定这样一个 $k$。由于 $z = 2k$，我们可以将两边平方并得到
-                \[z^2=(2k)^2=4k^2=2(2k^2)\]
-                
-                定义 $l=2k^2$。注意 $l \in \mathbb{Z}$ 且 $z^2=2l$。
+    \begin{center}
+        \noindent \fcolorbox{olivegreen}{white}{%
+            \parbox{0.85\textwidth}{%
+                \linespread{1.5}\selectfont
+                % \textcolor{olivegreen}{\textbf{实现：}}
+                \begin{proof}
+                    \begin{itemize}
+                        \item ($\implies$) 首先，假设 $z$ 为偶数，则 $\exists k \in \mathbb{Z} \centerdot z = 2k$。给定满足条件的 $k$。由于 $z = 2k$，对两边平方得
+                    \[z^2=(2k)^2=4k^2=2(2k^2)\]
+                    
+                    定义 $l=2k^2$。注意 $l \in \mathbb{Z}$ 且 $z^2=2l$。
 
-                这证明了 $z^2$ 为偶数。
+                    这证明了 $z^2$ 为偶数。
 
-                因此 $E(z) \implies E(z^2)$
+                    因此 $E(z) \implies E(z^2)$
 
-                （$\implies$）接着，我们用反证法证明 $E(z^2) \implies E(z)$。
+                    \item ($\implies$) 接着，我们用反证法证明 $E(z^2) \implies E(z)$。
+                    
+                    假设 $z$ 为奇数，则 $\exists m \in \mathbb{Z} \centerdot z = 2m + 1$。给定满足条件的 $m$。由于 $z = 2m + 1$，对两边平方得
+                    \[z^2=(2m+1)^2=4m^2+4m+1=2(2m^2+2m)+1\]
 
-                假设 $z$ 为奇数，因此 $\exists m \in \in \mathbb{Z} \centerdot z = 2m + 1$。给定这样一个 $m$。
+                    定义 $n=2m^2+2m$。注意 $n \in \mathbb{Z}$ 且 $z^2=2n+1$。
 
-                由于 $z = 2m + 1$，我们可以将两边平方并得到
-                \[z^2=(2m+1)^2=4m^2+4m+1=2(2m^2+2m)+1\]
+                    这证明了 $z^2$ 为奇数。
 
-                定义 $n=2m^2+2m$。注意 $n \in \mathbb{Z}$ 且 $z^2=2n+1$。
+                    因此，$\neg E(z) \implies \neg E(z^2)$；根据逆否策略，可得 $E(z^2) \implies E(z)$。
+                    \end{itemize}
 
-                这证明了 $z^2$ 为奇数。
+                    综上，
+                    \[E(z) \iff E(z^2)\]
 
-                因此，$\neg E(z) \implies \neg E(z^2)$；根据逆否策略，可得 $E(z^2) \implies E(z)$。
-
-                综上，
-                \[E(z) \iff E(z^2)\]
-
-                由于 $z$ 是任意的，因此上面的证明对所有整数 $z$ 都成立。
-            \end{proof}
+                    由于 $z$ 是任意的，因此上述结论对所有整数 $z$ 均成立。
+                \end{proof}
+            }
         }
-    }
-\end{center}
+    \end{center}
+\end{example}
 
 \subsubsection*{间接证法（反证法）}
 
@@ -81,7 +79,7 @@
             \textcolor{blue}{\textbf{策略：}}\\
             声明：$P \iff Q$ \\
             \emph{间接证明策略：} \\
-            \hspace*{1cm} 为了得到矛盾而假设 $\neg (P \implies Q) \lor \neg (Q \implies P)$。
+            \hspace*{1cm} 为了引出矛盾而假设 $\neg (P \implies Q) \lor \neg (Q \implies P)$。
 
             \hspace*{1cm} 考虑第一种情况，即 $P \land \neg Q$ 成立。找出矛盾点。
 
@@ -90,17 +88,17 @@
     }
 \end{center}
 
-使用这一策略——尤其是何时使用这一策略——取决于实际的陈述 $P$ 和 $Q$。一般来说，直接证法可能会更好（并非总是如此），但如果你发现自己陷入困境，可以考虑尝试一下原命题的否定形式—— $P \land \neg Q$ 和 $Q \land \neg P$ ——看一下能否帮你解决问题。有时这种策略非常值得一试！
+使用这一策略，特别是决定何时使用，取决于具体的陈述 $P$ 和 $Q$。一般来说，直接证法可能更好，但并非总是如此。如果你发现自己陷入困境，可以考虑尝试原命题的否定形式——即 $P \land \neg Q$ 和 $Q \land \neg P$——以查看是否能帮助解决问题。有时这种策略非常值得一试！
 
-\subsubsection*{中介证法（TFAE）}
+\subsubsection*{中介证法 (TFAE)}
 
-由于缺乏更好的术语，我们将这种策略称为\textbf{中介证法}。正如你将看到的那样，这并不完全是直接证法，也不是间接证法。在使用这一策略时，我们不必考虑任何逻辑否定，但我们也没有直接将陈述 $P$ 和 $Q$ 链接起来。
+由于缺乏更好的术语，我们将这种策略称为\textbf{中介证法}。正如你将看到的，它既非完全的直接证法，也非间接证法。使用这一策略时，我们不必考虑逻辑否定，但也没有直接将陈述 $P$ 和 $Q$ 联系起来。
 
-相反，该方法要求我们找到某个\emph{中间}陈述 $R$ 并证明两个双条件陈述：即 $P \iff R$ 和 $R \iff Q$。这会产生以下条件陈述链
+相反，该方法要求我们找到一个\emph{中间}陈述 $R$，并证明两个双向条件陈述：即 $P \iff R$ 和 $R \iff Q$。这会产生以下条件陈述链：
 \[P \iff R \iff Q\]
-它告诉我们所有三个陈述都具有相同的真值。特别是，$P$ 和 $Q$ 必然始终具有相同的真值，因此我们得出 $P \iff Q$ 的结论。
+它表明所有三个陈述具有相同的真值。特别地，$P$ 和 $Q$ 必然始终同真或同假，因此我们得出 $P \iff Q$ 的结论。
 
-\textbf{TFAE} 是 ``the following are equivalent'' 的缩写，意思是``以下是等效的''。我们选择用这个缩写来命名该策略是因为它是数学中的一个常见短语；它用在提出一系列``相互暗示''的条件/属性的定理中。也就是说，一些定理列出了几个属性并断言它们在逻辑上都是等价的，因此``以下是等价的''。为了证明这样的定理，我们需要一遍又一遍地使用上述策略，并证明这些陈述确实是等价的。这里唯一的区别是我们必须构造出要使用的中间陈述。（但是，无论是谁提出并证明了 TFAE 式的定理，也必须首先给出所有这些陈述！）
+\textbf{TFAE} 是``The Following Are Equivalent''的缩写，意为``以下是等价的''。我们选择用此缩写命名策略，是因为它是数学中的常见短语，用于提出一系列``相互蕴涵''的条件或属性的定理中。也就是说，一些定理列出多个属性并断言它们在逻辑上等价，故称``以下是等价的''。为证明此类定理，我们需要反复使用上述策略，证明这些陈述确实等价。唯一的区别是我们必须构造中间陈述（但提出和证明 TFAE 定理的人也必须首先定义所有陈述）。
 
 \begin{center}
     \noindent \fcolorbox{blue}{white}{%
@@ -117,3 +115,5 @@
         }
     }
 \end{center}
+
+\clearpage

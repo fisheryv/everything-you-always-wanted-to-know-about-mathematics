@@ -1092,7 +1092,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
     \textbf{\color{second}\notename} \citshape}{\par}
 
 \newenvironment{proof}{
-  \par\noindent\textbf{\color{second}\\\proofname\;}
+  \par\noindent\textbf{\color{second}\\\proofname：}
   \color{black!90}\cfs}{
    \hfill$\Box$\quad \\
   \par}

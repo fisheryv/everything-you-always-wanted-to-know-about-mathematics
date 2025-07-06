@@ -85,7 +85,7 @@
 
 \subsection{证明策略}
 
-我们使用短语 AFSOC 表示``为了得到矛盾而假设 (assume for sake of contradiction)''。
+我们使用短语 AFSOC 表示``为了引出矛盾而假设 (assume for sake of contradiction)''。
 
 \begin{itemize}
     \item 证明 $\exists$ 声明：$\exists x \in S \centerdot P(x)$\\
@@ -97,7 +97,7 @@
             \end{quote}
             \emph{间接证明：}
             \begin{quote}
-                为了得到矛盾而假设，对于所有 $y \in S, \neg P(y)$ 成立。\\
+                为了引出矛盾而假设，对于所有 $y \in S, \neg P(y)$ 成立。\\
                 找到矛盾。
             \end{quote}
     \item 证明 $\forall$ 声明：$\forall x \in S \centerdot P(x)$\\
@@ -108,7 +108,7 @@
             \end{quote}
             \emph{间接证明：}
             \begin{quote}
-                为了得到矛盾而假设，存在 $\exists y \in S$，使得 $\neg P(y)$ 成立。\\
+                为了引出矛盾而假设，存在 $\exists y \in S$，使得 $\neg P(y)$ 成立。\\
                 找到矛盾。
             \end{quote}
     \item 证明 $\lor$ 声明：$P \lor Q$\\
@@ -122,7 +122,7 @@
             \end{quote}
             \emph{间接证明 2：}
             \begin{quote}
-                为了得到矛盾而假设 $\neg P \land \neg Q$ 成立。\\
+                为了引出矛盾而假设 $\neg P \land \neg Q$ 成立。\\
                 找到矛盾。
             \end{quote}
     \item 证明 $\land$ 声明：$P \land Q$\\
@@ -133,7 +133,7 @@
             \end{quote}
             \emph{间接证明：}
             \begin{quote}
-                为了得到矛盾而假设 $\neg P \lor \neg Q$ 成立。\\
+                为了引出矛盾而假设 $\neg P \lor \neg Q$ 成立。\\
                 考虑第一种情况，其中 $\neg P$ 成立。找到矛盾。\\
                 考虑第二种情况，其中 $\neg Q$ 成立。找到矛盾。
             \end{quote}
@@ -148,7 +148,7 @@
             \end{quote}
             \emph{间接证明：}
             \begin{quote}
-                为了得到矛盾而假设 $P$ 成立，假设 $Q$ 不成立。\\
+                为了引出矛盾而假设 $P$ 成立，假设 $Q$ 不成立。\\
                 找到矛盾。
             \end{quote}
     \item 证明 $\iff$ 声明：$P \iff Q$\\
@@ -159,7 +159,7 @@
             \end{quote}
             \emph{间接证明：}
             \begin{quote}
-                为了得到矛盾而假设 $\neg (P \implies Q) \lor \neg (Q \implies P)$。\\
+                为了引出矛盾而假设 $\neg (P \implies Q) \lor \neg (Q \implies P)$。\\
                 考虑第一种情况，其中 $P \land \neg Q$ 成立。找到矛盾。\\
                 考虑第二种情况，其中 $Q \land \neg P$ 成立。找到矛盾。
             \end{quote}

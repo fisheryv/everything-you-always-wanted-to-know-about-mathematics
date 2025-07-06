@@ -1,9 +1,9 @@
 % !TeX root = ../../../book.tex
 \subsection{证明 $\land$ 声明}\label{sec:section4.9.4}
 
-``$\land$'' 声明断言两个陈述都为\verb|真|。有一种明显而直接的方法可以做到这一点：只需证明一个陈述，然后再证明另一个陈述！
+``$\land$''声明断言两个陈述都为\verb|真|。其证明方法直接明了：先证明第一个命题，再证明第二个命题！
 
-我们将向你展示此方法的实现示例，因为我们示例中的 $\land$ 语句位于 $\exists$ 声明\emph{之后}。因此，实际上需要做一些临时工作来弄清楚如何定义一个确实满足这两个所需属性的对象。这将是我们的第一个说明性示例，说明如何组合这些证明策略来证明同时使用量词和连词的陈述。
+以下示例展示此方法的实际应用。由于本例中的 $\land$ 语句位于存在量词 $\exists$ \emph{之后}，因此需要构造一个同时满足两个属性的对象。这是首个演示如何组合证明策略来处理量词与连词并存的示例。
 
 \subsubsection*{直接证法}
 
@@ -14,76 +14,76 @@
             \textcolor{blue}{\textbf{策略：}}\\
             声明：$P \land Q$ \\
             \emph{直接证明策略：} \\
-            \hspace*{1cm} 证明 $P$ 成立。证明 $Q$ 成立。
+            \hspace*{1cm} 证明 $P$ 成立。\\
+            \hspace*{1cm} 证明 $Q$ 成立。
         }
     }
 \end{center}
 
 \begin{example}[两数中较小数的平方可能更大]
+    \begin{center}
+        陈述：$ \forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot (x \ge y \land x^2 < y^2)$。
+    \end{center}
 
-    陈述：$ \forall x \in \mathbb{R} \centerdot \exists y \in \mathbb{R} \centerdot (x \ge y \land x^2 < y^2)$。
-\end{example}
-
-\begin{center}
-    \noindent \fcolorbox{red}{white}{%
-    \parbox{0.85\textwidth}{%
-        \linespread{1.5}\selectfont
-        \textcolor{red}{\textbf{草稿：}}\\
-        让我们取一个特定的 $x$，比如 $x = 4$。我们需要找到一个平方大于 $x^2 = 16$ 的更小的实数。
-
-        关键是 $y \in \mathbb{R}$，所以我们可以使用负数。在这种情况下，选择一个较大的负数，例如 $y = -5$，就会使上面声明成立。
-
-        让我们再取一个不同的 $x$，比如 $x = -2$。这个数字已经是负数了，所以只要选择任意更小的数字，比如 $y = -3$，就可以了。
-
-        我们下面的证明就根据 $x$ 是正数还是非正数分为两种情况。
-    }
-    }
-\end{center}
-
-现在我们可以开始证明了
-
-\begin{center}
-    \noindent \fcolorbox{olivegreen}{white}{%
+    \begin{center}
+        \noindent \fcolorbox{red}{white}{%
         \parbox{0.85\textwidth}{%
             \linespread{1.5}\selectfont
-            \textcolor{olivegreen}{\textbf{实现：}}
-            \begin{proofs}{证明 1}
-                设 $x \in \mathbb{R}$ 是任意固定的。我们考虑两种情况。
-                
-                \begin{itemize}
-                    \item 假设 $x \le 0$。
-                    
-                        定义 $y = x - 1$。注意，此时 $y \in \mathbb{R}$ 且 $y < x$。
+            \textcolor{red}{\textbf{草稿：}}\\
+            让我们取一个特定的 $x$，比如 $x = 4$。我们需要找到一个小于 $x=4$ 但平方大于 $x^2 = 16$ 的实数。
 
-                        由此可得
-                        \[y^2 = (x-1)^2 = x^2-2x+1 = x^2-(2x-1)\]
-                        因为 $x \le 0$，所以 $2x \le 0$，因此 $2x-1 \le -1$，由此可得
-                        \[x^2-(2x-1) \ge x^2+1 > x^2\]
-                        因此 $y^2 > x^2$。
-                    \item 假设 $x > 0$。
-                        定义 $y = -x - 1$。注意，此时 $y \in \mathbb{R}$ 且 $y < 0, x>0$，所以 $y \le x$（其实 $y < x$）。
+            关键在于 $y \in \mathbb{R}$，所以我们可以使用负数。在这种情况下，选择一个较大的负数，例如 $y = -5$ 即满足条件。
 
-                        由此可得
-                        \[y^2 = (-x-1)^2 = x^2+2x+1 = x^2+(2x+1)\]
-                        因为 $x > 0$，所以 $2x+1 > 0$，由此可得
-                        \[x^2+(2x+1) > x^2\]
-                        因此 $y^2 > x^2$。
-                \end{itemize}
-                无论哪种情况，我们都找到了满足条件的 $y$，即 $y \in \mathbb{R}$ 且 $y \le x$ 使得 $x^2 < y^2$。 因此，该声明为真。
-            \end{proofs}
+            让我们再取一个不同的 $x$，比如 $x = -2$。因为 $x$ 为负数，所以只要选择任意更小的数字，比如 $y = -3$ 即可。
+
+            故证明将按 $x>0$ 和 $x \leq 0$ 分两种情况。
         }
-    }
-\end{center}
+        }
+    \end{center}
 
-为什么我们称其为``证明 1''？根据我们在临时工作中的观察，我们将证明分为两种情况。具体来说，我们认识到我们将根据 $x$ 的符号不同以不同的方式定义 $y$（用 $x$ 表示）。其实我们可以不用分情况讨论的方式来重写这个证明。这就是``证明 2''，我们希望你来完成它！重申一下这里的目标，我们希望你以一种通用的方式用 $x$ 定义 $y$ 并重写上述证明，无论 $x$ 的符号如何，该证明都有效。
+    证明如下：
 
-（提示：当 $x < 0$ 时 $-x$ 是什么？这是我们之前见过的函数吗？）
+    \begin{center}
+        \noindent \fcolorbox{olivegreen}{white}{%
+            \parbox{0.85\textwidth}{%
+                \linespread{1.5}\selectfont
+                % \textcolor{olivegreen}{\textbf{实现：}}
+                \begin{proofs}{证明 1：}
+                    设 $x \in \mathbb{R}$ 为任意固定实数。我们分两种情况讨论。
+                    
+                    \begin{itemize}
+                        \item 假设 $x \le 0$。
+                        
+                            定义 $y = x - 1$。注意，此时 $y \in \mathbb{R}$ 且 $y < x$。
+
+                            由此可得
+                            \[y^2 = (x-1)^2 = x^2-2x+1 = x^2-(2x-1)\]
+                            因为 $x \le 0$，所以 $2x \le 0$，因此 $2x-1 \le -1$，由此可得
+                            \[x^2-(2x-1) \ge x^2+1 > x^2\]
+                            因此 $y^2 > x^2$。
+                        \item 假设 $x > 0$。
+                            定义 $y = -x - 1$。注意，此时 $y \in \mathbb{R}$ 且 $y < 0, x>0$，所以 $y \le x$（实际有 $y < x$）。
+
+                            由此可得
+                            \[y^2 = (-x-1)^2 = x^2+2x+1 = x^2+(2x+1)\]
+                            因为 $x > 0$，所以 $2x+1 > 0$，由此可得
+                            \[x^2+(2x+1) > x^2\]
+                            因此 $y^2 > x^2$。
+                    \end{itemize}
+                    综上，无论哪种情况，均存在 $y \in \mathbb{R}$ 满足 $y \le x$ 且 $x^2 < y^2$。故命题成立。
+                \end{proofs}
+            }
+        }
+    \end{center}
+\end{example}
+
+我们为何称其为``证明 1''？在初步分析中，我们依据 $x$ 的符号分情况定义 $y$（用 $x$ 表示）。实际上，该证明可以不依赖分情况讨论，这就是``证明 2''，我们希望你来完成它！目标是以通用方式定义 $y$（用 $x$ 表示），并重写证明，使其对任意 $x$ 均成立。（提示：当 $x < 0$ 时 $-x$ 是什么？这是否是已知函数？）
 
 \subsubsection*{间接证法（反证法）}
 
-该方法与其他间接证法一样。我们只是对一个声明进行逻辑否定，假设它成立，然后推断出一些荒谬的东西。这意味着该假设无效，因此原始陈述为\verb|真|。
+与其他间接证明方法类似，反证法的核心在于：首先否定待证命题，然后假设该否定成立，并由此推导出矛盾。这表明假设不成立，从而原命题为\verb|真|。
 
-我们希望你尝试用此方法证明上一个示例中的声明。（注意：你可以在完成上面要求的``证明 2''后再做这件事。）然后，比较一下这两种方法的效果，并在这种情况下你更喜欢哪一种。
+请尝试用此方法证明上面命题。（注：建议先完成前述``证明 2''再进行本练习。）完成后请比较两种证明方法的异同，并思考你更倾向于采用哪种方法。
 
 \begin{center}
     \noindent \fcolorbox{blue}{white}{%
@@ -92,9 +92,11 @@
             \textcolor{blue}{\textbf{策略：}}\\
             声明：$P \land Q$ \\
             \emph{间接证明策略：} \\
-            \hspace*{1cm} 为了得到矛盾而假设，$\neg P \lor \neg Q$ 成立。\\
-            \hspace*{1cm} 考虑第一种情况，即 $\neg P$ 成立，找出矛盾。\\
-            \hspace*{1cm} 考虑第二种情况，即 $\neg Q$ 成立，找出矛盾。
+            \hspace*{1cm} 为了引出矛盾而假设，$\neg P \lor \neg Q$ 成立。\\
+            \hspace*{1cm} 考虑第一种情况，即 $\neg P$ 成立，推导得出矛盾。\\
+            \hspace*{1cm} 考虑第二种情况，即 $\neg Q$ 成立，推导得出矛盾。
         }
     }
 \end{center}
+
+\clearpage
