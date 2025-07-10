@@ -3,42 +3,42 @@
 
 \subsubsection*{温故知新}
 
-以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，如果忘记了具体定义、概念或示例，可以回顾相关内容。确保在继续学习之前能够自信地作答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 强归纳法和普通归纳法的区别是什么？
-    \item 你如何判断何时需要使用强归纳法？
-    \item 为什么我们总是可以选择使用强归纳法，而不是在常规归纳法和强归纳法之间做选择？
-    \item 在质因数分解的例子中，使用的归纳假设（IH）有什么特别之处？与我们在其他例子中证明递归定义的数列公式相比，有什么不同？
+    \item 强归纳法与常规归纳法有何区别？
+    \item 如何判断何时需要使用强归纳法？
+    \item 为什么总是可以选择使用强归纳法，而非在常规归纳法和强归纳法之间做选择？
+    \item 在质因数分解的例子中，使用的归纳假设 (IH) 有何特别之处？与其他证明递归定义数列公式的例子相比，有何不同？
 \end{enumerate}
 
 \subsubsection*{小试牛刀}
 
-尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+尝试解答以下问题。这些题目需动笔书写或口头阐述答案，旨在帮助你熟练运用新概念、定义及符号。题目难度适中，确保掌握它们将大有裨益！
 
 \begin{enumerate}[label=(\arabic*)]
     \item 定义数列
-        \[x_1=2 \;\text{ 且 }\; x_2=3 \;\text{ 且 }\; \forall n \in \mathbb{N}-\{1,2\} \centerdot x_n=3x_{n-1}-2x_{n-2}\]
+        \[x_1=2, \quad x_2=3, \quad \forall n \in \mathbb{N}-\{1,2\} \centerdot x_n=3x_{n-1}-2x_{n-2}\]
         证明
         \[\forall n \in \mathbb{N} \centerdot x_n = 2^{n-1} + 1\]
     \item 数列 $a_n$ 定义为 $a_0 = 0, a_1 = 1$ 且
         \[\forall n \in \mathbb{N}-\{1\} \centerdot a_n=5x_{n-1}-6x_{n-2}\]
         即 $\langle a_n \rangle = \langle 0, 1, 5, 19, 65, 211, \dots \rangle$。
         
-        证明对于所有 $n \in \mathbb{N} \cup \{0\}, a_n = 3^n-2^n$。
-    \item 设 $a_1 \in \mathbb{Z}$ 是任意且固定的。定义数列
+        证明：对于所有 $n \in \mathbb{N} \cup \{0\}, a_n = 3^n-2^n$。
+    \item 设 $a_1 \in \mathbb{Z}$ 为任意且固定整数。定义数列
         \[\forall n \in \mathbb{N} - \{1\} \centerdot a_n = \sum_{k=1}^{n-1}k^2a_k\]
         证明
-        \[a_1 \text{ 为偶数} \implies \forall n \in \mathbb{N} \centerdot a_n \text{ 为偶数}\]
+        \[a_1 \text{\ 为偶数} \implies \forall n \in \mathbb{N} \centerdot a_n \text{\ 为偶数}\]
     \item 定义数列 $\langle t_n \rangle$
-        \[t_1=t_2=2 \;\text{ 且 }\; \forall n \in \mathbb{N}-\{1,2\} \centerdot t_n=\frac{1}{2t_{n-2}}(t_{n-1}-4)(t_{n-1}-6)\]
+        \[t_1=t_2=2, \quad \forall n \in \mathbb{N}-\{1,2\} \centerdot t_n=\frac{1}{2t_{n-2}}(t_{n-1}-4)(t_{n-1}-6)\]
         证明 $\forall n \in \mathbb{N} \centerdot t_n=2$。
-    \item 你之前可能见过\textbf{三角不等式}；它说的是
+    \item 你之前可能见过\textbf{三角不等式}；即
         \[\forall x,y \in \mathbb{R} \centerdot |x+y| \le |x| + |y|\]
-        （其中 $|x|$ 表示 $x$ 的绝对值）。证明该不等式不仅仅对 $2$ 个变量成立，而是对 $n$ 个变量都成立；也就是说，证明如果我们有实数 $x_i$ 组成的数列，即 $\forall i \in \mathbb{N} \centerdot x_i \in \mathbb{R}$，那么
+        （其中 $|x|$ 表示 $x$ 的绝对值）。证明该不等式不仅对 $2$ 个变量成立，而且对 $n$ 个变量也成立；也就是说，证明对于实数 $x_i$ 组成的数列，即 $\forall i \in \mathbb{N} \centerdot x_i \in \mathbb{R}$，下面不等式成立
         \[\forall i \in \mathbb{N} \centerdot \vert \sum_{i=1}^{n} x_i \vert \le \sum_{i=1}^{n} |x_i|\]
-        (注意：要证明 $n = 2$ 的情况。而不能仅仅只是假设！)
-    \item 回想一下 \ref{sec:section2.4.1} 节，我们曾讨论过如何用多米诺骨牌密铺 $2 \times n$ 的矩形棋盘。现在，我们来研究一个类似的问题，如何用条状三连块（即 $3 \times 1$ 的矩形块）密铺 $3 \times n$ 矩形棋盘。试着找出其中的归纳关系，并定义一个数列来表示密铺 $3 \times n$ 棋盘的方法数。
+        (注意：需要单独证明 $n = 2$ 的情况，不能仅仅只是假设！)
+    \item 回顾 \ref{sec:section2.4.1} 节中关于用多米诺骨牌密铺 $2 \times n$ 棋盘的讨论。现研究类似问题：如何用 $3 \times 1$ 条形三连块密铺 $3 \times n$ 棋盘。请尝试建立归纳关系，并定义数列表示不同密铺方法数。
 
-    （注意：不要尝试找到一个封闭形式或者证明它！这需要的技术超出了我们目前的讨论范围。如果你感兴趣，可以查找\textbf{递推关系}。如果愿意，可以尝试根据你读到的内容为这个问题找到一个封闭形式。你能通过归纳法证明它吗？）
+    （注意：无需尝试求解封闭形式或严格证明，这超出了当前范围。若感兴趣，可查阅\textbf{递推关系}相关文献。如果愿意，可以基于文献内容尝试推导该问题的封闭形式，并思考能否通过归纳法证明。）
 \end{enumerate}

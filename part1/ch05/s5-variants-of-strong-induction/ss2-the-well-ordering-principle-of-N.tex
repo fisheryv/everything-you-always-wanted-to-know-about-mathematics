@@ -3,37 +3,37 @@
 
 \subsubsection*{引言}
 
-我们都知道自然数 $\mathbb{N}$ 上的关系``$\le$''。对于任意两个元素 $x, y \in \mathbb{N}$，总有以下两种情况之一：要么 $x \le y$，要么 $y \le x$（当且仅当 $x = y$ 时，两者皆满足）。我们还知道：
-\[\forall x, y, z \in \mathbb{N} \centerdot (x \le y \land y \le z) \implies x \le z\]
-且 $\forall x \in \mathbb{N}$，总有 $x \le x$。这使得 $\mathbb{N}$ 成为一个\textbf{有序}集，我们称``$\le$''是 $\mathbb{N}$ 上的一种\emph{顺序关系}。（详见 \ref{sec:section6.3} 节。）
+我们知道自然数集 $\mathbb{N}$ 上的关系``$\le$''具有以下性质：对于任意两个元素 $x, y \in \mathbb{N}$，必有 $x \le y$ 或 $y \le x$（当 $x = y$ 时两者同时成立）。此外：
+\[\forall x, y, z \in \mathbb{N} \cdot (x \le y \land y \le z) \implies x \le z\]
+且 $\forall x \in \mathbb{N}$ 有 $x \le x$。这使得 $\mathbb{N}$ 成为\textbf{有序集}，我们称``$\le$''是 $\mathbb{N}$ 上的\emph{顺序关系}（详见 \ref{sec:section6.3} 节）。
 
-此外，这种关系实际上是一种\textbf{良序关系}。我们不会正式定义这个术语，但良序关系的一个关键特点是不存在\emph{无穷递降链}。想象一下在 $\mathbb{N}$ 中是否存在一个无穷序列 $a_1, a_2, a_3, \dots$，使得 $a_1 > a_2 > a_3 > \dots$？这是不可能的！（注意这些不等式是严格的。）意思是说，从某个数字 $a_1 \in \mathbb{N}$ 开始，如果我们``递降''，最终会到达 $1$，我们不能再``递降''了。
+此外，这种关系实际上是\textbf{良序关系}。良序关系的关键特征是不存在\emph{无穷递降链}：在 $\mathbb{N}$ 中不可能存在序列 $a_1, a_2, a_3, \dots$ 满足 $a_1 > a_2 > a_3 > \cdots$（注意此处不等式是严格大于）。因为从任意 $a_1 \in \mathbb{N}$ 开始``递降''，最终必然到达 $1$ 而终止。
 
-我们不会全面讨论良序关系 --- 这可以在集合论或形式逻辑的课程中讨论 --- 而是专注于这一概念在 $\mathbb{N}$ 上的应用。这是一个很有用的性质，我们以后也会涉及到。在本节中，我们将阐述良序原理，并请你帮助我们证明它，然后展示它与数学归纳法之间的关系。
+本节不会深入讨论良序关系的一般理论（这属于集合论或形式逻辑范畴），而是聚焦于其在 $\mathbb{N}$ 上的应用。我们将阐述良序原理，引导读者完成证明，并揭示其与数学归纳法的联系。
 
 \subsubsection*{陈述与证明}
 
 \begin{theorem}\label{theorem5.5.2}
-    $\mathbb{N}$ 的所有非空子集都有一个最小元素。用逻辑形式表示为
+    $\mathbb{N}$ 的所有非空子集均有最小元素。其逻辑表述为：
     \[\forall S \in \mathcal{P}(\mathbb{N}) \centerdot [S \ne \varnothing \implies (\exists \ell \in S \centerdot (\forall x \in S \centerdot \ell \le x))]\]
 \end{theorem}
 
-想一想这与我们之前提到的自然数中不存在无穷递降链的关系。如果确实存在无穷递降链，我们可以定义 $S$ 为链中所有元素的集合。这个集合将\textbf{没有}最小元素。假设集合中有一个元素 $a_n$，那么 $a_{n+1}$ 也在集合中，且 $a_{n+1} < a_n$。因此，这个集合不会有最小元素。
+想一想这与我们之前提到的自然数中不存在无穷递降链的关系。若存在无穷递降链，取链中元素构成集合 $S$，则 $S$ \textbf{没有}最小元素。因为对于任意 $a_n \in S$，存在 $a_{n+1} \in S$ 满足 $a_{n+1} < a_n$。
 
-我们希望你来证明这个定理，因为我们认为完成详细推理过程会大有裨益。证明分为几个步骤。一个关键点是，这个证明是通过\textbf{归纳法}完成的！也就是说，通过这种方式证明良序原理，我们可以展示数学归纳原理\emph{蕴含}了良序原理。
+我们希望由你完成这个定理的证明，因为详细的推理过程将会大有裨益。证明分为几个步骤，关键之处在于其采用\textbf{归纳法}完成。通过这种方式证明良序原理，展示了数学归纳原理\emph{蕴含}良序原理。
 
 \begin{proof}
-    用归纳法证明。留给读者作为习题 \ref{exc:exercises5.7.21}。
+    用归纳法证明。留作习题 \ref{exc:exercises5.7.21}。
 \end{proof}
 
-一个简单的额外发现是，任何子集 $S \subseteq \mathbb{N}$ 的最小元素必须是\emph{唯一的}。也就是说，不可能存在两个（或更多）最小元素。假设集合 $S$ 中确实有两个最小元素，分别是 $\ell$ 和 $m$。根据最小元素的定义，我们知道 $\ell \le m$ 且 $m \le \ell$。这意味着 $\ell = m$，所以它们实际上是同一元素！
+需额外指出的是，子集 $S \subseteq \mathbb{N}$ 的最小元素必\emph{唯一}。假设存在两个最小元 $\ell$ 和 $m$，由最小元素的定义有 $\ell \le m$ 且 $m \le \ell$，这意味着 $\ell = m$，所以它们实际上是同一元素！
 
 \subsubsection*{归纳法、强归纳法与良序原理}
 
-如前所述，因为我们使用归纳法证明了良序原理，这说明数学归纳原理蕴含良序原理。接下来的定理实际上表明，这两个定理是\textbf{逻辑等价}的，它们互相蕴含。此外，它还表明强归纳原理也蕴含良序原理，反之亦然。事实上，这三个定理在逻辑上是等价的！
+如前所述，使用归纳法证明良序原理表明数学归纳原理蕴含良序原理。接下来的定理说明，这两个原理\textbf{逻辑等价}，它们互相蕴含。此外，强归纳原理与良序原理也互相蕴含。事实上，这三个定理在逻辑上等价！
 
 \begin{theorem}
-    以下三个命题全都逻辑等价：
+    以下三个命题逻辑等价：
     \begin{itemize}
         \item 数学归纳原理
         \item 强归纳原理
@@ -42,46 +42,55 @@
 \end{theorem}
 
 \begin{proof}
-    我们可以用以下简写来表示每个定理：
+    使用以下简写表示各定理：
     \begin{itemize}
         \item \textbf{PMI}：数学归纳原理 (Principle of Mathematical Induction)
         \item \textbf{PSI}：强归纳原理 (Principle of Strong Induction)
         \item \textbf{WOP}：良序原理 (Well-Ordering Principle)
     \end{itemize}
-    根据我们对 PSI 和 WOP 的证明，我们可以推断出
+
+    根据先前对 PSI 和 WOP 的证明，可以推断出
     \[\text{PMI} \implies \text{PSI} \quad\text{且}\quad \text{PMI} \implies \text{WOP}\]
-    我们在 \ref{sec:section5.4.2} 节证明了
+
+    我们在 \ref{sec:section5.4.2} 节已证
     \[\text{PSI} \implies \text{PMI}\]
-    因此我们得到
+
+    因此可得
     \[\text{PMI} \iff \text{PSI} \quad\text{且}\quad \text{PMI} \implies \text{WOP}\]
-    要完成这个证明，我们需要证明 $\text{WOP} \implies \text{PMI}$。这样我们就证明了 $\text{WOP} \iff \text{PMI}$。通过上述等价性，我们可以推断出这三个定理在逻辑上是等价的。
 
-    为了证明这一点，我们假设 WOP 是成立，并用它来证明 PMI。（可以回顾一下定理 \ref{theorem5.2.2} 中 PMI 的陈述，以理解我们这样做的原因。）
+    要完成证明，需要证明 $\text{WOP} \implies \text{PMI}$。由此可得 $\text{WOP} \iff \text{PMI}$。通过上述等价性，可以推断出这三个定理逻辑等价。
 
-    假设有一个命题 $P(n)$，定义在 $n \in \mathbb{N}$ 上。假设 $P(1)$ 为\verb|真|，并且对于所有的 $k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$。我们需要证明对于所有的 $n \in \mathbb{N} \centerdot P(n)$ 都成立。
+    为了证明这一点，我们假设 WOP 是成立，并用其来证明 PMI。（可参考定理 \ref{theorem5.2.2} 中 PMI 的陈述，以理解我们这样做的原因。）
 
+    设命题 $P(n)$ 定义在 $n \in \mathbb{N}$ 上。假设 $P(1)$ 为\verb|真|，并且对于所有 $k \in \mathbb{N} \centerdot P(k) \implies P(k+1)$。我们需要证明对于所有的 $n \in \mathbb{N} \centerdot P(n)$ 都成立。
 
     定义集合 $F$ 为 $P(n)$ 的``失败实例''集合。即定义：
-    \[F = \{n \in \mathbb{N} \mid P(n) \text{ 为假}\}\]
-    为了证明 $\forall n \in \mathbb{N} \centerdot P(n)$，我们将为了引出矛盾而假设 $F \ne \varnothing$。
+    \[F = \{n \in \mathbb{N} \mid P(n) \text{\ 为假}\}\]
 
-    由于我们使用了集合构建符，所以 $F \subseteq \mathbb{N}$。根据之前的假设，$\exists f \in F$。给定该 $f$。
+    为了证明 $\forall n \in \mathbb{N} \centerdot P(n)$，假设 $F \ne \varnothing$。
 
-    基于这两个条件，WOP 适用于集合 $F$，这意味着 $F$ 有一个最小元素。设 $\ell$ 为这个最小元素。我们知道 $\ell \in F$，并且
+    由于使用了集合构建符，所以 $F \subseteq \mathbb{N}$。根据之前的假设，$\exists f \in F$。给定该 $f$。
+
+    基于这两个条件，WOP 适用于集合 $F$，这意味着 $F$ 存在一个最小元素。设 $\ell$ 为这个最小元素。可知 $\ell \in F$，并且
     \[\forall x \in F \centerdot \ell \le x\]
-    考虑 $\ell = 1$ 的情况。这是不可能的，因为我们上面的假设说 $P(1)$ 成立，所以 $1 \notin F$。
 
-    考虑 $\ell \ge 2$ 的情况。我们上面的假设说
+    考虑 $\ell = 1$ 的情况。这是不可能的，因为上面假设 $P(1)$ 成立，所以 $1 \notin F$。
+
+    考虑 $\ell \ge 2$ 的情况。上面的假设指出
     \[\forall k \in \mathbb{N} \centerdot P(k) \implies P(k+1)\]
-    这逻辑等价与其逆否命题
+
+    这逻辑等价于其逆否命题
     \[\forall k \in \mathbb{N} - \{1\} \centerdot \neg P(k) \implies \neg P(k-1)\]
-    将这一点应用到元素 $\ell \in \mathbb{N} - \{1\}$ 上，我们可以推断出 $\neg P(\ell - 1)$ 也成立。换句话说，$P(\ell-1)$ 为\verb|假|。
+
+    将这一点应用到元素 $\ell \in \mathbb{N} - \{1\}$ 上，可以推断出 $\neg P(\ell - 1)$ 也成立。换句话说，$P(\ell-1)$ 为\verb|假|。
 
     这意味着 $\ell-1 \in F$。然而，这与 $\ell$ 是 $F$ 的最小元素相矛盾，因为 $\ell - 1 < \ell$。$\hashx$
 
-    因此，必定是 $F = \varnothing$，而这意味着 $\forall n \in \mathbb{N} \centerdot P(n)$。
+    因此，$F = \varnothing$，这意味着 $\forall n \in \mathbb{N} \centerdot P(n)$。
 
-    这证明了 PMI 成立。
+    以上证明了 PMI 成立。
 \end{proof}
 
-让我们来看一下这个证明的核心部分。为了证明 $P(n)$ 对所有 $n$ 都成立，我们假设它对某个特定的 $n$ 会失败，即这个元素 $f \in F$。从这里开始，你可能会想，``如果 $P(f)$ 失败，那么 $P(f-1)$ 也会失败，接着 $P(f-2)$ 也会失败，……\textbf{依次类推}，直到 $P(1)$，但是我们知道 $P(1)$ 为\verb|真|。''然而，这种``依次类推''的论证正是 PMI 和 WOP 所要解决的问题！你不能用一个含糊的``继续下去''来证明你可以这样做。这就是为什么我们要使用 WOP 来找出 $F$ 的最小元素。你可能会觉得我们引入 $f \in F$ 然后不再使用它很奇怪。其实，我们需要 $f$ 的存在来证明 $F \ne \varnothing$，从而能够应用 WOP。
+回顾证明的核心部分：为证 $P(n)$ 对所有 $n$ 成立，假设其存在反例 $f \in F$。此时可能认为：若 $P(f)$ 不成立，则 $P(f-1)$ 不成立，进而 $P(f-2)$ 不成立，……\textbf{依此类推}至 $P(1)$，但 $P(1)$ 为\verb|真|。然而，这种``依次类推''的论证正是 PMI 和 WOP 旨在解决的问题！无法用模糊的``继续下去''证明此过程可行。因此需借助 WOP 找出 $F$ 的最小元。引入 $f \in F$ 看似未直接使用，实则 $f$ 的存在性保证了 $F \ne \varnothing$，从而能够应用 WOP。
+
+\clearpage

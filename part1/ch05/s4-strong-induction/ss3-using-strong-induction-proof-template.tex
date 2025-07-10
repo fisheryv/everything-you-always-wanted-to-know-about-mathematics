@@ -1,7 +1,7 @@
 % !TeX root = ../../../book.tex
 \subsection{使用强归纳法：证明模板}
 
-该模板与常规归纳法的模板非常相似，因为这两个定理（以及相应的应用技术）之间的唯一区别在于归纳假设（IH）。
+该模板与常规归纳法高度相似，二者的核心差异仅在于归纳假设 (IH) 的表述形式。
 
 \subsubsection*{\textcolor{blue}{``强归纳证明''模板}}
 
@@ -13,17 +13,17 @@
         \linespread{1.5}\selectfont
         \textbf{目标：} 证明 $\forall n \in \mathbb{N} \centerdot P(n)$
         \begin{proof}\\
-            设 $P(n)$ 为命题 ``$\underline{\qquad\qquad\qquad}$''。\\
+            设 $P(n)$ 为命题``$\underline{\qquad\qquad\qquad}$''。\\
             我们对 $n$ 采用归纳法证明 $\forall n \in \mathbb{N} \centerdot P(n)$。\\
             \textbf{基本情况}：$P(1)$ 成立，因为 $\underline{\qquad\qquad\qquad}$。\\
-            \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的，假设 $\forall i \in [k] \centerdot P(k)$ 成立。\\
+            \textbf{归纳假设}：设 $k \in \mathbb{N}$ 为任意固定自然数，假设 $\forall i \in [k] \centerdot P(k)$ 成立。\\
             \textbf{归纳步骤}：推导出 $P(k+1)$ 也成立。\\
-            根据数学归纳原理可得$\forall n \in \mathbb{N} \centerdot P(n)$。
+            根据数学归纳原理可得 $\forall n \in \mathbb{N} \centerdot P(n)$。
         \end{proof}
     }
 }
 \end{center}
 
-我们对常规归纳法所做的所有重要观察和建议在这里同样适用。我们必须确保定义一个命题，指出我们在特定变量上应用（强）归纳法，标记我们的步骤，并得出结论。
+常规归纳法的重要注意事项在此同样适用：必须明确定义命题，指明归纳变量，清晰标注证明步骤并给出结论。
 
-我们想要提出的一个新建议是对旧建议的改进。在使用常规归纳法时，我们必须确保在使用归纳假设（IH）时引用它。在这里，我们的归纳假设中会有许多命题实例，所以我们必须小心，引用证明中使用到的命题实例！你会在下面的例子中看到这一点。
+需要特别强调的是归纳假设的使用规范。常规归纳法要求在使用归纳假设 (IH) 时显式引用，而强归纳法的归纳假设包含多个命题实例，因此必须明确指出证明中所引用的具体实例。下面的示例将展示这一要点。

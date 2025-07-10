@@ -1,11 +1,11 @@
 % !TeX root = ../../../book.tex
 \section{本章习题} \label{sec:section5.7}
 
-这些问题涵盖了本章的所有内容，甚至包括之前学习的材料和一些假设的数学知识。我们并不要求你解决\textbf{所有}问题，但你做得越多，学到的也越多！记住，要想真正\emph{学会}数学，就必须亲自去\emph{做}。试着亲自动手解决问题，阅读并思考其中的陈述。尝试写出证明并展示给朋友，看看他们是否能被说服。不断练习将你的想法清晰、准确、合乎逻辑地\emph{写}。写完证明后再进行修改，使其更加完善。最重要的是，坚持不断\emph{做}数学！
+本节习题涵盖本章全部内容，并涉及先前知识点及部分数学假设。我们不要求你解答\textbf{所有}题目，但解决得越多，收获越大！请牢记：真正\emph{掌握}数学必须亲自\emph{实践}。尝试动手解题，仔细阅读并思考题意。撰写证明并与朋友讨论，检验其说服力。持续练习如何清晰、准确、有条理地\emph{书写}思路。完成证明后要反复修改以臻完善。最重要的是，坚持\emph{钻研}数学！
 
-标有 $\blacktriangleright$ 号的简答题只需解释或陈述答案，无需严格证明。
+标有 $\blacktriangleright$ 的简答题只需解释或陈述答案，无需严格证明。
 
-特别具有挑战性的问题带有 $\bigstar$。\\
+特别具有挑战性的问题标记为 $\bigstar$。\\
 
 \begin{exercise} \label{exc:exercises5.7.1}
     证明
@@ -13,13 +13,13 @@
 \end{exercise}
 
 \begin{exercise}
-    找出使下列不等式成立的\emph{自然数集}。先提出\textbf{声明}，然后进行\textbf{证明}（如果需要，可以使用归纳法）。
-    \begin{enumerate}[label=(\alph*)]
-        \item $3^n > n^4$
-        \item $(n-3)^2 > (n-2)^3$
-        \item $3^n < n!$
-        \item $4^n > n^4$
-    \end{enumerate}
+    找出使下列不等式成立的所有\emph{自然数}。先给出\textbf{结论}，再进行\textbf{证明}（必要时可使用归纳法）。
+    \begin{tasks}[label=(\alph*)](2)
+        \task $3^n > n^4$
+        \task $(n-3)^2 > (n-2)^3$
+        \task $3^n < n!$
+        \task $4^n > n^4$
+    \end{tasks}
 \end{exercise}
 
 \begin{exercise}
@@ -35,11 +35,11 @@
 
                 首先，$2=2^1$ 是 $2$ 的幂。
 
-                接着，假设 $k \in \mathbb{N}$ 且 $k \ge 4$ 且 $k$ 为偶数。
+                接着，假设 $k \in \mathbb{N}$ 满足 $k \ge 4$ 且 $k$ 为偶数。
                 
-                假设直到（但不含） $k$ 的所有偶数都是 $2$ 的幂。
+                进一步假设所有小于 $k$ 的偶数均为 $2$ 的幂。
 
-                因为 $k$ 为偶数，我们考虑 $\frac{k}{2}$，根据假设，$\frac{k}{2}$ 是 $2$ 的幂，所以对于某 $j, \frac{k}{2}=2^j$。
+                因为 $k$ 为偶数，考虑 $\frac{k}{2}$，根据假设，$\frac{k}{2}$ 是 $2$ 的幂，所以存在某个 $j$ 使得 $\frac{k}{2}=2^j$。
 
                 这表明 $k = 2^{j+1}$，所以 $k$ 是 $2$ 的幂。 
             }
@@ -47,99 +47,92 @@
 \end{exercise}
 
 \begin{exercise}
-    如果一个数 $n \in \mathbb{N}$ 满足可以表示为 $x$ 和 $y$ 的非负倍数之和，那么我们称它``在 $(x, y)$ 的土地上是特殊的''。
-
-    例如，$11$ 在 $(3, 5)$ 的土地上是特殊的，因为 $11 = 5 + 2 \cdot 3$。同理，$15$ 也是特殊的，因为 $15 = 3 \cdot 5 + 0 \cdot 3$。然而，$7$ 则不是特殊的。
-
-    对于以下每一组 $(x, y)$，提出并证明一个声明，确定在相应土地上所有特殊数的集合 $S_{x,y}$。
-
-    \begin{enumerate}
-        \item $(2, 3)$
-        \item $(3, 5)$
-        \item $(4, 9)$
-        \item $(7, 6)$
-    \end{enumerate}
+    如果一个数 $n \in \mathbb{N}$ 可表示为 $x$ 和 $y$ 的非负倍数之和，那么我们称其``在 $(x, y)$ 的土地上是特殊的''。 例如，$11$ 在 $(3, 5)$ 的土地上是特殊的，因为 $11 = 5 + 2 \cdot 3$。同理，$15$ 也是特殊的，因为 $15 = 3 \cdot 5 + 0 \cdot 3$。然而，$7$ 则不是特殊的。\\
+    对于以下各组 $(x, y)$，给出结论并证明：确定在相应土地上所有特殊数构成的集合 $S_{x,y}$。
+    \begin{tasks}(4)
+        \task $(2, 3)$
+        \task $(3, 5)$
+        \task $(4, 9)$
+        \task $(7, 6)$
+    \end{tasks}
 \end{exercise}
 
 \begin{exercise}
-    证明，对于任意 $n \in \mathbb{N}$，对于任意实数 $x_1, x_2, \dots, x_n$ 满足 $\forall i \in [n] \centerdot 0 \le x_i \le 1$，下面不等式成立：
+    证明：对于任意 $n \in \mathbb{N}$，以及满足 $\forall i \in [n] \centerdot 0 \le x_i \le 1$ 的任意实数 $x_1, x_2, \dots, x_n$，下面不等式成立
     \[\prod_{i=1}^{n} (1-x_i) \ge 1-\sum_{i=1}^{n}x_i\]
     这就是所谓的\textbf{伯努利不等式}。
 \end{exercise}
 
 \begin{exercise}
-    设 $P(n)$ 是关于变量 $n$ 的命题，$n$ 可以取任意\textbf{整数}值。
-
-    对于以下每种情况，给出某个``基本情况''和某个``归纳推论''。确定并解释在这些假设下你可以必然推导出的命题实例。
-
-    例如，如果你得到 $P(3)$ 作为基本情况，并且 $\forall n \in \mathbb{N} \centerdot P(n) \implies P(n+1)$ 作为归纳推论，那么正确的答案是``我们知道 $P(n)$ 对于每个 $n \in \mathbb{N}$，且 $n \ge 3$ 成立。''
-
-    \begin{enumerate}
-        \item 基本情况：$P(-3)$。推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies P(n+1)$
-        \item 基本情况：$P(1) \land P(2)$。推论：$\forall n \in \mathbb{N} \centerdot P(n) \implies P(2n)$
-        \item 基本情况：$P(0)$。推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies \big(P(n-1) \land P(n+1)\big)$
-        \item 基本情况：$P(-1) \land P(0)$。推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies P(n+2)$
-    \end{enumerate}
-\end{exercise}
-
-\begin{exercise}
-    证明，对于任意整数 $x,y \in \mathbb{Z}$（$x \ne y$），$x^n-y^n$ 是 $x-y$ 的倍数，其中 $n \in \mathbb{N} \cup \{0\}$。
-\end{exercise}
-
-\begin{exercise}
+    设 $P(n)$ 是关于变量 $n$ 的命题，$n$ 可以取任意\textbf{整数}值。\\
+    对于以下每种情况，给定``基本情况''和``归纳推论''。请确定并解释在这些假设下能够必然推出的命题实例。\\
+    例如，若基本情况为 $P(3)$，归纳推论为 $\forall n \in \mathbb{N} \centerdot P(n) \implies P(n+1)$，则正确答案为``$P(n)$ 对于每个 $n \in \mathbb{N}$ 且 $n \ge 3$ 成立。''
     \begin{enumerate}[label=(\alph*)]
-        \item 找出使不等式 $n! > 2^n$ 成立的自然数 $n$ 的集合。
-        \item 找出使不等式 $n! > 3^n$ 成立的自然数 $n$ 的集合。
-        \item 找出使不等式 $n! > 5^n$ 成立的自然数 $n$ 的集合。
+        \item 基本情况：$P(-3)$ \qquad\quad\enspace\,\, 推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies P(n+1)$
+        \item 基本情况：$P(1) \land P(2)$ \quad\;\; 推论：$\forall n \in \mathbb{N} \centerdot P(n) \implies P(2n)$
+        \item 基本情况：$P(0)$ \qquad\qquad\quad 推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies \big(P(n-1) \land P(n+1)\big)$
+        \item 基本情况：$P(-1) \land P(0)$ \quad 推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies P(n+2)$
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    $\bigstar$ 证明上一个问题的泛化命题：
+    证明：对于任意不相等的整数 $x,y \in \mathbb{Z}\ (x \ne y)$, $x^n-y^n$ 是 $x-y$ 的倍数，其中 $n \in \mathbb{N} \cup \{0\}$。
+\end{exercise}
+
+\begin{exercise}
+    找出使下列不等式成立的自然数 $n$ 的集合。
+    \begin{tasks}[label=(\alph*)](3)
+        \task $n! > 2^n$
+        \task $n! > 3^n$
+        \task $n! > 5^n$
+    \end{tasks}
+\end{exercise}
+
+\begin{exercise}
+    $\bigstar$ 证明上一个问题的推广命题：
     \[\forall m \in \mathbb{N} - \{1\} \centerdot \exists B_m \in \mathbb{N} \centerdot \forall n \in \mathbb{N} \centerdot n \ge B_m \implies n! > m^n\]
 \end{exercise}
 
 \begin{exercise}
-    \textbf{斐波那契数列}定义为 $f_0=0, f_1=1$，对于所有 $n >2, f_n = f_{n-1}+f_{n-2}$。\\
+    \textbf{斐波那契数列}定义为 $f_0=0, f_1=1$，且对于所有 $n \ge 2, f_n = f_{n-1}+f_{n-2}$。\\
     对于该数列，证明下列命题成立：
     \begin{enumerate}[label=(\alph*)]
-        \item $\forall n \in \mathbb{N} \cup \{0\} \centerdot f_n < 2^n$
-        \item $\forall n \in \mathbb{N} \centerdot f_{n-1}f_{n+1} = f_n^2+(-1)^n$
-        \item $\forall n \in \mathbb{N} \centerdot 1 \le \frac{f_{n+1}}{f_n} \le 2$
-        \item $\forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} f_{2k}= f_{2k+1}-1$
-        \item $\forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} f_k^2= f_{n}f_{n+1}$
+        \item $\displaystyle \forall n \in \mathbb{N} \cup \{0\} \centerdot f_n < 2^n$
+        \item $\displaystyle \forall n \in \mathbb{N} \centerdot f_{n-1}f_{n+1} = f_n^2+(-1)^n$
+        \item $\displaystyle \forall n \in \mathbb{N} \centerdot 1 \le \frac{f_{n+1}}{f_n} \le 2$
+        \item $\displaystyle \forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} f_{2k}= f_{2k+1}-1$
+        \item $\displaystyle \forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} f_k^2= f_{n}f_{n+1}$
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises5.7.15}
-    在问题 \ref{exc:exercises5.7.1} 中，你证明了一个关于前 $n$ 个自然数的立方和公式。具体来说，你证明了它是这些数之和的平方。
-    
-    在这个问题中，我们希望你证明这个命题的逆命题，即具有这种性质的\emph{唯一}数列是 $\langle 1, 2, \dots, n \rangle$。我们将在下面重新表述这个命题，供你思考并证明。
-
-    \textbf{声明}：假设 $\langle a_i \rangle$ 为实数数列，即 $\forall i \in \mathbb{N} \centerdot a_i \in \mathbb{R}$。假设该数列具有如下性质
+    在问题 \ref{exc:exercises5.7.1} 中，你已证明前 $n$ 个自然数的立方和等于其和的平方。\\
+    本题要求证明其逆命题，即满足该性质的\emph{唯一}数列是 $\langle 1, 2, \dots, n \rangle$。命题重述如下:\\
+    \textbf{声明}：设 $\langle a_i \rangle$ 为实数数列，即 $\forall i \in \mathbb{N} \centerdot a_i \in \mathbb{R}$。假设该数列具有如下性质
     \[\forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} a_k^3 = \bigg(\sum_{k=1}^{n} a_k\bigg)^2\]
-    通过对 $n$ 应用归纳法证明，$\forall n \in \mathbb{N} \centerdot a_n = n$。
+    通过对 $n$ 应用归纳法证明 $\forall n \in \mathbb{N} \centerdot a_n = n$。
 \end{exercise}
 
 \begin{exercise}
+    证明：
     \begin{enumerate}[label=(\alph*)]
-        \item 证明 $\forall n \in \mathbb{N} \centerdot 7^n+7 < 7^{n+1}$。
-        \item 证明 $\forall n \in \mathbb{N} \centerdot 3^n+3 < 3^{n+1}$。
-        \item 找出满足 $\forall n \in \mathbb{N} \centerdot r^n+r < r^{n+1}$ 的实数 $r$ 的集合 $S$，并用归纳法证明你的声明。
+        \item $\forall n \in \mathbb{N} \centerdot 7^n+7 < 7^{n+1}$。
+        \item $\forall n \in \mathbb{N} \centerdot 3^n+3 < 3^{n+1}$。
+        \item 找出满足 $\forall n \in \mathbb{N} \centerdot r^n+r < r^{n+1}$ 的实数 $r$ 的集合 $S$，并用归纳法证明你的结论。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    证明，对于所有 $n \in \mathbb{N}, 2^{3^n}+1$ 是 $3^{n+1}$ 的倍数。
+    证明：对于所有 $n \in \mathbb{N}, 2^{3^n}+1$ 是 $3^{n+1}$ 的倍数。
 \end{exercise}
 
 \begin{exercise}
     $\bigstar$ 假设 $x + \frac{1}{x}$ 为整数，证明对于所有 $n \in \mathbb{Z}, x^n + \frac{1}{x^n}$ 也为整数。\\
-    （\textbf{注意}：这题要求的是对于所有 $n \in \mathbb{Z}$，而不仅仅是 $n \in \mathbb{N}$ !）
+    （\textbf{注意}：本题要求对全体整数 $n \in \mathbb{Z}$ 成立，而不仅仅是自然数 $n \in \mathbb{N}$!）
 \end{exercise}
 
 \begin{exercise}
-    通过对 $n$ 应用归纳法证明，对于所有 $n \in \mathbb{N}, n^3+5n$ 是 $6$ 的倍数。
+    通过对 $n$ 应用归纳法证明：对于所有 $n \in \mathbb{N}, n^3+5n$ 是 $6$ 的倍数。
 \end{exercise}
 
 \begin{exercise}
@@ -150,107 +143,106 @@
 \begin{exercise}
     对于所有 $n \in \mathbb{N} \cup \{0\}$ 定义：
     \[s_n=(3+\sqrt{5})^n+(3-\sqrt{5})^n\]
-    证明所有 $s_n$ 都为整数，并证明 $s_n$ 实际上为 $2^n$ 的倍数。
+    证明所有 $s_n$ 均为整数，且 $s_n$ 实际上是 $2^n$ 的倍数。
 \end{exercise}
 
 \begin{exercise}
-    $\blacktriangleright$ 在这个问题中，我们将证明我们熟悉的\textbf{调和级数}，如下式所示：
+    $\blacktriangleright$ 本题将证明\textbf{调和级数}
     \[\sum_{k=1}^{\infty} \frac{1}{k} = 1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\dots\]
-    是\textbf{发散的}。也就是说，我们要证明所有项之总和不趋近于某个有限极限。
+    是\textbf{发散的}。也就是说，我们要证明所有项之总和不趋近于任何有限极限。
 
-    我们声称以下不等式对于所有自然数 $n$ 都成立：
-    \[\sum_{k=1}^{2^n} \frac{1}{k} > \frac{n+1}{2} \tag{I}\]
+    我们断言以下不等式对于所有自然数 $n$ 都成立：
+    \[\sum_{k=1}^{2^n} \frac{1}{k} > \frac{n+1}{2} \tag{$\gamma$}\]
     \begin{enumerate}[label=(\alph*)]
-        \item 证明当 $n=1$ 时 $(I)$ 成立。
-        \item 假设 $m \in \mathbb{N}$ 是任意且固定的，并假设当 $n=m$ 时 $(I)$ 成立 \\
-            推导出对于 $n=m+1, (I)$ 也成立。请务必指出在什么地方引用了上面的 $n=m$ 是的假设。
-        \item 回顾一下目前为止的成果。解释一下为什么调和级数不收敛。
+        \item 证明当 $n=1$ 时 $(\gamma)$ 成立。
+        \item 假设 $m \in \mathbb{N}$ 为任意且固定自然数，并假设当 $n=m$ 时 $(\gamma)$ 成立 \\
+            推导出当 $n=m+1$ 时 $(\gamma)$ 也成立，并明确指出何处引用了 $n=m$ 的归纳假设。
+        \item 根据以上结论，解释调和级数不收敛的原因。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    证明下面不等式对于所有 $n \in \mathbb{N}$ 成立：
+    证明以下不等式对所有自然数 $n$ 成立：
     \[\sum_{k=1}^{n} \frac{1}{\sqrt{k}} = 1+\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{3}}+\dots+\frac{1}{\sqrt{n}} \ge \sqrt{n}\]
-    据此推导出无穷级数 $\sum_{k=1}^{\infty} \frac{1}{\sqrt{k}}$ 不收敛。
+    据此推导无穷级数 $\displaystyle \sum_{k=1}^{\infty} \frac{1}{\sqrt{k}}$ 不收敛。
 \end{exercise}
 
 \begin{exercise}
-    证明下面不等式对于所有 $n \in \mathbb{N}$ 成立：
+    证明以下不等式对所有自然数 $n$ 成立：
     \[\prod_{i=1}^{n} \Big(1+\frac{1}{i^2}\Big) = \Big(1+\frac{1}{1^2}\Big)\Big(1+\frac{1}{2^2}\Big) \dots \Big(1+\frac{1}{n^2}\Big) < 4-\frac{1}{n}\]
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises5.7.21}
-在这个问题中，你将证明自然数的\textbf{良序原理}。这在定理 \ref{theorem5.5.2} 中有所陈述，在此重申一下：
-\[\forall S \in \mathcal{P}(\mathbb{N}) \centerdot [S \ne \varnothing \implies (\exists \ell \in S \centerdot (\forall x \in S \centerdot \ell \le x))]\]
-也就是说，每个非空的自然数集都有一个\textbf{最小元素}。
+    本题将证明自然数的\textbf{良序原理}（定理 \ref{theorem5.5.2} 的复述）：
+    \[\forall S \in \mathcal{P}(\mathbb{N}) \centerdot [S \ne \varnothing \implies (\exists \ell \in S \centerdot (\forall x \in S \centerdot \ell \le x))]\]
+    也就是说，每个非空自然数子集均有\textbf{最小元素}。
 
-你将通过归纳法证明给定集合 $S$ 是否包含 $n$ 这个元素。
+    你将通过归纳法证明给定集合 $S$ 是否包含 $n$ 这个元素。
 
-我们会为你提供证明框架，并引导你完成剩下的部分：
+    我们会为你提供证明框架，并引导你完成剩余部分：
 
-设 $S \subseteq \mathbb{N}$ 是任意且固定的。对于任意 $n \in \mathbb{N}$，定义 $P(n)$ 为命题
-\[n \in S \implies [\exists \ell \in S \centerdot (\forall x \in S \centerdot \ell le x)]\]
-\begin{enumerate}[label=(\alph*)]
-    \item 证明当 $P(1)$ 成立。（提示：最小的自然数是什么？）
-    \item 设 $k \in \mathbb{N}$ 是任意且固定的。使用逻辑符号写下一个假设，该假设断言 $P(i)$ 对于 $1$ 到 $k$（含）之间的所有 $i$ 都成立。 \\
-    （提示：这一步应该很容易；只需写一个``与''陈述。想想它的含义。）\\
-    接下来假设 $k + 1 \in S$，定义 $T = S - {k + 1}$，会有三种情况：
-    \item 考虑 $T = \varnothing$ 的情况。证明 $S$ 具有最小元素。
-    \item 考虑 $T \ne \varnothing$ 且 $\forall x \in S \centerdot x \ge k + 1$ 的情况。证明 $S$ 具有最小元素。
-    \item 考虑 $T \ne \varnothing$ 且 $\exists x \in S \centerdot x < k + 1$ 的情况。证明 $S$ 具有最小元素。\\
-    （提示：这里你需要使用来自 (b) 的假设，即归纳假设之一！）\\
-    由于 $S$ 在任何情况下都有最小元素，我们推断 $P(k + 1)$ 成立。通过归纳，$\forall n \in \mathbb{N} \centerdot P(n)$。
-    \item 让我们来说明为什么这个证明确实有效！考虑任意 $S \subseteq N$，且 $S \ne \varnothing$。我们如何知道 $S$ 具有最小元素？也就是说，声明 $P(n)$ 的哪个实例保证成立？\\
-    （提示：如果 $S = \varnothing$ ……，则此证明将失败）
-    \item $[\text{附加题}]$ 为什么我们不直接对集合 $S$ 的大小进行归纳呢？为什么这不能证明 WOP？
-\end{enumerate}
+    设 $S \subseteq \mathbb{N}$ 为任意且固定自然数。对于任意 $n \in \mathbb{N}$，定义 $P(n)$ 为命题
+    \[n \in S \implies [\exists \ell \in S \centerdot (\forall x \in S \centerdot \ell le x)]\]
+    \begin{enumerate}[label=(\alph*)]
+        \item 证明 $P(1)$ 成立。（提示：最小自然数是什么？）
+        \item 设 $k \in \mathbb{N}$ 为任意且固定自然数。用逻辑符号写出归纳假设：$P(i)$ 对于 $1$ 到 $k$（含）之间的所有 $i$ 都成立。 \\
+        （提示：这一步应该很容易；只需写一个``与''陈述。想想它的含义。）\\
+        接下来假设 $k + 1 \in S$，定义 $T = S - {k + 1}$，分三种情况讨论：
+        \item 若 $T = \varnothing$，证明 $S$ 具有最小元素。
+        \item 若 $T \ne \varnothing$ 且 $\forall x \in S \centerdot x \ge k + 1$，证明 $S$ 具有最小元素。
+        \item 若 $T \ne \varnothing$ 且 $\exists x \in S \centerdot x < k + 1$，证明 $S$ 具有最小元素。\\
+        （提示：这里你需要使用来自 (b) 的归纳假设！）\\
+        由于 $S$ 在任何情况下都具有最小元素，故 $P(k + 1)$ 成立。通过归纳，$\forall n \in \mathbb{N} \centerdot P(n)$。
+        \item 让我们来说明为什么该证明确实有效！考虑任意 $S \subseteq N$，且 $S \ne \varnothing$。我们如何知道 $S$ 具有最小元素？也就是说，声明 $P(n)$ 的哪个实例保证成立？\\
+        （提示：若 $S = \varnothing$ ……，则证明失败）
+        \item $[\text{附加题}]$ 为什么不直接对 $S$ 的大小进行归纳？此方法为何不能证明良序原理？
+    \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    设 $W$ 是由括号组成的合法字符串的集合。集合 $W$ 中的任意元素 $w$ 满足以下条件之一：
+    设 $W$ 是由括号组成的合法字符串集合。$W$ 中的任意元素 $w$ 满足以下条件之一：
     \begin{enumerate}[i]
         \item $w$ 为字符串 ``$()$''
-        \item $\exists x \in W$，使得 $w$ 是字符串 ``$(x)$''（即 $w$ 是由字符串 $x$ 周围加括号组成的字符串）
-        \item $\exists x, y \in W$，使得 $w$ 是字符串 ``$xy$''（即 $w$ 是将字符串 $y$ 附加在字符串 $x$ 后面而形成的字符串）
+        \item $\exists x \in W$，使得 $w$ 是字符串 ``$(x)$''（即 $w$ 是由字符串 $x$ 周围加括号形成的字符串）
+        \item $\exists x, y \in W$，使得 $w$ 是字符串 ``$xy$''（即 $w$ 是将字符串 $y$ 拼接在字符串 $x$ 后面而形成的字符串）
     \end{enumerate}
-    例如，``$()()$'' 是 $W$ 中的合法字符串，因为它由有效字符串 ``$()$'' 在其后附加 ``$()$'' 而成。但是，``$(( )$'' 不是 $W$ 中的合法字符串，因为它不满足上述任何条件。
+    例如，``$()()$'' 是 $W$ 中的合法字符串，因为它由有效字符串 ``$()$'' 在其后拼接 ``$()$'' 而成。但 ``$(( )$'' 不是 $W$ 中的合法字符串，因为它不满足上述任何条件。
 
-    （再看一个更复杂的例子，请你自己弄清楚为什么 ``$(()(()))$'' 是合法字符串。）
+    （再看一个更复杂的例子，请分析并解释为什么 ``$(()(()))$'' 是合法字符串。）
 
-    证明关于此系统的以下陈述。
+    证明关于此系统的以下陈述：
     \begin{enumerate}[label=(\alph*)]
-        \item 证明每个元素 $w \in W$ 一共有\textbf{偶数}个括号。\\
+        \item 证明每个元素 $w \in W$ 包含\textbf{偶数}个括号。\\
         （提示：使用最小罪犯论证。假设 $w$ 是\emph{最小}奇数长度的字符串……）
-        \item 对于 $w \in W$，令 $L(w)$ 为 $w$ 中出现的左括号的数量，令 $R(w)$ 为右括号的数量。\\
+        \item 对于 $w \in W$，令 $L(w)$ 为 $w$ 中出现的左括号数量，令 $R(w)$ 为右括号数量。\\
         证明 $\forall w \in W \centerdot L(w) = R(w)$。\\
         （提示：对字符串的长度进行归纳。）
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    下面的``错误证明''证明了所有笔都是同一种颜色。到底哪里出了问题？
+    下面的``错误证明''声称所有笔都是同一种颜色。问题到底出在哪里？
 
     \begin{spoof}
-        我们声称所有的笔都是同一种颜色。为了证明这一点，我们将证明任意大小的笔集合中只有一种颜色。我们将使用归纳法来证明这一点。
+        我们声称所有笔都是同一种颜色。为了证明这一点，我们将证明任意大小的笔的集合中只有一种颜色。我们将使用归纳法来证明这一点。
 
         首先，考虑一个只有一支笔的情况。由于只有一支笔，它当然和自己是同一种颜色。
 
-        现在，假设任意 $n$ 支笔的集合中都只有一种颜色。
+        现在，假设任意 $n$ 支笔的集合只有一种颜色。
 
         接着，拿出任意 $n+1$ 支笔，将它们排成一排，并从左到右编号为 $1$ 到 $n + 1$。
 
-        先看看前 $n$ 支笔，即编号为 $1,2,3, \dots ,n$ 的笔。根据假设，这组笔中只有一种颜色（尽管我们还不知道具体是什么颜色）。
+        先观察前 $n$ 支笔，即编号为 $1,2,3, \dots ,n$ 的笔。根据假设，这组笔中只有一种颜色（尽管我们还不知道具体是什么颜色）。
 
-        然后，再看看后 $n$ 支笔，即编号为 $2,3, \dots ,n+1$ 的笔。根据假设，这组笔中也只有一种颜色。
+        再观察后 $n$ 支笔，即编号为 $2,3, \dots ,n+1$ 的笔。根据假设，这组笔中也只有一种颜色。
 
-        由于编号为 $2$ 的笔同时属于这两组，因此，无论编号为 $2$ 的笔是什么颜色，那也是这两组笔的颜色。所以，所有 $n + 1$ 支笔都是同一种颜色。
+        由于编号为 $2$ 的笔同时属于这两个集合，因此，无论编号为 $2$ 的笔是什么颜色，它也是这两组笔的颜色。所以，所有 $n + 1$ 支笔都是同一种颜色。
 
-        通过归纳法，这表明任意大小的笔集合中都只有一种颜色。由此，我们可以推断世界上所有的笔都是同一种颜色。
+        通过归纳法，这表明任意大小的笔的集合都只有一种颜色。由此，我们可以推断世界上所有的笔都是同一种颜色。
     \end{spoof}
 \end{exercise}
 
 \begin{exercise}
-    $n$ 边形是指具有 $n$ 条边的凸多边形。例如，$3$ 边形是三角形，$4$ 边形是任意四边形，依此类推。（``凸''表示形状没有凹陷，或者说，如果从形状内部任意两点画线段，这条线段不会穿出形状外。）
-
-    通过归纳法证明，在一个 $n$ 边形的顶点之间可以画出 $\frac{n(n-3)}{2}$ 条对角线。（注意，不包括多边形的\emph{边}，只计算\emph{内部的}对角线。）
+    $n$ 边形是指具有 $n$ 条边的凸多边形（``凸''指图形无凹陷，即其内部任意两点的连线仍完全包含在图形内部）。例如，$3$ 边形为三角形，$4$ 边形为四边形。\\
+    用归纳法证明：$n$ 边形顶点间可画出 $\frac{n(n-3)}{2}$ 条对角线（不含多边形的\emph{边}，仅计算\emph{内部}对角线）。
 \end{exercise}

@@ -1,140 +1,149 @@
 % !TeX root = ../../../book.tex
 \subsection{示例}
 
-我们将在这里看到三种不同``类型''的例子。尽管它们都使用我们刚刚介绍的强归纳法模板，但它们在引用归纳假设（IH）中的假设时有所不同。第一个例子是强归纳法的直接应用，所以让我们先来看看它，然后讨论其他例子有什么不同。\\
+我们将在此展示三种不同``类型''的示例。尽管它们都采用前述强归纳法模板，但在引用归纳假设 (IH) 时存在差异。第一个例子是强归纳法的直接应用，因此我们先分析它，再讨论其他例子的不同之处。\\
 
-\begin{example}[递归定义数列的公式]
+\begin{example}[递归定义数列的封闭公式]
     
-    \textbf{声明}：序列 $S_n$ 定义为
-    \[s_0 = 1 \;\text{ 且 }\; \forall n \in \mathbb{N} \centerdot s_n = 1 + \sum_{i=0}^{n-1} s_i\]
+    \textbf{声明}：定义序列 $S_n$ 为
+    \[s_0 = 1 \text{\ 且\ } \forall n \in \mathbb{N} \centerdot s_n = 1 + \sum_{i=0}^{n-1} s_i\]
+
     对于每个 $n \in \mathbb{N} \cup \{0\}$，找到并证明 $s_n$ 的封闭公式。
+
+    \begin{proof}
+        令 $P(n)$ 为``$s_n = 2^n$''。我们通过对 $n$ 应用归纳法来证明 $n \in \mathbb{N} \cup \{0\} \centerdot P(n)$。
+
+        \textbf{基本情况}：当 $n=0$ 时，易得 $s_0=1$ 且 $2^0=1$，所以 $s_0=2^0$，因此 $P(0)$ 成立。
+
+        \textbf{归纳假设}：设 $k \in \mathbb{N} \cup \{0\}$ 为任意固定元素，假设 $P(0) \land P(1) \land \dots \land P(k)$ 成立。
+
+        \textbf{归纳步骤}：易得
+        \begin{align*}
+            s_{k+1} &= 1+\sum_{i=0}^{k} s_i &s_{k+1}\text{\ 的定义}\\
+            &= 1+\sum_{i=0}^{k} 2^i &\text{利用归纳假设:} P(0) \land P(1) \land \dots \land P(k)\\
+            &= 1 + (2^{k+1}-1) &\text{标准答案（见练习\ } \ref{exc:exercises2.7.1} \text{）}\\
+            &= 2^{k+1}
+        \end{align*}
+
+        因此 $P(k+1)$ 成立。根据归纳法 $\forall n \in \mathbb{N} \cup \{0\} \centerdot P(n)$ 成立。
+    \end{proof}
 \end{example}
 
-\begin{proof}
-    令 $P(n)$ 为 ``$s_n = 2^n$''。我们通过对 $n$ 应用归纳法来证明 $n \in \mathbb{N} \cup \{0\} \centerdot P(n)$。
+注意此例要求使用归纳假设 (IH) 的全部实例——这正是强归纳法的必要性所在：若不能假设所有前置实例成立，则无法推导出后续结果！
 
-    \textbf{基本情况}：当 $n=0$ 时，不难得到 $s_0=1$ 且 $2^0=1$，所以 $s_0=2^0$，因此 $P(0)$ 成立。
-
-    \textbf{归纳假设}：设 $k \in \mathbb{N} \cup \{0\}$ 是任意固定的，假设 $P(0) \land P(1) \land \dots \land P(k)$ 成立。
-
-    \textbf{归纳步骤}：不难得到
-
-    \begin{align*}
-        s_{k+1} &= 1+\sum_{i=0}^{k} s_i & s_{k+1}\text{ 的定义}\\
-        &= 1+\sum_{i=0}^{k} 2^i & \text{利用归纳假设：}P(0) \land P(1) \land \dots \land P(k)\\
-        &= 1 + (2^{k+1}-1) & \text{标准答案（见练习 } \ref{exc:exercises2.7.1} \text{）}\\
-        &= 2^{k+1}
-    \end{align*}
-
-    因此 $P(k+1)$ 成立。所以，根据归纳法 $\forall n \in \mathbb{N} \cup \{0\} \centerdot P(n)$ 成立。
-\end{proof}
-
-请注意，这个例子要求我们使用归纳假设（IH）中的所有实例。是不是很惊人？确实，我们在这里需要强归纳法。如果不知道之前的所有实例是否成立，我们就无法推导出下一个实例！
-
-与下一个例子不同的是，在这个例子中，我们确切知道使用了归纳假设（IH）的哪些实例（即全部实例）。而在下一个例子中，我们将也会使用归纳假设（IH），但无法确切地指出使用了哪个实例。你会明白我们的意思的！\\
+与下例不同，本例中我们明确使用了归纳假设 (IH) 的全部实例。而在下例中，虽然也会使用归纳假设 (IH)，却无法预先指定具体实例。你将在后续内容中理解这一区别！\\
 
 \begin{example}\label{ex:example5.4.3}
-    首先，我们需要向你介绍（或者提醒你）一些关于质数和自然数的概念。
+    首先，回顾质数和自然数的基本概念。
 
-    \textbf{质数}：\textbf{质数}是下面集合的元素
+    \textbf{质数}：\textbf{质数}是集合
     \[P = \{n \in \mathbb{N} \mid n > 1 \land (n = ab) \implies (a = 1 \lor a = n)\}\]
-    也就是说，质数的因子只有 $1$ 和它本身。
+    的元素。也就是说，质数的因子只有 $1$ 和它本身。
 
-    \textbf{质因数分解}：给定 $x \in \mathbb{N}$，$x$ 的\textbf{质因数分解}为一组质数的乘积，可以重复，乘积的结果等于 $x$。
+    \textbf{质因数分解}：给定 $x \in \mathbb{N}$, $x$ 的\textbf{质因数分解}是将 $x$ 表示为质数的乘积（允许重复），且该乘积等于 $x$。
 
-    例如，$6$ 的质因数分解为 $2 \cdot 3$，$252$ 的质因数分解为 $2 \cdot 2 \cdot 3 \cdot 3 \cdot 7$。
+    例如，$6$ 的质因数分解为 $2 \cdot 3$, $252$ 的质因数分解为 $2 \cdot 2 \cdot 3 \cdot 3 \cdot 7$。
 
-    我们接下来将陈述并证明每个自然数都有一个质因数分解。
+    接下来，我们陈述并证明每个自然数都存在质因数分解。
 
-    \textbf{声明}：令 $F(n)$ 为命题 ``$n$ 由质因数分解''。我们声明 $\forall n \in \mathbb{N} - \{1\} \centerdot F(n)$。
+    \textbf{声明}：令 $F(n)$ 为命题``$n$ 存在质因数分解''。我们声明 $\forall n \in \mathbb{N} - \{1\} \centerdot F(n)$。
+
+    \begin{proof}
+        我们通过对 $n$ 应用强归纳法来证明 $\forall n \in \mathbb{N} - \{1\} \centerdot F(n)$。
+
+        \textbf{基本情况}：$F(2)$ 成立，因为 $2 = 2$ 是自然数 $2$ 的质因数分解。
+
+        \textbf{归纳假设}：设 $k \in \mathbb{N} - \{1\}$ 为任意固定元素，假设 $\forall i \in [k]-\{1\} \centerdot F(i)$ 成立。（即 $F(2) \land F(3) \land \dots \land F(k)$ 成立。）
+
+        \textbf{归纳步骤}：考虑 $k+1$。我们想要找到 $k+1$ 的质因数分解。根据 $k+1$ 本身是否为质数，分两种情况讨论：
+
+        \textbf{情况 1}：如果 $k+1$ 本身是一个质数，则 $k+1$ 是 $k+1$ 的质因数分解，从而证明 $F(k+1)$ 成立。
+
+        \textbf{情况 2}：如果 $k+1$ 不是质数，则存在 $a, b \in \mathbb{N} - \{1\}$ 使得 $k+1 = a \cdot b$。由于 $a, b \neq 1$，所以必有 $1 < a < k+1$ 且 $1 < b < k+1$。即 $2 \le a \le k$ 且 $2 \le b \le k$。
+
+        因此，根据归纳假设，$F(a)$ 和 $F(b)$ 成立。也就是说 $a$ 和 $b$ 都存在质因数分解。将这两个质因数分解相乘即可得到 $a \cdot b = k+1$ 的质因数分解。这表明 $F(k+1)$ 成立。
+
+        无论是上面哪种情况，我们都推导出 $F(k+1)$ 成立。
+
+        根据归纳法，可得 $\forall n \in \mathbb{N} - \{1\} \centerdot F(n)$ 成立。
+    \end{proof}
 \end{example}
 
-\begin{proof}
-    我们通过对 $n$ 应用归纳法来证明 $\forall n \in \mathbb{N} - \{1\} \centerdot F(n)$。
+注意，在这个证明中我们应用了归纳假设 (IH)，但并未指定具体引用的``先前实例''。我们只能依赖具有特定属性的某个 $a$ 和 $b$。这与之前的例子不同，但清楚地表明此处需要使用强归纳法。$k$ 的质因数分解无法帮助我们直接得到 $k+1$ 的质因数分解。思考一下：知道 $14 = 2 \cdot 7$ 能帮助我们得到 $15 = 3 \cdot 5$ 吗？知道 $16 = 2^4$ 能帮助我们判断 $17$ 是质数吗？
 
-    \textbf{基本情况}：$F(2)$ 成立，因为 $2 = 2$ 是自然数 $2$ 的质因数分解。
+我们刚刚证明的这个结论非常重要：它表明每个自然数 $n > 1$ 都存在质因数分解。进一步，质因数分解具有\textbf{唯一性}：每个自然数\emph{有且只有}一种质因数分解（忽略因子顺序）。例如，$6 = 2 \cdot 3$ 与 $6 = 3 \cdot 2$ 视为相同；$252 = 2 \cdot 2 \cdot 3 \cdot 3 \cdot 7$ 等价于 $252 = 7 \cdot 3^2 \cdot 2^2$。
 
-    \textbf{归纳假设}：设 $k \in \mathbb{N} - \{1\}$ 是任意固定的，假设 $\forall i \in [k]-\{1\} \centerdot F(i)$ 成立。（也就是说，假设 $F(2) \land F(3) \land \dots \land F(k)$ 成立。）
+但上述证明并未未涉及唯一性证明！我们仅依赖 $a$ 和 $b$ 的存在性。谁能否认存在其他满足条件的 $c$ 和 $d$ 呢？思考：如何证明质因数分解具有唯一性？你将采用何种方法？
 
-    \textbf{归纳步骤}：考虑 $k+1$。我们想要找到 $k+1$ 的质因数分解。根据 $k+1$ 本身是否为质数，有两种情况：
-
-    \textbf{情况 1}：如果 $k+1$ 本身是一个质数，则 $k+1$ 是 $k+1$ 的质因数分解，从而证明 $F(k+1)$ 成立。
-
-    \textbf{情况 2}：如果 $k+1$ 不是质数，则存在 $a, b \in \mathbb{N} - \{1\}$ 使得 $k+1 = a \cdot b$。由于 $a, b \neq 1$，所以必定有 $1 < a < k+1$ 且 $1 < b < k+1$。即 $2 \le a \le k$ 且 $2 \le b \le k$。
-
-    因此，根据归纳假设，$F(a)$ 和 $F(b)$ 成立。也就是说 $a$ 和 $b$ 都存在质因数分解。将这两个质因数分解相乘就得到 $a \cdot b = k+1$ 的质因数分解。这表明 $F(k+1)$ 成立。
-
-    无论是上面哪种情况，我们都推导出 $F(k+1)$ 成立。
-
-    根据归纳法，我们得到 $\forall n \in \mathbb{N} - \{1\} \centerdot F(n)$。
-\end{proof}
-
-注意，在这个证明中我们应用了归纳假设（IH），但我们并不知道具体引用的是哪个``之前的实例''。我们只能依赖某个具有特定属性的 $a$ 和 $b$。这与之前的例子不同，但清楚表明我们这里需要使用强归纳法。关于 $k$ 的质因数分解无法帮助我们找到 $k+1$ 的质因数分解。想一想：知道 $14 = 2 \cdot 7$ 能帮助我们得到 $15 = 3 \cdot 5$ 吗？知道 $16 = 2^4$ 能帮助我们得到 $17$ 是质数吗？
-
-我们刚刚证明的这个结果非常重要：它表明每个自然数都有一个质因数分解。质因数分解的\textbf{唯一性}也成立，即每个自然数都\emph{有且只有}一个质因数分解。当然，因数分解与``因数的顺序''无关。也就是说，$6 = 2 \cdot 3$ 和 $6 = 3 \cdot 2$ 实际上是相同的因数分解。同样地，$252 = 2 \cdot 2 \cdot 3 \cdot 3 \cdot 7$ 是 $252$ 的唯一分解；这与写作 $252 = 7 \cdot 3^2 \cdot 2^2$ 没有区别。
-
-然而，上述证明中没有涉及这一事实！我们只是利用了某个 $a$ 和 $b$ 的存在来推导出一些结论。谁能说我们不能用具有相同属性的其他 $c$ 和 $d$ 呢？想一想。你能证明质因数分解的唯一性吗？你会使用什么方法？
-
-下一个例子将涉及\textbf{斐波那契数列}，这是我们之前讨论过的数列。具体来说，我们将陈述并证明该数列的\textbf{封闭形式}，斐波那契数列通常是递归定义的。所谓``封闭形式''，指的是可以直接代入并计算的表达式。例如，要找到 $f_100$，使用递归定义的数列，我们必须计算到那一点为止的所有数列：我们需要 $f_99$ 和 $f_98$，这意味着我们需要 $f_97$，这意味着……然而，通过封闭形式，我们只需``代入 $n$''从而直接计算出 $f_100$。\\
+下一个例子将涉及我们之前讨论过的数列——\textbf{斐波那契数列}。具体来说，我们将陈述并证明该数列的\textbf{封闭形式}。斐波那契数列通常以递归形式定义，而``封闭形式''指的是可直接代入并计算出结果的表达式。例如，要计算 $f_{100}$，使用递归定义需要逐步计算所有前项：这需要计算 $f_{99}$ 和 $f_{98}$，进而需要计算 $f_{97}$，依此类推……然而，通过封闭形式，只需代入 $n$ 的值即可直接计算出 $f_{100}$。\\
 
 \begin{example}[斐波那契数列的封闭形式]
 
     \textbf{声明}：斐波那契数列的标准定义如下：
-    \[f_0 = 0 \;\text{ 且 }\; f_1 = 1 \;\text{ 且 }\; \forall n \in \mathbb{N}-\{1\} \centerdot f_n = f_{n-1} + f_{n-2}\]
-    定义 $\varphi = \frac{1+\sqrt{5}}{2}$。则下面等式对于所有 $n \in \mathbb{N}-\{1\}$ 都成立：
+    \[f_0 = 0, \quad f_1 = 1, \quad \forall n \in \mathbb{N}-\{1\} \centerdot f_n = f_{n-1} + f_{n-2}\]
+
+    定义 $\varphi = \frac{1+\sqrt{5}}{2}$。则对于所有 $n \in \mathbb{N}-\{1\}$ 下面等式均成立：
     \[f_n = \frac{1}{\sqrt{5}}\big(\varphi^n-(1-\varphi)^n\big)\]
+
+    \begin{proof}
+        设 $f_n$ 和 $\varphi$ 如声明所定义。
+
+        我们首先证明下面等式成立：
+        \[1+\varphi=\varphi^2 \tag{*1}\]
+
+        不难发现
+        \begin{align*}
+            \varphi^2 &= \Big(\frac{1+\sqrt{5}}{2}\Big)^2 = \frac{1+2\sqrt{5}+5}{4} = \frac{6+2\sqrt{5}}{4} \\
+            &= \frac{3+\sqrt{5}}{2} = 1+\frac{1+\sqrt{5}}{2} = 1+\varphi \\
+        \end{align*}
+
+        接着，我们利用这个等式证明下面的等式：
+        \[2-\varphi=(1-\varphi)^2 \tag{*2}\]
+
+        利用 (*1) 的结论，可以推出
+        \[(1-\varphi)^2 = 1-2\varphi+\varphi^2 = 1-2\varphi+(\varphi+1) = 2-\varphi\]
+
+        令 $P(n)$ 为命题
+        \[f_n = \frac{1}{\sqrt{5}}\big(\varphi^n-(1-\varphi)^n\big)\]
+
+        我们通过对 $n$ 应用归纳法来证明 $\forall n \in \mathbb{N} \cup \{0\} \centerdot P(n)$。
+
+        \textbf{基本情况}：$f(0) = 0$ 且
+        \[\frac{1}{\sqrt{5}}\big(\varphi^0-(1-\varphi)^0\big) = \frac{1}{\sqrt{5}} (1-1) = 0\]
+
+        故 $P(0)$ 成立。
+
+        \textbf{归纳假设}：设 $k \in \mathbb{N} \cup \{0\}$ 为任意固定元素，假设 $\forall i \in [k] \cup \{0\} \centerdot P(i)$ 成立。
+
+        \textbf{归纳步骤}：我们的目标是推导出 $P(k+1)$ 成立。
+
+        \textbf{情况 1}：假设 $k=0$，易得 $f_1=1$ 且
+        \[\frac{1}{\sqrt{5}}\big(\varphi^1-(1-\varphi)^1\big) = \frac{1}{\sqrt{5}} (2\varphi-1) = \frac{1}{\sqrt{5}} (1+\sqrt{5}-1) = \frac{1}{\sqrt{5}} (\sqrt{5}) = 1\]
+
+        故 $P(1)$ 成立。
+
+        \textbf{情况 2}：假设 $k \ge 1$，则
+        \begin{align*}
+            f_{k+1} &= f_k+f_{k-1} & \text{因为 } k \ge 1, \textbf{ 根据定义} \\
+            &= \frac{1}{\sqrt{5}}\big(\varphi^k-(1-\varphi)^k\big) + \frac{1}{\sqrt{5}}\big(\varphi^{k-1}-(1-\varphi)^{k-1}\big) & \text{归纳假设 } P(k), P(k-1)\\
+            &= \frac{1}{\sqrt{5}}\big(\varphi^k+\varphi^{k-1}-(1-\varphi)^k-(1-\varphi)^{k-1}\big) & \textbf{化简}\\
+            &= \frac{1}{\sqrt{5}}\big(\varphi^{k-1}(\varphi+1)-(1-\varphi)^{k-1}((1-\varphi)+1)\big) & \textbf{提取公因式}\\
+            &= \frac{1}{\sqrt{5}}\big(\varphi^{k-1} \cdot \varphi^2-(1-\varphi)^{k-1}(2-\varphi)\big) & \textbf{根据(*1)}\\
+            &= \frac{1}{\sqrt{5}}\big(\varphi^{k+1} -(1-\varphi)^{k-1}(1-\varphi)^2\big) & \textbf{根据(*2)}\\
+            &= \frac{1}{\sqrt{5}}\big(\varphi^{k+1} -(1-\varphi)^{k+1}\big) & 
+        \end{align*}
+
+        故 $P(k+1)$ 成立。
+
+        根据归纳法，我们得出 $\forall n \in \mathbb{N} \cup \{0\} \centerdot P(n)$。
+    \end{proof}
 \end{example}
-
-\begin{proof}
-    设 $f_n$ 和 $\varphi$ 如声明所定义。
-
-    我们首先证明下面的等式成立：
-    \[1+\varphi=\varphi^2 \tag{*1}\]
-    不难发现
-    \begin{align*}
-        \varphi^2 &= \Big(\frac{1+\sqrt{5}}{2}\Big)^2 = \frac{1+2\sqrt{5}+5}{4} = \frac{6+2\sqrt{5}}{4} \\
-        &= \frac{3+\sqrt{5}}{2} = 1+\frac{1+\sqrt{5}}{2} = 1+\varphi \\
-    \end{align*}
-    接着，我们利用这个等式证明下面的等式：
-    \[2-\varphi=(1-\varphi)^2 \tag{*2}\]
-    利用 (*1) 的结论，很容易推出
-    \[(1-\varphi)^2 = 1-2\varphi+\varphi^2 = 1-2\varphi+(\varphi+1) = 2-\varphi\]
-
-    令 $P(n)$ 为命题
-    \[f_n = \frac{1}{\sqrt{5}}\big(\varphi^n-(1-\varphi)^n\big)\]
-    我们通过对 $n$ 应用归纳法来证明 $\forall n \in \mathbb{N} \cup \{0\} \centerdot P(n)$。
-
-    \textbf{基本情况}：$f(0) = 0$ 且
-    \[\frac{1}{\sqrt{5}}\big(\varphi^0-(1-\varphi)^0\big) = \frac{1}{\sqrt{5}} (1-1) = 0\]
-    因此，$P(0)$ 成立。
-
-    \textbf{归纳假设}：设 $k \in \mathbb{N} \cup \{0\}$ 是任意固定的，假设 $\forall i \in [k] \cup \{0\} \centerdot P(i)$ 成立。
-
-    \textbf{归纳步骤}：我们的目标是推导出 $P(k+1)$ 成立。
-
-    \textbf{情况 1}：假设 $k=0$，我们可以很容易推导出 $f_1=1$ 且
-    \[\frac{1}{\sqrt{5}}\big(\varphi^1-(1-\varphi)^1\big) = \frac{1}{\sqrt{5}} (2\varphi-1) = \frac{1}{\sqrt{5}} (1+\sqrt{5}-1) = \frac{1}{\sqrt{5}} (\sqrt{5}) = 1\]
-    这表明 $P(1)$ 成立。
-    \textbf{情况 2}：假设 $k \ge 1$，则
-    \begin{align*}
-        f_{k+1} &= f_k+f_{k-1} & \text{因为 } k \ge 1, \textbf{ 根据定义} \\
-        &= \frac{1}{\sqrt{5}}\big(\varphi^k-(1-\varphi)^k\big) + \frac{1}{\sqrt{5}}\big(\varphi^{k-1}-(1-\varphi)^{k-1}\big) & \text{归纳假设 } P(k), P(k-1)\\
-        &= \frac{1}{\sqrt{5}}\big(\varphi^k+\varphi^{k-1}-(1-\varphi)^k-(1-\varphi)^{k-1}\big) & \textbf{化简}\\
-        &= \frac{1}{\sqrt{5}}\big(\varphi^{k-1}(\varphi+1)-(1-\varphi)^{k-1}((1-\varphi)+1)\big) & \textbf{提取公因式}\\
-        &= \frac{1}{\sqrt{5}}\big(\varphi^{k-1} \cdot \varphi^2-(1-\varphi)^{k-1}(2-\varphi)\big) & \textbf{根据(*1)}\\
-        &= \frac{1}{\sqrt{5}}\big(\varphi^{k+1} -(1-\varphi)^{k-1}(1-\varphi)^2\big) & \textbf{根据(*2)}\\
-        &= \frac{1}{\sqrt{5}}\big(\varphi^{k+1} -(1-\varphi)^{k+1}\big) & 
-    \end{align*}
-    因此, $P(k+1)$ 成立。
-
-    根据归纳法，我们得出 $\forall n \in \mathbb{N} \cup \{0\} \centerdot P(n)$。
-\end{proof}
 
 \subsubsection*{多基本情况讨论}
 
-注意，在前面的例子中，我们需要在归纳步骤（IS）中考虑两种情况。由于斐波那契数列是递归定义的，每一项都依赖于前两项，所以我们不能仅凭 $P(0)$ 成立来推导出 $P(1)$ 成立。我们必须单独证明 $P(1)$ 成立。（你可以回头试试，你会发现自己不得不引用 $f_{-1}$，这是一个未定义的项！）接下来，我们可以利用 $P(0)$ 和 $P(1)$ 成立来推导出 $P(2)$，然后再用 $P(1)$ 和 $P(2)$ 来推导出 $P(3)$ ……也就是说，我们确实需要在整个归纳法的推理开始之前，添加一个额外的基本情况。
+注意，在前面的例子中，我们需要在归纳步骤 (IS) 中考虑两种情况。由于斐波那契数列是递归定义的，每一项都依赖于前两项，因此不能仅凭 $P(0)$ 成立就推导出 $P(1)$ 成立。（你可以尝试验证：这将被迫引用未定义的 $f_{-1}$！）接下来，我们可以利用 $P(0)$ 和 $P(1)$ 成立推导出 $P(2)$，再用 $P(1)$ 和 $P(2)$ 推导出 $P(3)$，依此类推……也就是说，在整个归纳法推理开始前，需要添加一个额外的基本情况。
 
-处理这个问题有两种合法的方法，我们刚刚展示了其中一种。另一种方法是提前认识到这种情况，并在基本情况步骤中提出两个基本情况。为了说明这一点，让我们展示一下如果我们采用第二种方法，证明的相关部分会有什么不同：
+处理这一问题有两种有效方法，我们已展示其中一种。另一种方法是预先识别这种情况，并在基本情况步骤中设置两个基本情况。为了说明这一点，下面展示采用第二种方法时证明的相关部分：
 
 \begin{proof}
 
@@ -144,13 +153,15 @@
 
     \textbf{基本情况}：$f(0) = 0$ 且
     \[\frac{1}{\sqrt{5}}\big(\varphi^0-(1-\varphi)^0\big) = \frac{1}{\sqrt{5}} (1-1) = 0\]
-    因此，$P(0)$ 成立。
+
+    故 $P(0)$ 成立。
 
     并且 $f(1) = 1$ 且
     \[\frac{1}{\sqrt{5}}\big(\varphi^1-(1-\varphi)^1\big) = \frac{1}{\sqrt{5}} (2\varphi-1) = \frac{1}{\sqrt{5}} (1+\sqrt{5}-1) = \frac{1}{\sqrt{5}} (\sqrt{5}) = 1\]
-    因此，$P(1)$ 成立。
+    
+    故 $P(1)$ 成立。
 
-    \textbf{归纳假设}：设 $k \in \mathbb{N}$ 是任意固定的，假设 $\forall i \in [k] \cup \{0\} \centerdot P(i)$ 成立。
+    \textbf{归纳假设}：设 $k \in \mathbb{N}$ 为任意固定自然数，假设 $\forall i \in [k] \cup \{0\} \centerdot P(i)$ 成立。
 
     \textbf{归纳步骤}：我们的目标是推导出 $P(k+1)$ 成立。
 
@@ -159,57 +170,59 @@
     $\dots$
 \end{proof}
 
-我们将特殊的 $P(1)$ 情况移到了基本情况（BC）部分。因此，我们必须修改归纳假设和归纳步骤中的量化过程。在随后的论证中，我们不再使用 $k = 0$，因此在归纳假设中，我们只取任意满足 $k \ge 1$ 的 $k$。然而，我们已经知道 $P(0)$ 成立，所以我们仍然可以在归纳假设中包含它。
+我们将特殊的 $P(1)$ 移至基本情况 (BC) 部分，因此需要调整归纳假设和归纳步骤的量化表述。后续论证中不再使用 $k = 0$，故归纳假设仅考虑 $k \ge 1$。但由于 $P(0)$ 已知成立，仍可将其包含在归纳假设中。
 
-就是这样！这两个证明在本质上是相同的。唯一的区别在于它们的呈现方式，即使如此，这些区别也很小。你可以自由决定在你的证明中更喜欢使用哪种风格（如果有的话）。不过，我们想提醒你，这些区别虽然很小，但也很微妙，有时容易被忽略！如果你发现自己包含了许多基本情况，请确保在开始你的归纳步骤时，寻求证明一个高于这些基本情况的值！你不希望无意中断言某些实际上并不成立的逻辑推论。（例如，回顾上面的第二个证明。如果我们允许 $k = 0$ 作为归纳步骤中的一个情况，我们将无意中引用 $f_{-1}$，而它并不存在。因此，我们会说一些不正确的话，证明将是有缺陷的，尽管不会完全失败。）
+两个证明本质相同，唯一区别在于呈现方式，且这些区别十分微小。你可以自由选择偏好的证明风格（如果有的话）。但需注意：这些区别虽然微小却很微妙，易被忽略！若证明涉及多个基本情况，务必在归纳步骤中证明高于这些基本情形的值。否则可能无意中断言无效的逻辑推论（例如第二个证明中：若允许 $k=0$，将引用不存在的 $f_{-1}$，导致证明有缺陷）。
 
-这种区别通常发生在你被要求证明某个递归定义数列的表达式时，其中序列中的每一项由几个前面的项定义。本节和本章末尾的练习中有许多这种类型的例子。在做这些练习时请牢记这一点！
+此类区别常见于递归定义数列的表达式证明，其中每项依赖于前若干项。本章节及章末练习包含许多此类案例，请务必牢记！
 
 \subsubsection*{需要证明 $n=2$ 的情况}
 
-在强归纳法的证明中，常常需要先证明 $n = 1$ 和 $n = 2$ 的情况再进行归纳假设。特别是，当你需要证明某个不等式或等式对 $n$ 个变量成立时，$n = 1$ 的情况通常比较简单，而 $n = 2$ 的情况则更为复杂，需要更多的工作。然后，剩下的归纳证明则可以通过引用 $n = 2$ 的情况来完成。当然，这意味着在归纳假设中需要取 $k \ge 2$。
+在强归纳法的证明中，通常需要先验证 $n = 1$ 和 $n = 2$ 成立，再建立归纳假设。尤其是证明涉及 $n$ 个变量的不等式或等式时，$n = 1$ 的情形往往较简单，而 $n = 2$ 的情形则需更深入的分析。后续的归纳证明可以通过引用 $n = 2$ 的结论完成，这意味着归纳假设需设定 $k \ge 2$。
 
-我们来看一个例子来说明这个问题。幸运的是，我们已经证明了这个命题在 $n = 2$ 的情况下成立；实际上，它就是集合的德摩根定律之一！\\
+以下通过示例说明。值得注意的是，$n = 2$ 的情形已被证明——这正是集合的德摩根定律之一！\\
 
 \begin{example}[集合的广义德摩根定律：]
 
-    \textbf{声明}：设 $U$ 为全集。对于每个 $i \in \mathbb{N}$，设 $A_i \subseteq U$ 为集合。则下面等式等于所有 $n \in \mathbb{N}$ 成立：
-    \[\overline{\bigcup_{i=1}^{n} A_i} = \bigcup_{i=1}^{n} \overline{A_i}\]
-    换种写法，该声明说的是对于所有 $n \in \mathbb{N}$
+    \textbf{声明}：设 $U$ 为全集。对于每个 $i \in \mathbb{N}$，设集合 $A_i \subseteq U$。则对于所有 $n \in \mathbb{N}$，下列等式成立：
+    \[\overline{\bigcup_{i=1}^{n} A_i} = \bigcap_{i=1}^{n} \overline{A_i}\]
+    
+    上面命题可以等价地写作：对于所有 $n \in \mathbb{N}$
     \[\overline{A_1 \cup A_2 \cup \dots \cup A_n} = \overline{A_1} \cap \overline{A_2} \cap \dots \cap \overline{A_n}\]
+
+    \begin{proof}
+        设 $U$ 及 $A_1, A_2, \dots$ 如声明定义。
+
+        设 $P(n)$ 为命题
+        \[\overline{\bigcup_{i=1}^{n} A_i} = \bigcap_{i=1}^{n} \overline{A_i}\]
+
+        我们通过对 $n$ 应用归纳法来证明 $\forall n \in \mathbb{N} \centerdot P(n)$。
+
+        \textbf{基本情况}：显然 $\overline{A_1} = \overline{A_1}$，故 $P(1)$ 成立。
+
+        并且根据集合的德摩根定律（见定理 \ref{theorem4.6.9}）我们有 $\overline{A_1 \cup A_2} = \overline{A_1} \cap \overline{A_2}$，故 $P(2)$ 成立。
+
+        \textbf{归纳假设}：设 $k \in \mathbb{N}-\{1\}$ 为任意固定元素，假设 $\forall i \in [k] \centerdot P(i)$ 成立。
+
+        \textbf{归纳步骤}：我们的目标是推导出 $P(k+1)$ 成立。
+
+        首先，根据并集的定义，可得
+        \[\bigcup_{i=1}^{k+1} A_i = A_{k+1} \cup \bigcup_{i=1}^k A_i\]
+
+        不妨设
+        \[B_k = \bigcup_{i=1}^k A_i\]
+
+        则
+        \begin{align*}
+            \overline{\bigcup_{i=1}^{k+1} A_i} &= \overline{A_{k+1} \cup B_k} & \text{根据\ } B_k \text{\ 的定义} \\
+            &= \overline{A_{k+1}} \cap \overline{B_k} & \text{根据基本情况\ } P(2) \text{\ （即德摩根定律）}\\
+            &= \overline{A_{k+1}} \cap \overline{\bigcup_{i=1}^k A_i} & \text{根据\ } B_k \text{\ 的定义} \\
+            &= \overline{A_{k+1}} \cap \bigcap_{i=1}^k \overline{A_i} & \text{根据归纳假设\ } P(k) \\
+            &= \bigcap_{i=1}^{k+1} \overline{A_i} & \text{化简}
+        \end{align*}
+
+        故 $P(k+1)$ 成立。
+
+        根据归纳法，$\forall n \in \mathbb{N} \centerdot P(n)$。
+    \end{proof}
 \end{example}
-
-\begin{proof}
-    设 $U$ 和 $A_1, A_2, \dots$ 如声明定义。
-
-    设 $P(n)$ 为命题
-    \[\overline{\bigcup_{i=1}^{n} A_i} = \bigcup_{i=1}^{n} \overline{A_i}\]
-    我们通过对 $n$ 应用归纳法来证明 $\forall n \in \mathbb{N} \centerdot P(n)$。
-
-    \textbf{基本情况}：显然 $\overline{A_1} = \overline{A_1}$，所以 $P(1)$ 成立。
-
-    并且根据集合的德摩根定律（见定理 \ref{theorem4.6.9}）我们有 $\overline{A_1 \cup A_2} = \overline{A_1} \cap \overline{A_2}$，所以 $P(2)$ 成立。
-
-    \textbf{归纳假设}：设 $k \in \mathbb{N}-\{1\}$ 是任意固定的，假设 $\forall i \in [k] \centerdot P(i)$ 成立。
-
-    \textbf{归纳步骤}：我们的目标是推导出 $P(k+1)$ 成立。
-
-    首先，根据并集的定义，我们有
-    \[\bigcup_{i=1}^{k+1} A_i = A_{k+1} \cup \bigcup_{i=1}^k A_i\]
-
-    不妨设
-    \[B_k = \bigcup_{i=1}^k A_i\]
-
-    则
-    \begin{align*}
-        \overline{\bigcup_{i=1}^{k+1} A_i} &= \overline{A_{k+1} \cup B_k} & \text{根据 } B_k \text{ 的定义} \\
-        &= \overline{A_{k+1}} \cap \overline{B_k} & \text{根据基本情况 } P(2) \text{（即德摩根定律）}\\
-        &= \overline{A_{k+1}} \cap \overline{\bigcup_{i=1}^k A_i} & \text{根据 } B_k \text{ 的定义} \\
-        &= \overline{A_{k+1}} \cap \bigcap_{i=1}^k \overline{A_i} & \text{根据归纳假设 } P(k) \\
-        &= \bigcap_{i=1}^{k+1} \overline{A_i} & \text{化简}
-    \end{align*}
-
-    因此 $P(k+1)$ 成立。
-
-    根据归纳法，$\forall n \in \mathbb{N} \centerdot P(n)$。
-\end{proof}
