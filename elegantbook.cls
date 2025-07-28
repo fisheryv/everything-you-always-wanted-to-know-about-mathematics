@@ -452,7 +452,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
   \newcommand{\instancename}{示例} %
   \newcommand{\problemname}{问题} % 问题
   \newcommand{\exercisename}{练习} % 练习=习题
-  \newcommand{\remarkname}{注}
+  \newcommand{\remarkname}{备注}
   \newcommand{\assumptionname}{假设}
   \newcommand{\conclusionname}{结论}
   \newcommand{\solutionname}{解}
@@ -826,7 +826,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
   \newcommand{\examplename}{例題}
   \newcommand{\instancename}{例}
   \newcommand{\exercisename}{練習}
-  \newcommand{\remarkname}{注}
+  \newcommand{\remarkname}{備注}
   \newcommand{\assumptionname}{仮設}
   \newcommand{\conclusionname}{結論}
   \newcommand{\solutionname}{解答}
@@ -1121,8 +1121,13 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
     \\
   \par}
 
+\newenvironment{remark}{
+  \par\noindent\textbf{\color{second}\remarkname：}
+  \color{black!90}\cfs}{
+  \par}
+
 \newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
-\newenvironment{remark}{\noindent\textbf{\color{second}\remarkname}}{\par}
+% \newenvironment{remark}{\noindent\textbf{\color{second}\remarkname}}{\par}
 \newenvironment{assumption}{\par\noindent\textbf{\color{third}\assumptionname} \citshape}{\par}
 \newenvironment{conclusion}{\par\noindent\textbf{\color{third}\conclusionname} \citshape}{\par}
 \newenvironment{property}{\par\noindent\textbf{\color{third}\propertyname} \citshape}{\par}
