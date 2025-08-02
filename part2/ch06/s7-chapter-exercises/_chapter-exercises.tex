@@ -1,32 +1,32 @@
 % !TeX root = ../../../book.tex
 \section{本章习题}
 
-这些问题涵盖了本章的所有内容，甚至包括之前学习的材料和一些假设的数学知识。我们并不要求你解决\textbf{所有}问题，但你做得越多，学到的也越多！记住，要想真正\emph{学会}数学，就必须亲自去\emph{做}。试着亲自动手解决问题，阅读并思考其中的陈述。尝试写出证明并展示给朋友，看看他们是否能被说服。不断练习将你的想法清晰、准确、合乎逻辑地\emph{写}。写完证明后再进行修改，使其更加完善。最重要的是，坚持不断\emph{做}数学！
+本节习题涵盖本章全部内容，并涉及先前知识点及部分数学假设。我们不要求你解答\textbf{所有}题目，但解决得越多，收获越大！请牢记：真正\emph{掌握}数学必须亲自\emph{实践}。尝试动手解题，仔细阅读并思考题意。撰写证明并与朋友讨论，检验其说服力。持续练习如何清晰、准确、有条理地\emph{书写}思路。完成证明后要反复修改以臻完善。最重要的是，坚持\emph{钻研}数学！
 
-标有 $\blacktriangleright$ 号的简答题只需解释或陈述答案，无需严格证明。
+标有 $\blacktriangleright$ 的简答题只需解释或陈述答案，无需严格证明。
 
-特别具有挑战性的问题带有 $\bigstar$。\\
+特别具有挑战性的问题标记为 $\bigstar$。\\
 
 \begin{exercise}
     $\blacktriangleright$ 考虑集合 $A = \{1, 2, 3, 4\}$。对于下列定义在 $A$ 或 $\mathcal{P}(A)$ 上的关系，判断其是否具有 (i)自反性，(ii)对称性，(iii)传递性, (iv)反对称性。
     \begin{enumerate}[label=(\alph*)]
-        \item 定义在 $A$ 上的集合 $R_a= \{ (1, 2),(2, 2),(3, 1),(4, 2),(3, 3) \}$
-        \item 定义在 $A$ 上的集合 $R_b= \{  (1, 1),(2, 2),(3, 3),(3, 4),(4, 3),(4, 4) \}$
-        \item 定义在 $\mathcal{P}(A)A$ 上的集合 $R_c= \forall S, T \in \mathcal{P}(A) \centerdot (S, T) \in R_c \iff S - T \subseteq \{1\}$
-        \item 定义在 $\mathcal{P}(A)A$ 上的集合 $R_d= \forall S, T \in \mathcal{P}(A) \centerdot (S, T) \in R_d \iff S \cap T \subseteq \{1\}$
+        \item 定义在 $A$ 上的关系 $R_a= \{ (1, 2),(2, 2),(3, 1),(4, 2),(3, 3) \}$
+        \item 定义在 $A$ 上的关系 $R_b= \{  (1, 1),(2, 2),(3, 3),(3, 4),(4, 3),(4, 4) \}$
+        \item 定义在 $\mathcal{P}(A)$ 上的关系 $R_c= \forall S, T \in \mathcal{P}(A) \centerdot (S, T) \in R_c \iff S - T \subseteq \{1\}$
+        \item 定义在 $\mathcal{P}(A)$ 上的关系 $R_d= \forall S, T \in \mathcal{P}(A) \centerdot (S, T) \in R_d \iff S \cap T \subseteq \{1\}$
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
     定义 $\mathbb{R}$ 上的关系 $\sim$ 为
     \[\forall a, b \in \mathbb{R} \centerdot a \sim b \iff  \forall x \in \mathbb{R} \centerdot x > 0 \implies ax^2 + bx > 0\]
-    对于关系的如下四个性质 --- (i)自反性，(ii)对称性，(iii)传递性, (iv)反对称性 --- 证明 $\sim$ 满足性质或找出反例证明 $\sim$ 不满足性质。
+    对于关系的如下四个性质 —— (i)自反性，(ii)对称性，(iii)传递性, (iv)反对称性 —— 证明 $\sim$ 满足性质或找出反例证明 $\sim$ 不满足性质。
 \end{exercise}
 
 \begin{exercise}
     定义 $\mathcal{P}(\mathbb{R})$ 上的关系 $\approx$ 为
     \[\forall X, Y \in \mathcal{P}(\mathbb{R}) \centerdot X \approx Y \iff X - Y \subseteq \mathbb{N}\]
-    对于关系的如下四个性质 --- (i)自反性，(ii)对称性，(iii)传递性, (iv)反对称性 --- 证明 $\approx$ 满足性质或找出反例证明 $\approx$ 不满足性质。
+    对于关系的如下四个性质 —— (i)自反性，(ii)对称性，(iii)传递性, (iv)反对称性 —— 证明 $\approx$ 满足性质或找出反例证明 $\approx$ 不满足性质。
 \end{exercise}
 
 \begin{exercise}
@@ -42,33 +42,33 @@
 \end{exercise}
 
 \begin{exercise}
-    设 $p$ 为奇质数（即 $p \ne 2$）。证明 $P^2 \equiv 1 \mod 24$。
+    设 $p$ 为奇质数（即 $p \ne 2$）。证明 $p^2 \equiv 1 \mod 24$。
 \end{exercise}
 
 \begin{exercise}
     用欧几里得引理（见引理 \ref{lemma6.5.25}）证明自然数的质因数分解是\textbf{唯一的}。\\
-    （注意：我们在之前的实例 \ref{ex:example5.4.3} 中证明了质因数分解的\emph{存在性}，但尚未证明其\emph{唯一性}。）
+    （注意：我们在之前的示例 \ref{ex:example5.4.3} 中证明了质因数分解的\emph{存在性}，但尚未证明\emph{唯一性}。）
 \end{exercise}
 
 \begin{exercise}
     定义 $\mathbb{R}$ 上的关系 $T$ 为
     \[\forall x, y \in \mathbb{R} \centerdot (x, y) \in T \iff \Big(\frac{y}{x} \in \mathbb{R} \land \frac{y}{x} \ge 0 \Big)\]
     \begin{enumerate}[label=(\alph*)]
-        \item 对于所有 $x \in \mathbb{R}$，设集合 $S(x)$ 为
+        \item 对于任意 $x \in \mathbb{R}$，设集合 $S(x)$ 为
             \[S(x) = \{y \in \mathbb{R} \mid (x, y) \in T\}\]
             写出集合 $S(-1), S(0), S(1)$。
-        \item 用 (a) 中的三个集合推导出 $T$ \textbf{不是} 等价关系。
+        \item 用 (a) 中的三个集合推导出 $T$ \textbf{不是}等价关系。
         \item 证明 $T$ 不具有自反性和对称性。
-        \item $T$ 具有传递性吗？请证明你的声明。
+        \item $T$ 是否具有传递性？请证明你的结论。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    考虑以下错误证明。请找出论证中哪个声明不正确，并提供解释（包括一个\textbf{例子}），说明为什么论证的结论也是错误的。
+    分析以下错误证明。指出论证中哪里不正确，并给出一个\textbf{反例}说明结论为什么是错误的。
     \begin{quote}
-        设 $n \in \mathbb{N}$ 并设 $a,b,x \in \mathbb{Z}$。假设 $ax \equiv bx \mod n$。我们声明可以``消去'' $x$ 得 $a \equiv b \mod n$。
+        设 $n \in \mathbb{N}$ 且 $a,b,x \in \mathbb{Z}$。假设 $ax \equiv bx \mod n$。我们声称可以``消去''$x$ 得 $a \equiv b \mod n$。
 
-        因为 $ax \equiv bx \mod n$，根据定义可得 $n \mid ax-bx$，因此 $n \mid x(a-b)$，所以 $n \mid a-b$。因此根据定义可得 $a \equiv b \mod n$。
+        因为 $ax \equiv bx \mod n$，根据定义可得 $n \mid ax-bx$，故 $n \mid x(a-b)$，所以 $n \mid a-b$。因此根据定义可得 $a \equiv b \mod n$。
     \end{quote}
 \end{exercise}
 
@@ -78,34 +78,34 @@
         x \equiv 1 \mod 2\\
         x \equiv 2 \mod 6
     \end{align*}
-    \textbf{中国剩余定理}是否能保证存在解 $X$？你能找到一个解吗？
+    \textbf{中国剩余定理}能否保证解存在？你能否求出解？
 \end{exercise}
 
 \begin{exercise}
-    在定义 \ref{def:definition6.5.29} 中，我们将两个整数的\textbf{最大公约数}定义为同时整除这两个整数的\emph{最大}整数。
-
-    现在，我们希望你证明以下对 $\gcd$ 的定义与我们提供的定义是等价的。首先，请阅读定义：
-
-    \textbf{定义}：给定 $a, b \in \mathbb{Z}$。定义 $G(a,b)$ 为 $a$ 和 $b$ 的公因子，并且 $a$ 和 $b$ 的所有公因子都能整除 $G(a, b)$。也就是说
+    在定义 \ref{def:definition6.5.29} 中，我们将两个整数的\textbf{最大公约数}定义为同时整除这两个整数的\emph{最大}整数。\\
+    现在，我们希望你证明下面给出的 $\gcd$ 的定义与我们提供的原定义等价。\\
+    \textbf{定义}：给定 $a, b \in \mathbb{Z}$。定义 $G(a,b)$ 为 $a$ 和 $b$ 的公因子，并且 $a$ 和 $b$ 的所有公因子都均整除 $G(a, b)$。即
     \[G(a, b) \mid a \land G(a, b)\]
     且
     \[\forall d \in \mathbb{Z} \centerdot (d \mid a \land d \mid b) \implies d \mid G(a,b)\]
-    证明这个定义是等价的，也就是证明
+    证明该定义与原定义等价，也就是证明
     \[\forall a, b \in \mathbb{Z} \centerdot \gcd(a, b) = G(a, b)\]
 \end{exercise}
 
 \begin{exercise}
-    考虑如下（显然）错误声明：
+    考虑如下（显然）错误的声明：
 
     \textbf{声明}：$1$ 是 $3$ 的倍数。
 
-    下面错误证明错在哪里？
+    下面给出的错误证明究竟错在哪里？
 
     \begin{quote}
         要想证明 $1 \equiv 0 \mod 3$。显然
         \begin{align*}
-            1 \equiv 4 &\implies 2^1 \equiv 2^4 \equiv 2 \equiv 16 \implies 2 \equiv 1 \\
-            &\implies 2 - 1 \equiv 1 - 1 \implies 1 ≡ 0
+            1 \equiv 4 \mod 3& \implies 2^1 \equiv 2^4 \equiv 2 \equiv 16 \mod 3\\
+            & \implies 2 \equiv 1 \mod 3\\
+            & \implies 2 - 1 \equiv 1 - 1 \mod 3\\
+            & \implies 1 \equiv 0 \mod 3
         \end{align*}
     \end{quote}
 \end{exercise}
@@ -115,33 +115,32 @@
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.13}
-    在这个问题中，你要证明定理 \ref{theorem6.4.12} 的逆命题。具体来说，你将证明以下\textbf{定理}：设集合 $S 、ne \varnothing$，$R$ 是 $S$ 上的等价关系。等价类集合 $S/R$ 构成 $S$ 的一个\textbf{划分}。
-
-    请注意，我们用符号 $[x]_R$ 表示 $x$ \textbf{对应的等价类}，它是 $S$ 中所有与 $x$ 相关的元素的集合。也就是说
+    在这个问题中，你需要证明定理 \ref{theorem6.4.12} 的逆命题。具体来说，你将证明以下\textbf{定理}：设集合 $S \ne \varnothing$，以及 $S$ 上的等价关系 $R$。则等价类集合 $S/R$ 构成 $S$ 的一个\textbf{划分}。\\
+    请注意，符号 $[x]_R$ 表示 $x$ \textbf{对应的等价类}，它是 $S$ 中所有与 $x$ 相关的元素的集合。即
     \[[x]_R = \{y \in S \mid (x, y) \in R\}\]
-    在这个问题的各个部分中，我们假设 $S$ 是一个集合，$R$ 是 $S$ 上的等价关系，因此 $R$ 具有自反性、对称性和传递性。
+    假设 $R$ 是 $S$ 上的等价关系，因此 $R$ 具有自反性、对称性和传递性。
     \begin{enumerate}[label=(\alph*)]
-        \item 设 $x \in S$。证明 $x \in [x]_R$。
-        \item 设 $x, y \in S$。假设 $x \ne y$ 且 $(x, y) \in \mathbb{R}$。证明 $[x]_R = [y]_R$。\\
+        \item 对于任意 $x \in S$。证明 $x \in [x]_R$。
+        \item 对于任意 $x, y \in S$。假设 $x \ne y$ 且 $(x, y) \in \mathbb{R}$。证明 $[x]_R = [y]_R$。\\
             (\textbf{提示}：使用\emph{两次}传递性。)
-        \item 设 $x, y \in S$。假设 $x \ne y$ 且 $(x, y) \notin \mathbb{R}$。证明 $[x]_R \cap [y]_R = \varnothing$。\\
+        \item 对于任意 $x, y \in S$。假设 $x \ne y$ 且 $(x, y) \notin \mathbb{R}$。证明 $[x]_R \cap [y]_R = \varnothing$。\\
             (\textbf{提示}：用反证法。)
-        \item 解释为什么这已经证明了上述\textbf{定理}。
+        \item 说明为什么以上结论证明了该\textbf{定理}。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.14}
-    在这个问题中，你需要证明引理 \ref{lemma6.5.2} 中提到的除法算法。具体来说，你将证明
+    在这个问题中，你需要证明引理 \ref{lemma6.5.2} 所述的除法算法。具体而言，你将证明
     \[\forall a, b \in \mathbb{Z} \centerdot \exists \not k, r \in \mathbb{Z} \centerdot ak + r = b \land 0 \le r \le a-1\]
     \begin{enumerate}
-        \item 设 $M = {\ell \in \mathbb{Z} \mid \ell a \le b}$。证明 $M$ 有\textbf{最大}元素。
+        \item 设 $M = {\ell \in \mathbb{Z} \mid \ell a \le b}$。证明 $M$ 有、存在\textbf{最大}元素。
         \item 设 $k \in M$ 为最大元素。定义 $r = b-ka$。证明 $0 \le r \le a-1$。
         \item 假设 $K,R \in \mathbb{Z}$ 同时满足 $aK + R = b$ 和 $ 0 \le R \le a-1$。证明 $K=k$ 且 $R=r$，从而证明 $k,r$ 是\emph{唯一的}。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.15}
-    证明引理 \ref{lemma6.5.8}。即 $n \mid a - b \iff a \;\text{和}\; b \;\text{模}\; n \;\text{同余}$
+    证明引理 \ref{lemma6.5.8}。即 $n \mid a - b \iff a \equiv b \mod n$
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.16}
@@ -150,59 +149,58 @@
 \end{exercise}
 
 \begin{exercise}
-    本题要求你证明/证伪有关\textbf{毕达哥拉斯三元组}的陈述。毕达哥拉斯三元组是 $(x,y,z) \in \mathbb{Z}^3$ 满足 $x^2+y^2=z^2$。 
-
-    对于下面每种说法，确定其是否\emph{必然}成立。如果成立，请证明。如果不成立，请找到反例。
+    本题要求你证明或证伪有关\textbf{毕达哥拉斯三元组}的陈述。毕达哥拉斯三元组指满足 $x^2 + y^2 = z^2$ 的整数三元组 $(x, y, z) \in \mathbb{Z}^3$。\\
+    对于以下每条陈述，判断其是否\emph{必然}成立。若成立，请证明；若不成立，请给出反例。
     \begin{enumerate}[label=(\alph*)]
-        \item ${x,y,z}$ 中至少有一个为偶数。
-        \item ${x,y,z}$ 中至少有一个为 $3$ 的倍数。
-        \item ${x,y,z}$ 中至少有一个为 $4$ 的倍数。
-        \item ${x,y,z}$ 中至少有一个为 $5$ 的倍数。
+        \item ${x,y,z}$ 中至少有一个是偶数。
+        \item ${x,y,z}$ 中至少有一个是 $3$ 的倍数。
+        \item ${x,y,z}$ 中至少有一个是 $4$ 的倍数。
+        \item ${x,y,z}$ 中至少有一个是 $5$ 的倍数。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    陈述并证明判断自然数 $x \in \mathbb{N}$ 能否被 $11$ 整除的技巧。\\
+    陈述并证明判断自然数 $x \in \mathbb{N}$ 能否被 $11$ 整除的判定方法。\\
     （\textbf{提示}：参考示例 \ref{ex:example6.5.13} 中的类似问题。）
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.19}
-    注意，有一些``小''质数都模 $4$ 余 $3$，例如 $3, 7, 11, 19, 23, 31 \equiv 3 \mod 4$。在这个问题中，你将证明这种形式的质数实际上有\emph{无穷多}个！
+    \indent 很多``较小''质数都模 $4$ 余 $3$，例如 $3, 7, 11, 19, 23, 31 \equiv 3 \mod 4$。本题将证明此类质数有\emph{无穷多}个！
 
-    （你可能会注意到，这个证明的步骤与证明质数有无穷多个的步骤非常相似！）
+    （你可能会注意到，这里的步骤与证明质数有无穷多个的步骤非常相似！）
     \begin{enumerate}[label=(\alph*)]
-        \item 假设 $n \in \mathbb{N}$ 且 $n \equiv 3 \mod 4$。证明必然存在质数 $p$ 满足 $p \equiv 3 \mod 4$ 且 $p \mid n$。\\
+        \item 设 $n \in \mathbb{N}$ 且 $n \equiv 3 \mod 4$。证明必然存在质数 $p$ 满足 $p \equiv 3 \mod 4$ 且 $p \mid n$。\\
         （\textbf{提示}：$3 \equiv -1 \mod 4$。）
-        \item 现在，为了引出矛盾而假设满足 $p \equiv 3 \mod 4$ 的质数只有\emph{有限多}个。我们定义这些特定质数组成的集合为 $P = \{p_1, p_2, \dots, p_k\}$，其中 $p_k$ 为最大的质数。\\
+        \item 为了引出矛盾而假设满足 $p \equiv 3 \mod 4$ 的质数只有\emph{有限多}个。我们定义这些特定质数组成的集合为 $P = \{p_1, p_2, \dots, p_k\}$，其中 $p_k$ 为最大的质数。\\
         定义新数 $N = p1 \cdot p2 \cdot p3 \cdot \dots \cdot p_k$。\\
         解释为什么 $N$ 必然为奇数，以及为什么 $N$ 严格大于集合 $P$ 中的所有质数。
         \item 定义 $M$ 为 $N$ 之后下一个模 $4$ 余 $3$ 的最大数。请解释为什么 $M - N$ 只能是 $2$ 或 $4$。
         \item 请解释为什么在 $M - N = 2$ 或 $M - N = 4$ 的情况下，这意味着 $N$ 的任意质因数都不会是 $M$ 的质因数。\\
         （\textbf{提示}：回想一下 $a \mid b \land a \mid c \implies a \mid (b \pm c)$。）
-        \item 利用到目前为止所证明的内容来解释为什么 $M$ 必然是质数。
-        \item 我们得出了什么矛盾？请给出结论。
+        \item 利用到目前为止所证明的内容解释为什么 $M$ 必为质数。
+        \item 由此得出了什么矛盾？请给出最终结论。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    模仿前一个问题 \ref{exc:exercises6.7.19} 的步骤证明也有无穷多个质数模 $6$ 余 $5$。
+    模仿问题 \ref{exc:exercises6.7.19} 的步骤，证明存在无穷多个质数模 $6$ 余 $5$。
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.21}
-    在这个问题中，你将证明 MIRP 引理 \ref{lemma6.5.24} 的第二个结论。具体来说，你将证明以下声明：
-    \begin{quote}
-        给定 $a \in \mathbb{Z}$ 且 $n \in \mathbb{N}$，假设 $a$ 和 $n$ \emph{不}互质。则不存在 $x \in \mathbb{Z}$ 使得 $ax \equiv 1 \mod n$。
-    \end{quote}
+    在这个问题中，你将证明 MIRP 引理 \ref{lemma6.5.24} 的第二个结论。具体来说，你将证明以下命题：
+    \begin{center}
+        给定 $a \in \mathbb{Z}$ 和 $n \in \mathbb{N}$，假设 $a$ 和 $n$ \emph{不}互质。则不存在 $x \in \mathbb{Z}$ 使得 $ax \equiv 1 \mod n$。
+    \end{center}
     \begin{enumerate}[label=(\alph*)]
-        \item 我们假设 $a$ 和 $n$ 不互质。这意味着什么？
+        \item 假设 $a$ 和 $n$ 不互质。这意味着什么？
         \item 为了引出矛盾而假设存在 $x \in \mathbb{Z}$，使得 $ax \equiv 1 \mod n$，给定这样的 $x$。据此写出一个包含 $a,x,n$ 的\emph{方程}（不是\emph{同余式}）。
-        \item 利用 (a) 中的知识重写这个方程。
+        \item 利用 (a) 给出的信息重写此方程。
         \item 你发现了什么矛盾？
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.22}
-    对于以下每个陈述，判断其为\verb|真|还是为\verb|假|。如果为\verb|真|，请证明它；如果为\verb|假|，请给出一个反例。
+    对于以下每个陈述，判断其为\verb|真|还是为\verb|假|。若为\verb|真|，请证明它；若为\verb|假|，请给出一个反例。
     \begin{enumerate}[label=(\alph*)]
         \item $\forall x, y \in \mathbb{Z} \centerdot (x + y)^2 \equiv x^2 + y^2 \mod 2$
         \item $\forall x, y \in \mathbb{Z} \centerdot (x + y)^3 \equiv x^3 + y^3 \mod 3$
@@ -210,147 +208,144 @@
         \item $\forall x, y \in \mathbb{Z} \centerdot (x + y)^5 \equiv x^5 + y^5 \mod 5$
         \item $\forall x, y \in \mathbb{Z} \centerdot (x + y)^6 \equiv x^6 + y^6 \mod 6$
     \end{enumerate}
-    \textbf{挑战性问题}：你能否对使下面陈述为\verb|真|的 $n$ 值做出一个猜想？
+    \textbf{挑战性问题}：你能否对使下列陈述为\verb|真|的 $n$ 值提出一个猜想？
     \[\forall x, y \in \mathbb{Z} \centerdot (x + y)^n \equiv x^n + y^n \mod n\]
-    你能\textbf{证明}这个猜想吗？你能描述出使该陈述为\verb|假|的 $n$ 值吗？
+    你能\textbf{证明}这个猜想吗？你能描述使该陈述为\verb|假|的 $n$ 值吗？
 \end{exercise}
 
+\clearpage
+
 \begin{exercise}
-    判断下面方程是否存在整数解 $x, y \in \mathbb{Z}$
+    判断下列方程是否存在整数解 $x, y \in \mathbb{Z}$
     \[3x^2 - 5y^2 = 2\]
-    （\textbf{提示}：用乘法逆元和平方残差。）
+    （\textbf{提示}：用乘法逆元和二次残差。）
 \end{exercise}
 
 \begin{exercise}
-    证明下面方程无整数解 $x, y \in \mathbb{Z}$
+    证明下列方程无整数解 $x, y \in \mathbb{Z}$
     \[3x^2 - 5y^2 = 15\]
 \end{exercise}
 
 \begin{exercise}
-    对于以下每个方程，找出所有整数解 $x, y \in \mathbb{Z}$，或者解释为什么不存在整数解。
+    对于以下每个方程，求出所有整数解 $x, y \in \mathbb{Z}$，或者解释为什么不存在整数解。
     \begin{enumerate}[label=(\alph*)]
-        \item $2x + 4y = 9$
+        \item $\enspace 2x + \enspace 4y = 9$
         \item $18x - 15y = 21$
-        \item $6x - 15y = 17$
-        \item $ 6x - 15y = 33$
+        \item $\enspace 6x - 15y = 17$
+        \item $\enspace 6x - 15y = 33$
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.26}
-    在这个问题中，你将通过\emph{归纳法}证明中国剩余定理（定理 \ref{theorem6.5.28}）。然后，你将应用证明中提出的迭代方法来解一个特定的同余方程组。
+    在这个问题中，你将通过\emph{归纳法}证明中国剩余定理（定理 \ref{theorem6.5.28}）。然后，应用证明中提出的迭代方法求解一个特定的同余方程组。
     \begin{enumerate}[label=(\alph*)]
-        \item 假设我们有两个同余式
+        \item 假设有两个同余式
         \begin{align*}
             x \equiv a_1 \mod n_1\\
             x \equiv a_2 \mod n_2
         \end{align*}
-        其中 $a_1, a_2$ 互质。
-
-        使用``模''运算的定义，根据这些同余式写出两个\textbf{方程}。通过代数方法结合这些方程，推导出\textbf{一个}同余式，这个同余式是模 $n_1n_2$ 的。
+        其中 $a_1, a_2$ 互质。使用``模''运算的定义，根据上述同余式列出两个\textbf{方程}。通过代数方法合并方程，推导出\textbf{单一}模 $n_1n_2$ 的同余式。
         \item 利用 $n_1$ 和 $n_2$ 互质的假设，推导出 $n_2 - n_1$ 与 $n_1n_2$ 也互质。\\
-        （\textbf{提示}：需要使用欧几里得引理 \ref{lemma6.5.25}。）
-        \item 推导出你可以写出一个形如 $X \equiv \underline{\qquad} \mod n_1n_2$ 的单一同余式。
+        （\textbf{提示}：使用欧几里得引理 \ref{lemma6.5.25}。）
+        \item 推导出形如 $X \equiv \underline{\qquad} \mod n_1n_2$ 的单一同余式。
         
-            这已经证明了基本情况：我们可以将两个同余合并为一个。
+            这已经证明了基本情况：两个同余式可以合二为一。
         \item 接下来证明归纳步骤：
 
-            假设 $r \in \mathbb{N} - \{1\}$，并且我们有 $r$ 个自然数 $n_1, n_2, \dots , n_r \in \mathbb{N}$，它们两两互质（也就是说，任意两个数除了 $1$ 以外没有任何公因数）。假设我们还有 $r$ 个整数 $a_1, a_2, \dots , a_r \in \mathbb{Z}$。
+            设 $r \in \mathbb{N} - \{1\}$，并且我们有 $r$ 个两两互质的自然数 $n_1, n_2, \dots , n_r \in \mathbb{N}$（即，任意两个数除了 $1$ 以外没有任何公因数）；还有 $r$ 个整数 $a_1, a_2, \dots , a_r \in \mathbb{Z}$。
 
-            我们要通过对给定的同余数 $r$ 应用归纳法证明
+            我们通过对给定的同余数 $r$ 应用归纳法证明
             \[\exists X \in \mathbb{Z} \centerdot \forall i \in [r] \centerdot X \equiv a_i \mod n_i\]
-            利用你在该问题中已经证明的内容，将其重新写成一个包含 $r-1$ 个同余的方程组。
-        \item 解释为什么这已经通过归纳法证明了中国剩余定理。
-        \item 现在，考虑下面同余方程组
+            利用已证结论，将方程组重写为 $r-1$ 个同余式。
+        \item 解释为什么这完成了中国剩余定理的归纳证明。
+        \item 考虑以下同余方程组：
             \begin{align*}
                 x \equiv 2 \mod 3 \\
                 x \equiv 2 \mod 5 \\
                 x \equiv 4 \mod 7
             \end{align*}
-            应用上述证明中产生的迭代方法解该方程组。
+            应用上述证明的迭代方法求解该方程组。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises6.7.27}
-    在这个问题中，你将通过\emph{构造性}方法证明中国剩余定理（定理 \ref{theorem6.5.28}）。然后，你将应用构造性方法来解一个特定的同余方程组。
+    \indent 在这个问题中，你将通过\emph{构造性}方法证明中国剩余定理（定理 \ref{theorem6.5.28}）。然后，应用构造性方法求解一个特定的同余方程组。
 
-    假设 $r \in \mathbb{N} - \{1\}$，并且我们有 $r$ 个自然数 $n_1, n_2, \dots , n_r \in \mathbb{N}$，它们两两互质（也就是说，任意两个数除了 $1$ 以外没有任何公因数）。假设我们还有 $r$ 个整数 $a_1, a_2, \dots , a_r \in \mathbb{Z}$。
+    设 $r \in \mathbb{N} - \{1\}$，并且我们有 $r$ 个两两互质的自然数 $n_1, n_2, \dots , n_r \in \mathbb{N}$ （即，任意两个数除了 $1$ 以外没有任何公因数）；还有 $r$ 个整数 $a_1, a_2, \dots , a_r \in \mathbb{Z}$。
 
     我们要证明
     \[\exists X \in \mathbb{Z} \centerdot \forall i \in [r] \centerdot X \equiv a_i \mod n_i\]
-    我们将通过帮助你定义这样一个 $X$，并证明它确实满足所有的同余关系。
+
+    通过构造满足条件的 $X$ 并验证其满足所有同余关系完成证明。
 
     在整个问题中，我们使用定理陈述中定义的 $N$：
     \[N = \prod_{i \in [r]} n_i\]
     \begin{enumerate}[label=(\alph*)]
-        \item 对于所有 $i \in [r]$，定义 $N_i = \frac{N}{n_i}$。解释为什么 $n_i$ 和 $N_i$ 互质。
+        \item 对于每个 $i \in [r]$，定义 $N_i = \frac{N}{n_i}$。解释为什么 $n_i$ 与 $N_i$ 互质。
         \item 引用一个结果，保证（对于每个 $i \in [r]$）存在整数 $y_i$，使得 $y_iN_i \equiv 1 \mod n_i$。
         \item 定义
             \[X = \sum_{j=1}^{r} a_jN_jy_j\]
             现在我们的目标是证明对于所有 $i \in [r], X \equiv a_i \mod n_i$。
 
-            设 $i \in [r]$ 为任意固定元素。证明对于所有 $j \ne i$ 上面定义 $X$ 的求和式中的对应项与 $a_i$ 模 $n_i$ 同余；也就是说，证明
+            设 $i \in [r]$ 为任意固定元素。证明对于所有 $j \ne i$，$X$ 求和式中的对应项与 $a_i$ 模 $n_i$ 同余；即证明
             \[\forall j \in [r] \centerdot j \ne i \implies a_jN_jy_j \equiv 0 \mod n_i\]
-        \item 令 $i$ 为与前一部分相同的固定值。现在，证明当 $j = i$ 时，上面定义 $X$ 的求和式中的对应项与 $a_i$ 模 $n_i$ 同余；也就是说，证明
+        \item 对同一固定 $i$。证明当 $j = i$ 时，$X$ 求和式中的对应项与 $a_i$ 模 $n_i$ 同余；即证明
             \[a_iN_iy_i \equiv a_i \mod n_i\]
-        \item 利用你刚刚证明的结果，解释为什么 $X$ 能够满足\emph{所有} $r$ 个同余关系。
+        \item 利用上述结果，解释 $X$ 如何满足\emph{所有} $r$ 个同余关系。
         
-        \begin{quote}
+        \begin{center}
             额外证明\textbf{中国剩余定理}的第二个结论，即所有解模 $N$ 同余。
-        \end{quote}
+        \end{center}
 
-        \item 现在，考虑下面同余方程组
+        \item 考虑以下同余方程组
             \begin{align*}
                 x \equiv 2 \mod 3 \\
                 x \equiv 2 \mod 5 \\
                 x \equiv 4 \mod 7
             \end{align*}
-            具体来说，$n_1 = 3, n_2 = 5, n_3 = 7$ 且 $a_1 = 2, a_2 = 2, a_3 = 4$。根据上述步骤中的定义，找到 $N$ 和 $N_i$ 以及 $y_i$（对于每个 $i \in [3]$），并据此找到解 $X$。
-        \item 利用\textbf{中国剩余定理}的另一个结论，用集合构建符写出前一部分给定方程组的\emph{所有}解的集合，并找出\textbf{最小}自然数解。
+            其中 $n_1 = 3, n_2 = 5, n_3 = 7$ 且 $a_1 = 2, a_2 = 2, a_3 = 4$。根据上述步骤中的定义，对于每个 $i \in [3]$，计算 $N$, $N_i$ 以及 $y_i$，并据此求解 $X$。
+        \item 利用\textbf{中国剩余定理}的第二个结论，用集合构建符写出该方程组的\emph{所有解}，并求出\textbf{最小}自然数解。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    印度数学家\textbf{婆罗摩笈多 (Brahmagupta)} 在 $7$ 世纪提出了以下谜题。（这表明人们已经思考这些问题数千年了！）
+    \indent 印度数学家\textbf{婆罗摩笈多 (Brahmagupta)} 于公元七世纪提出以下谜题。（这表明人们已经思考这些问题数千年了！）
 
-    阅读这个谜题，并根据该故事描述一个同余方程组。
+    阅读谜题，并根据故事描述建立对应的同余方程组，随后求解。
 
-    然后，试着解决这个问题！
-
-    （\textbf{提示}：我们建议使用某种迭代方法，因为根据问题的描述，中国剩余定理在这里不适用。 [为什么不适用？] 你能否在方法的第一步中巧妙地处理，使得中国剩余定理适用呢？）
+    （\textbf{提示}：建议使用迭代法，因为根据问题描述，中国剩余定理在此不适用。为什么不适用？能否调整第一步的处理方式使其适用？）
 
     \begin{quote}
-        一位妇人从市场回来，手里提着一篮鸡蛋。突然，一个路过的男人撞到了她，篮子里的鸡蛋掉落一地，全都碎了！
+        一妇市归，提篮贮卵。一男过而触之，篮倾卵堕，尽碎矣！
 
-        ``真是对不起！''男人说。``请让我去市场再买些鸡蛋给你。你一共有多少个？''
+        男子揖曰：``歉甚！容吾复购偿卵。卵数几何？''
 
-        妇人看了看地上，只看到一片混乱的蛋壳、蛋黄和泥土。根本没法数清楚。
+        妇人视地，唯见壳黄泥泞，不可计数。遂对曰：``数不能忆，然记其状：二数余一，三数余二，四数余三，五数余四，六数余五，七数适尽。唯忘七之组耳。''
 
-        ``我记不太清了，''她对男人说，``但我记得这些情况：
+        男子笑曰：``无妨，言已明矣，吾知卵数，如数补偿，并馈糕饵。''言讫，趋市。
 
-        我先是两个两个地数，剩下一个。然后三个三个地数，剩下两个。四个四个地数，剩下三个。五个五个地数，剩下四个。六个六个地数，剩下五个。最后七个七个地数，正好整除，所以我就这样把鸡蛋放进篮子里的。唉，但我不记得有多少组七了！''
+        妇人立候，俄顷亦得卵数。
 
-        ``没关系，''男人笑着说。``你已经说得很清楚了。我知道你有多少鸡蛋，我会在几分钟内带同样数量的鸡蛋回来，还会给你带个甜面包。''他对妇人笑了笑，转身走向市场。
-
-        妇人站在原地等了几分钟，在此期间，她也算出了她买了多少鸡蛋。
-
-        到底有多少鸡蛋？
+        问：卵数几何？
     \end{quote}
 \end{exercise}
 
+\clearpage
+
 \begin{exercise}
-    \textbf{挑战性问题}：研究等价关系
+    \textbf{挑战性问题}：等价关系研究
     \begin{enumerate}[label=(\alph*)]
-        \item 假设 $R$ 和 $S$ 是集合 $A$ 上的等价关系。假设 $A/R = A/S$（即每个等价关系下的等价类集合相同）。证明：$R = S$。
-        \item 假设 $R$ 和 $S$ 是集合 $A$ 上的等价关系。$R \cap S$ 一定是等价关系吗？
-        \item 假设 $R$ 和 $S$ 是集合 $A$ 上的等价关系。$R \cup S$ 一定是等价关系吗？
-        \item 假设 $R$ 和 $S$ 是集合 $A$ 上的等价关系。定义关系的\emph{复合}为：
+        \item 设 $R$ 和 $S$ 为集合 $A$ 上的等价关系。假设 $A/R = A/S$（即每个等价关系下的等价类集合相同）。证明：$R = S$。
+        \item 设 $R$ 和 $S$ 为集合 $A$ 上的等价关系。$R \cap S$ 一定是等价关系吗？
+        \item 设 $R$ 和 $S$ 为集合 $A$ 上的等价关系。$R \cup S$ 一定是等价关系吗？
+        \item 设 $R$ 和 $S$ 为集合 $A$ 上的等价关系。定义关系\emph{复合}为：
             \[S \circ R = \{(x, z) \in A \times A \mid \exists y \in A \centerdot (x, y) \in R \land (y, z) \in S\}\]
             $S \circ R$ 一定是等价关系吗？
-        \item 假设 $R$ 和 $S$ 是集合 $A$ 上的等价关系。$A/R$ 和 $A/S$ 为 $A$ 的\emph{划分}。
+        \item 设 $R$ 和 $S$ 是集合 $A$ 上的等价关系。$A/R$ 和 $A/S$ 为 $A$ 的\emph{划分}。
         
-            我们说划分 $\mathcal{F}$ \textbf{细分}划分 $\mathcal{G}$ 当且仅当
+            我们称划分 $\mathcal{F}$ \textbf{细分}划分 $\mathcal{G}$ 当且仅当
             \[\forall X \in \mathcal{F} \centerdot \exists Y \in \mathcal{G} \centerdot X \subseteq Y\]
             证明
-            \[R \subseteq S \iff A/R \;\text{细分}\; A/S\]
+            \[R \subseteq S \iff A/R \text{\ 细分\ } A/S\]
     \end{enumerate}
 \end{exercise}
