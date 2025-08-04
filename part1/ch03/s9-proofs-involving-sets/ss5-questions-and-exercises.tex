@@ -8,7 +8,7 @@
 \begin{enumerate}[label=(\arabic*)]
     \item 如何定义 $\subseteq$？如何用它证明 $A \subseteq B$？
     \item 两个集合相等意味着什么？
-    \item 什么是\emph{双重包含}证明？
+    \item 什么是\emph{双向包含}证明？
     \item 什么是反例？
     \item 设 $A,B,U$ 为集合且 $A,B \subseteq U$。为什么通过证明 $\overline{B} \subseteq \overline{A}$ 可以推出 $A \subseteq B$？请向朋友解释这一方法的有效性。
 \end{enumerate}
@@ -30,8 +30,8 @@
             \item $A \subseteq B$
             \item $B \subseteq A$
         \end{enumerate}
-    \item 设 $A, B, U$ 为集合且 $A, B \subseteq U$。通过\emph{双重包含论证}证明 $A - B = A \cap \overline{B}$。
-    \item 定义 $S = \{x \in \mathbb{R} \mid -2 < x < 5\}$ 和 $T = \{x \in \mathbb{R} \mid -4 \le x \le 3\}$。当全集为 $\mathbb{R}$ 时，$S \cap \overline{T}$ 是什么？求出该集合，并用双重包含论证证明其正确性。
+    \item 设 $A, B, U$ 为集合且 $A, B \subseteq U$。通过\emph{双向包含论证}证明 $A - B = A \cap \overline{B}$。
+    \item 定义 $S = \{x \in \mathbb{R} \mid -2 < x < 5\}$ 和 $T = \{x \in \mathbb{R} \mid -4 \le x \le 3\}$。当全集为 $\mathbb{R}$ 时，$S \cap \overline{T}$ 是什么？求出该集合，并用双向包含论证证明其正确性。
     \item \textbf{证明}：若 $A \subseteq B$，则 $\mathcal{P}(A) \subseteq \mathcal{P}(B)$。\label{exc:exercises3.9.7}
     \item 对于每个 $n \in \mathbb{N}$，定义 $S_n = \{x \in \mathbb{R} \mid -\frac{1}{n} < x < \frac{1}{n}\}$。证明：
         \[\bigcap_{n \in \mathbb{N}}S_n = \{0\}\]
@@ -42,6 +42,6 @@
             A_n &= \Big\{x \in \mathbb{R} \mid 0 ≤ x < \frac{n - 1}{n}\Big\} \\
             B_n &= \Big\{y \in \mathbb{R} \mid -\frac{1}{n} < y < 1\Big\}
         \end{align*}
-        用双重包含论证\textbf{证明}：
+        用双向包含论证\textbf{证明}：
         \[\bigcup_{n \in \mathbb{N}}A_n = \bigcap_{n \in \mathbb{N}}B_n\]
 \end{enumerate}
