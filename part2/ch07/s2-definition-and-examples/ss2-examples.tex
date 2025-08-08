@@ -15,7 +15,12 @@
     定义函数 $f : \mathbb{R} \to \mathbb{R}$ 为 $\forall x \in \mathbb{R} \centerdot f(x) = x^2$。
 \end{quotation}
 
-思考每种定义如何符合前文给出的函数定义。第一种直接表明函数是 $\mathbb{R}$ 到 $\mathbb{R}$ 的\emph{关系集合}；第二种通过集合构建符表示 $f$，避免使用\emph{当且仅当}语句；第三种则强调每个输入 $x \in \mathbb{R}$ 都有\emph{唯一}一个``输出''。
+思考以上每种定义如何符合前文给出的函数定义。
+\begin{itemize}
+    \item 第一种直接表明函数是 $\mathbb{R}$ 到 $\mathbb{R}$ 的\emph{关系}，其本质是有序对的集合；
+    \item 第二种通过集合构建符表示 $f$，避免使用\emph{当且仅当}语句；
+    \item 第三种则强调每个输入 $x \in \mathbb{R}$ 都有\emph{唯一}一个``输出''。
+\end{itemize}
 
 我们\emph{通常}采用第三种表示法，因为它更容易理解且符合我们对函数的直观认识。特殊情况下也会选用其他表示法——例如需要强调函数底层结构或简化书写时。但定义函数时务必明确四个关键要素：\emph{定义域}、\emph{值域}、\emph{函数名}及\emph{映射规则}或\emph{集合}。
 
@@ -25,7 +30,7 @@
         return x+1;
     }
 \end{verbatim}
-上面代码定义了一个函数 (\verb|PlusOne|)，输入一个整数 (\verb|x|)，加一后输出另一个整数。其中 \verb|x| 前的 \verb|int| 是输入的数据类型（整型），函数名 \verb|PlusOne| 前的 \verb|int| 是输出的数据类型（整型）。
+上面代码定义了一个函数 (\verb|PlusOne|)，输入一个整数 (\verb|x|)，加一后输出另一个整数。其中 \verb|x| 前的 \verb|int| 是输入的数据类型（整型），函数名 \verb|PlusOne| 前的 \verb|int| 是输出的数据类型（整型）。\\
 
 \begin{example}
     考虑一个将自然数转换为其二进制表示的函数，记为 $B$。根据定义，$B(1) = 1, B(2) = 10, B(10) = 1010$。该函数的定义域是什么？值域是什么？能否严格写出其定义\emph{规则}，还是用文字描述更为适宜？
@@ -73,7 +78,7 @@
     \end{enumerate}
 \end{definition}
 
-让我们用一个例子来阐释此概念。后面我们还会看到一些非函数的例子，并且会再次引用\textbf{良好定义的函数}的定义。
+让我们用一个例子来阐释此概念。后面我们还会看到一些非函数的例子，并且会再次引用\textbf{良好定义的函数}的定义。\\
 
 \begin{example}
     设函数 $a : \mathbb{Z} \to \mathbb{N}$ 定义为
@@ -121,14 +126,19 @@
     \item 可能存在某个定义域中的元素\textbf{有多个``输出''}。
     \item 可能存在某个定义域中的元素只有一个``输出''，但该``输出''\textbf{不在值域中}。
 \end{itemize}
-以下示例说明了这些情况。
+以下示例说明了这些情况。\\
 
 \begin{example}
     设函数 $G : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 定义为
     \[\forall (a, b) \in \mathbb{N} \times \mathbb{N} \centerdot G(a, b) = a - b\]
+
     这\textbf{不是}一个良好定义的函数，因为定义域中的多个元素其输出不在值域中。例如，$(5, 10) \in \mathbb{N} \times \mathbb{N}$，此时 $G(5, 10) = -5$，但 $-5 \notin \mathbb{N}$。
 \end{example}
 
+\clearpage
+
 \begin{example}
-    假设 $W$ 为所有英语单词的集合。定义 $A: W \to W$ 为输入单词，输出不是原单词的异序词 (anagram)\footnote{异序词 (anagram) 指的字母相同但顺序不同的单词}。这\textbf{不是一个良好定义的}函数，原因有二。例如，$A(\text{HI})$ 和 $A(\text{FUNCTION})$ 都不存在。此外，像 $A(\text{INTEGRAL})$ 这样的单词有多个（即非唯一的）输出：TRIANGLE, ALERTING, ALTERING……。
+    设 $W$ 为所有英语单词的集合。定义 $A: W \to W$ 为输入单词，输出原单词的异序词（即字母相同但顺序不同的单词）。
+    
+    这\textbf{不是}一个良好定义的函数。例如，HI 和 FUNCTION 不存在异序词。而像 INTEGRAL 这样的单词存在多个（即非唯一）异序词：TRIANGLE, ALERTING, ALTERING……
 \end{example}

@@ -17,6 +17,8 @@
 \SetupKeyvalOptions{family=ELEGANT, prefix=ELEGANT@, setkeys=\kvsetkeys}
 \newcommand{\ekv}[1]{\kvsetkeys{ELEGANT}{#1}}
 \newcommand\degree{^\circ}
+\newcommand\im{\text{Im}}
+\newcommand\pim{\text{PreIm}}
 
 % ----- Colors -----
 \DeclareStringOption[blue]{color}

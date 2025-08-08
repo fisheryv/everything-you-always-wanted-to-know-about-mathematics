@@ -4,36 +4,36 @@
 
 \subsubsection*{温故知新}
 
-以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，所以如果忘记了具体的定义、概念或示例，可以回去重读相关部分。确保在继续学习之前能够自信地回答这些问题，这将有助于你的理解和记忆！
+以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，如果忘记了具体定义、概念或示例，可以回顾相关内容。确保在继续学习之前能够自信地作答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
     \item \textbf{像}与\textbf{原像}之间有什么区别？
-    \item 假设 $f : A \to B$ 是一个函数。$PreIm_f (B)$ 表示什么？
-    \item 假设 $g : \mathbb{R} \to \mathbb{R}$ 是一个函数。为什么表达式 $Im_g(0)$ 不是一个正确的陈述？你认为写出该表达式的人是什么意思？
-    \item 假设 $f : A \to B$ 是一个函数且 $Y \subseteq B$。如果 $PreIm_f (Y) = \varnothing$，这意味着什么？这有可能吗？
-    \item 假设 $f : A \to B$ 是一个函数且 $X \subseteq A$。如果 $Im_f (X) = \varnothing$，这意味着什么？这有可能吗？
+    \item 假设 $f : A \to B$ 是一个函数。$\pim_f (B)$ 表示什么？
+    \item 假设 $g : \mathbb{R} \to \mathbb{R}$ 是一个函数。为什么表达式 $\im_g(0)$ 不是一个正确的陈述？你认为写出该表达式的人想表达什么意思？
+    \item 假设 $f : A \to B$ 是一个函数且 $Y \subseteq B$。如果 $\pim_f (Y) = \varnothing$，这意味着什么？这有可能吗？
+    \item 假设 $f : A \to B$ 是一个函数且 $X \subseteq A$。如果 $\im_f (X) = \varnothing$，这意味着什么？这有可能吗？
 \end{enumerate}
 
 \subsubsection*{小试牛刀}
 
-尝试回答以下问题。这些题目要求你实际动笔写下答案，或（对朋友/同学）口头陈述答案。目的是帮助你练习使用新的概念、定义和符号。题目都比较简单，确保能够解决这些问题将对你大有帮助！
+尝试解答以下问题。这些题目需动笔书写或口头阐述答案，旨在帮助你熟练运用新概念、定义及符号。题目难度适中，确保掌握它们将大有裨益！
 
 \begin{enumerate}[label=(\arabic*)]
     \item 设函数 $h : \mathbb{R} - \{-1\} \to \mathbb{R}$ 定义为 $\forall x \in \mathbb{R} - \{-1\} \centerdot h(x) = \frac{x}{1+x}$。\\
-        证明 $Im_h(\mathbb{R} - \{-1\}) = \mathbb{R} - \{-1\}$。\\
+        证明 $\im_h(\mathbb{R} - \{-1\}) = \mathbb{R} - \{-1\}$。\\
         然后，定义 $P = \{y \in \mathbb{R} \mid y > 1\}, U = \{y \in \mathbb{R} \mid y > -1\}$。 \\
-        证明 $PreIm_h(P) = U$。
-    \item 设 $f:A \to B$ 为函数。设 $S,T \subseteq A$。对于下列声明，\textbf{证明}他们成立，或找出\textbf{反例}。
+        证明 $\pim_h(P) = U$。
+    \item 设 $f:A \to B$ 为函数。设 $S,T \subseteq A$。对于下列陈述，\textbf{证明}其成立，或找出\textbf{反例}。
         \begin{enumerate}[label=(\alph*)]
-            \item $Im_f (S \cup T) \subseteq Im_f (S) \cup Im_f (T)$
-            \item $Im_f (S \cup T) \supseteq Im_f (S) \cup Im_f (T)$
+            \item $\im_f (S \cup T) \subseteq \im_f (S) \cup \im_f (T)$
+            \item $\im_f (S \cup T) \supseteq \im_f (S) \cup \im_f (T)$
         \end{enumerate}
-    \item 设 $f:A \to B$ 为函数。设 $Y,Z \subseteq B$。对于下列声明，\textbf{证明}他们成立，或找出\textbf{反例}。
+    \item 设 $f:A \to B$ 为函数。设 $Y,Z \subseteq B$。对于下列陈述，\textbf{证明}其成立，或找出\textbf{反例}。
         \begin{enumerate}[label=(\alph*)]
-            \item $PreIm_f (Y \cup Z) \subseteq PreIm_f (Y) \cup PreIm_f (Z)$
-            \item $PreIm_f (Y \cup Z) \supseteq PreIm_f (Y) \cup PreIm_f (Z)$
+            \item $\pim_f (Y \cup Z) \subseteq \pim_f (Y) \cup \pim_f (Z)$
+            \item $\pim_f (Y \cup Z) \supseteq \pim_f (Y) \cup \pim_f (Z)$
         \end{enumerate}
     \item 回看命题 \ref{prop:proposition7.3.12}，考虑\emph{反方向}包含关系
-        \[Im_f \big(PreIm_f (Y)\big) \supseteq Y\]
-        通过构造一个具体的反例并证明其有效性，来\textbf{反驳}以下声明：对于任意函数 $f : A \to B$ 和任意 $Y \subseteq B$，该声明都成立。
+        \[\im_f \big(\pim_f (Y)\big) \supseteq Y\]
+        通过构造一个具体的反例并证明其有效性，来\textbf{反驳}以下陈述：对于任意函数 $f : A \to B$ 和任意 $Y \subseteq B$，该陈述都成立。
 \end{enumerate}

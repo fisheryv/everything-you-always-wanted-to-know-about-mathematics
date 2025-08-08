@@ -2,60 +2,60 @@
 
 \subsection{关于原像的证明}
 
-请注意，以下命题是\textbf{相等}关系。将其与命题 \ref{prop:proposition7.3.6} 进行比较，后者是一个关于\emph{像}的类似陈述，但它只是集合包含关系。很有意思，对吧？
+请注意，以下命题是\textbf{相等}关系。将其与命题 \ref{prop:proposition7.3.6} 比较：后者是关于\emph{像}的类似陈述，但仅为集合\emph{包含}关系，这一差异颇具深意。
 
 \begin{proposition}
-    设 $A,B$ 为集合，$f:A \to B$ 为函数。设 $X, Y \subseteq B$，则
-    \[PreIm_f (X \cap Y) = PreIm_f (X) \cap PreIm_f (Y)\]
+    设 $A,B$ 为集合，$f:A \to B$ 为函数。若 $X, Y \subseteq B$，则
+    \[\pim_f (X \cap Y) = \pim_f (X) \cap \pim_f (Y)\]
 \end{proposition}
 
-注意下面的证明是如何直接运用原像的形式定义的。我们将直接开始证明这两部分。练习部分将要求你用 ``$cup$'' 替换 ``$cap$'' 来验证这个论断。
+请注意以下证明是如何直接运用原像的形式定义的。我们将直接给出双向包含证明。练习部分将要求你用 $\cup$ 替换 $\cap$ 来验证相应结论。
 
 \begin{proof}
-    设 $x \in PreIm_f (X \cap Y)$ 为任意固定元素。
+    设 $x \in \pim_f (X \cap Y)$ 为任意固定元素。
 
     根据原像的定义，这意味着 $f(x) \in X \cap Y$，即 $f(x) \in X$ 且 $f(x) \in Y$。
 
-    因为 $f(x) \in X$，根据原像的定义，这意味着 $x \in PreIm_f (X)$。同理，因为 $f(x) \in Y$，这意味着 $x \in PreIm_f (Y)$。
+    因为 $f(x) \in X$，根据原像的定义，这意味着 $x \in \pim_f (X)$。同理，因为 $f(x) \in Y$，这意味着 $x \in \pim_f (Y)$。
 
-    根据交集的定义，我们推导出 $x \in PreIm_f(X) \cap PreIm_f(Y)$。
+    根据交集的定义，可以推导出 $x \in \pim_f(X) \cap \pim_f(Y)$。
 
-    这证明了 $PreIm_f(X \cap Y) \subseteq PreIm_f(X) \cap PreIm_f(Y)$。\\
+    这证明了 $\pim_f(X \cap Y) \subseteq \pim_f(X) \cap \pim_f(Y)$。\\
 
-    接着，设 $y \in PreIm_f(X) \cap PreIm_f(Y)$ 为任意固定元素。
+    接着，设 $y \in \pim_f(X) \cap \pim_f(Y)$ 为任意固定元素。
 
-    根据交集的定义，这意味着 $y \in PreIm_f (X)$ 且 $y \in PreIm_f (Y)$。
+    根据交集的定义，这意味着 $y \in \pim_f (X)$ 且 $y \in \pim_f (Y)$。
 
-    因为 $y \in PreIm_f (X)$，根据原像的定义，我们可以推导出 $f(y) \in X$。同理，因为 $y \in PreIm_f (Y)$，我们可以推导出 $f(y) \in Y$。
+    因为 $y \in \pim_f (X)$，根据原像的定义，可以推导出 $f(y) \in X$。同理，因为 $y \in \pim_f (Y)$，可以推导出 $f(y) \in Y$。
 
-    根据交集的定义，这告诉我们 $f(y) \in X \cap Y$。
+    根据交集的定义，可得 $f(y) \in X \cap Y$。
 
-    根据原像的定义，可得 $y \in PreIm_f(X \cap Y)$。
+    根据原像的定义，可得 $y \in \pim_f(X \cap Y)$。
 
-    这证明了 $ PreIm_f(X \cap Y) \supseteq PreIm_f(X) \cap PreIm_f(Y)$。 \\
+    这证明了 $ \pim_f(X \cap Y) \supseteq \pim_f(X) \cap \pim_f(Y)$。 \\
 
-    综上，利用双向包含论证，我们证明了该命题。
+    综上，利用双向包含论证，该命题得证。
 \end{proof}
 
-读到这里你可能会想，``这种证明方法是怎么想出来的？''其实，这样的结果并没有什么特别的巧思。我们只是直接引用定义，然后一切就变得顺理成章了。如果你在解决问题时感到困惑，或者不知道从哪里开始……那就写下相关的定义，试着把它们应用到你要证明的陈述上，看看会有什么结果！
+读到这里你可能会想：``这种证明方法是怎么想出来的？''其实，这样的结果并没有什么特别的巧思。我们只是直接引用定义，一切便顺理成章。如果你在解决问题时感到困惑，不知从何入手……不妨写下相关定义，尝试将其应用于待证命题，观察结果如何！
 
-\subsubsection*{像和原像的证明}
+\subsubsection*{像与原像的证明}
 
-让我们来看一个涉及本节中两个概念的例子。我们将证明一个包含关系，并在练习中要求你证明另一个包含关系不成立。
+以下例子涉及本节的两个核心概念。我们将证明一个包含关系，并在练习中要求你证伪另一个包含关系。
 
 \begin{proposition}\label{prop:proposition7.3.12}
-    设 $A,B$ 为集合，$f:A \to B$ 为函数。设 $Y \subseteq B$，则
-    \[Im_f \big(PreIm_f (Y)\big) \subseteq Y\]
+    设 $A,B$ 为集合，$f:A \to B$ 为函数。若 $Y \subseteq B$，则
+    \[\im_f \big(\pim_f (Y)\big) \subseteq Y\]
 \end{proposition}
 
 \begin{proof}
-    设 $b \in Im_f \big(PreIm_f (Y)\big)$ 为任意固定元素。
+    设 $b \in \im_f \big(\pim_f (Y)\big)$ 为任意固定元素。
 
-    根据像的定义，这意味着 $\exists a \in PreIm_f (Y) \centerdot f(a) = b$。给定这样的 $a$。
+    根据像的定义，这意味着 $\exists a \in \pim_f (Y) \centerdot f(a) = b$。给定这样的 $a$。
 
-    因为 $a \in PreIm_f (Y)$，根据原像的定义，这意味着 $f(a) \in Y$。
+    因为 $a \in \pim_f (Y)$，根据原像的定义，这意味着 $f(a) \in Y$。
 
     因为 $b = f(a)$ 且 $f(a) \in Y$，这意味着 $b \in Y$。
 
-    这就证明了该命题。
+    故命题得证。
 \end{proof}
