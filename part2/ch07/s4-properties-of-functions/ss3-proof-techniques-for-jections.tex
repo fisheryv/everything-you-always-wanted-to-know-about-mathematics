@@ -2,16 +2,16 @@
 
 \subsection{映射的证明技巧}
 
-为了总结本节的概念，我们将展示一些\textbf{证明模板}。这些模板可以在证明或证伪一个函数是否为单射（Injection）或满射（Surjection）时使用。我们通常使用简写``映射（Jection）''来同时指代这两个函数属性。
+为了总结本节内容，我们提供以下\textbf{证明模板}，用于证明或证伪函数是否为单射 (Injection) 或满射 (Surjection)。我们通常用术语``映射 (Jection)''统称这两种属性。
 
 \subsubsection*{证明函数 $f$ 是满射}
 
 \begin{enumerate}
-    \item 设 $b \in B$ 是任意固定元素。
+    \item 设 $b \in B$ 为任意固定元素。
     \item 定义 $a = \underline{\qquad\qquad}$。
     \item 证明 $a \in A$。
     \item 证明 $f(a) = b$。
-    \item 这证明了 $b \in Im_f(A)$。因此，$Im_f(A)=B$，所以 $f$ 是满射。
+    \item 这证明了 $b \in \im_f(A)$。因此，$\im_f(A)=B$，故 $f$ 是满射。
 \end{enumerate}
 
 \subsubsection*{证明函数 $f$ 不是满射}
@@ -19,24 +19,24 @@
 \begin{enumerate}
     \item 定义 $b = \underline{\qquad\qquad}$。
     \item 证明 $b \in B$。
-    \item 设 $a \in A$ 是任意固定元素。
+    \item 设 $a \in A$ 为任意固定元素。
     \item 证明 $f(a) \ne b$。\\
         （或者，假设 $f(a) = b$，推导出矛盾。）
-    \item 这证明了 $\exists b \in B \centerdot b \notin Im_f(A)$。所以 $f$ 不是满射。
+    \item 这证明了 $\exists b \in B \centerdot b \notin \im_f(A)$。故 $f$ 不是满射。
 \end{enumerate}
 
 \subsubsection*{证明函数 $f$ 是单射}
 
 \begin{enumerate}
-    \item 设 $x,y \in A$ 是任意固定元素。
+    \item 设 $x,y \in A$ 为任意固定元素。
     \item 假设 $f(x) = f(y)$。
-    \item 推导出 $x = y$。\\
+    \item 推导出 $x = y$。
 \end{enumerate}
 
-或者\\
+或者
 
 \begin{enumerate}
-    \item 设 $x,y \in A$ 是任意固定元素。
+    \item 设 $x,y \in A$ 为任意固定元素。
     \item 假设 $x \ne y$。
     \item 推导出 $f(x) \ne f(y)$。
 \end{enumerate}
