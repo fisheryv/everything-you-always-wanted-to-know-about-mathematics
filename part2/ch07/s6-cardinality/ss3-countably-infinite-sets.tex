@@ -100,7 +100,7 @@
 \begin{proof}
     定义``恒等函数'' $f : S \to T$ 为 $\forall x \in S \centerdot f(x) = x$。因为 $S \subseteq T$，因此这是一个良好定义的函数。
 
-    （注意：我们不能严格地将其定义为通常的恒等函数 $Id_S$，因为定义域和值域可能不是同一个集合；本质上，$f$ 执行与 $Id_S$ 相同的操作，但值域不同。）
+    （注意：我们不能严格地将其定义为通常的恒等函数 $\id_S$，因为定义域和值域可能不是同一个集合；本质上，$f$ 执行与 $\id_S$ 相同的操作，但值域不同。）
 
     显然 $f$ 为单射。
 
@@ -113,7 +113,7 @@
 
 \begin{example}[$\mathbb{Z}$ 是可数无限集]\label{ex:example7.6.12}
 
-    我们知道，根据定义，$\mathbb{N}$ 是可数无限集。恒等函数 $Id_{\mathbb{N}} : \mathbb{N} \to \mathbb{N}$ 显然是一个双射，因此 $\mathbb{N}$ 是可数的。
+    我们知道，根据定义，$\mathbb{N}$ 是可数无限集。恒等函数 $\id_{\mathbb{N}} : \mathbb{N} \to \mathbb{N}$ 显然是一个双射，因此 $\mathbb{N}$ 是可数的。
 
     在这个例子中，我们将证明 $\mathbb{Z}$ 也是可数无限集！为此，我们需要找到一个双射 $f : \mathbb{Z} \to \mathbb{N}$。我们会在这里提供一个例子，并通过找到它的\emph{反函数}来证明它是一个双射。在继续阅读之前，不妨自己尝试找找看！也许你会想到一个不同的函数！如果需要提示，可以考虑以下思路：为了证明一个无限集是\emph{可数}无限集，我们需要找到一种方法，将元素一个接一个地\emph{列出来}。试着找到一个模式，确定``第一个''整数，然后是``第二个''，接着是``第三个''……
 
@@ -150,7 +150,7 @@
                                      & = -(-z + 1) + 1 = (z - 1) + 1 = z
                   \end{align*}
         \end{itemize}
-        无论哪种情况，都得到 $(F \circ f)(z) = z$。这表明 $F \circ f = Id_{\mathbb{Z}}$。\\
+        无论哪种情况，都得到 $(F \circ f)(z) = z$。这表明 $F \circ f = \id_{\mathbb{Z}}$。\\
 
         接下来，设 $n \in \mathbb{N}$。我们有两种情况：
         \begin{itemize}
@@ -165,7 +165,7 @@
                                      & = (n + 1) -1 = n
                   \end{align*}
         \end{itemize}
-        无论哪种情况，都得到 $(f \circ F)(n) = n$。这表明 $f \circ F = Id_{\mathbb{N}}$。\\
+        无论哪种情况，都得到 $(f \circ F)(n) = n$。这表明 $f \circ F = \id_{\mathbb{N}}$。\\
 
         因此 $F = f^{-1}$。
     \end{proofs}
@@ -502,7 +502,7 @@
         \forall (k, \ell) \in \mathbb{N} \times \mathbb{N} \centerdot (h \circ H)(k, \ell) & = h(H(k, \ell)) = h\big(f^{-1}(k), g^{-1}(\ell)\big)  \\
                                                                                            & = \big(f(f^{-1}(k)), g(g^{-1}(\ell))\big) = (k, \ell)
     \end{align*}
-    所以 $H \circ h = Id_{A \times B}$ 且 $h \circ H = Id_{\mathbb{N} \times \mathbb{N}}$。这表明 $H = h^{-1}$。
+    所以 $H \circ h = \id_{A \times B}$ 且 $h \circ H = \id_{\mathbb{N} \times \mathbb{N}}$。这表明 $H = h^{-1}$。
 
     因此，$h$ 为双射。所以 $|A \times B| = |\mathbb{N} \times \mathbb{N}| = |\mathbb{N}|$。
 \end{proof}

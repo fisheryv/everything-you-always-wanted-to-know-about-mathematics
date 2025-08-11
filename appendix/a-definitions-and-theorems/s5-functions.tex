@@ -76,8 +76,8 @@
 \subsection{反函数}
 
 \begin{itemize}
-    \item 设 $X$ 为任意集合。单位函数 $Id_X : X \to X$ 定义为 $\forall z \in X \centerdot Id_X(z) = z$。
-    \item 设 $f : A \to B$ 为函数。如果存在函数 $F : B \to A$ 使得 $f \circ F : B \to B$ 满足 $f \circ F = \text{Id}_B$ 且 $F \circ f : A \to A$ 满足 $F \circ f = \text{Id}_A$ ，那么我们说 $F$ 是 $f$ 的\textbf{反函数}，并写做 $F = f^{-1}$。
+    \item 设 $X$ 为任意集合。单位函数 $\id_X : X \to X$ 定义为 $\forall z \in X \centerdot \id_X(z) = z$。
+    \item 设 $f : A \to B$ 为函数。如果存在函数 $F : B \to A$ 使得 $f \circ F : B \to B$ 满足 $f \circ F = \id_B$ 且 $F \circ f : A \to A$ 满足 $F \circ f = \id_A$ ，那么我们说 $F$ 是 $f$ 的\textbf{反函数}，并写做 $F = f^{-1}$。
 
           请注意，正式定义清楚地写明需要检查两个函数的\emph{两种}复合方式是否产生单位函数。存在一种复合方法有效而另一种复合方法无效的示例！
 
@@ -155,9 +155,9 @@
           \begin{quote}
               定义函数 $F:B \to A$。
 
-              证明 $F \circ f = Id_A$ 。
+              证明 $F \circ f = \id_A$ 。
 
-              证明 $f \circ F = Id_B$ 。
+              证明 $f \circ F = \id_B$ 。
 
               这表明 $F = f^{-1}$，所以 $f$ 可逆，因此它是双射。
           \end{quote}
@@ -216,8 +216,8 @@
 
                     （注意：提出这个定义并非易事，并且会涉及大量演算工作。没有必要将其作为证明的一部分。只需从定义开始。）
               \item 证明 $F$ 是一个明确定义的函数：证明每个来自 $B$ 的输入都只有一个 $A$ 上的输出。
-              \item 证明 $F \circ f = Id_A$。
-              \item 证明 $f \circ F = Id_B$。
+              \item 证明 $F \circ f = \id_A$。
+              \item 证明 $f \circ F = \id_B$。
               \item 推导出 $F = f^{-1}$。（由于 $f$ 存在反函数，因此它也是双射。）
           \end{itemize}
 \end{itemize}

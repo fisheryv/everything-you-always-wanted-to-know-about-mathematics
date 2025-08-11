@@ -7,10 +7,10 @@
 以口头或书面的形式简要回答以下问题。这些问题全都基于你刚刚阅读的内容，如果忘记了具体定义、概念或示例，可以回顾相关内容。确保在继续学习之前能够自信地作答这些问题，这将有助于你的理解和记忆！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 函数复合运算满足结合律吗？（也就是说，括号的顺序是否重要？）为什么满足或者为什么不满足？
-    \item 函数复合运算满足交换律吗？（也就是说，我们可以颠倒顺序进行运算吗？）为什么满足或者为什么不满足？
-    \item 假设 $f : A \to B$ 和 $g : B \to A$ 为函数。我们如何证明 $g = f^{-1}$？
-    \item 假设 $f : A \to B$ 为双射。它的反函数也是双射吗？
+    \item 函数复合运算满足结合律吗？（即括号的顺序是否重要？）为什么？
+    \item 函数复合运算满足交换律吗？（即运算顺序可否颠倒？）为什么？
+    \item 设 $f : A \to B$ 和 $g : B \to A$ 为函数。如何证明 $g = f^{-1}$？
+    \item 设 $f : A \to B$ 为双射。其反函数也是双射吗？
 \end{enumerate}
 
 \subsubsection*{小试牛刀}
@@ -18,23 +18,23 @@
 尝试解答以下问题。这些题目需动笔书写或口头阐述答案，旨在帮助你熟练运用新概念、定义及符号。题目难度适中，确保掌握它们将大有裨益！
 
 \begin{enumerate}[label=(\arabic*)]
-    \item 设 $O$ 为奇数集，设 $E$ 为偶数集。定义\textbf{双射}函数 $f : O \to E$，并通过找到它的反函数证明 $f$ 确实为双射。
-    \item 在这个问题中，我们希望你能通过一个例子来展示，当我们尝试找到一个函数的反函数时，验证两个复合函数\textbf{都能}得到恒等函数是多么重要。\\
-    定义集合 $A, B$ 以及函数 $f : A \to B, g : B \to A$ 使得
+    \item 设 $O$ 为奇数集，$E$ 为偶数集。构造一个\textbf{双射}函数 $f : O \to E$，并通过求其反函数证明 $f$ 为双射。
+    \item 本题中，我们希望你能通过一个例子来说明，寻求函数的反函数时，验证两个复合函数\textbf{都能}得到恒等函数至关重要。\\
+    定义集合 $A, B$ 及函数 $f : A \to B, g : B \to A$，使得
     \[\forall x \in A \centerdot g(f(x)) = x\]
-    但
+    然而
     \[\exists y \in B \centerdot f(g(y)) \ne y\]
-    （\textbf{建议}：你可以找一个例子，其中 $A$ 和 $B$ 都只有一到两个元素……或者，你可以找一个例子，其中 $A=B=\mathbb{N}$。）
+    （\textbf{建议}：可以尝试 $A$ 和 $B$ 仅含一到两个元素的例子……或者取 $A=B=\mathbb{N}$。）\label{exc:exercises7.5.2}
     \item 设 $U = \{y \in \mathbb{R} \mid -1 < y < 1\}, I = \{y \in \mathbb{R} \mid -6 < y < 12\}$。\\
-        设函数 $g : U \to I$ 定义为 $\forall x \in U \centerdot g(x) = 9x + 3$。
-        证明 $g$ 是双射，并找到 $g^{-1}$。
+        定义函数 $g : U \to I$ 为 $\forall x \in U \centerdot g(x) = 9x + 3$。
+        证明 $g$ 是双射，并求 $g^{-1}$。
     \item 定义函数 $f : \mathbb{Z} \to \mathbb{N}$ 为
     \[\forall z \in \mathbb{Z} \centerdot f(z) = \begin{cases}
-        -2z + 2 & \text{如果}\; z \le 0 \\
-        2z-1 & \text{如果}\; z > 0
+        -2z + 2 & \text{若\ } z \le 0 \\
+        2z-1 & \text{若\ } z > 0
     \end{cases}\]
-    证明 $f$ 是双射，并找到 $f^-1$。\\
-    （\textbf{提示}：你给出的反函数也是分段定义的。在你的证明中要小心处理可能出现的各种情况。）
-    \item \textbf{挑战性问题}：定义 $I = \{y \in \mathbb{R} \mid -1 < y < 1\}$。找到函数 $f : I \to \mathbb{R}$ 是双射函数，并证明之。\\
-    （\textbf{提示}：无需使用任何三角函数。可以考虑在表达式中使用 $|x|$……）\label{exc:exercises7.5.5}
+    证明 $f$ 是双射，并求 $f^-1$。\\
+    （\textbf{提示}：反函数需分段定义，证明时请细致处理不同情形。）
+    \item \textbf{挑战性问题}：定义 $I = \{y \in \mathbb{R} \mid -1 < y < 1\}$。构造双射函数 $f : I \to \mathbb{R}$ 并证明之。\\
+    （\textbf{提示}：无需使用三角函数。可以考虑在表达式中使用 $|x|$……）\label{exc:exercises7.5.5}
 \end{enumerate}

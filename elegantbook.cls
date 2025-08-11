@@ -17,6 +17,7 @@
 \SetupKeyvalOptions{family=ELEGANT, prefix=ELEGANT@, setkeys=\kvsetkeys}
 \newcommand{\ekv}[1]{\kvsetkeys{ELEGANT}{#1}}
 \newcommand\degree{^\circ}
+\newcommand\id{\text{Id}}
 \newcommand\im{\text{Im}}
 \newcommand\pim{\text{PreIm}}
 
