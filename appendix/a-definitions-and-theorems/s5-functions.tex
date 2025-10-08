@@ -27,20 +27,20 @@
 
 \begin{itemize}
     \item 设 $f : A \to B$ 为函数。设 $X \subseteq A$。$X$ 在函数 $f$ 下的\textbf{像}为
-          \[Im_f (X) = \{b \in B \mid \exists a \in X \centerdot f(a) = b\}\]
+          \[\im_f (X) = \{b \in B \mid \exists a \in X \centerdot f(a) = b\}\]
           这个集合的等效写法为
-          \[Im_f (X) = \{f(a) \mid a \in X\}\]
+          \[\im_f (X) = \{f(a) \mid a \in X\}\]
           （直观地讲，这是被 $X$ 中的元素``击中''的所有值域元素的集合。）
     \item 设 $f : A \to B$ 为函数。设 $Z \subseteq B$。$Z$ 在函数 $f$ 下的\textbf{原像}为
-          \[PreIm_f (Z) = \{a \in A \mid f(a) \in Z\}\]
+          \[\pim_f (Z) = \{a \in A \mid f(a) \in Z\}\]
           （直观地讲，这是所有输出``落在'' $Z$ 上的``输入''的集合。）
-    \item 注：$\Im_f (\varnothing) = \varnothing$ 且 $PreIm_f (\varnothing) = \varnothing$。
+    \item 注：$\\im_f (\varnothing) = \varnothing$ 且 $\pim_f (\varnothing) = \varnothing$。
 \end{itemize}
 
 \subsection{映射}
 
 \begin{itemize}
-    \item 设 $f : A \to B$ 为函数。如果 $\Im_f (A) = B$，那么我们说 $f$ 是\textbf{满射的}，或者说它是一个\textbf{满射}。
+    \item 设 $f : A \to B$ 为函数。如果 $\\im_f (A) = B$，那么我们说 $f$ 是\textbf{满射的}，或者说它是一个\textbf{满射}。
 
           像的定义为我们提供了满射性的等效公式：
           \[f \text{是满射的} \iff \forall b \in B. \exists a \in A. f(a) = b\]
@@ -101,9 +101,9 @@
 
               证明 $f(a) = b$ 。
 
-              这表明 $b \in Im_f (A)$，所以 $B \subseteq Im_f (A)$。
+              这表明 $b \in \im_f (A)$，所以 $B \subseteq \im_f (A)$。
 
-              根据定义 $Im_f (A) \subseteq B$，这表明 $Im_f (A) = B$，所以 $f$ 是满射。
+              根据定义 $\im_f (A) \subseteq B$，这表明 $\im_f (A) = B$，所以 $f$ 是满射。
           \end{quote}
     \item 证明 $f$ \textbf{不是满射}：
           \begin{quote}
@@ -115,7 +115,7 @@
 
               证明 $f(a) \ne b$。（或者，假设 $f(a) = b$ 并找到矛盾。）
 
-              这表明 $\exists b \in B \centerdot b \notin Im_f (A)$，所以 $f$ 不是满射。
+              这表明 $\exists b \in B \centerdot b \notin \im_f (A)$，所以 $f$ 不是满射。
           \end{quote}
     \item 证明 $f$ 是\textbf{单射}：
           \begin{quote}
@@ -169,46 +169,46 @@
           \begin{quote}
               为了引出矛盾而假设 $f$ 是双射，所以必然存在反函数 $f^{-1}$。找到矛盾。
           \end{quote}
-    \item 对于 $X \subseteq A$，求像 $Im_f (X)$：
+    \item 对于 $X \subseteq A$，求像 $\im_f (X)$：
           \begin{itemize}
-              \item 定义集合 $S$，声明 $S = Im_f(X)$。
+              \item 定义集合 $S$，声明 $S = \im_f(X)$。
 
                     （注意：提出这个定义并非易事，并且会涉及大量演算工作。没有必要将其作为证明的一部分。只需从定义开始。）
-              \item 证明 $Im_f (X) \subseteq S$。
+              \item 证明 $\im_f (X) \subseteq S$。
                     \begin{itemize}
-                        \item 设 $y \in Im_f(x)$ 为任意固定元素。
+                        \item 设 $y \in \im_f(x)$ 为任意固定元素。
                         \item 这意味着 $\exists a \in X \centerdot f(a) = y$。
                         \item 利用 $f$ 的性质证明 $f(a) \in S$。
                         \item 这表明 $y \in S$。
                     \end{itemize}
-              \item 证明 $S \subseteq Im_f (X)$。
+              \item 证明 $S \subseteq \im_f (X)$。
                     \begin{itemize}
                         \item 设 $z \in S$ 为任意固定元素。
                         \item 定义 $x = \underline{\qquad}$。
                         \item 证明 $x \in X$。
                         \item 证明 $f(x) = z$。
-                        \item 这表明 $z \in Im_f (X)$。
+                        \item 这表明 $z \in \im_f (X)$。
                     \end{itemize}
-              \item 通过双向包含得到结论 $Im_f (X) = S$ 。
+              \item 通过双向包含得到结论 $\im_f (X) = S$ 。
           \end{itemize}
-    \item 对于 $Z \subseteq B$，求原像 $PreIm_f (Z)$：
+    \item 对于 $Z \subseteq B$，求原像 $\pim_f (Z)$：
           \begin{itemize}
-              \item 定义集合 $T$，声明 $T = PreIm_f(Z)$。
+              \item 定义集合 $T$，声明 $T = \pim_f(Z)$。
 
                     （注意：提出这个定义并非易事，并且会涉及大量演算工作。没有必要将其作为证明的一部分。只需从定义开始。）
-              \item 证明 $PreIm_f(Z) \subseteq T$。
+              \item 证明 $\pim_f(Z) \subseteq T$。
                     \begin{itemize}
-                        \item 设 $a \in PreIm_f(Z)$ 为任意固定元素。
+                        \item 设 $a \in \pim_f(Z)$ 为任意固定元素。
                         \item 这意味着 $f(a) \in Z$。
                         \item 利用 $f$ 的性质证明 $a \in T$。
                     \end{itemize}
-              \item 证明 $T \subseteq PreIm_f(Z)$。
+              \item 证明 $T \subseteq \pim_f(Z)$。
                     \begin{itemize}
                         \item 设 $x \in T$ 为任意固定元素。
                         \item 利用 $f$ 的性质证明 $f(x) \in Z$。
-                        \item 这表明 $x \in PreIm_f(Z)$。
+                        \item 这表明 $x \in \pim_f(Z)$。
                     \end{itemize}
-              \item 通过双向包含得到结论 $PreIm_f (Z) = T$。
+              \item 通过双向包含得到结论 $\pim_f (Z) = T$。
           \end{itemize}
     \item 求 $f$ 的\textbf{反函数}：
           \begin{itemize}

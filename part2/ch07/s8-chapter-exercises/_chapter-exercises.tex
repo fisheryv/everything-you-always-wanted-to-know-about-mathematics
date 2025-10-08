@@ -35,7 +35,7 @@
     设函数 $g : \mathbb{Z} \to \mathbb{N}$ 为 $g(z) = |z| + 4$。\\
     $g \circ f$ 的定义域是什么？值域是什么？\\
     写出 $g \circ f$ 的规则。该函数是单射吗？是满射吗？\\
-    $Im_{g \circ f}(\mathbb{Z})$ 是什么？\\
+    $\im_{g \circ f}(\mathbb{Z})$ 是什么？\\
     请证明你的观点。
 \end{exercise}
 
@@ -70,7 +70,7 @@
 \begin{exercise}
     定义集合 $S = \{x \in \mathbb{R} \mid 0 < x < 1\}$。定义函数 $g:S \to \mathbb{R}$ 为
     \[g(x) = \frac{2x-1}{2x(1-x)}\]
-    证明 $Im_g(S) = \mathbb{R}$。\\
+    证明 $\im_g(S) = \mathbb{R}$。\\
     （\textbf{提示}：你需要使用二次方程求根公式来解决这个问题。）
 \end{exercise}
 
@@ -90,24 +90,24 @@
 \end{exercise} 
 
 \begin{exercise}
-    设 $f : A \to B$ 和 $g : B \to C$ 为双射。设 $X \subseteq A$。证明 $Im_{g \circ f} (X) = Im_g(Im_f (X))$。
+    设 $f : A \to B$ 和 $g : B \to C$ 为双射。设 $X \subseteq A$。证明 $\im_{g \circ f} (X) = \im_g(\im_f (X))$。
 \end{exercise}
 
 \begin{exercise}
-    设 $f : A \to B$ 为双射，所以 $f^{-1} : B \to A$ 为函数。设 $X \subseteq A$。证明 $Im_f (X) = PreIm_{f^{-1}} (X)$。
+    设 $f : A \to B$ 为双射，所以 $f^{-1} : B \to A$ 为函数。设 $X \subseteq A$。证明 $\im_f (X) = \pim_{f^{-1}} (X)$。
 \end{exercise}
 
 \begin{exercise}
     设 $A, B$ 为集合，$f : A \to B$ 为函数。假设 $X,Y \subseteq A$。
     \begin{enumerate}[label=(\alph*)]
-        \item $Im_f (X \cup Y) = Im_f (X) \cup Im_f (Y)$ 是否必然成立？请陈述并证明你的观点。
-        \item $Im_f (X \cap Y) = Im_f (X) \cap Im_f (Y)$ 是否必然成立？请陈述并证明你的观点。
+        \item $\im_f (X \cup Y) = \im_f (X) \cup \im_f (Y)$ 是否必然成立？请陈述并证明你的观点。
+        \item $\im_f (X \cap Y) = \im_f (X) \cap \im_f (Y)$ 是否必然成立？请陈述并证明你的观点。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
     设 $f : A \to B$ 为函数。定义 $B$ 上的关系 $\sim$ 为：对于任意 $x,y \in B$，
-    \[x \sim y \iff PreIm_f (\{x\}) = PreIm_f (\{y\})\]
+    \[x \sim y \iff \pim_f (\{x\}) = \pim_f (\{y\})\]
     请解释为什么 $\sim$ 是等价关系。等价类是什么？\\
     假设 $f$ 为满射，等价类是什么？
 \end{exercise}
@@ -120,18 +120,18 @@
 \end{exercise}
 
 \begin{exercise}
-    设 $f : A \to B$ 为函数，并设 $X,Y \in A$。考虑声明 $Im_f (X) \cap Im_f (Y) \subseteq Im_f (X \cap Y )$。下面对此声明的``错误证明''错在哪里？
+    设 $f : A \to B$ 为函数，并设 $X,Y \in A$。考虑声明 $\im_f (X) \cap \im_f (Y) \subseteq \im_f (X \cap Y )$。下面对此声明的``错误证明''错在哪里？
     \begin{quote}
         \begin{spoof}
-            设 $z \in Im_f (X) \cap Im_f (Y)$。
+            设 $z \in \im_f (X) \cap \im_f (Y)$。
 
-            因为 $z \in Im_f (X)$，这意味着 $\exists a \in X$ 使得 $f(a) = z$。
+            因为 $z \in \im_f (X)$，这意味着 $\exists a \in X$ 使得 $f(a) = z$。
 
-            因为 $z \in Im_f (Y)$，这意味着 $\exists a \in Y$ 使得 $f(a) = z$。
+            因为 $z \in \im_f (Y)$，这意味着 $\exists a \in Y$ 使得 $f(a) = z$。
 
             因为 $a \in X$ 且 $a \in Y$, 这意味着 $a \in X \cap Y$。
 
-            因为 $f(a) = z$，这意味着 $z \in Im_f (X \cap Y)$。
+            因为 $f(a) = z$，这意味着 $z \in \im_f (X \cap Y)$。
         \end{spoof}
     \end{quote}
     请给出反例证明该声明实际上不成立。
@@ -239,7 +239,7 @@
 \begin{exercise}
     设 $A$ 和 $B$ 为有限集，并假设 $|A| = |B|$。\\
     假设函数 $f : A \to B$ 为单射。\\
-    通过证明 $Im_f (A) = B$ 证明 $f$ 也必然为满射。
+    通过证明 $\im_f (A) = B$ 证明 $f$ 也必然为满射。
 \end{exercise}
 
 \begin{exercise}
