@@ -1576,3 +1576,6 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
 
 \usepackage{array}
 \newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+\usepackage{pst-poker}
+\psset{inline=card, colorset=2c}

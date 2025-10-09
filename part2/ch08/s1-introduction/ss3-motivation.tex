@@ -2,18 +2,21 @@
 
 \subsection{启下}
 
-想象一下你正在玩扑克。如果你不熟悉这个游戏，可以把它看作一个简单的系统：两个玩家各自随机抽得 $5$ 张牌，然后比较谁赢。手牌从最好到最差的排序如下：
-\begin{itemize}
-    \item 同花顺 (同花色的五张连续牌)，例如：$T\clubsuit\; J\clubsuit\; Q\clubsuit\; K\clubsuit\; A\clubsuit$
-    \item 四条 (同点数的四张牌)，例如：$3\clubsuit\; 3\spadesuit\; 3\heartsuit\; 3\diamondsuit\; 7\heartsuit$
-    \item 葫芦 (三张同点数的牌加一对)，例如：$4\clubsuit\; 4\spadesuit\; 4\diamondsuit\; 6\clubsuit\; 6\heartsuit$
-    \item 同花 (同花色的五张牌)，例如：$2\heartsuit\; 5\heartsuit\; 8\heartsuit\; Q\heartsuit\; K\heartsuit$
-    \item 顺子 (不同花色的五张连续牌)，例如：$8\diamondsuit\; 9\spadesuit\; T\diamondsuit\; J\heartsuit\; Q\heartsuit$
-    \item 三条 (同点数的三张牌)，例如：$K\spadesuit\; K\heartsuit\; K\diamondsuit\; Q\heartsuit\; 9\clubsuit$
-    \item 两对 (两对牌)，例如：$A\spadesuit\; A\heartsuit\; J\spadesuit\; J\diamondsuit\; 2\clubsuit$
-    \item 一对 (一对牌)，例如：$8\heartsuit\; 8\diamondsuit\; 2\spadesuit\; 5\clubsuit\; K\heartsuit$
-    \item 高牌 (无组合牌)，例如：$Q\spadesuit\; J\clubsuit\; 9\diamondsuit\; 7\diamondsuit\; 2\diamondsuit$
-\end{itemize}
-这是一个公平的游戏吗？如果你玩过扑克，尤其是牌桌老手，你不仅会习惯这种排序系统，还会学会如何利用它来制定决策。在美国梭哈\footnote{美国梭哈 (Five Card Draw)，又称``五张抽''。以五张牌的排列组合比大小，每名玩家按顺时针方向各发五张牌，牌面向下，拿到牌后可以决定是否换牌且换多少张（最多五张），也可选择不换或弃牌，要换牌的玩家换完牌后和没换牌的玩家（不包括弃牌的玩家）在之后就翻开各自的的五张牌来比较，根据牌型大小决定胜负。--- 译者注}中，如果你拿到 $2\; 2\; 3\; 4\; 5$，你会选择保留对子还是追求顺子？哪种情况更有可能发生？哪种选择会带来更高的回报？
+想象一下你正在玩扑克。如果你不熟悉这个游戏，可以把它想象成一个简单的系统：两名玩家各自随机抽取 $5$ 张牌，然后比较谁的牌型更优。手牌从最好到最差的排序如下：
+\begin{center}
+    \begin{tabular}{lllllll}
+        同花顺 (同花色的五张连续牌) & 例如：& \tenc & \Jc & \Qc & \Kc & \Ac \\
+        四条 (同点数的四张牌) & 例如：& \trec & \tres & \treh & \tred & \sevh \\
+        葫芦 (三张同点数的牌加一对) & 例如：& \fourc & \fours & \fourd & \sixc & \sixh \\
+        同花 (同花色的五张牌) & 例如：& \twoh & \fiveh & \eigh & \Qh & \Kh \\
+        顺子 (不同花色的五张连续牌) & 例如：& \eigd & \nines & \tend & \Jh & \Qh \\
+        三条 (同点数的三张牌) & 例如：& \Ks & \Kh & \Kd & \Qh & \ninec \\
+        两对 (两对牌) & 例如：& \As & \Ah & \Js & \Jd & \twoc \\
+        一对 (一对牌) & 例如：& \eigh & \eigd & \twos & \fivec & \Kh \\
+        高牌 (无组合牌) & 例如：& \Qs & \Jc & \nined & \sevd & \twod
+    \end{tabular}
+\end{center}
 
-我们的问题是，``这是一个公平的游戏吗？''我们真正想知道的是，为什么牌型的排序是这样的！同花的概率真的比顺子更低吗？葫芦输给四条合理吗？为什么？我们该如何\emph{证明}这些结论呢？为了回答这些问题，我们将用\emph{计数}的方法来重新表述这些问题，而不是用概率。我们会询问有多少种不同的五张牌型是同花，有多少种是顺子，等等。这样我们就可以直接比较它们。你是否看出这与我们前一章的工作有什么联系？我们实际上将确定所有同花牌集合的\emph{基数}，并将其与其他牌型集合的基数进行比较。
+这是一个公平的游戏吗？如果你玩过扑克，尤其是经验丰富的玩家，你不仅会熟悉这种排序系统，还会学会如何利用它来制定策略。在美国梭哈\footnote{美国梭哈 (Five Card Draw)，以五张牌的牌型组合比大小，每名玩家按顺时针方向各发五张牌，牌面向下。拿到牌后，玩家可以决定是否换牌以及换多少张（最多五张），也可以选择不换或弃牌。要换牌的玩家换完牌后，与没换牌的玩家（不包括弃牌的玩家）一起翻开各自的五张牌进行比较，根据牌型大小决定胜负。—— 译者注}中，如果你拿到 $2\ 2\ 3\ 4\ 5$，你会选择保留对子还是尝试组成顺子？哪种情况更可能发生？哪种选择会带来更高的回报？
+
+我们的问题是：``这是一个公平的游戏吗？''但我们真正想知道的是，为什么牌型的排序是这样的！同花的概率真的比顺子更低吗？葫芦输给四条合理吗？为什么？我们该如何\emph{证明}这些结论呢？为了回答这些问题，我们将用\emph{计数}的方法来重新表述这些问题，而不是用概率。我们会计算有多少种不同的五张牌组合是同花，有多少种是顺子，等等。这样我们就可以直接比较它们。你是否看出这与我们前一章的工作有什么联系？我们实际上将确定所有同花牌集合的\emph{基数}，并将其与其他牌型集合的基数进行比较。
