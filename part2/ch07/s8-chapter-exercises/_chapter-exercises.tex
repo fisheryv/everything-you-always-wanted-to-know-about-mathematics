@@ -1,46 +1,46 @@
 % !TeX root = ../../../book.tex
 \section{本章习题}
 
-这些问题涵盖了本章的所有内容，甚至包括之前学习的材料和一些假设的数学知识。我们并不要求你解决\textbf{所有}问题，但你做得越多，学到的也越多！记住，要想真正\emph{学会}数学，就必须亲自去\emph{做}。试着亲自动手解决问题，阅读并思考其中的陈述。尝试写出证明并展示给朋友，看看他们是否能被说服。不断练习将你的想法清晰、准确、合乎逻辑地\emph{写}。写完证明后再进行修改，使其更加完善。最重要的是，坚持不断\emph{做}数学！
+本节习题涵盖本章全部内容，并涉及先前知识点及部分数学假设。我们不要求你解答\textbf{所有}题目，但解决得越多，收获越大！请牢记：真正\emph{掌握}数学必须亲自\emph{实践}。尝试动手解题，仔细阅读并思考题意。撰写证明并与朋友讨论，检验其说服力。持续练习如何清晰、准确、有条理地\emph{书写}思路。完成证明后要反复修改以臻完善。最重要的是，坚持\emph{钻研}数学！
 
-标有 $\blacktriangleright$ 号的简答题只需解释或陈述答案，无需严格证明。
+标有 $\blacktriangleright$ 的简答题只需解释或陈述答案，无需严格证明。
 
-特别具有挑战性的问题带有 $\bigstar$。\\
+特别具有挑战性的问题标记为 $\bigstar$。\\
 
 \begin{exercise}
-    对于以下每一个``规则''和给出的定义域与值域，确定该``规则''是否定义了一个\textbf{良好定义的函数}。如有必要，请使用示例解释你的答案。
+    对于以下每一条``规则''，给定定义域和值域，判断该``规则''是否定义了一个\textbf{良好定义的函数}。如有必要，请用例子解释你的答案。
     \begin{enumerate}[label=(\alph*)]
         \item 设 $a : \mathbb{Z} - \{1\} \to \mathbb{R}$ 定义为 $a(x) = \frac{x^2}{x-1}$。
         \item 设 $b : \mathbb{Q} \to \mathbb{Q}$ 定义为 $b(x = \sqrt{|x|})$。
-        \item 设 $c : \mathbb{Z} \to \mathbb{Z}$ 定义为对于每一个输入 $x \in \mathbb{Z}$ 输出 $s \in \mathbb{Z}$ 满足 $x \equiv s \mod 3$。
+        \item 设 $c : \mathbb{Z} \to \mathbb{Z}$ 定义为对于每个输入 $x \in \mathbb{Z}$ 输出 $s \in \mathbb{Z}$ 满足 $x \equiv s \mod 3$。
         \item 设 $d : \mathbb{N} \to \mathbb{N}$ 定义为 $d(x) = \lfloor\frac{x}{10}\rfloor$。
-        \item 设 $e : \mathcal{P}(\mathbb{N}) \to \mathcal{P}(\mathbb{Z})$ 定义为输入一个自然数集合，输出该集合中最小自然数所有整数倍的集合。
+        \item 设 $e : \mathcal{P}(\mathbb{N}) \to \mathcal{P}(\mathbb{Z})$ 定义为输入一个自然数集合，输出该集合中最小自然数的所有整数倍的集合。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
     考虑集合 $\mathbb{R}^3 = \{(x, y, z) \mid x, y, z \in \mathbb{R}\}$ 和 $\mathbb{R}^2 = \{(a, b) \mid a, b \in \mathbb{R}\}$。\\
-    考虑函数 $f : \mathbb{R}^3 \to \mathbb{R}^2$ 定义为 $f(x, y, z) = (xz, yz)$。\\
+    定义函数 $f : \mathbb{R}^3 \to \mathbb{R}^2$ 为 $f(x, y, z) = (xz, yz)$。\\
     $f$ 是单射吗？$f$ 是满射吗？证明你的观点。
 \end{exercise}
 
 \begin{exercise}
-    定义 $f : \mathbb{R} \to \mathbb{R}$ 为 $f(x) = x + 1$。定义 $g : \mathbb{R} \to \mathbb{R}$ 为 $g(x) = x^2 + x$。\\
-    找出复合 $f \circ g$ 和 $g \circ f$ 的表达式。（注意，二者不同。）\\
-    证明这两个复合都不是单射。
+    定义函数 $f : \mathbb{R} \to \mathbb{R}$ 为 $f(x) = x + 1$。\\
+    定义函数 $g : \mathbb{R} \to \mathbb{R}$ 为 $g(x) = x^2 + x$。\\
+    求复合函数 $f \circ g$ 和 $g \circ f$ 的表达式。（注意二者不同。）\\
+    证明这两个复合函数都不是单射。
 \end{exercise}
 
 \begin{exercise}
     设函数 $f : \mathbb{Z} \to \mathbb{Z}$ 为 $f(x) = 2x - 3$。\\
     设函数 $g : \mathbb{Z} \to \mathbb{N}$ 为 $g(z) = |z| + 4$。\\
     $g \circ f$ 的定义域是什么？值域是什么？\\
-    写出 $g \circ f$ 的规则。该函数是单射吗？是满射吗？\\
-    $\im_{g \circ f}(\mathbb{Z})$ 是什么？\\
-    请证明你的观点。
+    写出 $g \circ f$ 的表达式。该函数是单射吗？是满射吗？\\
+    $\im_{g \circ f}(\mathbb{Z})$ 是什么？请证明你的观点。
 \end{exercise}
 
 \begin{exercise}
-    以下每条规则都定义了一个 $\mathbb{N} \times \mathbb{N} \to \mathbb{Z}$ 的函数。对于每个函数，请判断其是否为单射、满射或双射，还是都不是，并证明你的结论。
+    以下每条规则都定义了一个 $\mathbb{N} \times \mathbb{N} \to \mathbb{Z}$ 的函数。对于每个函数，判断其是否为单射、满射或双射，还是都不是，并证明你的结论。
     \begin{enumerate}[label=(\alph*)]
         \item $f_1(a, b) = a - b$
         \item $f_2(a, b) = 2a + 3b$
@@ -51,7 +51,7 @@
 \end{exercise}
 
 \begin{exercise}
-    在定义域 $\mathbb{N}$，值域 $\mathcal{P}(\mathbb{N})$ 上按照如下性质定义函数 $f_1, f_2, f_3, f_4$，或解释为什么所需的性质\textbf{无法}满足。
+    在定义域 $\mathbb{N}$ 和值域 $\mathcal{P}(\mathbb{N})$ 上，按照如下性质定义函数 $f_1, f_2, f_3, f_4$，或者解释为什么所需的性质\textbf{无法}满足。
     \begin{itemize}
         \item $f_1$ 为单射但不为满射
         \item $f_2$ 既不是单射也不是满射
@@ -61,47 +61,49 @@
 \end{exercise}
 
 \begin{exercise}
-    考虑函数 $f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z} \times \mathbb{Z}$ 为
+    定义函数 $f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z} \times \mathbb{Z}$ 为
     \[\forall (x, y) \in \mathbb{Z} \times \mathbb{Z} \centerdot f(x, y) = (y + 1, 3 - x)\]
-    找到 $f$ 的反函数 $F$，并证明它确实是 $f$ 的反函数。\\
-    这告诉了你关于函数 $f$ 的什么信息？
+    求 $f$ 的反函数 $F$，并证明 $F$ 确实是 $f$ 的反函数。\\
+    这揭示了函数 $f$ 的哪些性质？
 \end{exercise}
 
 \begin{exercise}
     定义集合 $S = \{x \in \mathbb{R} \mid 0 < x < 1\}$。定义函数 $g:S \to \mathbb{R}$ 为
     \[g(x) = \frac{2x-1}{2x(1-x)}\]
     证明 $\im_g(S) = \mathbb{R}$。\\
-    （\textbf{提示}：你需要使用二次方程求根公式来解决这个问题。）
+    （\textbf{提示}：需要使用二次方程求根公式。）
 \end{exercise}
 
 \begin{exercise}
-    假设 $f : A \to B$ 和 $g : B \to C$ 为函数。
+    设 $f : A \to B$ 和 $g : B \to C$ 为函数。
     \begin{enumerate}[label=(\alph*)]
-        \item 假设 $f, g$ 为满射，证明 $g \circ f : A \to C$ 也为满射。
-        \item 假设 $f, g$ 为单射，证明 $g \circ f : A \to C$ 也为单射。
-        \item 假设 $f, g$ 为双射，证明 $g \circ f : A \to C$ 也为双射。
+        \item 若 $f, g$ 为满射，证明 $g \circ f : A \to C$ 也为满射。
+        \item 若 $f, g$ 为单射，证明 $g \circ f : A \to C$ 也为单射。
+        \item 若 $f, g$ 为双射，证明 $g \circ f : A \to C$ 也为双射。
     \end{enumerate} \label{exc:exercises7.8.9}
 \end{exercise}
 
 \begin{exercise}
     假设 $f : A \to B$ 和 $g : B \to C$ 为双射。定义 $h : A \to C$ 为 $h = g \circ f$。\\
-    证明 $h$ 可逆且其反函数为 $h^{-1} = f^{-1} \circ g^{-1}$。\\
-    （\textbf{提示}：使用函数复合结合律。）\label{exc:exercises7.8.10}
+    证明 $h$ 可逆，且其反函数为 $h^{-1} = f^{-1} \circ g^{-1}$。\\
+    （\textbf{提示}：利用函数复合结合律。）\label{exc:exercises7.8.10}
 \end{exercise} 
 
 \begin{exercise}
-    设 $f : A \to B$ 和 $g : B \to C$ 为双射。设 $X \subseteq A$。证明 $\im_{g \circ f} (X) = \im_g(\im_f (X))$。
+    设 $f : A \to B$ 和 $g : B \to C$ 为双射，且 $X \subseteq A$。\\
+    证明 $\im_{g \circ f} (X) = \im_g(\im_f (X))$。
 \end{exercise}
 
 \begin{exercise}
-    设 $f : A \to B$ 为双射，所以 $f^{-1} : B \to A$ 为函数。设 $X \subseteq A$。证明 $\im_f (X) = \pim_{f^{-1}} (X)$。
+    设 $f : A \to B$ 为双射，所以 $f^{-1} : B \to A$ 为函数。设 $X \subseteq A$。\\
+    证明 $\im_f (X) = \pim_{f^{-1}} (X)$。
 \end{exercise}
 
 \begin{exercise}
     设 $A, B$ 为集合，$f : A \to B$ 为函数。假设 $X,Y \subseteq A$。
     \begin{enumerate}[label=(\alph*)]
-        \item $\im_f (X \cup Y) = \im_f (X) \cup \im_f (Y)$ 是否必然成立？请陈述并证明你的观点。
-        \item $\im_f (X \cap Y) = \im_f (X) \cap \im_f (Y)$ 是否必然成立？请陈述并证明你的观点。
+        \item $\im_f (X \cup Y) = \im_f (X) \cup \im_f (Y)$ 是否必然成立？请说明理由并证明。
+        \item $\im_f (X \cap Y) = \im_f (X) \cap \im_f (Y)$ 是否必然成立？请说明理由并证明。
     \end{enumerate}
 \end{exercise}
 
@@ -120,21 +122,21 @@
 \end{exercise}
 
 \begin{exercise}
-    设 $f : A \to B$ 为函数，并设 $X,Y \in A$。考虑声明 $\im_f (X) \cap \im_f (Y) \subseteq \im_f (X \cap Y )$。下面对此声明的``错误证明''错在哪里？
+    设 $f : A \to B$ 为函数，并设 $X,Y \in A$。考虑命题 $\im_f (X) \cap \im_f (Y) \subseteq \im_f (X \cap Y )$。下面对此命题的``错误证明''错在何处？
     \begin{quote}
         \begin{spoof}
             设 $z \in \im_f (X) \cap \im_f (Y)$。
 
-            因为 $z \in \im_f (X)$，这意味着 $\exists a \in X$ 使得 $f(a) = z$。
+            由于 $z \in \im_f (X)$，这意味着 $\exists a \in X$ 使得 $f(a) = z$。
 
-            因为 $z \in \im_f (Y)$，这意味着 $\exists a \in Y$ 使得 $f(a) = z$。
+            由于 $z \in \im_f (Y)$，这意味着 $\exists a \in Y$ 使得 $f(a) = z$。
 
-            因为 $a \in X$ 且 $a \in Y$, 这意味着 $a \in X \cap Y$。
+            因为 $a \in X$ 且 $a \in Y$, 故 $a \in X \cap Y$。
 
-            因为 $f(a) = z$，这意味着 $z \in \im_f (X \cap Y)$。
+            因由 $f(a) = z$ 可得 $z \in \im_f (X \cap Y)$。
         \end{spoof}
     \end{quote}
-    请给出反例证明该声明实际上不成立。
+    请举出反例证明该命题不成立。
 \end{exercise}
 
 \begin{exercise}
@@ -143,40 +145,40 @@
 
 \begin{exercise}
     给定任意 $n \in \mathbb{N}$。考虑集合 $[n] = \{1, 2, 3, \dots , n\}$。\\
-    设 $E$ 为具有\textbf{偶数}个元素的 $[n]$ 的子集的集合（例如 $\varnothing$ 或 $\{1,4\}$），\\
-    设 $O$ 为具有\textbf{奇数}个元素的 $[n]$ 的子集的集合（例如 $\{5\}$ 或 $\{1,2,3\}$）。\\
-    定义函数 $p : E \to O$ 为\textbf{双射}，并证明它确实是双射。\\
-    （\textbf{提示}：尝试一些较小的数，如 $n = 1, n = 2, n = 3$，然后试着泛化到一般情况）
+    设 $E$ 为 $[n]$ 中具有\textbf{偶数}个元素的子集构成的集合（例如 $\varnothing$ 或 $\{1,4\}$），\\
+    设 $O$ 为 $[n]$ 中具有\textbf{奇数}个元素的子集构成的集合（例如 $\{5\}$ 或 $\{1,2,3\}$）。\\
+    定义\textbf{双射}函数 $p : E \to O$，并证明它确实为双射。\\
+    （\textbf{提示}：尝试一些较小的数值，如 $n = 1, n = 2, n = 3$，再推广至一般情况。）
 \end{exercise}
 
 \begin{exercise}
     证明引理 \ref{lemma7.6.16}。\label{exc:exercises7.8.19}\\
-    \textbf{提示}：可以尝试使用我们在证明定理 \ref{theorem7.6.7} 时的类似思路：利用 $B$ 的大小来``增加'' $A$ 和 $\mathbb{N}$ 之间的双射数量。
+    \textbf{提示}：可以参考定理 \ref{theorem7.6.7} 的证明思路：利用 $B$ 的大小来``增加'' $A$ 和 $\mathbb{N}$ 之间的双射数量。
 \end{exercise}
 
 \begin{exercise}
-    证明推论 \ref{corollary7.6.19}。也就是说，假设 $A$ 和 $B$ 为可数无限集，通过应用引理 \ref{lemma7.6.18} 合理选择集合来证明 $A \cup B$ 为可数无限集。 \label{exc:exercises7.8.20}
+    证明推论 \ref{corollary7.6.19}。即假设 $A$ 和 $B$ 为可数无限集，通过应用引理 \ref{lemma7.6.18} 合理选择集合来证明 $A \cup B$ 为可数无限集。 \label{exc:exercises7.8.20}
 \end{exercise}
 
 \begin{exercise}
-    回看示例 \ref{ex:example7.6.13}，在那里我们定义函数 $f : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 为
+    回顾示例 \ref{ex:example7.6.13}，在该示例中我们定义函数 $f : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 为
     \[\forall (x, y) \in \mathbb{N} \times \mathbb{N} \centerdot f(x, y) = 2^{x-1}(2y - 1)\]
     证明 $f$ 为\textbf{单射}。\label{exc:exercises7.8.21}
 \end{exercise}
 
 \begin{exercise}
-    证明推论 \ref{corollary7.6.21}。也就是说，假设我们有有限多个集合 --- $A_1, A_2,\dots,A_n$ --- 每个集合都是可数无限集；证明
+    证明推论 \ref{corollary7.6.21}。即假设 $A_1, A_2,\dots,A_n$ 为有限个可数无限集，证明
     \[A_1 \cup A_2 \cup \dots \cup A_n \qquad \text{和} \qquad A_1 \times A_2 \times \dots \times A_n\]
-    都是可数无限集。\label{exc:exercises7.8.22}
+    均为可数无限集。\label{exc:exercises7.8.22}
 \end{exercise}
 
 \begin{exercise}
-    考虑集合 $A$ 定义为
+    定义集合 $A$ 为
     \[A = \{(a, b) \in \mathbb{N} \times \mathbb{N} \mid a \le b\}\]
     用两种方法证明 $A$ 为可数无限集。
     \begin{enumerate}[label=(\arabic*)]
-        \item 通过将 $A$ 表示为集合的并集并引用相关结果来证明。
-        \item 通过找到 $A$ 与你选择的可数集之间的明确双射来证明。
+        \item 通过将 $A$ 表示为集合的并集并引用相关结论来证明。
+        \item 通过构造 $A$ 与某个可数集之间的明确双射来证明。
     \end{enumerate}
 \end{exercise}
 
@@ -184,17 +186,17 @@
     定义函数 $g : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 为
     \[\forall (x, y) \in \mathbb{N} \times \mathbb{N} \centerdot g(x, y) = (x + y)^2 + x\]
     证明
-    \begin{enumerate}[label=(\alph*)]
-        \item $g$ 为单射；
-        \item $g$ 不是满射。
-    \end{enumerate}
+    \begin{tasks}[label=(\alph*)](2)
+        \task $g$ 是单射；
+        \task $g$ 不是满射。
+    \end{tasks}
 \end{exercise}
 
 \begin{exercise}
     设 $A,B,C$ 为集合。设 $f : A \to B, g : B \to C, h : B \to C$ 为函数。
     \begin{enumerate}[label=(\alph*)]
-        \item 假设 $g = h$，则 $g \circ f = h \circ f$ 是否必然成立？证明或证伪你的观点。
-        \item 假设 $g \circ f = h \circ f$，则 $g = h$ 是否必然成立？证明或证伪你的观点。
+        \item 假设 $g = h$，则 $g \circ f = h \circ f$ 是否必然成立？证明或证伪你的结论。
+        \item 假设 $g \circ f = h \circ f$，则 $g = h$ 是否必然成立？证明或证伪你的结论。
     \end{enumerate}
 \end{exercise}
 
@@ -204,40 +206,40 @@
 \end{exercise}
 
 \begin{exercise}
-    考虑如下声明：
+    考虑如下命题：
     \begin{quote}
-        假设 $f : A \to B$ 和 $g : B \to C$ 为函数。假设 $g \circ f : A \to C$ 为单射。则 $g$ 也为单射。
+        假设 $f : A \to B$ 和 $g : B \to C$ 为函数。若 $g \circ f : A \to C$ 为单射，则 $g$ 也为单射。
     \end{quote}
-    下面对此声明的``错误证明''错在哪里？
+    下面对此命题的``错误证明''错在何处？
     \begin{quote}
         \begin{spoof}
             假设 $g \circ f$ 为单射。我们要证明 $g$ 也为单射。
 
-            给定 $x, y \in B$。假设 $g(x) = g(y)$。
+            任取 $x, y \in B$。假设 $g(x) = g(y)$。
 
             我们知道 $\exists a,b \in A$ 满足 $f(a) = x$ 和 $f(b) = y$。
 
-            因为 $g$ 是良好定义的函数，这意味着 $g(f(a)) = g(x)$ 且 $g(f(b)) = g(y)$。
+            由于 $g$ 是良好定义的函数，这意味着 $g(f(a)) = g(x)$ 且 $g(f(b)) = g(y)$。
 
             假设 $g \circ f$ 为单射且 $g(f(a)) = g(f(b))$，这意味着 $a = b$。
 
-            因为 $f$ 是良好定义的函数，则 $f(a) = f(b)$。
+            因为 $f$ 是良好定义的函数，所以 $f(a) = f(b)$。
 
             这意味着 $x = y$。因此 $g$ 为单射。
         \end{spoof}
     \end{quote}
-    请给出反例证明该声明的结论不成立。
+    请给出反例，证明该命题的结论不成立。
 \end{exercise}
 
 \begin{exercise}
     设 $a, b \in \mathbb{R}$ 为任意固定实数。假设 $a^2 + b^2 \ne 0$。\\
-    考虑函数 $f : \mathbb{R} \times \mathbb{R} \to \mathbb{R} \times \mathbb{R}$ 定义为
+    定义函数 $f : \mathbb{R} \times \mathbb{R} \to \mathbb{R} \times \mathbb{R}$ 为
     \[\forall (x, y) \in \mathbb{R} \times \mathbb{R} \centerdot f(x, y) = (ax - by, bx + ay)\]
-    通过找到 $f$ 的反函数证明 $f$ 为双射，并证明这个反函数是正确的。
+    通过求 $f$ 的反函数证明 $f$ 为双射，并证明该反函数是正确的。
 \end{exercise}
 
 \begin{exercise}
-    设 $A$ 和 $B$ 为有限集，并假设 $|A| = |B|$。\\
+    设 $A$ 和 $B$ 为有限集，且 $|A| = |B|$。\\
     假设函数 $f : A \to B$ 为单射。\\
     通过证明 $\im_f (A) = B$ 证明 $f$ 也必然为满射。
 \end{exercise}
@@ -249,47 +251,47 @@
         S_2 & = \{X \in \mathcal{P}([k]) \mid k \in X\}
     \end{align*}
     \begin{enumerate}[label=(\alph*)]
-        \item 证明 $S_1$ 和 $S_2$ 构成 $\mathcal{P}([k])$ 的分割。
-        \item 定义双射函数 $f_1 : S_1 \to \mathcal{P}([k-1])$，并证明它确实为双射。
-        \item 定义双射函数 $f_2 : S_2 \to \mathcal{P}([k-1])$，并证明它确实为双射。
-        \item 利用前面 3 问证明的结论写一个\textbf{归纳}证明，证明对于所有 $n \in \mathbb{N}, \mathcal{P}([n])$ 有 $2^n$ 个元素。
+        \item 证明 $S_1$ 和 $S_2$ 构成 $\mathcal{P}([k])$ 的一个划分。
+        \item 定义双射函数 $f_1 : S_1 \to \mathcal{P}([k-1])$，并证明其确为双射。
+        \item 定义双射函数 $f_2 : S_2 \to \mathcal{P}([k-1])$，并证明其确为双射。
+        \item 利用前三小问的结论，写一个\textbf{归纳}证明，证明对于所有 $n \in \mathbb{N}, \mathcal{P}([n])$ 有 $2^n$ 个元素。
 
-              注意: 由于 $k \ge 2$ 的限制，将 $n = 1$ 作为你的基本情况，使用 $n = k \ge 1$ 作为你的归纳假设，并在归纳步骤中证明 $n = k + 1$ 的命题。
+              注意: 由于 $k \ge 2$ 的限制，将 $n = 1$ 作为基本情况，使用 $n = k \ge 1$ 作为归纳假设，并在归纳步骤中证明 $n = k + 1$ 时命题成立。
     \end{enumerate}\label{exc:exercises7.8.30}
 \end{exercise}
 
 \begin{exercise}
-    设 $A, B, C, D$ 为集合且 $A \cap B = C \cap D = \varnothing$。假设 $f : A \to B$ 和 $g : C \to D$ 为双射。\\
+    设 $A, B, C, D$ 为集合，且 $A \cap B = C \cap D = \varnothing$。假设 $f : A \to B$ 和 $g : C \to D$ 为双射。\\
     定义分段函数 $h : A \cup B \cup C \cup D$ 为
     \[\forall x \in A \cup B \centerdot h(x) = \begin{cases}
-            f(x) & \text{如果}\; x \in A \\
-            g(x) & \text{如果}\; x \in B
+            f(x) & \text{若}\; x \in A \\
+            g(x) & \text{若}\; x \in B
         \end{cases}\]
-    解释为什么 $h$ 是良好定义的函数，然后证明 $h$ 为\textbf{双射}。\label{exc:exercises7.8.31}
+    解释为什么 $h$ 是良好定义的函数，并证明 $h$ 为\textbf{双射}。\label{exc:exercises7.8.31}
 \end{exercise}
 
 \begin{exercise}
-    在这个问题中，你将证明当集合 $A$ 和 $B$ 是有限集，并且 $|A| = a, |B| = b$ 时，$|A \times B| = ab$。这个证明将采用一种叫做``双重归纳法''的方法，对两个变量 $a,b \in \mathbb{N}$ 进行归纳推理。
+    在这个问题中，你将证明当集合 $A$ 和 $B$ 为有限集，且 $|A| = a, |B| = b$ 时，$|A \times B| = ab$。这个证明将采用一种叫做``双重归纳法''的方法，对两个变量 $a,b \in \mathbb{N}$ 进行归纳推理。
     \begin{enumerate}[label=(\alph*)]
-        \item 证明 $\big|[1] \times [1]\big| = 1$。(这非常非常简单，但却是十分必要的。)
+        \item 证明 $\big|[1] \times [1]\big| = 1$。(这非常非常简单，但却是必不可少的。)
         \item 假设 $n \in \mathbb{N}$ 且 $\big|[1] \times [n]\big| = n$，证明 $\big|[1] \times [n+1]\big| = n+1$。
         \item 解释为什么 (a) 和 (b) 证明了 $\forall n \in \mathbb{N} \centerdot \big|[1] \times [n]\big| = n$。
         \item 假设 $k \in \mathbb{N}$ 并假设 $\forall n \in \mathbb{N} \centerdot \big|[k] \times [n]\big| = kn$。证明 $\forall n \in \mathbb{N} \centerdot \big|[k+1] \times [n]\big| = (k+1)n$。
         \item 解释为什么 (c) 和 (d) 证明了 $\forall k,n \in \mathbb{N} \centerdot \big|[k] \times [n]\big| = kn$。
-        \item 解释为什么 (e) 证明了上面问题陈述的结论。
+        \item 解释为什么 (e) 证明了上述结论。
     \end{enumerate}\label{exc:exercises7.8.32}
 \end{exercise}
 
 \begin{exercise}
-    设 $S$ 为所有无限长二进制字符串的集合（也就是说，$S$ 中的元素是由 $0$ 和 $1$ 组成的无限长的字符串）。找到 $S$ 和 $\mathcal{P}(\mathbb{N})$ 之间的双射，并由此证明 $S$ 是不可数无限集。\label{exc:exercises7.8.33}
+    设 $S$ 为所有无限长二进制字符串的集合（也就是说，$S$ 中的元素是由 $0$ 和 $1$ 组成的无限长字符串）。找出 $S$ 和 $\mathcal{P}(\mathbb{N})$ 之间的双射，并由此证明 $S$ 是不可数无限集。\label{exc:exercises7.8.33}
 \end{exercise}
 
 \begin{exercise}
-    对于以下每个集合，给出了它们的基数。请通过找到相关集合之间的双射关系和/或引用相关结论来证明你给出的基数是正确的。\\
+    对于以下每个集合，给出了它们的基数。并通过找到相关集合之间的双射关系和/或引用相关结论证明答案的正确性。\\
     （\textbf{提示}：如果不使用某种形式的归纳论证，你的证明可能会不够严谨……）
     \begin{enumerate}[label=(\alph*)]
         \item $A$ 是所有从 $\mathbb{N}$ 到 $\mathbb{N}$ 函数的集合。证明 $A$ 是不可数无限集。\\
-              （\textbf{提示}：将 $A$ 与所有从 $\mathbb{N}$ 到 $\{1, 2\}$ 的函数集合 $S$ 进行比较。你能解释为什么 $S$ 是不可数无限集吗？这对 $A$ 有什么启示？…… ）
+              （\textbf{提示}：比较 $A$ 与所有从 $\mathbb{N}$ 到 $\{1, 2\}$ 的函数集合 $S$。你能解释为什么 $S$ 是不可数无限集吗？这对 $A$ 有什么启示？…… ）
         \item $B$ 是所有从 $\mathbb{N}$ 到 $\mathbb{N}$ 且具有如下性质的函数的集合
               \[\forall x \in \mathbb{N} \centerdot f(x + 1) = f(x) + 1 \]
               证明 $B$ 是可数无限集。
@@ -303,37 +305,37 @@
 \end{exercise}
 
 \begin{exercise}
-    回顾示例 \ref{ex:example7.6.14}，我们曾通过将该集合描绘成点格并描述了一条覆盖所有点的路径，从而（非正式地）论证了 $\mathbb{N} \times \mathbb{N}$ 是可数无限集。\\
-    现在，我们通过定义一个函数 $f : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$（或反过来）来形式化这个论证。这个函数实现了我们描述的路径（或类似路径的概念），并且我们需要证明它是一个双射。
+    回顾示例 \ref{ex:example7.6.14}，我们通过将该集合描绘成点格并描述了一条覆盖所有点的路径，从而（非正式地）论证了 $\mathbb{N} \times \mathbb{N}$ 是可数无限集。\\
+    现在，我们通过定义一个函数 $f : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$（或反过来）来形式化这一论证。该函数实现了我们描述的路径（或类似路径的概念），并且我们需要证明它是一个双射。
 \end{exercise}
 
 \begin{exercise}
-    证明推论 \ref{corollary7.6.23}，也就是证明可数无限个互不相交的有限集的交集为可数无限集。\label{exc:exercises7.8.36}
+    证明推论 \ref{corollary7.6.23}，即证明可数无限个互不相交的有限集的并集为可数无限集。\label{exc:exercises7.8.36}
 \end{exercise}
 
 \begin{exercise}
-    考虑定理 \ref{theorem7.6.22}，说的是可数无限个可数无限集的交集仍未可数无限集。在我们的证明中，我们只考虑了互不相交的情况。本题中，需要你证明更一般的情况，即集合未必互不相交。\\
-    （\textbf{提示}：请回顾我们在证明中使用的那些函数。你能否对它们进行调整，从而找到一个从 $\mathbb{N} \times \mathbb{N}$ 到这些集合并集的\emph{满射}？）\label{exc:exercises7.8.37}
+    考虑定理 \ref{theorem7.6.22}，该定理指出可数无限个可数无限集的并集仍为可数无限集。在我们的证明中，只考虑了互不相交的情况。本题中，需要你证明更一般的情况，即集合不一定互不相交。\\
+    （\textbf{提示}：请回顾我们在证明中使用的函数。你能否对它们进行调整，从而找到一个从 $\mathbb{N} \times \mathbb{N}$ 到这些集合并集的\emph{满射}？）\label{exc:exercises7.8.37}
 \end{exercise}
 
 \begin{exercise}
-    考虑集合 $S$ 为所有无限长二进制字符串的集合。我们之前已经证明 $S$ 为不可数无限集。\\
-    考虑集合 $T \subseteq S$ 为所有仅包含\emph{有限个} $1$ 的无限长二进制字符串的集合。\\
+    设集合 $S$ 为所有无限长二进制字符串的集合。我们之前已经证明 $S$ 为不可数无限集。\\
+    设集合 $T \subseteq S$ 为所有仅包含\emph{有限个} $1$ 的无限长二进制字符串的集合。\\
     本题中，你将证明 $T$ 实际上是\emph{可数无限集}。
     \begin{enumerate}[label=(\alph*)]
         \item 考虑所有有序自然数 $k$ 元组的集合 $\mathbb{N}^k$。(即 $\mathbb{N}^1 = \mathbb{N}, \mathbb{N}^2 = \mathbb{N} \times \mathbb{N}$)
 
               给出一个归纳论证，证明对于每个 $k \in \mathbb{N}, \mathbb{N}^k$ 为可数无限集。
 
-              （提示：这个证明应该很简短。你可以引用讲义中关于可数无限集的笛卡尔积的结论。）
+              （提示：该证明应该很简短。你可以引用讲义中关于可数无限集的笛卡尔积的结论。）
         \item 对于每个 $k \in \mathbb{N}$，设 $T_k \subseteq T$ 为所有\emph{恰有} $k$ 个 $1$ 的无限长二进制字符串的集合。
 
-              找到从 $T_k$ 到 $\mathbb{N}^k$ 的双射（或至少是单射）函数。解释为什么该函数是良好定义的且是要给双射（或单射）函数。
-        \item 用 (b) 的结论推导出 $T_k$ 为可数无限集。（这里小心：如果你只找到了单射函数，那么你还需要解释为什么 $T_k$ 不是有限集。）
+              构造一个从 $T_k$ 到 $\mathbb{N}^k$ 的双射（或至少是单射）函数。解释为什么该函数是良好定义的，且是一个双射（或单射）函数。
+        \item 用 (b) 的结论推导出 $T_k$ 为可数无限集。（注意：如果你只找到了单射函数，那么你还需要解释为什么 $T_k$ 不是有限集。）
         \item 将 $T$ 表示为集合的并集，并推导出 $T$ 是可数无限集。\\
-              （提示：你需要应用讲义中的一个重要定理。）
+              （提示：需要应用讲义中的一个重要定理。）
     \end{enumerate}
-    （旁注：思考一下这个结果的影响。通过一个简单的双射关系，你可以推导出所有仅包含有限个 $0$ 的无限长二进制字符串的集合也是可数无限集。这意味着，集合 $S$（即所有无限长二进制字符串的集合）之所以是\emph{不可数}无限集，完全仰仗于包含无限个 $1$ 和 $0$ 的字符串的集合。仅这个集合就足以使 $S$ 不可数！）
+    （旁注：思考一下此结论的影响。通过一个简单的双射关系，你可以推导出所有仅包含有限个 $0$ 的无限长二进制字符串的集合也是可数无限集。这意味着，集合 $S$（即所有无限长二进制字符串的集合）之所以是\emph{不可数}无限集，完全依赖于包含无限个 $1$ 和 无限个 $0$ 的字符串的集合。仅该集合就足以令 $S$ 不可数！）
 \end{exercise}
 
 \begin{exercise}
@@ -342,7 +344,7 @@
               \[S = \{f : [n] \to [n] \mid f \;\text{为双射} \}\]
               证明 $S$ \emph{在复合运算下是封闭的}；即证明
               \[\forall f, g \in S \centerdot f \circ g \in S\]
-              （\textbf{提示}：引用本章习题中的一个问题。）
+              （\textbf{提示}：引用本章习题中的某个问题。）
         \item 考虑集合
               \[T = \big\{ f : \mathbb{N} \to \mathbb{N} \mid f \;\text{为双射且}\; \{i \in \mathbb{N} \mid f(i) \ne i\} \;\text{为有限集}\big\}\]
               证明 $T$ \emph{在复合运算下也是封闭的}。
@@ -356,6 +358,6 @@
         \item 找出反例证明 $U-T$ 在复合运算下\textbf{不是}封闭的。
         \item 给定 $A \subseteq \mathbb{N}$ 且 $A$ 为\textbf{有限集}。找到函数 $f, g \in U - T$ 使得
               \[\{i \in \mathbb{N}  \mid (f \circ g)(i) \ne i\} = A\]
-        \item $S, T, U$ 的基数各是多少？如果你的答案是``有限的''，请同时给出具体的大小。如果你的答案是``无限的''，请说明是可数无限还是不可数无限，并通过找到与适当集合之间的双射或引用相关结果来证明你的结论。
+        \item $S, T, U$ 的基数分别是多少？如果你的答案是``有限的''，请同时给出具体的大小。如果你的答案是``无限的''，请说明是可数无限还是不可数无限，并通过构造与适当集合之间的双射或引用相关结论来证明你的结论。
     \end{enumerate}
 \end{exercise}
