@@ -6,12 +6,12 @@
 具体而言，集合的划分是其子集构成的集合，这些子集互不相交且覆盖整个集合。下面给出正式定义，并辅以示例与反例说明。该定义在后续讨论集合及索引并集时将被频繁使用。
 
 \begin{definition}\label{def:definition3.6.9}
-    设 $A$ 为集合。$A$ 的\dotuline{划分}为互不相交且并集为 $A$ 的集合所组成的集合。
+    设 $A$ 为集合。$A$ 的\dotuline{划分}为互不相交且并集为 $A$ 的集合所构成的集合。
 
     也就是说，划分由满足以下条件的索引集 $I$ 和非空集 $S_i$（定义在每个 $i \in I$ 上）构成：
     \begin{enumerate}[label=(\arabic*)]
-        \item 对于所有 $i \in I, S_i \subseteq A$。
-        \item 对于所有 $i, j \in I \text{\ 且\ } i \ne j, S_i \cap S_j = \varnothing$。
+        \item $\forall i \in I, S_i \subseteq A$。
+        \item $\forall i, j \in I$ 且 $i \ne j$，有 $S_i \cap S_j = \varnothing$。
         \item $\displaystyle \bigcup_{i \in I} S_i = A$
     \end{enumerate}
     集合 $S_i$ 称为划分的\dotuline{部分}。

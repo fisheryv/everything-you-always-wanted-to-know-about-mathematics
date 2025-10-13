@@ -845,7 +845,7 @@ BoldItalicFont = *-Bold-Italic,]{Sansation}
 \graphicspath{{./figure/}{./figures/}{./image/}{./images/}{./graphics/}{./graphic/}{./pictures/}{./picture/}}
 
 \RequirePackage{tikz} %% load tikz without tikz
-\usetikzlibrary{backgrounds,calc,shadows,positioning,fit}
+\usetikzlibrary{backgrounds,calc,shadows,positioning,fit,shapes.geometric, arrows}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
 %  https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
