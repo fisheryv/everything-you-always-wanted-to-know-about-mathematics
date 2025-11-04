@@ -2,69 +2,67 @@
 
 \subsection{等价形式}
 
-在使用这个新公式解决问题之前，让我们先看看基本\emph{重复选择}问题的一些\textbf{等价形式}。当你遇到涉及这些概念或形式的问题时，都可以考虑使用我们刚刚推导出的公式来解决。
+在应用这个新公式解决问题之前，我们先来探讨基本\emph{重复选择}问题的一些\textbf{等价形式}。当你遇到涉及这些概念或形式的问题时，可以考虑使用我们刚刚推导出的公式。
 
 \subsubsection*{海盗分金币}
 
-这是我们推导公式时使用的原始公式，所以在这种情况下肯定适用。通常，我们只需要知道海盗的数量和金币的数量。
+这是我们推导公式时使用的原始场景，因此公式在此处直接适用。通常，我们只需知道海盗的数量和金币的数量。
 
 \begin{tcolorbox}[colback=blue!10,
     colframe=blue,
     width=\textwidth,
     arc=2mm, auto outer arc,
     breakable,enhanced jigsaw,
-    before upper={\parindent15pt\noindent},	]
-    将 $n$ 枚相同的金币分配给 $k$ 个不同的海盗有 ${n+k-1 \choose k-1}$ 种方法。
+    before upper={\parindent15pt\noindent}]
+    将 $n$ 枚相同的金币分配给 $k$ 个不同的海盗，共有 ${n+k-1 \choose k-1}$ 种方法。
 \end{tcolorbox}
 
-在我们的推导中，有一个隐含的假设，那就是海盗可能会得到 $0$ 枚金币，请注意这一点。有些问题可能会要求你考虑其他分配\emph{条件}。例如，如果每个海盗必须\emph{至少}获得 $1$ 枚金币，又会怎样呢？
+推导过程中有一个隐含假设：海盗可能分得 $0$ 枚金币，这一点需要注意。某些问题可能附加其他分配\emph{条件}，例如要求每个海盗必须\emph{至少}获得 $1$ 枚金币。
 
 \subsubsection*{整数求和}
 
 我们可以将``海盗分金币''问题重新表述如下。
 
 定义 $x_i \in \mathbb{N} \cup \{0\}$ 为海盗 $i$ 分配到的金币数量。问题的条件要求
-\[\forall i \in [k] \centerdot x_i \in \mathbb{N} \cup \{0\}\]
-并且
-\[\sum_{i=1}^{k}x_i = x_1 + x_2 + x_3 + \dots + x_k = n\]
+\[\forall i \in [k] \centerdot x_i \in \mathbb{N} \cup \{0\} \quad \text{且} \quad \sum_{i=1}^{k}x_i = x_1 + x_2 + x_3 + \dots + x_k = n\]
 
-如果我们关注这种方程\textbf{解}的数量会怎样呢？这实际上（以\emph{双射}的方式）正是解决``海盗分金币''问题的方法。只要有一个方程的解，我们就能给每个海盗 $i$ 分配恰好 $x_i$ 个金币。这就提供了一种新的问题描述方法：
+如果我们关注该方程\textbf{解}的数量会怎样呢？实际上，通过\emph{双射}的方式，此问题对应于``海盗分金币''问题的方法。每个方程的解都对应一种分配方式，即给海盗 $i$ 分配恰好 $x_i$ 枚金币。因此，我们可以这样描述问题：
 
 \begin{tcolorbox}[colback=blue!10,
     colframe=blue,
     width=\textwidth,
     arc=2mm, auto outer arc,
     breakable,enhanced jigsaw,
-    before upper={\parindent15pt\noindent},	]
-    方程 $x_1 + x_2 + x_3 + \dots + x_k = n$ 的解中，满足条件 $\forall i \in [k] \centerdot x_i \in \mathbb{N} \cup \{0\}$ 的解的数量为 ${n+k-1 \choose k-1}$。
+    before upper={\parindent15pt\noindent}]
+    方程 $x_1 + x_2 + x_3 + \dots + x_k = n$ 在条件 $\forall i \in [k] \centerdot x_i \in \mathbb{N} \cup \{0\}$ 下的解的数量为 ${n+k-1 \choose k-1}$。
 \end{tcolorbox}
 
 \subsubsection*{球与桶}
 
-假设我们有 $n$ 个相同的球，现在需要把它们放入 $k$ 个不同的桶中（这些桶是可区分的，我们可以将它们标记为 $1$ 到 $k$）。那么，有多少种方法可以完成这个任务呢？这实际上可以很容易地与之前的公式联系起来。设 $x_i \in \mathbb{N} \cup \{0\}$ 表示最终进入第 $i$ 个桶的球的数量。这样，我们可以应用与之前问题相同的条件。
+假设有 $n$ 个相同的球，要放入 $k$ 个不同的桶中（桶是可区分的，例如标记为 $1$ 到 $k$）。那么，有多少种分配方法？这可以轻松关联到之前的公式。设 $x_i \in \mathbb{N} \cup \{0\}$ 表示第 $i$ 个桶中球的数量，这样我们就能应用相同的条件。
 
 \begin{tcolorbox}[colback=blue!10,
     colframe=blue,
     width=\textwidth,
     arc=2mm, auto outer arc,
     breakable,enhanced jigsaw,
-    before upper={\parindent15pt\noindent},	]
+    before upper={\parindent15pt\noindent}]
     将 $n$ 个相同的球分配到 $k$ 个不同的桶的方法数量为 ${n+k-1 \choose k-1}$。
 \end{tcolorbox}
 
 \subsubsection*{不可区分骰子}
 
-考虑掷 $n$ 个相同的骰子。会有多少种可能的结果呢？这与掷不同颜色的可区分骰子不同。在这里，每次掷骰子的结果是一个\textbf{无序的}数字列表。
+考虑掷 $n$ 个相同的骰子，可能产生多少种结果？这与掷不同颜色的可区分骰子不同，因为这里的结果是一个\textbf{无序}数列。
 
-例如，如果我们掷 $3$ 个不可区分的 $6$ 面骰子，结果可能是无序的 $(1, 3, 3)$。想象一下，你的朋友在另一个房间掷了 $3$ 个骰子，然后回来告诉你结果。如果他说``我掷出了一个 $1$ 和两个 $3$''，你不会知道每个数字分别是哪个骰子掷出来的。（相比之下，如果他说``第一个骰子是 $1$，第二个和第三个骰子是 $3$''，那你就知道了具体的顺序。）这里我们关心的是有多少种不同的无序结果。
+例如，掷 $3$ 个不可区分的 $6$ 面骰子，可能得到无序列表 $(1, 3, 3)$。假设你的朋友在另一个房间掷了 $3$ 个骰子后告诉你：``我掷出了一个 $1$ 和两个 $3$。''你无法知道具体哪个骰子显示哪个数字。相比之下，如果他说``第一个骰子是 $1$，第二个和第三个是 $3$''，你就知道了具体顺序。这里我们关心的是不同无序结果的数量。
 
-我们可以将这种情况与``球与桶''问题联系起来：将所有骰子掷出后，根据显示的数字将它们放入编号为 $1$ 到 $6$ 的桶中。换句话说，要描述这个过程的结果，我们只需要知道有多少个骰子显示了 $1$，有多少个显示了 $2$，等等，而不需要知道具体哪个骰子显示了哪个数字。
+我们可以将这种情况与``球与桶''问题联系起来：将骰子根据显示的数字放入编号为 $1$ 到 $6$ 的桶中。换句话说，描述结果只需知道有多少个骰子显示了 $1$，多少个显示了 $2$……而不需知道具体哪个骰子显示了哪个数字。
 
 \begin{tcolorbox}[colback=blue!10,
     colframe=blue,
     width=\textwidth,
     arc=2mm, auto outer arc,
     breakable,enhanced jigsaw,
-    before upper={\parindent15pt\noindent},	]
+    before upper={\parindent15pt\noindent}]
     掷 $n$ 个不可区分的 $k$ 面骰子的结果数量为 ${n+k-1 \choose k-1}$。
 \end{tcolorbox}

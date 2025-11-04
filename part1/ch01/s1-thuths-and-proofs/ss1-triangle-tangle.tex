@@ -53,8 +53,10 @@
 
     大正方形的面积可以用两种方式表示：直接应用正方形的面积公式，或者把内接正方形和四个直角三角形的面积加起来。因此，下面这个等式一定成立。
     \[(a+b)^2=c^2+4\cdot\frac{ab}{2}=c^2+2ab\] 
+    
     将左边表达式展开，然后两边同时消掉同类项可得 
     \[a^2+\cancel{2ab}+b^2=c^2+\cancel{2ab}\] 
+    
     所以，$a^2+b^2=c^2$ 成立。
 \end{proofs}
 
@@ -79,16 +81,20 @@
             \rightAngle{B}{D}{C}{0.3};
         \end{tikzpicture}
     \end{center}
+
     因为毕达哥拉斯定理成立，所以我们可以将其应用到图中的三个直角三角形中，即三角形 $ABC, BCD, ACD$。（定义 $e = c-d$）可得
     \begin{align*}
         a^2 &= d^2 + f^2 \\
         b^2 &= f^2 + e^2 \\
         c^2 &= a^2 + b^2
     \end{align*}
+
     将前两个方程相加，再用代入第三个方程，可得
     \[c^2 = d^2 + e^2 +2f^2\]
+
     注意到 $\angle ABC$ 与 $\angle ACD$ 相等，因为它们都与角 $\angle CAB$ 互余，由此可知 $\triangle CDB$ 与 $\triangle ADC$ 相似。（此处默认你对平面几何有所了解。）由此可得 $\frac{e}{f} = \frac{f}{d}$，因此 $f^2 = ed$。我们可以将其带入上面的公式替换 $f^2$，结果如下：
     \[c^2 = d^2+e^2+2de = (d+e)^2\]
+
     两边同时开方（已知 $c,d,e$ 都是正数）可得 $c = d+e$，根据边长 $d$ 和 $e$ 的定义，这显然成立。因此，假设毕达哥拉斯定理成立是正确的。
 \end{proofs}
 
@@ -113,7 +119,8 @@
             \draw[color=blue!60] (A) -- (D) -- (B);
             \rightAngle{B}{C}{D}{0.6};
         \end{tikzpicture}
-    \end{center}  
+    \end{center}
+    
     由图形可得 $\frac{a}{b+c} = \frac{c-b}{a}$，因此 $a^2 + b^2 = c^2$。
 \end{proofs}
 
