@@ -1,15 +1,15 @@
 % !TeX root = ../../../book.tex
 \section{本章习题}
 
-这些问题涵盖了本章的所有内容，甚至包括之前学习的材料和一些假设的数学知识。我们并不要求你解决\textbf{所有}问题，但你做得越多，学到的也越多！记住，要想真正\emph{学会}数学，就必须亲自去\emph{做}。试着亲自动手解决问题，阅读并思考其中的陈述。尝试写出证明并展示给朋友，看看他们是否能被说服。不断练习将你的想法清晰、准确、合乎逻辑地\emph{写}。写完证明后再进行修改，使其更加完善。最重要的是，坚持不断\emph{做}数学！
+这些问题涵盖了本章的全部内容，甚至涉及先前学过的知识以及一些假设的数学知识。我们并不要求你解决\textbf{所有}题目，但你解决得越多，收获也会越大！请记住，要想真正\emph{掌握}数学，就必须亲自去\emph{实践}。试着亲手解决问题，仔细阅读并思考其中的陈述。尝试写出证明并与朋友分享，看看能否说服他们。不断练习清晰、准确、有条理地\emph{书写}你的思路。完成证明后，进一步修改润色，使其更加完善。最重要的是，持之以恒地\textbf{做数学}！
 
-标有 $\blacktriangleright$ 号的简答题只需解释或陈述答案，无需严格证明。
+标有 $\blacktriangleright$ 的简答题只需解释或陈述答案，无需严格证明。
 
-特别具有挑战性的问题带有 $\bigstar$。\\
+特别具有挑战性的问题标记为 $\bigstar$。\\
 
 \begin{exercise}\label{exc:exercises8.9.1}
     在这个问题中，我们将\emph{证明}\textbf{乘法原理}（见定理 \ref{theorem8.2.10}）。\\
-    利用数学归纳法证明，对于 $n$ 个有限集，它们笛卡尔积的大小等于这些集合大小的乘积。
+    使用数学归纳法证明，对于 $n$ 个有限集，它们的笛卡尔积的大小等于这些集合大小的乘积。
 \end{exercise}
 
 \begin{exercise}
@@ -18,86 +18,86 @@
     \[{n \choose 3}+{n \choose 4}+{n \choose 5}\]
     我会这样解释:
     \begin{quote}
-        设 $S_1 \subseteq S$ 为所有在 $3$、$4$ 或 $5$ 个位置上为 \verb|0| 的字符串的集合。我们可以将这个集合划分为恰好在 $k = 3,4,5$ 位置上为 $0$ 的字符串集合。在每种情况下，我们可以通过在 $n$ 个位置中选择 $k$ 个位置设为 \verb|0|，并将其余位置设为 \verb|1| 来确定该部分的大小。根据加法原理，我们发现 $|S_1|$ 就是上面的求和。
+        设 $S_1 \subseteq S$ 为所有在 $3$、$4$ 或 $5$ 个位置上为 \verb|0| 的字符串的集合。我们可以将这个集合划分为恰好在 $k = 3,4,5$ 个位置上为 $0$ 的字符串子集。在每种情况下，我们可以通过在 $n$ 个位置中选择 $k$ 个位置设为 \verb|0|，并将其余位置设为 \verb|1| 来确定该部分的大小。根据加法原理，我们发现 $|S_1|$ 就是上面的求和。
     \end{quote}
     \begin{enumerate}[label=(\alph*)]
-        \item $2^{n-2}$
-        \item $2^n-{n \choose n}-{n \choose n-1}-{n \choose n-2}-{n \choose n-3}$
-        \item ${n \choose 2}-{n-1 \choose 1}$
+        \item $\displaystyle 2^{n-2}$
+        \item $\displaystyle 2^n-{n \choose n}-{n \choose n-1}-{n \choose n-2}-{n \choose n-3}$
+        \item $\displaystyle {n \choose 2}-{n-1 \choose 1}$
         \item $\displaystyle \sum_{k=0}^{\lceil n/2 \rceil} {n \choose k}$
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    一个学生组织每周都会召开一次会议，每次会议都会选出一名主持人和两名助手来高效地进行会议。如果一个学期有 $14$ 周，那么这个组织需要有多少名学生才能保证每次会议的主持人和助手组合都不重复？
+    一个学生组织每周召开一次会议，每次会议选出一名主持人和两名助手，以确保会议高效进行。如果一个学期有 $14$ 周，那么该组织至少需要多少名学生，才能保证每次会议的主持人和助手组合都不重复？
 \end{exercise}
 
 \begin{exercise}
-    假设我们有 $50$ 块不同的万圣节糖果需要分给 $4$ 个不同的孩子。我们有多少种分配方式？如果这些糖果都是相同的呢？再假设有 $5$ 种不同类型的糖果，每种 $10$ 块，又有多少种分配方式呢？
+    假设有 $50$ 块不同的万圣节糖果要分给 $4$ 个不同的孩子。有多少种分配方式？如果这些糖果完全相同呢？再假设有 $5$ 种不同类型的糖果，每种类型有 $10$ 块，那么有多少种分配方式？
 \end{exercise}
 
 \begin{exercise}
-    从一副标准扑克牌中抽取 $5$ 张牌，设 $U$ 为恰好包含两张 \verb|K| 和一张红心的牌型的集合。求 $|U|$。
+    从一副标准扑克牌中抽取 $5$ 张牌，设 $U$ 为恰好包含两张 \verb|K| 和一张红桃的牌型的集合。求 $|U|$。
 \end{exercise}
 
 \begin{exercise}
-    对于一下每种情况，考虑从一副标准扑克牌中抽取 $7$ 张牌。
+    对于以下每种情况，考虑从一副标准扑克牌中抽取 $7$ 张牌。
     \begin{enumerate}[label=(\alph*)]
         \item $7$ 张牌总共能构成多少种牌型？
         \item $7$ 张牌每张牌的点数都不大于 $8$，总共有多少种牌型？（注意：\verb|A| 是最大的点数。）
         \item $7$ 张牌中恰好有两张 \verb|K|，总共有多少种牌型？
-        \item $7$ 张牌中恰好有一对，总共有多少种牌型？（也就是说有两张牌点数相同，其余五张牌点数都不同。）
+        \item $7$ 张牌中恰好有一对，总共有多少种牌型？（也就是说，有两张牌点数相同，其余五张牌点数都不同。）
         \item $7$ 张牌中至少有 $3$ 张红桃，总共有多少种牌型？
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    首先，计算从 $\{0, 1, 2, \dots , 9\}$ 中选取 $5$ 个不同数字进行排列的总数。然后，计算在这些排列中，$5$ 和 $6$ 不相邻的排列数量。
+    首先，计算从集合 $\{0, 1, 2, \dots , 9\}$ 中选取 $5$ 个不同数字进行排列的总数。然后，计算在这些排列中，数字 $5$ 和 $6$ 不相邻的排列数量。
 \end{exercise}
 
 \begin{exercise}
-    设 $T_{5,4}$ 为从 $[4]$ 中选取元组构成 $5$-元组的集合。（例如 $(1, 4, 4, 1, 2) \in T_{5,4}$）。
+    设 $T_{5,4}$ 为由 $[4]$ 中的元素构成的所有 $5$-元组的集合。（例如，$(1, 4, 4, 1, 2) \in T_{5,4}$）。
     \begin{enumerate}[label=(\alph*)]
         \item $|T_{5,4}|$ 的值是多少？
-        \item $|T_{5,4}|$ 中有多少元素不包含奇数？
-        \item $|T_{5,4}|$ 中有多少元素没有重复的数字？
-        \item $|T_{5,4}|$ 中有多少元素恰好包含 $2$ 个不同数字？\\
+        \item $T_{5,4}$ 中有多少个元素不包含任何奇数？
+        \item $T_{5,4}$ 中有多少个元素没有重复数字？
+        \item $T_{5,4}$ 中有多少个元素恰好包含 $2$ 个不同数字？\\
               (例如，$(1, 2, 2, 1, 2)$ 应该被计入，但 $(1, 1, 1, 1, 1)$ 和 $(1, 2, 3, 3, 3)$ 不应该被计入。)
-        \item$|T_{5,4}|$ 中有多少元素没有相邻的相同数字？\\
+        \item $T_{5,4}$ 中有多少个元素没有相邻的相同数字？\\
               (例如，$(1, 3, 1, 3, 4)$ 应该被计入，但 $(2, 3, 1, 1, 3)$ 和 $(1, 1, 1, 4, 3)$ 不应该被计入。)
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    对于以下每个条件，找出掷 $5$ 个\emph{可区分的}骰子，使得满足该条件的方法数。（请勿考虑条件的组合；每个条件都是独立的）。
+    对于以下每个条件，求掷 $5$ 个\emph{可区分}骰子时满足该条件的方法数。（每个条件独立考虑，请勿组合条件。）
     \begin{enumerate}[label=(\alph*)]
-        \item 点数没有偶数。
-        \item 点数正好有  $2$ 个偶数。
+        \item 所有点数均为奇数。
+        \item 点数中恰有 $2$ 个偶数。
         \item 所有点数之和为奇数。
-        \item 掷出的点数构成``葫芦''（即，有三个点数是一个数字，另外两个点数是另一个数字）。
+        \item 掷出的点数构成``葫芦''（即有三个点数是一个数字，另外两个点数是另一个数字）。
         \item 掷出的点数构成``顺子''。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    单词 \verb|MILLIMETER| 有多少个异序词？其中有多少个异序词是两个 \verb|M| 相邻的？有多少个异序词是两个 \verb|M| 不相邻的？
+    单词 \verb|MILLIMETER| 有多少个异序词？其中有多少个异序词中两个 \verb|M| 相邻？有多少个异序词中两个 \verb|M| 不相邻？
 \end{exercise}
 
 \begin{exercise}
-    $1$ 到 $1000$ 之间（含端点），有多少个自然数的所有数字都是奇数？有多少个自然数的所有数字都不重复？有多少个自然数的数字之和是偶数？\\
-    （注意：记住像 \verb|0011| 这样的字符串实际上是数字 $11$。）
+    在 $1$ 到 $1000$ 之间（含端点），有多少个自然数的所有数字均为奇数？有多少个自然数的所有数字互不相同？有多少个自然数的数字之和为偶数？\\
+    （注意：像 \verb|0011| 这样的字符串实际表示数字 $11$，因此不考虑前导零。）
 \end{exercise}
 
 \begin{exercise}
-    考虑从一副牌的顶部\textbf{按顺序}抽取两张牌。有多少种结果是第一张牌是 \verb|A|，第二张牌是红心？
+    考虑从一副标准扑克牌的顶部\textbf{按顺序}抽取两张牌。有多少种情况使得第一张牌是 \verb|A|，第二张牌是红桃？
 \end{exercise}
 
 \begin{exercise}
-    有多少种 $15$ 张牌的牌型每个点数至少有一个牌？
+    有多少种 $15$ 张牌的手牌满足每个点数至少出现一次？
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises8.9.14}
-    请通过对 $n$ 进行\textbf{数学归纳法}来证明二项式定理（参见定理 \ref{theorem8.4.8}）。
+    请使用\textbf{数学归纳法}证明二项式定理（参见定理 \ref{theorem8.4.8}）。
 \end{exercise}
 
 \begin{exercise}
@@ -111,12 +111,12 @@
 \end{exercise}
 
 \begin{exercise}
-    有三个人走进洗手间，发现墙上有七个小便池一字排开。他们需要在不违反``兄弟守则''的情况下安排位置，也就是说，他们必须确保没有两个相邻的小便池被同时使用。请问有多少种排列方式？
+    三个人走进洗手间，看到墙上有七个小便池一字排开。他们需要在不违反``兄弟守则''的情况下选择位置，即确保没有两个相邻的小便池同时被使用。请问有多少种排列方式？
 \end{exercise}
 
 \begin{exercise}
-    设 $n \in \mathbb{N}$，用\emph{双法计数}证明下列恒等式：\\
-    （\textbf{提示}：你可以对每个恒等式使用相同的``故事''或表述；也就是说，可以尝试稍微修改你在 (a) 中的论证来证明 (b) 和 (c)。）
+    设 $n \in \mathbb{N}$，用\emph{双法计数}证明以下恒等式：\\
+    （\textbf{提示}：你可以对每个恒等式使用相同的``故事''或表述；即可以尝试稍微修改 (a) 中的论证来证明 (b) 和 (c)。）
     \begin{enumerate}[label=(\alph*)]
         \item $\displaystyle \sum_{i=1}^{n}(i-1) = {n \choose 2}$
         \item $\displaystyle \sum_{i=1}^{n}(i-1)(n-1) = {n \choose 3}$
@@ -132,19 +132,19 @@
 \begin{exercise}
     用双法计数证明
     \[{n \choose k}-{n-2 \choose k} = 2{n-2 \choose k-1}+{n-2 \choose k-2}\]
-    请保留问题原始形式，不要进行代数化简。
+    请保留问题的原始形式，不要进行代数化简。
 \end{exercise}
 
 \begin{exercise}
     用双法计数证明
     \[{n \choose k}-{n-2 \choose k} = {n-1 \choose k-1}+{n-2 \choose k-1}\]
-    请保留问题原始形式，不要进行代数化简。
+    请保留问题的原始形式，不要进行代数化简。
 \end{exercise}
 
 \begin{exercise}
     用双法计数证明
     \[{n \choose k}-{n-3 \choose k} = {n-1 \choose k-1}+{n-2 \choose k-1}+{n-3 \choose k-1}\]
-    请保留问题原始形式，不要进行代数化简。
+    请保留问题的原始形式，不要进行代数化简。
 \end{exercise}
 
 \begin{exercise}
@@ -153,15 +153,15 @@
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises8.9.24}
-    设 $p \in \mathbb{N}$ 为质数。给定 $k \in \mathbb{N}$ 且 $1 \le k < p$。证明 ${p \choose k}$ 可以被 $p$ 整除。
+    设 $p \in \mathbb{N}$ 为质数。给定 $k \in \mathbb{N}$ 且 $1 \le k < p$，证明 ${p \choose k}$ 可被 $p$ 整除。
 \end{exercise}
 
 \begin{exercise}
     设 $p \in \mathbb{N}$ 为质数。利用练习 \ref{exc:exercises8.9.24} 的结论，证明
     \[\forall x, y \in \mathbb{Z} \centerdot (x + y)^p \equiv x^p + y^p \mod p\]
-    （我们在练习 \ref{exc:exercises6.7.22} 中讨论过这个问题的特定版本，这里我们证明了该问题的一般版本。）
+    （我们在练习 \ref{exc:exercises6.7.22} 中讨论过这个问题的特殊版本，这里我们证明该问题的一般版本。）
 \end{exercise}
-
+\clearpage
 \begin{exercise}
     设 $p \in \mathbb{N}$ 为质数，并设 $a \in \mathbb{Z}$。利用练习 \ref{exc:exercises8.9.24} 的结论和二项式定理，证明
     \[a^p \equiv a \mod p\]
@@ -169,50 +169,50 @@
 \end{exercise}
 
 \begin{exercise}
-    通过考虑\emph{格路径}的两种不同计数方法，证明求和恒等式（参见定理 \ref{theorem8.4.5}）。具体来说，我们建议将从 $(0, 0)$ 到 $(k + 1, n - k)$ 的格路径集合，按照第一次向右移动时的位置进行划分。
+    通过考虑\emph{格路径}的两种不同计数方法，证明求和恒等式（参见定理 \ref{theorem8.4.5}）。具体来说，我们建议将从 $(0, 0)$ 到 $(k + 1, n - k)$ 的格路径集合，按照第一次向右移动的位置进行划分。
 \end{exercise}
 
 \begin{exercise}
-    本题要求你证明如下求和公式
+    本题要求你证明以下求和公式
     \[\forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n}k^3 = \Big(\frac{n(n+1)}{2}\Big)^2\]
-    该恒等式之前用归纳法证明过。这里请按照如下步骤进行证明：
+    该恒等式之前已用归纳法证明过。现在请按照以下步骤进行证明：
     \begin{enumerate}[label=(\alph*)]
-        \item 设 $k \in \mathbb{N}$。通过双法计数证明下面等式关系：
+        \item 设 $k \in \mathbb{N}$。通过双法计数证明以下等式：
               \[\forall k \in \mathbb{N} \centerdot k^3 = 6{k \choose 3}+6{k \choose 2}+{k \choose 1}\]
-              （\textbf{提示}：考虑计数 $k$ 个字母构成的 $3$ 字单词。）
-        \item 利用\textbf{求和恒等式}和上一步证明的结论来证明本题声明的求和公式。
+              （\textbf{提示}：考虑计数由 $k$ 个字母构成的 $3$ 字单词。）
+        \item 利用\textbf{求和恒等式}及上一步的结论证明本题所述的求和公式。
     \end{enumerate}
     你能将这种方法推广到 $\sum k^4$ 吗？
 \end{exercise}
 
 \begin{exercise}
-    设 $n \in \mathbb{N}$。从 $(0,0)$ 到 $(3n,3n)$ 的所有格路径中，有多少不经过 $(n,n)$ 或 $(2n,2n)$？
+    设 $n \in \mathbb{N}$。从 $(0,0)$ 到 $(3n,3n)$ 的所有格路径中，有多少条路径不经过 $(n,n)$ 或 $(2n,2n)$？
 \end{exercise}
 
 \begin{exercise}
-    设 $n \in \mathbb{N}$。假设我们有 $n$ 个卡内基·梅隆大学学生和 $n$ 个匹兹堡大学学生。（当然，我们假设没有学生同时有两个学校的学籍，因此这两个集合的交集为空集。）
+    设 $n \in \mathbb{N}$。假设有 $n$ 名卡内基·梅隆大学的学生和 $n$ 名匹兹堡大学的学生。（注意，没有学生同时属于两所学校，因此这两个集合不相交。）
     \begin{enumerate}[label=(\alph*)]
-        \item 我们可以用多少种方式将这 $2n$ 个学生分成 $n$ 对？（注意：对与对之间以及对内的学生之间都没有顺序。）
-        \item 我们可以用多少种方式将这 $2n$ 名学生分成 $n$ 对，其中每对必须包含一名卡内基·梅隆大学学生和一名匹兹堡大学学生？（同样，对与对之间以及对内的学生之间都没有顺序。）
+        \item 有多少种方式将这 $2n$ 名学生分成 $n$ 对？（注意：对与对之间无顺序，对内的两名学生也无顺序。）
+        \item 有多少种方式将这 $2n$ 名学生分成 $n$ 对，且每对包含一名卡内基·梅隆大学的学生和一名匹兹堡大学的学生？（同样地，对与对之间以及对内的学生之间均无顺序。）
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    设 $n \in \mathbb{N}$，并设 $S \subseteq \mathbb{N}$ 的大小为 $|S|=n+1$。证明 $\exists x,y \in S$ 使得 $x \ne y$ 且 $x-y$ 是 $n$ 的倍数。
+    设 $n \in \mathbb{N}$，并设 $S \subseteq \mathbb{N}$ 的大小为 $|S|=n+1$。证明 $\exists x,y \in S$，满足 $x \ne y$ 且 $x - y$ 是 $n$ 的倍数。
 \end{exercise}
 
 \begin{exercise}
-    考虑集合 $[22]$。给定集合 $S \subseteq [22]$ 且 $|S|=7$。请你证明必然存在两个元素之和相等的非空集合 $X, Y \subseteq S$ 没有交集。
+    考虑集合 $[22]$。设 $S \subseteq [22]$ 且 $|S| = 7$。证明必然存在两个非空子集 $X, Y \subseteq S$，满足 $X$ 和 $Y$ 的元素之和相等，且 $X \cap Y = \varnothing$。
     \begin{enumerate}[label=(\alph*)]
-        \item $S$ 中有多少个非空子集？
-        \item 给定 $T \subseteq S$。$T$ 中元素之和最大可能是多少？
-        \item 利用 (a) 和 (b) 的结论推导出存在两个集合 $X,Y \subseteq S$ 他们元素之和相等。
+        \item $S$ 有多少个非空子集？
+        \item 对于任意 $T \subseteq S$，$T$ 中元素之和的最大可能值是多少？
+        \item 利用 (a) 和 (b) 的结论推导出存在两个子集 $X, Y \subseteq S$，其元素之和相等。
         \item 进一步解释 $X$ 和 $Y$ \emph{不相交}。
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    设一个边长为 $1$ 厘米的等边三角形。假设在三角形内部（不在边界上）放置了 $10$ 个点。证明必然存在两点之间的距离 $d$ 小于 $\frac{1}{3}$ 厘米。
+    考虑一个边长为 $1$ 厘米的等边三角形。假设在三角形内部（不在边界上）放置了 $10$ 个点。证明必然存在两点，其距离小于 $\frac{1}{3}$ 厘米。
 \end{exercise}
 
 \begin{exercise}
@@ -221,32 +221,32 @@
 \end{exercise}
 
 \begin{exercise}
-    设 $n \in \mathbb{N}$，考虑下面恒等式
+    设 $n \in \mathbb{N}$，考虑以下恒等式：
     \[4^n = \sum_{k=0}^{n}{n \choose k}2^n\]
-    利用二项式定理推导出上面的恒等式，并用\emph{双法计数}给与证明。
+    利用二项式定理推导该恒等式，并用\emph{双法计数}给予证明。
 \end{exercise}
 
 \begin{exercise}
     设 $n,k \in \mathbb{N}$，考虑方程 $\bigstar$
     \[\sum_{i \in [k]}x_i = x_1 + x_2 + \dots + x_k = n\]
-    本题中，我们将讨论 $\bigstar$ 的\emph{解}，即使得 $ x_1 , x_2 , \dots , x_k$ 之和等于 $n$ 的 $x_i$ 的取值，其中 $x_i \in \mathbb{N} \cup \{0\}$。
+    本题中，我们讨论 $\bigstar$ 的\emph{解}，即满足 $x_1, x_2, \dots, x_k$ 之和等于 $n$ 的非负整数，即 $x_i \in \mathbb{N} \cup \{0\}$。
     \begin{enumerate}[label=(\alph*)]
-        \item $\bigstar$ 存在多少解？
+        \item $\bigstar$ 有多少个解？
         \item $\bigstar$ 的解中，有多少满足 $x_1 \ge 3$？
         \item $\bigstar$ 的解中，有多少满足 $\forall i \in [k] \centerdot x_i \ge 2$？
         \item $\bigstar$ 的解中，有多少满足 $x_1 \le 4$？
-        \item 考虑将 $\bigstar$ 改为如下不等式
+        \item 若将 $\bigstar$ 改为如下不等式
               \[x_1 + x_2 + \dots + x_k \le n\]
-            该不等式存在多少解？（这里的解同样需要满足 $x_i \in \mathbb{N} \cup \{0\}$。）
+              该不等式有多少个解？（这里的解同样需要满足 $x_i \in \mathbb{N} \cup \{0\}$。）
     \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-    假设有 $10$ 个海盗需要分 $100$ 枚金币。其中包括红胡子船长和黑胡子船长。
+    假设有 $10$ 名海盗需要分 $100$ 枚金币，其中包括红胡子船长和黑胡子船长。
     \begin{enumerate}[label=(\alph*)]
         \item 有多少种分配方式可以使得红胡子船长至少获得 $5$ 枚金币，而黑胡子船长最多获得 $5$ 枚金币？
-        \item 有多少种分配方式可以使红胡子船长至少获得 $10$ 枚金币，而黑胡子船长获得 $5$ 到 $15$（含端点）枚金币？
-        \item 有多少种分配方式可以使红胡子船长获得 $0$ 到 $10$（含端点）枚金币，而黑胡子船长获得 $10$ 到 $20$（含端点）枚金币？\\
+        \item 有多少种分配方式可以使得红胡子船长至少获得 $10$ 枚金币，而黑胡子船长获得 $5$ 到 $15$ 枚金币（含端点）？
+        \item 有多少种分配方式可以使得红胡子船长获得 $0$ 到 $10$ 枚金币（含端点），而黑胡子船长获得 $10$ 到 $20$ 枚金币（含端点）？\\
         （\textbf{提示}：使用容斥原理。）
     \end{enumerate}
 \end{exercise}
