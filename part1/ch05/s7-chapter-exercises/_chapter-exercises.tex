@@ -9,7 +9,7 @@
 
 \begin{exercise} \label{exc:exercises5.7.1}
     证明
-    \[\forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} k^3 = \bigg(\sum_{k=1}^{n} k\bigg)^2\]
+    \[\forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} k^3 = \left(\sum_{k=1}^{n} k\right)^2\]
 \end{exercise}
 
 \begin{exercise}
@@ -70,7 +70,7 @@
     \begin{enumerate}[label=(\alph*)]
         \item 基本情况：$P(-3)$ \qquad\quad\enspace\,\, 推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies P(n+1)$
         \item 基本情况：$P(1) \land P(2)$ \quad\;\; 推论：$\forall n \in \mathbb{N} \centerdot P(n) \implies P(2n)$
-        \item 基本情况：$P(0)$ \qquad\qquad\quad 推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies \big(P(n-1) \land P(n+1)\big)$
+        \item 基本情况：$P(0)$ \qquad\qquad\quad 推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies \left(P(n-1) \land P(n+1)\right)$
         \item 基本情况：$P(-1) \land P(0)$ \quad 推论：$\forall n \in \mathbb{Z} \centerdot P(n) \implies P(n+2)$
     \end{enumerate}
 \end{exercise}
@@ -109,7 +109,7 @@
     在问题 \ref{exc:exercises5.7.1} 中，你已证明前 $n$ 个自然数的立方和等于其和的平方。\\
     本题要求证明其逆命题，即满足该性质的\emph{唯一}数列是 $\langle 1, 2, \dots, n \rangle$。命题重述如下:\\
     \textbf{声明}：设 $\langle a_i \rangle$ 为实数数列，即 $\forall i \in \mathbb{N} \centerdot a_i \in \mathbb{R}$。假设该数列具有如下性质
-    \[\forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} a_k^3 = \bigg(\sum_{k=1}^{n} a_k\bigg)^2\]
+    \[\forall n \in \mathbb{N} \centerdot \sum_{k=1}^{n} a_k^3 = \left(\sum_{k=1}^{n} a_k\right)^2\]
     通过对 $n$ 应用归纳法证明 $\forall n \in \mathbb{N} \centerdot a_n = n$。
 \end{exercise}
 
@@ -169,7 +169,7 @@
 
 \begin{exercise}
     证明以下不等式对所有自然数 $n$ 成立：
-    \[\prod_{i=1}^{n} \Big(1+\frac{1}{i^2}\Big) = \Big(1+\frac{1}{1^2}\Big)\Big(1+\frac{1}{2^2}\Big) \dots \Big(1+\frac{1}{n^2}\Big) < 4-\frac{1}{n}\]
+    \[\prod_{i=1}^{n} \left(1+\frac{1}{i^2}\right) = \left(1+\frac{1}{1^2}\right)\left(1+\frac{1}{2^2}\right) \dots \left(1+\frac{1}{n^2}\right) < 4-\frac{1}{n}\]
 \end{exercise}
 
 \begin{exercise}\label{exc:exercises5.7.21}

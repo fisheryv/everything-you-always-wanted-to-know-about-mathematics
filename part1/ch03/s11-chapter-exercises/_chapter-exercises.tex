@@ -85,7 +85,7 @@
 \begin{exercise}
     令 $(a,b)$ 为笛卡尔平面上的一点，即 $(a,b) \in \mathbb{R} \times \mathbb{R}$。设 $\varepsilon$（希腊字母 \emph{epsilon}）为非负实数，即 $\varepsilon \in \mathbb{R}$ 且 $\varepsilon \ge 0$。\\
     设 $C_{(a,b),\varepsilon}$ 为``接近'' $(a, b)$ 的点集，定义如下：
-    \[C_{(a,b),\varepsilon} = \Big\{(x, y) \in \mathbb{R} \times \mathbb{R} \mid \sqrt{(x - a)^2 + (y - b)^2} < \varepsilon\Big\}\]
+    \[C_{(a,b),\varepsilon} = \left\{(x, y) \in \mathbb{R} \times \mathbb{R} \mid \sqrt{(x - a)^2 + (y - b)^2} < \varepsilon\right\}\]
     \begin{enumerate}
         \item 给出集合 $C_{(a,b),\varepsilon}$ 的几何描述。
         \begin{itemize}
@@ -141,7 +141,7 @@
 
 \begin{exercise}
     令 $n \in \mathbb{N}$ 为固定自然数。设 $S = [n] \times [n]$。设 $T$ 为集合
-    \[T =\Big\{(x, y) \in \mathbb{Z} \times \mathbb{Z} \mid 0 \le nx + y - (n + 1) \le n^2 - 1\Big\}\]
+    \[T =\left\{(x, y) \in \mathbb{Z} \times \mathbb{Z} \mid 0 \le nx + y - (n + 1) \le n^2 - 1\right\}\]
     证明 $S \subseteq T$ 但 $S \ne T$。
 \end{exercise}
 
@@ -201,8 +201,8 @@
         \item 写出 $\displaystyle{\bigcap_{i \in I}A_i}$ 的元素。
         \item 写出 $\displaystyle{\bigcup_{i \in I}B_i}$ 的元素。
         \item 写出 $\displaystyle{\bigcap_{i \in I}B_i}$ 的元素。
-        \item 利用上述答案，写出 $\displaystyle{\Big(\bigcup_{i \in I}A_i\Big) - \Big(\bigcup_{i \in I}B_i\Big)}$ 的元素。
-        \item 利用上述答案，写出 $\displaystyle{\Big(\bigcap_{i \in I}A_i\Big) - \Big(\bigcap_{i \in I}B_i\Big)}$ 的元素。
+        \item 利用上述答案，写出 $\displaystyle{\left(\bigcup_{i \in I}A_i\right) - \left(\bigcup_{i \in I}B_i\right)}$ 的元素。
+        \item 利用上述答案，写出 $\displaystyle{\left(\bigcap_{i \in I}A_i\right) - \left(\bigcap_{i \in I}B_i\right)}$ 的元素。
         \item 写出 $\displaystyle{\bigcup_{i \in I}(A_i - B_i)}$ 的元素。与 (e) 的答案有何不同？
         \item 写出 $\displaystyle{\bigcap_{i \in I}(A_i - B_i)}$ 的元素。与 (f) 的答案有何不同？
     \end{enumerate}
@@ -216,11 +216,11 @@
     我们\textbf{不能}推导出 $x - z = w - y$。因为若 $y > w$，则 $w - y$ 在上下文中可能不存在……\\
     \\
     设 $P = \mathbb{N} \times \mathbb{N}$。定义集合 $R$ 为
-    \[R = \big\{\big((a, b),(c, d)\big) \in P \times P \mid a + d = b + c \big\}\]
+    \[R = \left\{\left((a, b),(c, d)\right) \in P \times P \mid a + d = b + c \right\}\]
     \begin{enumerate}[label=(\alph*)]
-        \item 找出三个不同的 $(c, d)$ 对，使得 $\big((1, 4),(c, d)\big) \in R$。
-        \item 设 $(a, b) \in P$。证明 $\big((a, b),(a, b)\big) \in R$。
-        \item 设 $\big((a, b),(c, d)\big) \in R$。证明 $\big((c, d),(a, b)\big) \in R$。
-        \item 假设 $\big((a, b),(c, d)\big) \in R$ 且 $\big((c, d),(e, f)\big) \in R$。证明 $\big((a, b),(e, f)\big) \in R$。
+        \item 找出三个不同的 $(c, d)$ 对，使得 $\left((1, 4),(c, d)\right) \in R$。
+        \item 设 $(a, b) \in P$。证明 $\left((a, b),(a, b)\right) \in R$。
+        \item 设 $\left((a, b),(c, d)\right) \in R$。证明 $\left((c, d),(a, b)\right) \in R$。
+        \item 假设 $\left((a, b),(c, d)\right) \in R$ 且 $\left((c, d),(e, f)\right) \in R$。证明 $\left((a, b),(e, f)\right) \in R$。
     \end{enumerate}
 \end{exercise}

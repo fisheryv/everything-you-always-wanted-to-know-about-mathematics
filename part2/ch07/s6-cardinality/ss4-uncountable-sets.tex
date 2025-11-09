@@ -43,7 +43,7 @@
         4 & \leftrightarrow (1 , 1 , 0 , \circled{1} , 1 , \dots) = y_4                        \\
         5 & \leftrightarrow (0 , 1 , 1 , 1 , \circled{0} , \dots) = y_5                        \\
           & \vdots                                                                             \\
-        x & =\big(\circled{0}, \circled{1}, \circled{0}, \circled{0}, \circled{1}, \dots \big)
+        x & =\left(\circled{0}, \circled{1}, \circled{0}, \circled{0}, \circled{1}, \dots \right)
     \end{align*}
     我们这样做的目的是什么？考虑 $x$ 是否可能出现在上述列表中。
     \begin{itemize}
@@ -52,7 +52,7 @@
         \item $x = y_3$ 吗？不相等！因为 $x$ 与 $y_3$ 的第三个坐标不同。（在本例中，$x_3=0$ 而 $y_{3,3} = 1$。）
     \end{itemize}
     一般来讲，对于任意 $i \in \mathbb{N}$，我们可以保证 $x$ 与 $y_i$ 在第 $i$ 个坐标上不同。因此，\textbf{没有}任何 $y_i$ 等于 $x$，即
-    \[\big(\forall i \in \mathbb{N} \centerdot x_i \ne y_{i,i}\big) \implies \big(\forall i \in \mathbb{N} \centerdot x \ne yi\big)\]
+    \[\left(\forall i \in \mathbb{N} \centerdot x_i \ne y_{i,i}\right) \implies \left(\forall i \in \mathbb{N} \centerdot x \ne yi\right)\]
     然而，根据定义，$x$ 是一个由 $0$ 和 $1$ 组成的无限序列，故 $x \in \{0, 1\}^{\mathbb{N}}$。
 
     这就产生了矛盾：我们假设可以列出集合中的所有元素，但随后我们用这种顺序构造了一个不在集合中的元素。$\hashx$

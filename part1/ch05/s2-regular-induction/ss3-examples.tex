@@ -65,7 +65,7 @@
         \textbf{归纳步骤}：我们要证明 $P(k+1)$ 成立，即
         \[\sum_{i=0}^{k}q^i = \frac{q^{k+1}-1}{q-1}\]
         \begin{align*}
-            \sum_{i=0}^{k}q^i &= \Bigg(\sum_{i=0}^{k-1}q^i\Bigg)+q^k &\qquad \text{求和运算符的定义}\\
+            \sum_{i=0}^{k}q^i &= \left(\sum_{i=0}^{k-1}q^i\right)+q^k &\qquad \text{求和运算符的定义}\\
             &= \frac{q^k-1}{q-1} + q^k &\qquad \text{代入归纳假设}\\
             &= \frac{q^k-1+q^k(q-1)}{q-1} &\qquad \text{通分}\\
             &= \frac{q^k-1+q^{k+1}-q^k}{q-1} &\qquad \text{展开}\\ 

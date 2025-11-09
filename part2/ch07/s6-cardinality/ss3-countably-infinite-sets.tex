@@ -164,12 +164,12 @@
         \begin{itemize}
             \item 若 $n$ 为偶数。则 $F(n) = -\frac{n}{2} + 1$。显然 $\frac{n}{2} \ge 1$，所以 $-\frac{n}{2} + 1 \le -1+1=0$。这意味着
                   \begin{align*}
-                      (f \circ F)(n) & = f(F(n)) = f\Big(-\frac{n}{2}+1\Big) = -2\Big(-\frac{n}{2}+1\Big)+2 \\
-                                     & = \Big(\frac{2n}{2}-2\Big)+2=n
+                      (f \circ F)(n) & = f(F(n)) = f\left(-\frac{n}{2}+1\right) = -2\left(-\frac{n}{2}+1\right)+2 \\
+                                     & = \left(\frac{2n}{2}-2\right)+2=n
                   \end{align*}
             \item 若 $n$ 为奇数。则 $F(n) = \frac{n+1}{2}$。显然 $n+1 \ge 2$，所以 $\frac{n+1}{2} \ge 1$。这意味着
                   \begin{align*}
-                      (f \circ F)(n) & = f(F(n)) = f\Big(\frac{n+1}{2}\Big) = 2(\frac{n+1}{2}\Big)-1 = \frac{2n+2}{2}-1 \\
+                      (f \circ F)(n) & = f(F(n)) = f\left(\frac{n+1}{2}\right) = 2\left(\frac{n+1}{2}\right)-1 = \frac{2n+2}{2}-1 \\
                                      & = (n + 1) -1 = n
                   \end{align*}
         \end{itemize}
@@ -183,7 +183,7 @@
 
 （本节后续章节将\emph{证明}：集合能与其真子集建立双射，是判定该集合为无限集的一种等价方法。）
 
-\begin{example}[$\mathbb{N} \times \mathbb{N}$ 是可数无限集]\label{ex:example7.6.13}
+\begin{example}[$\mathbb{N} \times \mathbb{N}$ 为可数无限集]\label{ex:example7.6.13}
 
     在关于\textbf{希尔伯特旅馆}的讨论中，我们已论证 $\mathbb{N} \times \mathbb{N}$ 与 $\mathbb{N}$ 具有相同的基数。即使有无穷多个会议，每个会议包含无穷多人，仍能将其全部安置在拥有无穷多客房的旅馆中！不过那只是直观的讨论，现在我们将正式证明这一结论：构造这两个集合之间的\emph{双射}函数。下文将证明该函数是满射，而单射性的证明将留给你来完成。
 
@@ -218,10 +218,10 @@
         \textbf{归纳步骤}：分两种情况讨论：
         \begin{itemize}
             \item 若 $n$ 为奇数，则 $n \cdot 2^0 = n \cdot 1 = n$ 即满足条件。也就是说，已知 $\frac{n+1}{2} \in \mathbb{N}$ 且我们发现
-                  \[f\Big(1, \frac{n+1}{2}\Big) = 2^0 \cdot \Big(2 \cdot \frac{n+1}{2}-1\Big) = 1 \cdot (n + 1 - 1) = n\]
+                  \[f\left(1, \frac{n+1}{2}\right) = 2^0 \cdot \left(2 \cdot \frac{n+1}{2}-1\right) = 1 \cdot (n + 1 - 1) = n\]
                   所以 $n \in \im_f (\mathbb{N} \times \mathbb{N})$。这与假设 $n \notin \im_f (\mathbb{N} \times \mathbb{N})$ 矛盾。故此情况不成立。
             \item 若  $n$ 为偶数，则考虑 $\frac{n}{2}$。为了引出矛盾而假设 $\frac{n}{2}$ 可以表示为 $2$ 的幂乘以一个奇数的形式，即假设 $\frac{n}{2} \in \im_f (\mathbb{N} \times \mathbb{N})$。这意味着 $\exists (x, y) \in \mathbb{N} \times \mathbb{N} \centerdot f(x, y) = \frac{n}{2}$。给定这样的 $(x,y)$。然后考虑 $f(x + 1, y)$（这是有效的，因为 $x+1 \in \mathbb{N}$）。我们发现
-                  \[f(x + 1, y) = 2^{x+1} \cdot (2y - 1) = 2 \cdot \big(2^x \cdot (2y - 1)\big) =  2 \cdot f(x, y) = 2 \cdot \frac{n}{2} = n\]
+                  \[f(x + 1, y) = 2^{x+1} \cdot (2y - 1) = 2 \cdot \left(2^x \cdot (2y - 1)\right) =  2 \cdot f(x, y) = 2 \cdot \frac{n}{2} = n\]
                   这表明 $n$ 也有这种表达形式，即 $n \in \im_f (\mathbb{N} \times \mathbb{N})$。而这再一次与假设 $n \notin \im_f (\mathbb{N} \times \mathbb{N})$ 矛盾。因此 $\frac{n}{2}$ 不具有这种表达形式，即 $\frac{n}{2} \notin \im_f (\mathbb{N} \times \mathbb{N})$。
         \end{itemize}
 
@@ -321,7 +321,7 @@
     \begin{enumerate}[label=(\arabic*)]
         \item \textbf{直观解释：}\\
               考虑以下将 $\mathbb{Q}$ 表示为集合并集的形式：
-              \[\mathbb{Q} \;\text{``}=\text{''}\; \big(\text{``}\mathbb{N} \times \mathbb{N}\text{''}\big) \cup \big(\text{``}-(\mathbb{N} \times \mathbb{N})\text{''}\big) \cup \{0\}\]
+              \[\mathbb{Q} \;\text{``}=\text{''}\; \left(\text{``}\mathbb{N} \times \mathbb{N}\text{''}\right) \cup \left(\text{``}-(\mathbb{N} \times \mathbb{N})\text{''}\right) \cup \{0\}\]
               某种意义上，$\mathbb{N} \times \mathbb{N}$ 对应所有正有理数。为了理解这一点，考虑函数 $f : \mathbb{N} \times \mathbb{N} \to \mathbb{Q}_+$，定义为 $f(x, y) = \frac{x}{y}$。这个函数能生成所有正有理数（因此 $f$ 是满射），但由于 $\frac{4}{2}=\frac{2}{1}$，所以它不是单射。因为 $f$ 是满射，这至少表明 $|\mathbb{N} \times \mathbb{N}| \ge |\mathbb{Q}|$。由于 $\mathbb{N} \times \mathbb{N}$ 是可数无限集，而 $\mathbb{Q}$ 显然是无限集，这表明正有理数是可数无限集。\\
 
               负有理数集 $\mathbb{Q}_-$ 与正有理数集 $\mathbb{Q}_+$ 具有相同的基数。它们之间存在明确的双射关系：定义函数 $g : \mathbb{Q}_+ \to \mathbb{Q}_-$ 为 $\forall q \in \mathbb{Q}_+ \centerdot g(q) = -q$。\\
@@ -507,18 +507,18 @@
     假设 $A$ 和 $B$ 均为可数无限集，则存在双射 $ f : A \to \mathbb{N}$ 和 $g : B \to \mathbb{N}$。给定这样的函数。
 
     定义函数 $h : A \times B \to \mathbb{N} \times \mathbb{N}$ 为
-    \[\forall (x, y) \in A \times B \centerdot h(x, y) = \big(f(x), g(y)\big)\]
+    \[\forall (x, y) \in A \times B \centerdot h(x, y) = \left(f(x), g(y)\right)\]
     我们声称 $h$ 为双射。因为 $f, g$ 均可逆，定义函数 $H : \mathbb{N} \times \mathbb{N} \to A \times B$ 为
-    \[\forall (k, \ell) \in \mathbb{N} \times \mathbb{N} \centerdot H(k, \ell) = \big(f^{-1}(k), g^{-1}(\ell)\big)\]
+    \[\forall (k, \ell) \in \mathbb{N} \times \mathbb{N} \centerdot H(k, \ell) = \left(f^{-1}(k), g^{-1}(\ell)\right)\]
     我们声称 $H = h^{-1}$。因为
     \begin{align*}
-        \forall (x, y) \in A \times B \centerdot (H \circ h)(x, y) & = H(h(x, y)) = H \big(f(x), g(y)\big)           \\
-                                                                   & = \big(f^{-1}(f(x)), g^{-1}g((y))\big) = (x, y)
+        \forall (x, y) \in A \times B \centerdot (H \circ h)(x, y) & = H(h(x, y)) = H \left(f(x), g(y)\right)           \\
+                                                                   & = \left(f^{-1}(f(x)), g^{-1}g((y))\right) = (x, y)
     \end{align*}
     且
     \begin{align*}
-        \forall (k, \ell) \in \mathbb{N} \times \mathbb{N} \centerdot (h \circ H)(k, \ell) & = h(H(k, \ell)) = h\big(f^{-1}(k), g^{-1}(\ell)\big)  \\
-                                                                                           & = \big(f(f^{-1}(k)), g(g^{-1}(\ell))\big) = (k, \ell)
+        \forall (k, \ell) \in \mathbb{N} \times \mathbb{N} \centerdot (h \circ H)(k, \ell) & = h(H(k, \ell)) = h\left(f^{-1}(k), g^{-1}(\ell)\right)  \\
+                                                                                           & = \left(f(f^{-1}(k)), g(g^{-1}(\ell))\right) = (k, \ell)
     \end{align*}
     所以 $H \circ h = \id_{A \times B}$ 且 $h \circ H = \id_{\mathbb{N} \times \mathbb{N}}$。这表明 $H = h^{-1}$。
 
@@ -555,7 +555,7 @@
 
     由于每个 $A_n$ 都是可数无限集，故对每个 $n \in \mathbb{N}$，存在双射 $f_n : A_n \to \mathbb{N}$。这使我们可以根据 $f_n$ 对每个 $A_n$ 中的元素进行``编号''。同时，我们通过 $\mathbb{N}$ 对集合 $A_n$ 本身进行编号。本质上，我们为 $A$ 的元素赋予了一种对应于 $\mathbb{N} \times \mathbb{N}$ 的编号。下面正式定义这种对应关系。
 
-    定义函数 $F : A \to \mathbb{N} \times \mathbb{N}$。给定任意 $x \in A$，我们知道 $\exists n \in \mathbb{N} \centerdot x \in A_n$ 且 $n$ 是\emph{唯一的}。（这是因为给定的集合互不相交）。令 $F(x) = \big(n, fn(x)\big)$。
+    定义函数 $F : A \to \mathbb{N} \times \mathbb{N}$。给定任意 $x \in A$，我们知道 $\exists n \in \mathbb{N} \centerdot x \in A_n$ 且 $n$ 是\emph{唯一的}。（这是因为给定的集合互不相交）。令 $F(x) = \left(n, fn(x)\right)$。
 
     我们声称 $F$ 为双射。考虑函数 $G : \mathbb{N} \times \mathbb{N} \to A$，定义为
     \[\forall (a, b) \in \mathbb{N} \times \mathbb{N} \centerdot G(a, b) = f_a^{-1}(b)\]
@@ -629,7 +629,7 @@
 考虑如下\emph{极限}：
 \[\lim_{x \to \infty} \frac{1}{x} = 0\]
 这个极限在何种意义上\textbf{等于} $0$？为什么身为数学家的我们会选择用这种方式\emph{定义}极限？形式上，这个极限是有意义的，因为它符合极限的量化定义。设 $P$ 为正实数集，极限的定义（应用于这个例子）为
-\[\forall \varepsilon \in P \centerdot \exists M \in \mathbb{N} \centerdot \forall n \in \mathbb{N} \centerdot \big(n > M \implies \big|\frac{1}{x}\big| < \varepsilon \big)\]
+\[\forall \varepsilon \in P \centerdot \exists M \in \mathbb{N} \centerdot \forall n \in \mathbb{N} \centerdot \left(n > M \implies \left|\frac{1}{x}\right| < \varepsilon \right)\]
 也就是说，对于任意小的正阈值 $\varepsilon > 0$，我们都可以找到一个特定的截止点（一个依赖于 $\varepsilon$ 的自然数 $M$），使得在 $M$ \emph{之后}的每一个点，函数 $\frac{1}{x}$ 的值都在极限点 $0$ 的 $\varepsilon$ 范围内。
 
 请注意，这与 ``$\frac{1}{\infty} = 0$'' 这样的说法\emph{完全不同}。事实并非如此。实际上，我们从未真正``代入''极限的终点来进行计算。极限是通过量化定义的，也就是说，我们讨论的是在\emph{任意大}值下发生的情况，而不是在\emph{无限大}值下发生的情况。

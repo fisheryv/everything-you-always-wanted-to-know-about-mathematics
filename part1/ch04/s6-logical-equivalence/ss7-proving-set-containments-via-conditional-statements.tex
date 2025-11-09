@@ -75,7 +75,7 @@
             然而，我们需要证明的原命题右侧为：
             \[X \cup (Y - Z)\]
             且我们要证明的并不是相等关系，而是证明\emph{包含关系}。因此，后续需要证明：
-            \[\big((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\big) \implies x \in X \cup (Y - Z)\]
+            \[\left((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\right) \implies x \in X \cup (Y - Z)\]
             为明确此蕴含关系，这里需要做一些临时工作，重写右侧表达式，即可看到为什么上述公式成立：
             \begin{align*}
                 x \in X \cup (Y - Z) &\iff x \in X \lor x \in Y - Z &\quad \cup \text{\ 的定义} \\
@@ -86,7 +86,7 @@
     }
     \end{center}
     现在需要证明
-    \[\big((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\big) \implies x \in X \cup (Y - Z)\]
+    \[\left((x \in X \land x \notin Z) \lor (x \in Y \land x \notin Z)\right) \implies x \in X \cup (Y - Z)\]
     为此，假设左侧表达式为\verb|真|，则有两种情形：
     \begin{enumerate}
         \item 假设 $x \in X \land x \notin Z$ 为\verb|真|，则 $x \in X$，因此 $x \in X \lor x \in Y - Z$ 成立。

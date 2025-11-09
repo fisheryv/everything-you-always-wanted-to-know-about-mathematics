@@ -42,11 +42,11 @@
     接着，证明 $h \circ H = \id_{[a+b]}$。给定 $y \in [a+b]$，则分两种情况讨论：
     \begin{enumerate}[label=(\arabic*)]
         \item 若 $1 \le y \le a$，即假设 $y \in [a]$。则
-            \[(h \circ H)(y) = h\big(f^{-1}(y)\big) = f\big(f^{-1}(y)\big)= \id_{[a]}(y) = y\]
+            \[(h \circ H)(y) = h\left(f^{-1}(y)\right) = f\left(f^{-1}(y)\right)= \id_{[a]}(y) = y\]
             此处使用了 $f^{-1}(y) \in A$ 这一事实。
         \item 若 $a + 1 \le y \le b$。即假设 $y-a \in [b]$。则
             \begin{align*}
-                (h \circ H)(y) = h(H(y)) &= h\big(g^{-1}(y-a)\big) = g\big(g^{-1}(y-a)\big)+a \\
+                (h \circ H)(y) = h(H(y)) &= h\left(g^{-1}(y-a)\right) = g\left(g^{-1}(y-a)\right)+a \\
                 &= \id_{[b]}(y - a) + a = (y - a) + a = y
             \end{align*}
             此处使用了 $g^{-1}(y - a) \in B$ 这一事实。
@@ -56,12 +56,12 @@
     最后，证明 $H \circ h = \id_{A \cup B}$。给定 $x \in A \cup B$，则分两种情况讨论：
     \begin{enumerate}[label=(\arabic*)]
         \item 若 $x \in A$，则
-            \[(H \circ h)(x) = H(h(x)) = H\big(f(x)\big) = f^{-1}\big(f(x)\big) = \id_A(x) = x\]
+            \[(H \circ h)(x) = H(h(x)) = H\left(f(x)\right) = f^{-1}\left(f(x)\right) = \id_A(x) = x\]
            此处使用了 $f(x) \in [a]$ 这一事实。
         \item 若 $x \in B$。则
         \begin{align*}
-            (H \circ h)(x) = H(h(x)) &= H\big(g(x)+a\big) = g^{-1}\Big(\big(g(x)+a\big)-a\Big)\\
-            &= g^{-1}\big(g(x)\big) = \id_B(x) = x
+            (H \circ h)(x) = H(h(x)) &= H\left(g(x)+a\right) = g^{-1}\left(\left(g(x)+a\right)-a\right)\\
+            &= g^{-1}\left(g(x)\right) = \id_B(x) = x
         \end{align*}
             此处使用了 $g(x) \in [b]$ 这一事实。所以 $a + 1 \le g(x) + a \le a + b$。
     \end{enumerate}

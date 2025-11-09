@@ -8,9 +8,9 @@
 
 假设我们有一个全集 $U$ 和若干子集 $A_1, A_2, \dots, A_n \subseteq U$。我们希望计算 $U$ 中不属于任何 $A_i$ 的元素数量。具体表达式如下：
 \begin{align*}
-    |U - A_1| =                     & |U| - |A_1|                                                                  \\
-    |U - (A_1 \cup A_2)| =          & |U| - |A_1| - |A_2| + |A_1 \cap A_2|                                         \\
-    |U - (A_1 \cup A_2 \cup A_3)| = & |U| - |A_1| - |A_2| - |A_3|                                                  \\
+    |U - A_1| =                     |U| & - |A_1|                                                                  \\
+    |U - (A_1 \cup A_2)| =          |U| & - |A_1| - |A_2| + |A_1 \cap A_2|                                         \\
+    |U - (A_1 \cup A_2 \cup A_3)| = |U| & - |A_1| - |A_2| - |A_3|                                                  \\
                                     & + |A_1 \cap A_2| + |A_1 \cap A_3| + |A_2 \cap A_3| - |A_1 \cap A_2 \cap A_3|
 \end{align*}
 

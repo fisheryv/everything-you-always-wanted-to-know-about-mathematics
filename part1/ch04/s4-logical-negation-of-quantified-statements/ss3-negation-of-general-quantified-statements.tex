@@ -5,7 +5,7 @@
 \[\exists y \in \mathbb{R} \centerdot C(y)\]
 其中 $C(y)$ 是陈述的其余部分（其内容\emph{依赖于} $y$ 的值）。我们可以将 $C(y)$ 视为被量化变量 $y$ 的某种\emph{属性}；该属性内部可能包含其他量词和变量，但本质上它断言了关于 $y$ 的某个事实。
 
-为了否定该陈述，我们采用前述方法写作：
+为了否定该陈述，我们采用前述方法写做：
 \[\forall y \in \mathbb{R} \centerdot \neg C(y)\]
 已知 $C(y)$ 本身是一个全称量化陈述：
 \[\forall x \in \mathbb{R} \centerdot y = x^3\]
@@ -22,8 +22,8 @@
 遵循同样的思路，我们可以处理包含更长量词序列的陈述。例如：
 \[\forall a \in A \centerdot \exists b \in B \centerdot \exists c \in C \centerdot \forall d, e \in D \centerdot Q(a, b, c, d, e)\]
 否定时，先从首个量词处拆解，将剩余部分视为仅依赖于 $a$ 的命题 $R(a)$：
-\[\forall a \in A \centerdot \big(\underbrace{\exists b \in B \centerdot \exists c \in C \centerdot \forall d, e \in D \centerdot Q(a, b, c, d, e)}_{R(a)}\big)\]
-因此其否定可写作：
+\[\forall a \in A \centerdot \left(\underbrace{\exists b \in B \centerdot \exists c \in C \centerdot \forall d, e \in D \centerdot Q(a, b, c, d, e)}_{R(a)}\right)\]
+因此其否定可写做：
 \[\exists a \in A \centerdot \neg R(a)\]
 接下来需确定 $\neg R(a)$ 的表达式。重复上述过程：分离``$\exists b \in B$''并逐步推进……请自行完成推导，确保最终得到原始陈述的逻辑否定：
 \[\exists a \in A \centerdot \forall b \in B \centerdot \forall c \in C \centerdot \exists d, e \in D \centerdot \neg Q(a, b, c, d, e)\]

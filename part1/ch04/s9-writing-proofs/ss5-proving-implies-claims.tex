@@ -73,7 +73,7 @@
             我们需要构造出 $x+3$，所以两边同时加上 $2+\frac{2}{x}$ 可得
             \[x-1+\frac{2}{x} > x+3\]
             我们可不可以两边同时除以 $x+2$ 让右边变成分数形式呢？等一下！我们已经化简了分数 $\frac{x+2}{x}$ 并将其移到了一边。也许我们不该一上来就化简它，所以我们试着还原回来：
-            \[x+3<x-1+\frac{2}{x} = (x+2)+\frac{x+2}{x}-4=(x+2)\Big(1+\frac{1}{x}\Big)-4\]
+            \[x+3<x-1+\frac{2}{x} = (x+2)+\frac{x+2}{x}-4=(x+2)\left(1+\frac{1}{x}\right)-4\]
             可见右侧小于目标形式，所以结论成立。
         }
         }
@@ -96,13 +96,13 @@
                     也必然成立。
                     
                     由 $x \in S$ 可知 $x>0$ 则 $x+2>0$ 也必然成立。因此两边同时乘以 $x+2$ 得
-                    \[x-3 > (x+2)\Big(1-\frac{1}{x}\Big)=x+2-\frac{x+2}{x}\]
+                    \[x-3 > (x+2)\left(1-\frac{1}{x}\right)=x+2-\frac{x+2}{x}\]
                     两边同时加上 $3+\frac{x+2}{x}$ 再同时减去 $2$，交换不等号方向（为了更易读）可得
                     \[x+3<x-2+\frac{x+2}{x}\]
                     因为 $x-2<x+2$，可得
                     \[x+3<x+2+\frac{x+2}{x}\]
                     提取公因式得
-                    \[x+3<(x+2)\Big(1+\frac{1}{x}\Big)\]
+                    \[x+3<(x+2)\left(1+\frac{1}{x}\right)\]
                     又因为 $x+2>0$，不等式两边同时除以 $x+2$ 得
                     \[\frac{x+3}{x+2}<1+\frac{1}{x}\]
                     而这正是我们要证明的不等式。以上证明了 $P(x) \implies Q(x)$，又因为 $x$ 是任意的，故命题得证。
@@ -138,7 +138,7 @@
     设 $E(x)$ 为命题``$x$ 为偶数''。
 
     我们声明
-    \[\forall m,n \in \mathbb{Z} \centerdot E(m \cdot n) \implies \big(E(m) \lor E(n)\big)\]
+    \[\forall m,n \in \mathbb{Z} \centerdot E(m \cdot n) \implies \left(E(m) \lor E(n)\right)\]
 
     换言之，若两个整数之积为偶数，则至少有一个数为偶数。
 
@@ -161,7 +161,7 @@
                     因为 $2kl+k+l \in \mathbb{Z}$，这表明 $m \cdot n$ 为奇数。
 
                     因此 $\neg E(m \cdot n)$ 成立，至此证得
-                    \[\big(\neg E(m) \land \neg E(n)\big) \implies \neg E(m \cdot n)\]
+                    \[\left(\neg E(m) \land \neg E(n)\right) \implies \neg E(m \cdot n)\]
                     其逆否形式就是我们要证明的命题。
                 \end{proof}
             }
@@ -232,13 +232,13 @@
     定义 $y = \frac{1}{x}$，则 $y \in \mathbb{R}$。
 
     对 $x$ 和 $y$ 应用算术几何平均不等式（因为其对\emph{任意} $x,y \in \mathbb{R}$ 必然成立）。可得
-    \[x \cdot \frac{1}{x} \le \Big(\frac{x+\frac{1}{x}}{2}\Big)^2\]
+    \[x \cdot \frac{1}{x} \le \left(\frac{x+\frac{1}{x}}{2}\right)^2\]
 
     两边稍作化简可得
-    \[1 \le \frac{1}{4}\Big(x+\frac{1}{x}\Big)^2\]
+    \[1 \le \frac{1}{4}\left(x+\frac{1}{x}\right)^2\]
 
     左右两边同时乘以 $4$ 得
-    \[4 \le \Big(x+\frac{1}{x}\Big)^2\]
+    \[4 \le \left(x+\frac{1}{x}\right)^2\]
 
     不等式两边都非负，我们可以两边同时开平方得
     \[2 \le x+\frac{1}{x}\]

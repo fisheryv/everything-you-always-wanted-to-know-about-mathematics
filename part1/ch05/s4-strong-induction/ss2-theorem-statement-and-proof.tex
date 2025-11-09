@@ -12,7 +12,7 @@
     设 $P(n)$ 为变量命题，假设
     \begin{enumerate}[label=(\arabic*)]
         \item $P(1)$ 成立
-        \item $\forall k \in \mathbb{N} \centerdot \big(\forall i \in [k] \centerdot P(i)\big) \implies P(k+1)$ 成立
+        \item $\forall k \in \mathbb{N} \centerdot \left(\forall i \in [k] \centerdot P(i)\right) \implies P(k+1)$ 成立
     \end{enumerate}
     则 $\forall n \in \mathbb{N} \centerdot P(n)$ 成立。
 \end{theorem}
@@ -24,7 +24,7 @@
 常规归纳法要求：若 $P(k)$ 成立，则能推出 $P(k+1)$ 成立。这对应多米诺骨牌类比——假设第 $k$ 块骨牌倒下可以推出第 $k+1$ 块倒下。
 
 强归纳法则可表述为：
-\[\forall k \in \mathbb{N} \centerdot \big(P(1) \land P(2) \land P(3) \land \dots \land P(k)) \implies P(k+1)\]
+\[\forall k \in \mathbb{N} \centerdot \left(P(1) \land P(2) \land P(3) \land \dots \land P(k)\right) \implies P(k+1)\]
 也就是说，强归纳法要求之前的所有命题实例（$P(1), P(2), (3), \dots$ 直到 $P(k)$） 共同蕴含 $P(k+1)$。这意味着在推导 $P(k+1)$ 时，可自由使用从 $P(1)$ 到 $P(k)$ 的全部结论，而结论 $\forall n \in \mathbb{N} \centerdot P(n)$ 依然成立。
 
 现在有三个关键问题需要讨论：
@@ -47,7 +47,7 @@
 回顾常规归纳法的多米诺骨牌类比：仅需确认第 $n$ 张骨牌会撞倒第 $n+1$ 张骨牌，即可保证整列骨牌倒下。而在强归纳法中，必须确保第 $n+1$ 张骨牌之前的所有骨牌（包含第 $n$ 张）均已倒下并共同撞击第 $n+1$ 张骨牌，方能保证整列倒下。这如同骨牌随序列延续而愈发沉重，需要借助前方连续倾倒的多张骨牌共同累积动量，方能推倒后续更重的骨牌。
 
 另一种理解方式是考察命题间的推理链：\textbf{基本情况 (BC)} 证明 $P(1)$ 成立。这意味着 $P(2)$ 成立（在强数学归纳原理条件 (2) 中取 $n = 1$）。已知 $P(1)$ 与 $P(2)$ 成立可推出 $P(3)$ 成立（取 $n=2$）。同理，已知前三个命题成立将推出 $P(4)$ 成立，依此类推：
-\[\underbrace{\underbrace{\overbrace{\Big(P(1)\Big)}^{\text{基本情况为真}} \overbrace{\implies}^{\text{应用归纳步骤}} \overbrace{\Big(P(2)\Big)}^{\text{为真}}}_{\text{已知 } P(1) \land P(2)} \underbrace{\implies}_{\text{应用归纳步骤}} \underbrace{\Big(P(3)\Big)}_{\text{为真}}}_{\text{已知 } P(1) \land P(2) \land P(3)} \implies\Big(P(4)\Big) \implies \Big(P(5)\Big)\]
+\[\underbrace{\underbrace{\overbrace{\left(P(1)\right)}^{\text{基本情况为真}} \overbrace{\implies}^{\text{应用归纳步骤}} \overbrace{\left(P(2)\right)}^{\text{为真}}}_{\text{已知 } P(1) \land P(2)} \underbrace{\implies}_{\text{应用归纳步骤}} \underbrace{\left(P(3)\right)}_{\text{为真}}}_{\text{已知 } P(1) \land P(2) \land P(3)} \implies\left(P(4)\right) \implies \left(P(5)\right)\]
 某种程度上，此过程揭示了方法的有效性：与常规归纳法相同，我们先证 $P(1)$ 成立。推导 $P(2)$ 时，步骤 $P(1) \implies P(2)$ 在两种归纳法中完全一致（取 $n=1$ 时，强归纳原理与数学归纳原理的条件 (2) 等价）。此后使用强归纳法时，我们充分利用了先前所有命题成立的事实——既然已有这些结论，自然可用于推导后续命题的真值。而常规归纳法则忽略此优势，仅依赖紧邻的前一个实例进行推导。
 
 关于``推理链''的另一种理解直接关联后续证明：假设强归纳过程已证得 $P(1)$ 至 $P(n)$ 全部成立。将这些命题整体打包为一个复合命题 $Q(n)$——形象地说，如同将多张骨牌组合成一张巨型骨牌。下一步即是利用 $Q(n)$ 证明下一实例 $P(n+1)$，此过程已转化为熟悉的常规归纳模式。这正是证明的核心思路：通过重构将强归纳过程表述为常规归纳形式。
@@ -62,7 +62,7 @@
     设 $P(n)$ 为变量命题，假设
     \begin{enumerate}[label=(\arabic*)]
         \item $P(1)$ 成立
-        \item $\forall k \in \mathbb{N} \centerdot \big(\forall i \in [k] \centerdot P(i)\big) \implies P(k+1)$ 成立
+        \item $\forall k \in \mathbb{N} \centerdot \left(\forall i \in [k] \centerdot P(i)\right) \implies P(k+1)$ 成立
     \end{enumerate}
     我们的目标是证明 $\forall n \in \mathbb{N} \centerdot P(n)$。
 

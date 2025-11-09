@@ -56,14 +56,14 @@
 
         接着，证明 $H \circ h = \id_S$。给定 $x \in S$，可得
         \begin{align*}
-            (H \circ h)(x) &= H(h(x)) = H\Big(\frac{x}{1+x}\Big) \\
+            (H \circ h)(x) &= H(h(x)) = H\left(\frac{x}{1+x}\right) \\
             &=\frac{\frac{x}{1+x}}{1-\frac{x}{1+x}} \cdot \frac{1+x}{1+x} = \frac{x}{(1+x)-x} \\
             &=\frac{x}{1} = x\\
         \end{align*}
 
         最后，证明 $h \circ H = \id_T$。给定 $y \in T$，可得
         \begin{align*}
-            (h \circ H)(y) &= h(H(y)) = h\Big(\frac{y}{1-y}\Big) \\
+            (h \circ H)(y) &= h(H(y)) = h\left(\frac{y}{1-y}\right) \\
             &=\frac{\frac{y}{1-y}}{1+\frac{y}{1-y}} \cdot \frac{1-y}{1-y} = \frac{y}{(1+y)-y} \\
             &=\frac{y}{1} = y
         \end{align*}

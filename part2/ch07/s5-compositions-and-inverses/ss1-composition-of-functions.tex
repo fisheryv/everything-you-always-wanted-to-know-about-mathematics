@@ -148,7 +148,7 @@
 
 注意符号 $g \circ f$ 的顺序与实际函数应用顺序的对应关系：先应用 $f$，再应用 $g$，即 $g(f(a))$。用语言描述时，可将``$g(f(a))$''读作``$a$ 先经过 $f$ 再经过 $g$''。事实上，如果你发现自己难以记住这个顺序，建议将``$\circ$''读作``在……之后''，因此 $h = g \circ f$ 表示``$g$ 在 $f$ 之后''，因为先对元素 $a$ 应用 $f$，再应用 $g$。
 
-记住复合函数的符号至关重要，并且要区分函数 $g \circ f$ 本身和将其应用于元素 $x \in A$ 的区别。例如，用``$\circ$''符号表示``$x$ 先应用 $f$ 再应用 $g$''时，应写作：
+记住复合函数的符号至关重要，并且要区分函数 $g \circ f$ 本身和将其应用于元素 $x \in A$ 的区别。例如，用``$\circ$''符号表示``$x$ 先应用 $f$ 再应用 $g$''时，应写做：
 \[(g \circ f)(x)\]
 这是将函数 $g \circ f$ 应用于元素 $x$。然而，以下写法\textbf{无意义}，因为它混淆了函数与元素的概念：
 \[g \circ f(x)\]
@@ -215,14 +215,14 @@
 
     甚至由此可得进一步复合的规则，比如 $h \circ (g \circ f)$:
     \begin{align*}
-        \forall n \in \mathbb{N} \centerdot \big(h \circ (g \circ f)\big)(n) & = h\big((g \circ f)(n)\big) = h(n^2 + 6n + 9) \\
+        \forall n \in \mathbb{N} \centerdot \left(h \circ (g \circ f)\right)(n) & = h\left((g \circ f)(n)\right) = h(n^2 + 6n + 9) \\
                                                                              & = 2(n^2 + 6n + 9) - 1                         \\
                                                                              & = 2n^2 + 12n + 17
     \end{align*}
 
     类似地，也可以得到 $(h \circ g) \circ f$ 的规则：
     \begin{align*}
-        \forall n \in \mathbb{N} \centerdot \big((h \circ g) \circ f\big)(n) & = (h \circ g)(f(n)) = (h \circ g)(n + 3) \\
+        \forall n \in \mathbb{N} \centerdot \left((h \circ g) \circ f\right)(n) & = (h \circ g)(f(n)) = (h \circ g)(n + 3) \\
                                                                              & = 2(n + 3)^2 - 1 = 2(n^2 + 6n + 9) - 1   \\
                                                                              & = 2n^2 + 12n + 17
     \end{align*}
@@ -244,8 +244,8 @@
     我们要证明对于任意可能的输入，函数 $(h \circ g) \circ f$ 和函数 $h \circ (g \circ f)$ 的输出相同。
 
     给定 $x \in A$，应用\emph{复合}的定义，可得
-    \[[h \circ (g \circ f)](x) = h\big((g \circ f)(x)\big) = h\big(g(f(x))\big)\]
-    \[[(h \circ g) \circ f](x) = \big(h \circ g\big)(f(x)) = h\big(g(f(x))\big)\]
+    \[[h \circ (g \circ f)](x) = h\left((g \circ f)(x)\right) = h\left(g(f(x))\right)\]
+    \[[(h \circ g) \circ f](x) = \left(h \circ g\right)(f(x)) = h\left(g(f(x))\right)\]
 \end{proof}
 
 \subsubsection*{复合与映射}

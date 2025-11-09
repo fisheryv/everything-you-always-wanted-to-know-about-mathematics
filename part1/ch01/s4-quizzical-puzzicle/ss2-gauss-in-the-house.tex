@@ -79,8 +79,8 @@
 
 如果 $n$ 为偶数，我们可以将所有数完美配对：
 \begin{align*}
-    S(n) &= 1 + 2 + 3 + \dots + \Big(\frac{n}{2}-1\Big) + \frac{n}{2} + \Big(\frac{n}{2}+1\Big) + \dots + (n - 2) + (n - 1) + n\\
-    &=  (1 + n) + \big(2 + (n - 1)\big) + \big(3 + (n - 2)\big) + \dots + \Big(\big(\frac{n}{2}-1\big)+\big(\frac{n}{2}+2\big)\Big) + \Big(\frac{n}{2}+\big(\frac{n}{2}+1\big)\Big) \\
+    S(n) &= 1 + 2 + 3 + \dots + \left(\frac{n}{2}-1\right) + \frac{n}{2} + \left(\frac{n}{2}+1\right) + \dots + (n - 2) + (n - 1) + n\\
+    &=  (1 + n) + \left(2 + (n - 1)\right) + \left(3 + (n - 2)\right) + \dots + \left(\left(\frac{n}{2}-1\right)+\left(\frac{n}{2}+2\right)\right) + \left(\frac{n}{2}+\left(\frac{n}{2}+1\right)\right) \\
     &= (n+1)\frac{n}{2} = \frac{n^2+n}{2}
 \end{align*}
 
@@ -88,13 +88,13 @@
 
 如果 $n$ 为奇数呢？此时无法将所有数完全配对，需要巧妙处理。回想前 $99$ 项求和的方法，通过暂时忽略末项 $n$，将剩余项配对。有趣的是，每对之和恰好等于末项 $n$。让我们尝试运用此方法：
 \begin{align*}
-    S(n) &= 1 + 2 + 3 + \dots + \Big(\frac{n-1}{2}-1\Big) + \frac{n-1}{2} + \Big(\frac{n-1}{2}+1\Big) + \dots + (n - 2) + (n - 1) + n\\
-    &=  \big(1 + (n-1)\big) + \big(2 + (n - 2)\big) + \dots + \Big(\big(\frac{n-1}{2}\big)+\big(\frac{n-1}{2}+1\big)\Big) + n \\
-    &= n+n+ \dots + \Big(\frac{2n-2}{2}+1\Big) +n = (n+n+\dots+n)+n
+    S(n) &= 1 + 2 + 3 + \dots + \left(\frac{n-1}{2}-1\right) + \frac{n-1}{2} + \left(\frac{n-1}{2}+1\right) + \dots + (n - 2) + (n - 1) + n\\
+    &=  \left(1 + (n-1)\right) + \left(2 + (n - 2)\right) + \dots + \left(\left(\frac{n-1}{2}\right)+\left(\frac{n-1}{2}+1\right)\right) + n \\
+    &= n+n+ \dots + \left(\frac{2n-2}{2}+1\right) +n = (n+n+\dots+n)+n
 \end{align*}
 
 这表明每对数字之和为 $n$，即我们最初忽略的末项。现在计算配对数量：第一对是 $(1, n - 1)$，第二对是 $(2, n - 2)$，依此类推，最后一对的首项为 $\frac{n-1}{2}$。因此共有 $\frac{n-1}{2}$ 对。（注意 $n$ 为奇数保证了 $n-1$ 为偶数，故 $\frac{n-1}{2}$ 为整数。请回顾推导过程，确认每一步的有效性。）加上末项 $n$，总和可表示为：
-\[S(n) = \Big(\frac{n-1}{2} + 1\Big) \cdot n = \Big(\frac{n-1}{2} + \frac{2}{2}\Big) \cdot n = \frac{n+1}{2} \cdot n = \frac{n^2+n}{2}\] 
+\[S(n) = \left(\frac{n-1}{2} + 1\right) \cdot n = \left(\frac{n-1}{2} + \frac{2}{2}\right) \cdot n = \frac{n+1}{2} \cdot n = \frac{n^2+n}{2}\] 
 
 令人惊讶的是，这与 $n$ 为偶数时得到的公式完全相同！你是否感到意外？虽然奇偶情况的解法相似，但并无明显迹象预示结果会一致。这对我们有什么启示？数学家面对这种``巧合''时，会思考是否存在\emph{更简洁}、\emph{更普适}的解法——能否用一种方法同时处理奇数和偶数\emph{两种}情况？既然结果相同，这样的方法很可能存在。请在继续阅读前先思考一下这个问题。
 

@@ -56,9 +56,9 @@
 如果令 $y = x^2$ 并将其化为二次多项式，便可以轻松分解它
 \[p(y) = 4y^2 - y - 3 = (4y + 3)(y - 1)\]
 请注意，此处可直接基于 $y^2$, $y$ 的系数和常数项应用前述分解方法。这里，我们想要分解 $\frac{p(y)}{4} = y^2-\frac{1}{4}=\frac{3}{4}$，因此令 $rs = -\frac{3}{4}$ 且 $r + s =-\frac{1}{4}$；取 $r=-1, s=+\frac{3}{4}$ 满足条件，所以我们得到因式分解
-\[\frac{p(x)}{4} = (y+(-1))\Big(y+\frac{3}{4}\Big)\]
+\[\frac{p(x)}{4} = (y+(-1))\left(y+\frac{3}{4}\right)\]
 化简得
-\[p(x) = 4(y-1)\Big(y+\frac{3}{4}\Big) = (y-1)(4y+3)\]
+\[p(x) = 4(y-1)\left(y+\frac{3}{4}\right) = (y-1)(4y+3)\]
 这正是我们之前的方法。
 
 \subsubsection*{一根一因子}
@@ -69,7 +69,7 @@
 
 \subsubsection*{多项式``除法''}
 
-我们如何对多项式进行除法运算呢？目标是找到另一个多项式 $q(x)$，使得 $p(x) = q(x) \cdot (x - 1)$，即计算 $\frac{p(x)}{x-1}$。一种方法是运用中学整数除法中的\textbf{长除法}原理，这一方法同样适用于多项式！回顾除法的工作原理，并尝试通过一些基本示例---例如 $22 \div 7$---来唤醒记忆。
+我们如何对多项式进行除法运算呢？目标是找到另一个多项式 $q(x)$，使得 $p(x) = q(x) \cdot (x - 1)$，即计算 $\frac{p(x)}{x-1}$。一种方法是运用中学整数除法中的\textbf{长除法}原理，这一方法同样适用于多项式！回顾除法的工作原理，并尝试通过一些基本示例——例如 $22 \div 7$——来唤醒记忆。
 
 现在，我们尝试将同样的原理应用于多项式。下面是将长除法的思想应用于 $\frac{x^3-3x+2}{x-1}$ 的示例：
 
@@ -138,8 +138,8 @@ x-1     & \longdiv &   & x^3  &   &  & -    & 3x & + & 2 &  \\
 \[p(x) = x^2 + 8x + 9 + 7 - 7 = (x^2 + 8x + 16) - 7 = (x + 4)^2 - 7\]
 上面的式子看起来眼熟吗？实际上，它是平方差结构，可进一步因式分解：
 \begin{align*}
-    p(x) &= x^2 + 8x + 9 = (x + 4)^2 - 7 = (x + 4)^2 - \Big(\sqrt 7\Big)^2 \\
-    &= \Big(x+4+\sqrt 7\Big)\Big(x+4-\sqrt 7\Big)
+    p(x) &= x^2 + 8x + 9 = (x + 4)^2 - 7 = (x + 4)^2 - \left(\sqrt 7\right)^2 \\
+    &= \left(x+4+\sqrt 7\right)\left(x+4-\sqrt 7\right)
 \end{align*}
 因此，该多项式的根为 $x=-4-\sqrt 7$ 和 $x=-4+\sqrt 7$。
 
@@ -150,9 +150,9 @@ x-1     & \longdiv &   & x^3  &   &  & -    & 3x & + & 2 &  \\
 以下公式实现了上述步骤，并通过代数整理使表达式更``简洁''：
 \begin{align*}
     p(x) &= ax^2 + bx + c = ax^2 + bx + \frac{b^2}{4a} + c - \frac{b^2}{4a}\\
-    &=\Big(\sqrt{a}x+\frac{b}{2\sqrt{a}}\Big)^2+\Big(c- \frac{b^2}{4a}\Big)\\
-    &=\Bigg(\sqrt{a}\Big(x+\frac{b}{2a}\Big)\Bigg)^2+\Big(c- \frac{b^2}{4a}\Big)\\
-    &=a\Big(x+\frac{b}{2a}\Big)^2+\Big(c- \frac{b^2}{4a}\Big)
+    &=\left(\sqrt{a}x+\frac{b}{2\sqrt{a}}\right)^2+\left(c- \frac{b^2}{4a}\right)\\
+    &=\left(\sqrt{a}\left(x+\frac{b}{2a}\right)\right)^2+\left(c- \frac{b^2}{4a}\right)\\
+    &=a\left(x+\frac{b}{2a}\right)^2+\left(c- \frac{b^2}{4a}\right)
 \end{align*}
 
 至此，我们已掌握对任意二次多项式配方的方法！
@@ -222,9 +222,9 @@ x-1     & \longdiv &   & x^3  &   &  & -    & 3x & + & 2 &  \\
 让我们回到多项式求根问题。具体来说，让我们回忆一下\textbf{二次函数求根公式}。你可能已经记住这个公式是``求解二次方程''的一种方法，但你知道它为什么成立吗？让我们试着弄清楚吧！一般来说，我们从以下形式的二次多项式开始
 \[p(x) = ax^2 + bx + c\]
 其中 $a \ne 0$（否则它就不是二次多项式），并且我们想要求 $p(x) = 0$ 时 $x$ 的值。（你是否尝试过回答我们上面提出的关于此类多项式有几个根的问题？在以下推导过程中请留意这一点。）将该多项式因式分解为线性因子很麻烦，所以我们使用上面介绍的方法：配方法。该方法的好处是，我们可以设 $p(x)=0$，并在配方后重新整理来求解 $x$。
-\[0 = p(x) = ax^2 + bx + c =a\Big(x+\frac{b}{2a}\Big)^2+\Big(c- \frac{b^2}{4a}\Big)\]
+\[0 = p(x) = ax^2 + bx + c =a\left(x+\frac{b}{2a}\right)^2+\left(c- \frac{b^2}{4a}\right)\]
 化简可得
-\[\frac{b^2}{4a} -c = a\Big(x+\frac{b}{2a}\Big)^2\]
+\[\frac{b^2}{4a} -c = a\left(x+\frac{b}{2a}\right)^2\]
 
 现在，我们要开始``撤消''此处的配方来求解 $x$，这需要对两边求平方根。但如果 $\frac{b^2}{4a} -c < 0$ 呢？我们根本无法求平方根！如果 $\frac{b^2}{4a} -c = 0$ 呢？会有什么问题吗？当 $\frac{b^2}{4a} -c > 0$ 时会有什么问题吗？这些问题与多项式根的个数相关。你可能已经（正确地）推断出二次多项式最多可以有两个根，但在这里我们发现二次多项式可能有一个或零个根（及其原因）！
 
@@ -232,14 +232,14 @@ x-1     & \longdiv &   & x^3  &   &  & -    & 3x & + & 2 &  \\
     \item 当 $\frac{b^2}{4a} -c < 0$ 时，那么 $x$ 的任何值都\emph{不}可能满足上面推导中的最后一行公式。因此，$p(x)$ 无实数根。
     \item 当 $\frac{b^2}{4a} -c = 0$ 时，那么对上面最后一行公式两边取平方根是完全有效的，但只会产生\emph{唯一一个} $x$ 值：
     \begin{align*}
-        \frac{b^2}{4a} -c = 0 &= a\Big(x+\frac{b}{2a}\Big)^2 \\
+        \frac{b^2}{4a} -c = 0 &= a\left(x+\frac{b}{2a}\right)^2 \\
         0 &= x+\frac{b}{2a} \\
         x &= -\frac{b}{2a}
     \end{align*}
     \item 当 $\frac{b^2}{4a} -c > 0$ 时，此时 $p(x)$ 有\emph{两个}根，因为两边取平方根会引入两个可能的解。一般来说，当我们遇到像 $s^2 = t$ 这种情况时，可能的解是 $s =\sqrt{t}$ 和 $s = -\sqrt{t}$，但我们必须同时考虑两者（通常将其写做 $s = \pm\sqrt{t}$）。在这种情况下求解 $x$ 得
     \begin{align*}
-        \frac{b^2}{4a} -c &= a\Big(x+\frac{b}{2a}\Big)^2 \\
-        \pm\sqrt{\frac{b^2-4ac}{4a}} &= \sqrt{a}\Big(x+\frac{b}{2a}\Big) = \sqrt{a}x+\frac{b}{2\sqrt{a}} \\
+        \frac{b^2}{4a} -c &= a\left(x+\frac{b}{2a}\right)^2 \\
+        \pm\sqrt{\frac{b^2-4ac}{4a}} &= \sqrt{a}\left(x+\frac{b}{2a}\right) = \sqrt{a}x+\frac{b}{2\sqrt{a}} \\
         -\frac{b}{2\sqrt{a}}\pm\frac{\sqrt{b^2-4ac}}{\sqrt{4a}} &= \sqrt{a}x \\
         -\frac{b}{2a}\pm\frac{\sqrt{b^2-4ac}}{\sqrt{4a^2}} &= x
     \end{align*}

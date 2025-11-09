@@ -82,19 +82,19 @@
 
 \begin{example}
     设 $O(x)$ 为命题``$x$ 为奇数''，$E(x)$ 为命题``$x$ 为偶数''。给出以下陈述的逻辑否定：
-    \[\forall x, y \in \mathbb{Z} \centerdot O(x \cdot y) \iff \big(O(x) \land O(y)\big)\]
+    \[\forall x, y \in \mathbb{Z} \centerdot O(x \cdot y) \iff \left(O(x) \land O(y)\right)\]
 
     该陈述表示：``对于任意两个整数 $x$ 和 $y$，它们的乘积为奇数当且仅当它们都是奇数。''
 
     在进行逻辑否定之前，请记住 $\iff$ 等价于 $\implies$ 和 $\impliedby$。让我们首先重写该陈述，以便正确地给出否定：
-    \[\forall x, y \in \mathbb{Z} \centerdot \Big[O(x \cdot y) \implies \big(O(x) \land O(y)\big)\Big] \land \Big[\big(O(x) \land O(y)\big) \implies O(x \cdot y)\Big]\]
+    \[\forall x, y \in \mathbb{Z} \centerdot \left[O(x \cdot y) \implies \left(O(x) \land O(y)\right)\right] \land \left[\left(O(x) \land O(y)\right) \implies O(x \cdot y)\right]\]
 
     该陈述的逻辑否定为：
-    \[\neg \bigg(\forall x, y \in \mathbb{Z} \centerdot \Big[O(x \cdot y) \implies \big(O(x) \land O(y)\big)\Big] \land \Big[\big(O(x) \land O(y)\big) \implies O(x \cdot y)\Big]\bigg) \]
+    \[\neg \left(\forall x, y \in \mathbb{Z} \centerdot \left[O(x \cdot y) \implies \left(O(x) \land O(y)\right)\right] \land \left[\left(O(x) \land O(y)\right) \implies O(x \cdot y)\right]\right) \]
     \begin{align*}
-        \iff \exists x, y \in \mathbb{Z} \centerdot & \neg \Big[O(x \cdot y) \implies \big(O(x) \land O(y)\big)\Big] \lor \neg \Big[\big(O(x) \land O(y)\big) \implies O(x \cdot y)\Big] \\
-        \iff \exists x, y \in \mathbb{Z} \centerdot & \Big[O(x \cdot y) \land \neg \big(O(x) \land O(y)\big)\Big] \lor \Big[\big(O(x) \land O(y)\big) \land \neg O(x \cdot y)\Big] \\
-        \iff \exists x, y \in \mathbb{Z} \centerdot & \Big[O(x \cdot y) \land \big(E(x) \lor E(y)\big)\Big] \lor \Big[\big(O(x) \land O(y)\big) \land E(x \cdot y)\Big] 
+        \iff \exists x, y \in \mathbb{Z} \centerdot & \neg \left[O(x \cdot y) \implies \left(O(x) \land O(y)\right)\right] \lor \neg \left[\left(O(x) \land O(y)\right) \implies O(x \cdot y)\right] \\
+        \iff \exists x, y \in \mathbb{Z} \centerdot & \left[O(x \cdot y) \land \neg \left(O(x) \land O(y)\right)\right] \lor \left[\left(O(x) \land O(y)\right) \land \neg O(x \cdot y)\right] \\
+        \iff \exists x, y \in \mathbb{Z} \centerdot & \left[O(x \cdot y) \land \left(E(x) \lor E(y)\right)\right] \lor \left[\left(O(x) \land O(y)\right) \land E(x \cdot y)\right] 
     \end{align*}
     
     也就是说，该否定陈述表示：``存在整数 $x$ 和 $y$，使得它们的乘积为奇数，但 $x$ 和 $y$ 中至少有一个为偶数；或它们的乘积为偶数，但 $x$ 和 $y$ 均为奇数。''

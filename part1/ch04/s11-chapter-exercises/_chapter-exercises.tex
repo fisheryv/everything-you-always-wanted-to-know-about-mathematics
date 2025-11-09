@@ -79,7 +79,7 @@
 
 \begin{exercise}
     严格证明或反驳下列命题：
-    \[\forall x, y \in \mathbb{Z} \centerdot \exists z \in \mathbb{N} \cup \{0\} \centerdot \big((x - y) = z\big) \lor \big((y - x) = z\big)\]
+    \[\forall x, y \in \mathbb{Z} \centerdot \exists z \in \mathbb{N} \cup \{0\} \centerdot \left((x - y) = z\right) \lor \left((y - x) = z\right)\]
 \end{exercise}
 
 \begin{exercise}
@@ -97,7 +97,7 @@
 \begin{exercise}
     定义集合
     \begin{align*}
-        A &= \Big\{(x, y) \in \mathbb{R} \times \mathbb{R} \mid \frac{x}{y}+\frac{y}{x} \ge 2\Big\} \\
+        A &= \left\{(x, y) \in \mathbb{R} \times \mathbb{R} \mid \frac{x}{y}+\frac{y}{x} \ge 2\right\} \\
         B &= \{(x, y) \in \mathbb{R} \times \mathbb{R} \mid (x>0 \land y>0) \lor (x<0 \lor y<0)\}
     \end{align*}
     是否 $A \subseteq B$？如果是，请证明；如果不是，请举出反例。\\
@@ -142,13 +142,13 @@
 
 \begin{exercise}
     设 $P = \{y \in \mathbb{R} \mid y > 0\}$。证明
-    \[\bigcap_{x \in P} \Big\{y \in \mathbb{R} \mid 1-\frac{1}{x} < y < 2\Big\} = \{z \in \mathbb{R} \mid 1 < z <2\}\]
+    \[\bigcap_{x \in P} \left\{y \in \mathbb{R} \mid 1-\frac{1}{x} < y < 2\right\} = \{z \in \mathbb{R} \mid 1 < z <2\}\]
 \end{exercise}
 
 \begin{exercise}
     定义集合 $A, B, C \subseteq U$。令
     \begin{align*}
-        S &= \big((A \cap \bar{B}) \cup C \big)-A \\
+        S &= \left((A \cap \bar{B}) \cup C \right)-A \\
         T &= C-(A \cup B)
     \end{align*}
     是否 $S \subseteq T$？如果是，请证明；如果不是，请举出反例。\\
@@ -196,12 +196,12 @@
     设 $B$ 为任意集合，$I$ 为索引集，$A_i$ 为每个 $i \in I$ 对应的集合。证明以下集合等式：
 
     \begin{tasks}[label=(\alph*)](2)
-        \task $\displaystyle \Bigg(\bigcap_{i \in I} A_i \Bigg) - B = \bigcap_{i \in I} (A_i - B)$
-        \task $\displaystyle \Bigg(\bigcup_{i \in I} A_i \Bigg) - B = \bigcup_{i \in I} (A_i - B)$
-        \task $\displaystyle \Bigg(\bigcap_{i \in I} A_i \Bigg) \times B = \bigcap_{i \in I} (A_i \times B)$
-        \task $\displaystyle \Bigg(\bigcup_{i \in I} A_i \Bigg) \times B = \bigcup_{i \in I} (A_i \times B)$
-        \task $\displaystyle B - \Bigg(\bigcap_{i \in I} A_i \Bigg) = \bigcup_{i \in I} (B - A_i)$
-        \task $\displaystyle B - \Bigg(\bigcup_{i \in I} A_i \Bigg) = \bigcap_{i \in I} (B - A_i)$
+        \task $\displaystyle \left(\bigcap_{i \in I} A_i \right) - B = \bigcap_{i \in I} (A_i - B)$
+        \task $\displaystyle \left(\bigcup_{i \in I} A_i \right) - B = \bigcup_{i \in I} (A_i - B)$
+        \task $\displaystyle \left(\bigcap_{i \in I} A_i \right) \times B = \bigcap_{i \in I} (A_i \times B)$
+        \task $\displaystyle \left(\bigcup_{i \in I} A_i \right) \times B = \bigcup_{i \in I} (A_i \times B)$
+        \task $\displaystyle B - \left(\bigcap_{i \in I} A_i \right) = \bigcup_{i \in I} (B - A_i)$
+        \task $\displaystyle B - \left(\bigcup_{i \in I} A_i \right) = \bigcap_{i \in I} (B - A_i)$
     \end{tasks}  
 \end{exercise}
 
@@ -264,9 +264,9 @@
     设 $S, T$ 为以集合为元素的集合。对于以下陈述，\textbf{证明}其成立，或给出反例：
 
     \begin{tasks}[label=(\alph*)](2)
-        \task $\displaystyle \bigcup_{X \in S \cup T} X \subseteq \Bigg(\bigcup_{Y \in S} Y\Bigg) \cup \Bigg(\bigcup_{Z \in T} Z\Bigg)$
-        \task $\displaystyle \bigcup_{X \in S \cup T} X \supseteq \Bigg(\bigcup_{Y \in S} Y\Bigg) \cup \Bigg(\bigcup_{Z \in T} Z\Bigg)$
-        \task $\displaystyle \bigcap_{X \in S \cup T} X \subseteq \Bigg(\bigcap_{Y \in S} Y\Bigg) \cap \Bigg(\bigcap_{Z \in T} Z\Bigg)$
-        \task $\displaystyle \bigcap_{X \in S \cup T} X \supseteq \Bigg(\bigcap_{Y \in S} Y\Bigg) \cap \Bigg(\bigcap_{Z \in T} Z\Bigg)$
+        \task $\displaystyle \bigcup_{X \in S \cup T} X \subseteq \left(\bigcup_{Y \in S} Y\right) \cup \left(\bigcup_{Z \in T} Z\right)$
+        \task $\displaystyle \bigcup_{X \in S \cup T} X \supseteq \left(\bigcup_{Y \in S} Y\right) \cup \left(\bigcup_{Z \in T} Z\right)$
+        \task $\displaystyle \bigcap_{X \in S \cup T} X \subseteq \left(\bigcap_{Y \in S} Y\right) \cap \left(\bigcap_{Z \in T} Z\right)$
+        \task $\displaystyle \bigcap_{X \in S \cup T} X \supseteq \left(\bigcap_{Y \in S} Y\right) \cap \left(\bigcap_{Z \in T} Z\right)$
     \end{tasks} 
 \end{exercise}

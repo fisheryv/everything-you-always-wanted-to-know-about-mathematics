@@ -25,7 +25,7 @@
 \subsubsection*{满射定义的否定}
 
 通常，我们会先定义一个函数，然后询问它是否是满射。如果认为它是满射，我们应通过证明其像等于值域来证实；如果认为它不是满射，我们应通过找到一个反例来证明。现在考察满射定义的逻辑否定：
-\[\neg \big(\forall b \in B \centerdot \exists a \in A \centerdot f(a) = b \big) \iff \exists b \in B \centerdot \forall a \in A \centerdot f(a) \ne b\]
+\[\neg \left(\forall b \in B \centerdot \exists a \in A \centerdot f(a) = b \right) \iff \exists b \in B \centerdot \forall a \in A \centerdot f(a) \ne b\]
 也就是说，要证明函数 $f$ 不是满射，我们必须找到一个不在像中的值域元素 $b$。这需要一些演算和直觉来识别这样的元素。接下来，必须证明不存在任何 $a$ 满足 $f(a) = b$。我们可以直接证明：取任意 $a \in A$ 并说明 $f(a) \ne b$；或者使用反证法：假设存在 $a \in A$ 使得 $f(a) = b$，再导出矛盾。这两种方法在逻辑上是等价的。
 
 \subsubsection*{示例}

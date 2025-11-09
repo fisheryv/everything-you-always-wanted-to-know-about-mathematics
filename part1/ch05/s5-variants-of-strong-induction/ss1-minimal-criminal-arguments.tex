@@ -6,10 +6,10 @@
 请记住，条件陈述与其逆否形式逻辑等价。由于归纳法定理的陈述通常包含条件陈述（尤其出现在条件 (2) 中，用以表达归纳假设(IH) 与归纳步骤 (IS) 的作用），若考虑这些条件陈述的逆否形式会如何？这虽不会改变定理的真实性，却会影响归纳法作为证明技术的应用方式。让我们深入探讨！
 
 以下是强归纳法的条件陈述：
-\[\forall k \in \mathbb{N} \centerdot \big(\forall i \in [k] \centerdot P(i)\big) \implies P(k+1)\]
+\[\forall k \in \mathbb{N} \centerdot \left(\forall i \in [k] \centerdot P(i)\right) \implies P(k+1)\]
 
 两边同时取否并调换方向，便得到了其逆否形式：
-\[\forall k \in \mathbb{N} \centerdot \neg P(k+1) \implies \big(\exists i \in [k] \centerdot \neg P(i)\big)\]
+\[\forall k \in \mathbb{N} \centerdot \neg P(k+1) \implies \left(\exists i \in [k] \centerdot \neg P(i)\right)\]
 
 在应用强归纳法时，我们需要证明 $P(1) \dots$ 到 $P(k)$ 共同蕴涵 $P(k+1)$。而上述新形式则采用不同思路：假设 $P(k+1)$ 为\verb|假|，进而推导出存在某个先前命题实例也为\verb|假|。
 

@@ -273,11 +273,11 @@
 \begin{exercise}
     在这个问题中，你将证明当集合 $A$ 和 $B$ 为有限集，且 $|A| = a, |B| = b$ 时，$|A \times B| = ab$。这个证明将采用一种叫做``双重归纳法''的方法，对两个变量 $a,b \in \mathbb{N}$ 进行归纳推理。
     \begin{enumerate}[label=(\alph*)]
-        \item 证明 $\big|[1] \times [1]\big| = 1$。(这非常非常简单，但却是必不可少的。)
-        \item 假设 $n \in \mathbb{N}$ 且 $\big|[1] \times [n]\big| = n$，证明 $\big|[1] \times [n+1]\big| = n+1$。
-        \item 解释为什么 (a) 和 (b) 证明了 $\forall n \in \mathbb{N} \centerdot \big|[1] \times [n]\big| = n$。
-        \item 假设 $k \in \mathbb{N}$ 并假设 $\forall n \in \mathbb{N} \centerdot \big|[k] \times [n]\big| = kn$。证明 $\forall n \in \mathbb{N} \centerdot \big|[k+1] \times [n]\big| = (k+1)n$。
-        \item 解释为什么 (c) 和 (d) 证明了 $\forall k,n \in \mathbb{N} \centerdot \big|[k] \times [n]\big| = kn$。
+        \item 证明 $\left|[1] \times [1]\right| = 1$。(这非常非常简单，但却是必不可少的。)
+        \item 假设 $n \in \mathbb{N}$ 且 $\left|[1] \times [n]\right| = n$，证明 $\left|[1] \times [n+1]\right| = n+1$。
+        \item 解释为什么 (a) 和 (b) 证明了 $\forall n \in \mathbb{N} \centerdot \left|[1] \times [n]\right| = n$。
+        \item 假设 $k \in \mathbb{N}$ 并假设 $\forall n \in \mathbb{N} \centerdot \left|[k] \times [n]\right| = kn$。证明 $\forall n \in \mathbb{N} \centerdot \left|[k+1] \times [n]\right| = (k+1)n$。
+        \item 解释为什么 (c) 和 (d) 证明了 $\forall k,n \in \mathbb{N} \centerdot \left|[k] \times [n]\right| = kn$。
         \item 解释为什么 (e) 证明了上述结论。
     \end{enumerate}\label{exc:exercises7.8.32}
 \end{exercise}
@@ -346,7 +346,7 @@
               \[\forall f, g \in S \centerdot f \circ g \in S\]
               （\textbf{提示}：引用本章习题中的某个问题。）
         \item 考虑集合
-              \[T = \big\{ f : \mathbb{N} \to \mathbb{N} \mid f \;\text{为双射且}\; \{i \in \mathbb{N} \mid f(i) \ne i\} \;\text{为有限集}\big\}\]
+              \[T = \left\{ f : \mathbb{N} \to \mathbb{N} \mid f \;\text{为双射且}\; \{i \in \mathbb{N} \mid f(i) \ne i\} \;\text{为有限集}\right\}\]
               证明 $T$ \emph{在复合运算下也是封闭的}。
         \item 证明 $T$ \emph{在求逆运算下是封闭的}；即证明
               \[\forall f \in T \centerdot \exists f^{-1} \land f^{-1} \in T\]
@@ -354,7 +354,7 @@
               \[U = \{f : \mathbb{N} \to \mathbb{N} \mid f \;\text{为双射} \}\]
               证明 $U$ 在求逆运算下是封闭的。
         \item 证明
-              \[\forall f \in T \centerdot \forall g \in U - T \centerdot \big(f \circ g \notin T \land g \circ f \notin T\big)\]
+              \[\forall f \in T \centerdot \forall g \in U - T \centerdot \left(f \circ g \notin T \land g \circ f \notin T\right)\]
         \item 找出反例证明 $U-T$ 在复合运算下\textbf{不是}封闭的。
         \item 给定 $A \subseteq \mathbb{N}$ 且 $A$ 为\textbf{有限集}。找到函数 $f, g \in U - T$ 使得
               \[\{i \in \mathbb{N}  \mid (f \circ g)(i) \ne i\} = A\]

@@ -65,7 +65,7 @@
 
 \subsubsection*{基数比较}
 
-正如我们之前提到的，当集合 $S$ 为无限集时，我们使用 $|S|$ 来\textbf{比较} $S$ 与其他集合的基数。我们不会写作 $|S| = \infty$，而是写作 $|S| = |T|$ 表示 $S$ 与 $T$ 具有\emph{相同的}基数（无论具体数值如何），或写作 $|S| < |P|$ 表示集合 $P$ 的基数\emph{严格大于} $S$。以下定义通过函数（特别是不同类型的映射）阐述基数比较的方式：
+正如我们之前提到的，当集合 $S$ 为无限集时，我们使用 $|S|$ 来\textbf{比较} $S$ 与其他集合的基数。我们不会写做 $|S| = \infty$，而是写做 $|S| = |T|$ 表示 $S$ 与 $T$ 具有\emph{相同的}基数（无论具体数值如何），或写做 $|S| < |P|$ 表示集合 $P$ 的基数\emph{严格大于} $S$。以下定义通过函数（特别是不同类型的映射）阐述基数比较的方式：
 
 \begin{definition}
     设 $S, T$ 为任意集合。
@@ -109,7 +109,7 @@
 \end{theorem}
 
 该定理表明：\textbf{任意集合幂集的基数总是严格大于其本身的基数}。对有限集而言这是显然的——已知 $[n]$ 的幂集元素数为 $2^n$，即 $|\mathcal{P}([n])| = 2^n$（练习 \ref{exc:exercises7.8.30} 将要求利用基数的相关结论通过归纳法证明此结论）。显然 $n < 2^n$ 对所有 $n \in \mathbb{N}$ 均成立。而定理进一步指出：该关系对\textbf{无限集}同样成立。这意味着存在一条无限集的链条，每一个集合都比前一个更大。通过不断取前一个集合的幂集可得：
-\[|\mathbb{N}| < |\mathcal{P}(\mathbb{N})| < \big|\mathcal{P}\big(\mathcal{P}(\mathbb{N})\big)\big| < \Big|\mathcal{P}\Big(\mathcal{P}\big(\mathcal{P}(\mathbb{N})\big)\Big)\Big| < \dots
+\[|\mathbb{N}| < |\mathcal{P}(\mathbb{N})| < \left|\mathcal{P}\left(\mathcal{P}(\mathbb{N})\right)\right| < \left|\mathcal{P}\left(\mathcal{P}\left(\mathcal{P}(\mathbb{N})\right)\right)\right| < \dots
 \]
 接下来我们来证明该定理。此证明过程简洁而精妙，因此无需纠结论证的构造，只需理解其逻辑脉络。
 

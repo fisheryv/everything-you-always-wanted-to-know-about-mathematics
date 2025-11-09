@@ -83,7 +83,7 @@
     \[f_0 = 0, \quad f_1 = 1, \quad \forall n \in \mathbb{N}-\{1\} \centerdot f_n = f_{n-1} + f_{n-2}\]
 
     定义 $\varphi = \frac{1+\sqrt{5}}{2}$。则对于所有 $n \in \mathbb{N}-\{1\}$ 下面等式均成立：
-    \[f_n = \frac{1}{\sqrt{5}}\big(\varphi^n-(1-\varphi)^n\big)\]
+    \[f_n = \frac{1}{\sqrt{5}}\left(\varphi^n-(1-\varphi)^n\right)\]
 
     \begin{proof}
         设 $f_n$ 和 $\varphi$ 如声明所定义。
@@ -93,7 +93,7 @@
 
         不难发现
         \begin{align*}
-            \varphi^2 &= \Big(\frac{1+\sqrt{5}}{2}\Big)^2 = \frac{1+2\sqrt{5}+5}{4} = \frac{6+2\sqrt{5}}{4} \\
+            \varphi^2 &= \left(\frac{1+\sqrt{5}}{2}\right)^2 = \frac{1+2\sqrt{5}+5}{4} = \frac{6+2\sqrt{5}}{4} \\
             &= \frac{3+\sqrt{5}}{2} = 1+\frac{1+\sqrt{5}}{2} = 1+\varphi \\
         \end{align*}
 
@@ -104,12 +104,12 @@
         \[(1-\varphi)^2 = 1-2\varphi+\varphi^2 = 1-2\varphi+(\varphi+1) = 2-\varphi\]
 
         令 $P(n)$ 为命题
-        \[f_n = \frac{1}{\sqrt{5}}\big(\varphi^n-(1-\varphi)^n\big)\]
+        \[f_n = \frac{1}{\sqrt{5}}\left(\varphi^n-(1-\varphi)^n\right)\]
 
         我们通过对 $n$ 应用归纳法来证明 $\forall n \in \mathbb{N} \cup \{0\} \centerdot P(n)$。
 
         \textbf{基本情况}：$f(0) = 0$ 且
-        \[\frac{1}{\sqrt{5}}\big(\varphi^0-(1-\varphi)^0\big) = \frac{1}{\sqrt{5}} (1-1) = 0\]
+        \[\frac{1}{\sqrt{5}}\left(\varphi^0-(1-\varphi)^0\right) = \frac{1}{\sqrt{5}} (1-1) = 0\]
 
         故 $P(0)$ 成立。
 
@@ -118,19 +118,19 @@
         \textbf{归纳步骤}：我们的目标是推导出 $P(k+1)$ 成立。
 
         \textbf{情况 1}：假设 $k=0$，易得 $f_1=1$ 且
-        \[\frac{1}{\sqrt{5}}\big(\varphi^1-(1-\varphi)^1\big) = \frac{1}{\sqrt{5}} (2\varphi-1) = \frac{1}{\sqrt{5}} (1+\sqrt{5}-1) = \frac{1}{\sqrt{5}} (\sqrt{5}) = 1\]
+        \[\frac{1}{\sqrt{5}}\left(\varphi^1-(1-\varphi)^1\right) = \frac{1}{\sqrt{5}} (2\varphi-1) = \frac{1}{\sqrt{5}} (1+\sqrt{5}-1) = \frac{1}{\sqrt{5}} (\sqrt{5}) = 1\]
 
         故 $P(1)$ 成立。
 
         \textbf{情况 2}：假设 $k \ge 1$，则
         \begin{align*}
             f_{k+1} &= f_k+f_{k-1} & \text{因为 } k \ge 1, \textbf{ 根据定义} \\
-            &= \frac{1}{\sqrt{5}}\big(\varphi^k-(1-\varphi)^k\big) + \frac{1}{\sqrt{5}}\big(\varphi^{k-1}-(1-\varphi)^{k-1}\big) & \text{归纳假设 } P(k), P(k-1)\\
-            &= \frac{1}{\sqrt{5}}\big(\varphi^k+\varphi^{k-1}-(1-\varphi)^k-(1-\varphi)^{k-1}\big) & \textbf{化简}\\
-            &= \frac{1}{\sqrt{5}}\big(\varphi^{k-1}(\varphi+1)-(1-\varphi)^{k-1}((1-\varphi)+1)\big) & \textbf{提取公因式}\\
-            &= \frac{1}{\sqrt{5}}\big(\varphi^{k-1} \cdot \varphi^2-(1-\varphi)^{k-1}(2-\varphi)\big) & \textbf{根据(*1)}\\
-            &= \frac{1}{\sqrt{5}}\big(\varphi^{k+1} -(1-\varphi)^{k-1}(1-\varphi)^2\big) & \textbf{根据(*2)}\\
-            &= \frac{1}{\sqrt{5}}\big(\varphi^{k+1} -(1-\varphi)^{k+1}\big) & 
+            &= \frac{1}{\sqrt{5}}\left(\varphi^k-(1-\varphi)^k\right) + \frac{1}{\sqrt{5}}\left(\varphi^{k-1}-(1-\varphi)^{k-1}\right) & \text{归纳假设 } P(k), P(k-1)\\
+            &= \frac{1}{\sqrt{5}}\left(\varphi^k+\varphi^{k-1}-(1-\varphi)^k-(1-\varphi)^{k-1}\right) & \textbf{化简}\\
+            &= \frac{1}{\sqrt{5}}\left(\varphi^{k-1}(\varphi+1)-(1-\varphi)^{k-1}((1-\varphi)+1)\right) & \textbf{提取公因式}\\
+            &= \frac{1}{\sqrt{5}}\left(\varphi^{k-1} \cdot \varphi^2-(1-\varphi)^{k-1}(2-\varphi)\right) & \textbf{根据(*1)}\\
+            &= \frac{1}{\sqrt{5}}\left(\varphi^{k+1} -(1-\varphi)^{k-1}(1-\varphi)^2\right) & \textbf{根据(*2)}\\
+            &= \frac{1}{\sqrt{5}}\left(\varphi^{k+1} -(1-\varphi)^{k+1}\right) & 
         \end{align*}
 
         故 $P(k+1)$ 成立。
@@ -152,12 +152,12 @@
     $\dots$
 
     \textbf{基本情况}：$f(0) = 0$ 且
-    \[\frac{1}{\sqrt{5}}\big(\varphi^0-(1-\varphi)^0\big) = \frac{1}{\sqrt{5}} (1-1) = 0\]
+    \[\frac{1}{\sqrt{5}}\left(\varphi^0-(1-\varphi)^0\right) = \frac{1}{\sqrt{5}} (1-1) = 0\]
 
     故 $P(0)$ 成立。
 
     并且 $f(1) = 1$ 且
-    \[\frac{1}{\sqrt{5}}\big(\varphi^1-(1-\varphi)^1\big) = \frac{1}{\sqrt{5}} (2\varphi-1) = \frac{1}{\sqrt{5}} (1+\sqrt{5}-1) = \frac{1}{\sqrt{5}} (\sqrt{5}) = 1\]
+    \[\frac{1}{\sqrt{5}}\left(\varphi^1-(1-\varphi)^1\right) = \frac{1}{\sqrt{5}} (2\varphi-1) = \frac{1}{\sqrt{5}} (1+\sqrt{5}-1) = \frac{1}{\sqrt{5}} (\sqrt{5}) = 1\]
     
     故 $P(1)$ 成立。
 
@@ -187,7 +187,7 @@
     \textbf{声明}：设 $U$ 为全集。对于每个 $i \in \mathbb{N}$，设集合 $A_i \subseteq U$。则对于所有 $n \in \mathbb{N}$，下列等式成立：
     \[\overline{\bigcup_{i=1}^{n} A_i} = \bigcap_{i=1}^{n} \overline{A_i}\]
     
-    上面命题可以等价地写作：对于所有 $n \in \mathbb{N}$
+    上面命题可以等价地写做：对于所有 $n \in \mathbb{N}$
     \[\overline{A_1 \cup A_2 \cup \dots \cup A_n} = \overline{A_1} \cap \overline{A_2} \cap \dots \cap \overline{A_n}\]
 
     \begin{proof}

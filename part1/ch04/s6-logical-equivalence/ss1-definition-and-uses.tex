@@ -53,7 +53,7 @@
               \verb|F| & \verb|F| & \verb|T| &  \verb|T|  &    \verb|T|    &    \verb|T|    \\
         \end{tabular}
     \end{center}
-    可见，无论 $P$ 和 $Q$ 的真值如何，$P \implies Q$ 与 $\neg Q \implies \neg P$ 具有相同的真值。故二者\emph{逻辑等价}，可以写作：
+    可见，无论 $P$ 和 $Q$ 的真值如何，$P \implies Q$ 与 $\neg Q \implies \neg P$ 具有相同的真值。故二者\emph{逻辑等价}，可以写做：
     \[(P \implies Q) \iff (\neg Q \implies \neg P)\]
     这正是我们上一节中陈述（但没有证明）的事实：
     \begin{center}
@@ -65,7 +65,7 @@
     现在，考虑其逆否命题：
     \[\neg Q \implies \neg P\]
     将相同的析取形式应用于该陈述会产生以下等价关系：
-    \[(\neg Q \implies \neg P) \iff \big(\neg(\neg Q) \lor \neg P\big)\]
+    \[(\neg Q \implies \neg P) \iff \left(\neg(\neg Q) \lor \neg P\right)\]
     而 $\neg(\neg Q)$ 等价于 $Q$，并且析取的顺序是无关的（即 $P \lor Q$ 与 $Q \lor P$ 具有相同的真值），因此可得
     \[(\neg Q \implies \neg P) \iff (\neg P \lor Q) \iff (P \implies Q)\]
     这从另一个角度证明，条件陈述与其逆否形式具有相同的真值！
@@ -123,13 +123,13 @@
 是逻辑等价的典型例子。若不知 $P$ 和 $Q$ 的具体含义，虽无法确定 $P \implies Q$ 与 $\neg P \lor Q$ 的实质意义，但可知二者真值必然相同。
 
 当``$\iff$''两侧均为不含未定义命题的确定数学陈述时，情况略有不同。例如：
-\[\forall x \in \mathbb{R} \centerdot (x > 0) \iff \Big(\frac{1}{x}>0\Big)\]
+\[\forall x \in \mathbb{R} \centerdot (x > 0) \iff \left(\frac{1}{x}>0\right)\]
 此断言表明：对于任意实数 $x$，若已知其中一个条件成立（$x > 0$ 或 $\frac{1}{x} > 0$），则另一条件必然成立。换言之，若告知某实数为正，可推知其倒数亦为正；反之，若告知某实数的倒数为正，亦可推知该数本身为正。此即\emph{双向性}。（思考：若告知某\emph{负}实数，能否推知其倒数性质？原因何在？）
 
 你看出区别了吗？此处对于任意 $x \in \mathbb{R}$，陈述``$x > 0$''必有确定真值。这与前面给出的例子不同，前述例子中各陈述的真值未知，但我们仍然可以声明两个陈述的真值必然相同。
 
 由于缺乏更广泛的术语，我们称此类陈述为\textbf{双向条件陈述}。其本质是两个``方向相反''的条件陈述：
-\[\forall x \in \mathbb{R} \centerdot \Bigg[\Bigg((x > 0) \implies \Big(\frac{1}{x}>0\Big)\Bigg) \land \Bigg(\Big(\frac{1}{x}>0\Big) \implies (x > 0)\Bigg)\Bigg]\]
+\[\forall x \in \mathbb{R} \centerdot \left[\left((x > 0) \implies \left(\frac{1}{x}>0\right)\right) \land \left(\left(\frac{1}{x}>0\right) \implies (x > 0)\right)\right]\]
 这就是上面陈述所说的：陈述的每一部分都蕴涵着另一部分。
 
 该术语在其他数学著作中不一定是标准术语，我们在此指出这种技术差异，以便你了解它。若在数理逻辑学家或集合论学家面前使用``逻辑等价''指代此概念，可能会引发困惑。请注意此差异虽然细微，但现阶段学习基础概念时，无需强记技术细节。本书后续内容中，``逻辑等价''与``双向条件''可互换使用，此做法目前可以接受。
