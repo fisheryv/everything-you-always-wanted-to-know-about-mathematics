@@ -1,34 +1,34 @@
 % !TeX root = ../../book.tex
 \section{归纳法}
 
-\subsection{特定数学归纳原理}
+\subsection{数学归纳原理}
 
 \begin{itemize}
-    \item \textbf{定理}：假设 $P(n)$ 是对所有 $n \in \mathbb{N}$ 定义的变量命题。\\
-          假设 $P(1)$ 成立。\\
-          假设 $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k + 1)$。\\
+    \item \textbf{定理}：设 $P(n)$ 是对所有 $n \in \mathbb{N}$ 定义的变量命题。\\
+          若 $P(1)$ 成立，\\
+          且 $\forall k \in \mathbb{N} \centerdot P(k) \implies P(k + 1)$。\\
           则 $\forall n \in \mathbb{N} \centerdot P(n)$。
-    \item \textbf{归纳法证明}：假设我们有一个对所有 $n \in \mathbb{N}$ 定义的变量命题 $P(n)$，我们想证明 $P(n)$ 对每个 $n \in \mathbb{N}$ 成立。
+    \item \textbf{归纳法证明}：设 $P(n)$ 是对所有 $n \in \mathbb{N}$ 定义的变量命题，欲证 $P(n)$ 对于每个 $n \in \mathbb{N}$ 均成立。
           \begin{quote}
               \textbf{基本情况}：证明 $P(1)$ 成立。\\
-              \textbf{归纳假设}：假设 $k$ 为任意固定自然数，假设 $P(k)$ 成立。\\
+              \textbf{归纳假设}：设 $k$ 为任意固定自然数，假设 $P(k)$ 成立。\\
               \textbf{归纳步骤}：证明 $P(k + 1)$ 成立。\\
-              \textbf{得出结论}：通过归纳，$\forall n \in \mathbb{N} \centerdot P(n)$。
+              \textbf{得出结论}：由数学归纳法可知，$\forall n \in \mathbb{N} \centerdot P(n)$。
           \end{quote}
 \end{itemize}
 
 \subsection{强数学归纳原理}
 
 \begin{itemize}
-    \item \textbf{定理}：假设 $P(n)$ 是对所有 $n \in \mathbb{N}$ 定义的变量命题。\\
-          假设 $P(1)$ 成立。\\
-          假设 $\forall k \in \mathbb{N} \centerdot [P(1) \land P(2) \land \dots \land P(k)] \implies P(k + 1)$。\\
+    \item \textbf{定理}：设 $P(n)$ 是对所有 $n \in \mathbb{N}$ 定义的变量命题。\\
+          若 $P(1)$ 成立，\\
+          且 $\forall k \in \mathbb{N} \centerdot [P(1) \land P(2) \land \dots \land P(k)] \implies P(k + 1)$。\\
           则 $\forall n \in \mathbb{N} \centerdot P(n)$。
-    \item \textbf{强归纳法证明}：假设我们有一个对所有 $n \in \mathbb{N}$ 定义的变量命题 $P(n)$，我们想证明 $P(n)$ 对每个 $n \in \mathbb{N}$ 成立。
+    \item \textbf{强归纳法证明}：设 $P(n)$ 是对所有 $n \in \mathbb{N}$ 定义的变量命题，欲证 $P(n)$ 对于每个 $n \in \mathbb{N}$ 均成立。
           \begin{quote}
-              \textbf{基本情况}：证明 $P(1)$ 成立。（根据归纳步骤中发生的情况，可能需要多个基本情况。）\\
-              \textbf{归纳假设}：假设 $k$ 是满足某个不等式（$k \ge \underline{\qquad}$，取决于归纳步骤中发生的情况）的任意固定自然数，并假设 $P(1) \land \dots \land P(k)$ 成立。\\
+              \textbf{基本情况}：证明 $P(1)$ 成立。（根据归纳步骤的需要，可能需要验证多个基本情况。）\\
+              \textbf{归纳假设}：取满足条件（如 $k \ge \underline{\qquad}$，具体取决于归纳步骤）的任意固定自然数 $k$，假设 $P(1) \land P(2) \land \dots \land P(k)$ 成立。\\
               \textbf{归纳步骤}：证明 $P(k + 1)$ 成立。\\
-              \textbf{得出结论}：通过归纳，$\forall n \in \mathbb{N} \centerdot P(n)$。
+              \textbf{得出结论}：由强归纳法可知，$\forall n \in \mathbb{N} \centerdot P(n)$。
           \end{quote}
 \end{itemize}
